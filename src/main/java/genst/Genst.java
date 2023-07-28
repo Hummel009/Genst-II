@@ -32,7 +32,7 @@ public class Genst {
 	public void postInit(FMLPostInitializationEvent event) {
 		GenstMountains.postInit();
 
-		LOTRVillageGenGondor gondorFortPG = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0F) {
+		LOTRVillageGen gondorFortPG = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -46,7 +46,7 @@ public class Genst {
 		};
 		affix(gondorFortPG, LOTRWaypoint.GREEN_HILLS, 0, 0, 0);
 
-		LOTRVillageGenGondor gondorFort = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0F) {
+		LOTRVillageGen gondorFort = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -60,7 +60,7 @@ public class Genst {
 		};
 		affix(gondorFort, LOTRWaypoint.TOLFALAS_ISLAND, 0, 0, 0);
 
-		LOTRVillageGenGondor gondorVillage = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0F) {
+		LOTRVillageGen gondorVillage = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -74,7 +74,7 @@ public class Genst {
 		};
 		affix(gondorVillage, LOTRWaypoint.ANDUIN_MOUTH, 0, 0, 0);
 
-		LOTRVillageGenGondor gondorVillagePel = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 0.0F) {
+		LOTRVillageGen gondorVillagePel = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -88,7 +88,7 @@ public class Genst {
 		};
 		affix(gondorVillagePel, LOTRWaypoint.PELARGIR, 0, -1, 0);
 
-		LOTRVillageGenGondor gondorVillageLeb = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 0.0F) {
+		LOTRVillageGen gondorVillageLeb = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -102,7 +102,7 @@ public class Genst {
 		};
 		affix(gondorVillageLeb, LOTRWaypoint.LINHIR, 0, 1, 0);
 
-		LOTRVillageGenGondor gondorVillageLam = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0F) {
+		LOTRVillageGen gondorVillageLam = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -116,7 +116,7 @@ public class Genst {
 		};
 		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1, 0, 0);
 
-		LOTRVillageGenGondor gondorFortLam = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0F) {
+		LOTRVillageGen gondorFortLam = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -130,7 +130,7 @@ public class Genst {
 		};
 		affix(gondorFortLam, LOTRWaypoint.CALEMBEL, 0, 1, 0);
 
-		LOTRVillageGenGondor gondorCityDA = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0F) {
+		LOTRVillageGen gondorCityDA = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0F) {
 			@Override
 			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
@@ -146,13 +146,13 @@ public class Genst {
 		affix(gondorCityDA, LOTRWaypoint.DOL_AMROTH, -1, 0, 0);
 
 		/* READY */
-		LOTRVillageGenAngmar angmar = new LOTRVillageGenAngmar(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen angmar = new LOTRVillageGenAngmar(LOTRBiome.ocean, 0.0F);
 		affix(angmar, LOTRWaypoint.CARN_DUM, 0, 0, 0);
 		affix(angmar, LOTRWaypoint.MOUNT_GRAM, 0, 0, 0);
 		affix(angmar, LOTRWaypoint.MOUNT_GUNDABAD, 0, 0, 0);
 
 		/* READY */
-		LOTRVillageGenRuinsMedium ruinsMedium = new LOTRVillageGenRuinsMedium(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen ruinsMedium = new LOTRVillageGenRuinsMedium(LOTRBiome.ocean, 0.0F);
 		affix(ruinsMedium, LOTRWaypoint.ARVEDUI_MINES, 0, 0, 0);
 		affix(ruinsMedium, LOTRWaypoint.HIMLING, 0, 0, 0);
 		affix(ruinsMedium, LOTRWaypoint.TOL_FUIN, 0, 0, 0);
@@ -171,7 +171,7 @@ public class Genst {
 		affix(ruinsMedium, LOTRWaypoint.GREENWAY_CROSSROADS, 0, 1, 0);
 		affix(ruinsMedium, LOTRWaypoint.SARN_FORD, 2, 2, 0);
 
-		LOTRVillageGenHobbit hobbit = new LOTRVillageGenHobbit(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen hobbit = new LOTRVillageGenHobbit(LOTRBiome.ocean, 0.0F);
 		affix(hobbit, LOTRWaypoint.BROCKENBORINGS, 0, 0, 1);
 		affix(hobbit, LOTRWaypoint.BUCKLEBURY, 0, 0, 0);
 		affix(hobbit, LOTRWaypoint.BYWATER, 0, 0, 1);
@@ -197,7 +197,7 @@ public class Genst {
 		affix(hobbit, LOTRWaypoint.WILLOWBOTTOM, 0, 0, 1);
 
 		/* READY */
-		LOTRVillageGenHighElven highElven = new LOTRVillageGenHighElven(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen highElven = new LOTRVillageGenHighElven(LOTRBiome.ocean, 0.0F);
 		affix(highElven, LOTRWaypoint.FORLOND, 0, 0, 0);
 		affix(highElven, LOTRWaypoint.HARLOND, 0, 0, 0);
 		affix(highElven, LOTRWaypoint.AMON_EREB, 0, 0, 0);
@@ -209,7 +209,7 @@ public class Genst {
 		affix(highElven, LOTRWaypoint.TOWER_HILLS, 0, 0, 0);
 
 		/* READY */
-		LOTRVillageGenRuinsCity ruinsCity = new LOTRVillageGenRuinsCity(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen ruinsCity = new LOTRVillageGenRuinsCity(LOTRBiome.ocean, 0.0F);
 		affix(ruinsCity, LOTRWaypoint.THARBAD, 0, 0, 0);
 		affix(ruinsCity, LOTRWaypoint.FORNOST, 0, 0, 0);
 		affix(ruinsCity, LOTRWaypoint.ANNUMINAS, 0, 0, 0);
@@ -225,23 +225,23 @@ public class Genst {
 		affix(ruinsCity, LOTRWaypoint.EDHELLOND, 0, 1, 0);
 
 		/* READY */
-		LOTRVillageGenRuinsSmallWooden ruinsSmallWooden = new LOTRVillageGenRuinsSmallWooden(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen ruinsSmallWooden = new LOTRVillageGenRuinsSmallWooden(LOTRBiome.ocean, 0.0F);
 		affix(ruinsSmallWooden, LOTRWaypoint.FORSAKEN_INN, 0, 0, 0);
 
 		/* READY */
-		LOTRVillageGenRuinsSmallStone ruinsSmallStone = new LOTRVillageGenRuinsSmallStone(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen ruinsSmallStone = new LOTRVillageGenRuinsSmallStone(LOTRBiome.ocean, 0.0F);
 		affix(ruinsSmallStone, LOTRWaypoint.WEATHERTOP, 0, -1, 0);
 
 		/* READY */
-		LOTRVillageGenRivendell rivendell = new LOTRVillageGenRivendell(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen rivendell = new LOTRVillageGenRivendell(LOTRBiome.ocean, 0.0F);
 		affix(rivendell, LOTRWaypoint.RIVENDELL, 0, 0, 0);
 
 		/* READY */
-		LOTRVillageGenBarrow barrow = new LOTRVillageGenBarrow(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen barrow = new LOTRVillageGenBarrow(LOTRBiome.ocean, 0.0F);
 		affix(barrow, LOTRWaypoint.TOL_MORWEN, 0, 0, 0);
 
 		/* READY */
-		LOTRVillageGenDunland dunland = new LOTRVillageGenDunland(LOTRBiome.ocean, 0.0F);
+		LOTRVillageGen dunland = new LOTRVillageGenDunland(LOTRBiome.ocean, 0.0F);
 		affix(dunland, LOTRWaypoint.NORTH_DUNLAND, 0, 0, 0);
 		affix(dunland, LOTRWaypoint.SOUTH_DUNLAND, 0, 0, 0);
 		affix(dunland, LOTRWaypoint.DWARROWVALE, 0, 0, 0);
