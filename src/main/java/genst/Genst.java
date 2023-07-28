@@ -34,11 +34,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorFortPG = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.FORT;
 					}
 				};
@@ -48,11 +48,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorFort = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.FORT;
 					}
 				};
@@ -62,11 +62,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorVillage = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.VILLAGE;
 					}
 				};
@@ -76,11 +76,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorVillagePel = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.TOWN;
 					}
 				};
@@ -90,11 +90,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorVillageLeb = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.TOWN;
 					}
 				};
@@ -104,11 +104,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorVillageLam = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.VILLAGE;
 					}
 				};
@@ -118,11 +118,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorFortLam = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.TOWN;
 					}
 				};
@@ -132,11 +132,11 @@ public class Genst {
 
 		LOTRVillageGenGondor gondorCityDA = new LOTRVillageGenGondor(LOTRBiome.gondor, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0F) {
 			@Override
-			protected LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			public LOTRVillageGen.AbstractInstance<?> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 				return new Instance(this, world, i, k, random, loc) {
 
 					@Override
-					protected void setupVillageProperties(Random random) {
+					public void setupVillageProperties(Random random) {
 						villageType = VillageType.TOWN;
 					}
 				};
