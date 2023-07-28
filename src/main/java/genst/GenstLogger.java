@@ -14,6 +14,12 @@ import java.util.Set;
 public class GenstLogger extends CommandBase {
 	public static Set<LOTRWaypoint> skip = EnumSet.noneOf(LOTRWaypoint.class);
 
+	public static void postInit() {
+		skip.add(LOTRWaypoint.ARCHET);
+		skip.add(LOTRWaypoint.BREE);
+		skip.add(LOTRWaypoint.COMBE);
+	}
+
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		return Collections.emptyList();

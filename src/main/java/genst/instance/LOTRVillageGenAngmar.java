@@ -1,4 +1,4 @@
-package genst.instances;
+package genst.instance;
 
 import lotr.common.entity.LOTREntityNPCRespawner;
 import lotr.common.entity.npc.LOTREntityAngmarOrc;

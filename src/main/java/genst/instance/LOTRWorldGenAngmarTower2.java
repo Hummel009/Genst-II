@@ -1,4 +1,4 @@
-package genst.instances;
+package genst.instance;
 
 import lotr.common.LOTRMod;
 import lotr.common.entity.npc.LOTREntityAngmarOrcMercenaryCaptain;

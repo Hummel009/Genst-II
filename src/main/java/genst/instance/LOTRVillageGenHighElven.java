@@ -1,15 +1,12 @@
-package genst.instances;
+package genst.instance;
 
 import lotr.common.LOTRMod;
 import lotr.common.entity.LOTREntityNPCRespawner;
-import lotr.common.entity.npc.LOTREntityRivendellElf;
-import lotr.common.entity.npc.LOTREntityRivendellWarrior;
+import lotr.common.entity.npc.LOTREntityHighElf;
+import lotr.common.entity.npc.LOTREntityHighElfWarrior;
 import lotr.common.world.biome.LOTRBiome;
 import lotr.common.world.map.LOTRRoadType;
-import lotr.common.world.structure2.LOTRWorldGenNPCRespawner;
-import lotr.common.world.structure2.LOTRWorldGenRivendellForge;
-import lotr.common.world.structure2.LOTRWorldGenRivendellHouse;
-import lotr.common.world.structure2.LOTRWorldGenStructureBase2;
+import lotr.common.world.structure2.*;
 import lotr.common.world.village.LOTRVillageGen;
 import lotr.common.world.village.LocationInfo;
 import net.minecraft.block.Block;
@@ -17,8 +14,8 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class LOTRVillageGenRivendell extends LOTRVillageGen {
-	public LOTRVillageGenRivendell(LOTRBiome biome, float f) {
+public class LOTRVillageGenHighElven extends LOTRVillageGen {
+	public LOTRVillageGenHighElven(LOTRBiome biome, float f) {
 		super(biome);
 		gridScale = 14;
 		gridRandomDisplace = 1;
@@ -31,8 +28,8 @@ public class LOTRVillageGenRivendell extends LOTRVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public static class Instance extends LOTRVillageGen.AbstractInstance<LOTRVillageGenRivendell> {
-		public Instance(LOTRVillageGenRivendell village, World world, int i, int k, Random random, LocationInfo loc) {
+	public static class Instance extends LOTRVillageGen.AbstractInstance<LOTRVillageGenHighElven> {
+		public Instance(LOTRVillageGenHighElven village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
 
@@ -42,7 +39,7 @@ public class LOTRVillageGenRivendell extends LOTRVillageGen {
 
 				@Override
 				public void setupRespawner(LOTREntityNPCRespawner spawner) {
-					spawner.setSpawnClass(LOTREntityRivendellElf.class);
+					spawner.setSpawnClass(LOTREntityHighElf.class);
 					spawner.setCheckRanges(40, -12, 12, 40);
 					spawner.setSpawnRanges(20, -6, 6, 64);
 					spawner.setBlockEnemySpawnRange(60);
@@ -52,7 +49,7 @@ public class LOTRVillageGenRivendell extends LOTRVillageGen {
 
 				@Override
 				public void setupRespawner(LOTREntityNPCRespawner spawner) {
-					spawner.setSpawnClass(LOTREntityRivendellWarrior.class);
+					spawner.setSpawnClass(LOTREntityHighElfWarrior.class);
 					spawner.setCheckRanges(40, -12, 12, 16);
 					spawner.setSpawnRanges(20, -6, 6, 64);
 					spawner.setBlockEnemySpawnRange(60);
@@ -61,14 +58,14 @@ public class LOTRVillageGenRivendell extends LOTRVillageGen {
 			int pathEnd = 68;
 			int pathSide = 7;
 			int centreSide = 19;
-			addStructure(new LOTRWorldGenRivendellForge(false), 0, -2, 0, true);
-			addStructure(new LOTRWorldGenRivendellHouse(false), 0, -centreSide, 2, true);
+			addStructure(new LOTRWorldGenHighElvenTower(false), 0, -2, 0, true);
+			addStructure(new LOTRWorldGenHighElfHouse(false), 0, -centreSide, 2, true);
 			if (random.nextBoolean()) {
-				addStructure(new LOTRWorldGenRivendellHouse(false), -pathEnd, 0, 1, true);
+				addStructure(new LOTRWorldGenHighElfHouse(false), -pathEnd, 0, 1, true);
 				addStructure(getOtherVillageStructure(random), pathEnd, 0, 3, true);
 			} else {
 				addStructure(getOtherVillageStructure(random), -pathEnd, 0, 1, true);
-				addStructure(new LOTRWorldGenRivendellHouse(false), pathEnd, 0, 3, true);
+				addStructure(new LOTRWorldGenHighElfHouse(false), pathEnd, 0, 3, true);
 			}
 			int rowHouses = 3;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
@@ -92,9 +89,9 @@ public class LOTRVillageGenRivendell extends LOTRVillageGen {
 
 		private LOTRWorldGenStructureBase2 getOtherVillageStructure(Random random) {
 			if (random.nextBoolean()) {
-				return new LOTRWorldGenRivendellHouse(false);
+				return new LOTRWorldGenHighElfHouse(false);
 			}
-			return new LOTRWorldGenRivendellForge(false);
+			return new LOTRWorldGenHighElvenForge(false);
 		}
 
 		@Override
@@ -111,7 +108,7 @@ public class LOTRVillageGenRivendell extends LOTRVillageGen {
 		}
 
 		private LOTRWorldGenStructureBase2 getRandomHouse(Random random) {
-			return new LOTRWorldGenRivendellHouse(false);
+			return new LOTRWorldGenHighElfHouse(false);
 		}
 
 		@Override

@@ -1,4 +1,4 @@
-package genst.instances;
+package genst.instance;
 
 import lotr.common.world.biome.LOTRBiome;
 import lotr.common.world.map.LOTRRoadType;

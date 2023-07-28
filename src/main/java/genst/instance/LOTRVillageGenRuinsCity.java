@@ -1,6 +1,7 @@
-package genst.instances;
+package genst.instance;
 
 import genst.Genst;
+import genst.GenstRoadType;
 import lotr.common.world.biome.LOTRBiome;
 import lotr.common.world.map.LOTRRoadType;
 import lotr.common.world.structure2.LOTRWorldGenNumenorRuin;
@@ -126,14 +127,14 @@ public class LOTRVillageGenRuinsCity extends LOTRVillageGen {
 			int k1 = Math.abs(k);
 			innerOut = 18;
 			if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
-				return Genst.PATH_COBBLE;
+				return GenstRoadType.PATH_COBBLE;
 			}
 			if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
-				return Genst.PATH_COBBLE;
+				return GenstRoadType.PATH_COBBLE;
 			}
 			outerOut = 66;
 			if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
-				return Genst.PATH_COBBLE;
+				return GenstRoadType.PATH_COBBLE;
 			}
 			return null;
 		}
