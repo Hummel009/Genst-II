@@ -250,7 +250,9 @@ public class Genst {
 
 		for (LOTRVillageGen loc : locations) {
 			for (LOTRBiome biome : LOTRDimension.MIDDLE_EARTH.biomeList) {
-				biome.decorator.addVillage(loc);
+				if (biome != null) {
+					biome.decorator.addVillage(loc);
+				}
 			}
 		}
 
