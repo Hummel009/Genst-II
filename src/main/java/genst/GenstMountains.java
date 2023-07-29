@@ -12,9 +12,12 @@ public class GenstMountains {
 	}
 
 	public static void postInit() {
+		addMountain("PLACEHOLDER", LOTRWaypoint.TOLFALAS_ISLAND.getX(), LOTRWaypoint.TOLFALAS_ISLAND.getY(), 1, 100, 0);
+		addMountain("PLACEHOLDER", LOTRWaypoint.GREEN_HILLS.getX(), LOTRWaypoint.GREEN_HILLS.getY(), 1, 100, 0);
 		addMountain("PLACEHOLDER", LOTRWaypoint.HIMLING.getX(), LOTRWaypoint.HIMLING.getY(), 1, 100, 0);
 		addMountain("PLACEHOLDER", LOTRWaypoint.TOL_FUIN.getX(), LOTRWaypoint.TOL_FUIN.getY(), 1, 100, 0);
 		addMountain("PLACEHOLDER", LOTRWaypoint.TOL_MORWEN.getX(), LOTRWaypoint.TOL_MORWEN.getY(), 1, 100, 0);
+		addMountain("PLACEHOLDER", LOTRWaypoint.GLADDEN_FIELDS.getX(), LOTRWaypoint.GLADDEN_FIELDS.getY(), 1, 100, 0);
 		addMountain("PLACEHOLDER", LOTRWaypoint.MENELTARMA_SUMMIT.getX(), LOTRWaypoint.MENELTARMA_SUMMIT.getY(), 1, 100, 0);
 		addMountain("PLACEHOLDER", LOTRWaypoint.OATBARTON.getX(), LOTRWaypoint.OATBARTON.getY(), 1, 100, 0);
 		addMountain("PLACEHOLDER", LOTRWaypoint.NEEDLEHOLE.getX(), LOTRWaypoint.NEEDLEHOLE.getY(), 1, 100, 0);
