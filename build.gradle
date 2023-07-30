@@ -6,20 +6,20 @@ apply plugin: 'kotlin'
 
 buildscript {
 	ext.kotlin_version = '1.9.0'
-	
+
 	repositories {
 		mavenCentral()
 		maven {
-			name = "forge"
-			url = "https://maven.minecraftforge.net/"
+			name = 'forge'
+			url = 'https://maven.minecraftforge.net/'
 		}
 		maven {
-			name = "sonatype"
-			url = "https://oss.sonatype.org/content/repositories/snapshots/"
+			name = 'sonatype'
+			url = 'https://oss.sonatype.org/content/repositories/snapshots/'
 		}
 	}
 	dependencies {
-		classpath ('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
+		classpath('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') {
 			changing = true
 		}
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
@@ -68,8 +68,8 @@ processResources {
 
 compileKotlin {
 	kotlinOptions {
-		jvmTarget = "1.8"
-		freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+		jvmTarget = '1.8'
+		freeCompilerArgs += '-opt-in=kotlin.RequiresOptIn'
 
 	}
 }
