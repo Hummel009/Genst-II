@@ -24,18 +24,13 @@ class LOTRVillageGenRohan(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	enum class VillageType {
-		VILLAGE,
-		FORT
+		VILLAGE, FORT
 	}
 
 	class Instance(village: LOTRVillageGenRohan?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
@@ -43,11 +38,12 @@ class LOTRVillageGenRohan(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 		private var villageType: VillageType? = null
 		private lateinit var villageName: Array<String>
 		private var palisade = false
+
 		override fun addVillageStructures(random: Random) {
 			if (villageType == VillageType.VILLAGE) {
 				setupVillage(random)
 			} else if (villageType == VillageType.FORT) {
-				setupFort(random)
+				setupFort()
 			}
 		}
 
@@ -116,7 +112,7 @@ class LOTRVillageGenRohan(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 			return false
 		}
 
-		private fun setupFort(random: Random) {
+		private fun setupFort() {
 			var farmX: Int
 			var wallZ: Int
 			var wallX: Int
@@ -139,7 +135,7 @@ class LOTRVillageGenRohan(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 				addStructure(LOTRWorldGenRohanStables(false), i1, -14, 0, true)
 			}
 			var farmZ = -20
-			var l2: Int = 0
+			var l2 = 0
 			while (l2 <= 1) {
 				farmX = 30 - l2 * 12
 				addStructure(LOTRWorldGenRohanVillageFarm(false), -farmX, farmZ, 2)
@@ -159,7 +155,7 @@ class LOTRVillageGenRohan(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 					addStructure(LOTRWorldGenRohanFortCorner(false), i1, k1, 0, true)
 				}
 			}
-			var l: Int = 0
+			var l = 0
 			while (l <= 4) {
 				wallX = 13 + l * 8
 				wallZ = -51

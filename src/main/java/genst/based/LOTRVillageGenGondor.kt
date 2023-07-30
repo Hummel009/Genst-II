@@ -55,12 +55,11 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 		}
 
 		override fun addVillageStructures(random: Random) {
-			if (villageType == VillageType.VILLAGE) {
-				setupVillage(random)
-			} else if (villageType == VillageType.TOWN) {
-				setupTown(random)
-			} else if (villageType == VillageType.FORT) {
-				setupFortVillage(random)
+			when (villageType) {
+				VillageType.VILLAGE -> setupVillage(random)
+				VillageType.TOWN -> setupTown(random)
+				VillageType.FORT -> setupFortVillage()
+				else -> {}
 			}
 		}
 
@@ -120,61 +119,33 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 			return LOTRWorldGenGondorHouse(false)
 		}
 
+		private val villageFortressMap: Map<GondorFiefdom, LOTRWorldGenStructureBase2> = mapOf(
+			GondorFiefdom.GONDOR to LOTRWorldGenGondorFortress(false),
+			GondorFiefdom.LOSSARNACH to LOTRWorldGenLossarnachFortress(false),
+			GondorFiefdom.LEBENNIN to LOTRWorldGenLebenninFortress(false),
+			GondorFiefdom.PELARGIR to LOTRWorldGenPelargirFortress(false),
+			GondorFiefdom.PINNATH_GELIN to LOTRWorldGenPinnathGelinFortress(false),
+			GondorFiefdom.BLACKROOT_VALE to LOTRWorldGenBlackrootFortress(false),
+			GondorFiefdom.LAMEDON to LOTRWorldGenLamedonFortress(false),
+			GondorFiefdom.DOL_AMROTH to LOTRWorldGenDolAmrothStables(false)
+		)
+
+		private val villageWatchtowerMap: Map<GondorFiefdom, LOTRWorldGenStructureBase2> = mapOf(
+			GondorFiefdom.GONDOR to LOTRWorldGenGondorWatchtower(false),
+			GondorFiefdom.LOSSARNACH to LOTRWorldGenLossarnachWatchtower(false),
+			GondorFiefdom.LEBENNIN to LOTRWorldGenLebenninWatchtower(false),
+			GondorFiefdom.PELARGIR to LOTRWorldGenPelargirWatchtower(false),
+			GondorFiefdom.PINNATH_GELIN to LOTRWorldGenPinnathGelinWatchtower(false),
+			GondorFiefdom.BLACKROOT_VALE to LOTRWorldGenBlackrootWatchtower(false),
+			GondorFiefdom.LAMEDON to LOTRWorldGenLamedonWatchtower(false),
+			GondorFiefdom.DOL_AMROTH to LOTRWorldGenDolAmrothWatchtower(false)
+		)
+
 		private val villageFortress: LOTRWorldGenStructureBase2?
-			get() {
-				if (villageFief == GondorFiefdom.GONDOR) {
-					return LOTRWorldGenGondorFortress(false)
-				}
-				if (villageFief == GondorFiefdom.LOSSARNACH) {
-					return LOTRWorldGenLossarnachFortress(false)
-				}
-				if (villageFief == GondorFiefdom.LEBENNIN) {
-					return LOTRWorldGenLebenninFortress(false)
-				}
-				if (villageFief == GondorFiefdom.PELARGIR) {
-					return LOTRWorldGenPelargirFortress(false)
-				}
-				if (villageFief == GondorFiefdom.PINNATH_GELIN) {
-					return LOTRWorldGenPinnathGelinFortress(false)
-				}
-				if (villageFief == GondorFiefdom.BLACKROOT_VALE) {
-					return LOTRWorldGenBlackrootFortress(false)
-				}
-				if (villageFief == GondorFiefdom.LAMEDON) {
-					return LOTRWorldGenLamedonFortress(false)
-				}
-				return if (villageFief == GondorFiefdom.DOL_AMROTH) {
-					LOTRWorldGenDolAmrothStables(false)
-				} else null
-			}
+			get() = villageFortressMap[villageFief]
 
 		private val villageWatchtower: LOTRWorldGenStructureBase2?
-			get() {
-				if (villageFief == GondorFiefdom.GONDOR) {
-					return LOTRWorldGenGondorWatchtower(false)
-				}
-				if (villageFief == GondorFiefdom.LOSSARNACH) {
-					return LOTRWorldGenLossarnachWatchtower(false)
-				}
-				if (villageFief == GondorFiefdom.LEBENNIN) {
-					return LOTRWorldGenLebenninWatchtower(false)
-				}
-				if (villageFief == GondorFiefdom.PELARGIR) {
-					return LOTRWorldGenPelargirWatchtower(false)
-				}
-				if (villageFief == GondorFiefdom.PINNATH_GELIN) {
-					return LOTRWorldGenPinnathGelinWatchtower(false)
-				}
-				if (villageFief == GondorFiefdom.BLACKROOT_VALE) {
-					return LOTRWorldGenBlackrootWatchtower(false)
-				}
-				if (villageFief == GondorFiefdom.LAMEDON) {
-					return LOTRWorldGenLamedonWatchtower(false)
-				}
-				return if (villageFief == GondorFiefdom.DOL_AMROTH) {
-					LOTRWorldGenDolAmrothWatchtower(false)
-				} else null
-			}
+			get() = villageWatchtowerMap[villageFief]
 
 		override fun isFlat(): Boolean {
 			return villageType == VillageType.TOWN
@@ -185,7 +156,7 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 			return villageType == VillageType.TOWN && block === Blocks.cobblestone
 		}
 
-		private fun setupFortVillage(random: Random) {
+		private fun setupFortVillage() {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClass(LOTREntityGondorMan::class.java)
@@ -194,7 +165,6 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
-
 			for (i1 in intArrayOf(-20, 20)) {
 				for (k1 in intArrayOf(-20, 20)) {
 					addStructure(object : LOTRWorldGenNPCRespawner(false) {
@@ -207,7 +177,6 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 					}, i1, k1, 0)
 				}
 			}
-
 			addStructure(villageFortress ?: return, 0, 12, 2, true)
 			addStructure(LOTRWorldGenGondorFortGate(false), 0, -37, 0, true)
 			addStructure(LOTRWorldGenGondorFortWall.Right(false), -11, -37, 0, true)
@@ -258,7 +227,6 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 			}, 0, 0, 0)
 			for (i1 in intArrayOf(-40, 40)) {
 				val arrn = intArrayOf(-40, 40)
-				val n = arrn.size
 				for (k1 in arrn) {
 					addStructure(object : LOTRWorldGenNPCRespawner(false) {
 						override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
@@ -441,7 +409,7 @@ class LOTRVillageGenGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : L
 			}
 			val wallZ = 82
 			val wallEndX = 76
-			var l: Int = 0
+			var l = 0
 			while (l <= 3) {
 				wallX = 12 + l * 16
 				addStructure(LOTRWorldGenGondorTownWall.Left(false), -wallX, wallZ, 2, true)

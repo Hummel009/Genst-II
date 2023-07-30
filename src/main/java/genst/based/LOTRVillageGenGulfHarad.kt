@@ -41,13 +41,13 @@ class LOTRVillageGenGulfHarad(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 		private lateinit var villageName: Array<String>
 		private var rTownTower: Int = 90
 		private var numOuterHouses = 0
+
 		override fun addVillageStructures(random: Random) {
-			if (villageType == VillageType.VILLAGE) {
-				setupVillage(random)
-			} else if (villageType == VillageType.TOWN) {
-				setupTown(random)
-			} else if (villageType == VillageType.FORT) {
-				setupFort(random)
+			when (villageType) {
+				VillageType.VILLAGE -> setupVillage(random)
+				VillageType.TOWN -> setupTown(random)
+				VillageType.FORT -> setupFort(random)
+				else -> {}
 			}
 		}
 
@@ -209,7 +209,6 @@ class LOTRVillageGenGulfHarad(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 			}
 			addStructure(LOTRWorldGenGulfVillageSign(false).setSignText(villageName), -5, -96, 0, true)
 			addStructure(LOTRWorldGenGulfVillageSign(false).setSignText(villageName), 5, -96, 0, true)
-			val townWall = true
 			val rSq = 9604
 			val rMax = 99
 			val rSqMax = rMax * rMax

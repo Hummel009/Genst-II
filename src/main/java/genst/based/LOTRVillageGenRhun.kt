@@ -26,19 +26,13 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	enum class VillageType {
-		VILLAGE,
-		TOWN,
-		FORT
+		VILLAGE, TOWN, FORT
 	}
 
 	class Instance(village: LOTRVillageGenRhun, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
@@ -52,12 +46,11 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 		}
 
 		override fun addVillageStructures(random: Random) {
-			if (villageType == VillageType.VILLAGE) {
-				setupVillage(random)
-			} else if (villageType == VillageType.TOWN) {
-				setupTown(random)
-			} else if (villageType == VillageType.FORT) {
-				setupFort(random)
+			when (villageType) {
+				VillageType.VILLAGE -> setupVillage(random)
+				VillageType.TOWN -> setupTown(random)
+				VillageType.FORT -> setupFort(random)
+				else -> {}
 			}
 		}
 
@@ -108,7 +101,7 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 			return null
 		}
 
-		private fun getRandomHouse(random: Random): LOTRWorldGenStructureBase2 {
+		private fun getRandomHouse(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenEasterlingHouse(false)
 		}
 
@@ -140,8 +133,7 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 					addStructure(object : LOTRWorldGenNPCRespawner(false) {
 						override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 							spawner.setSpawnClasses(
-								LOTREntityEasterlingWarrior::class.java,
-								LOTREntityEasterlingArcher::class.java
+								LOTREntityEasterlingWarrior::class.java, LOTREntityEasterlingArcher::class.java
 							)
 							spawner.setCheckRanges(32, -12, 12, 16)
 							spawner.setSpawnRanges(20, -6, 6, 40)
@@ -247,8 +239,7 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 					addStructure(object : LOTRWorldGenNPCRespawner(false) {
 						override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 							spawner.setSpawnClasses(
-								LOTREntityEasterlingWarrior::class.java,
-								LOTREntityEasterlingArcher::class.java
+								LOTREntityEasterlingWarrior::class.java, LOTREntityEasterlingArcher::class.java
 							)
 							spawner.setCheckRanges(50, -12, 12, 16)
 							spawner.setSpawnRanges(20, -6, 6, 64)
@@ -324,11 +315,7 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 			for (l in 0..2) {
 				marketZ = 56 - l * 7
 				addStructure(
-					LOTRWorldGenEasterlingMarketStall.getRandomStall(random, false),
-					-marketX,
-					marketZ,
-					1,
-					true
+					LOTRWorldGenEasterlingMarketStall.getRandomStall(random, false), -marketX, marketZ, 1, true
 				)
 				addStructure(LOTRWorldGenEasterlingMarketStall.getRandomStall(random, false), marketX, marketZ, 3, true)
 			}
@@ -413,8 +400,7 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(
-						LOTREntityEasterlingWarrior::class.java,
-						LOTREntityEasterlingArcher::class.java
+						LOTREntityEasterlingWarrior::class.java, LOTREntityEasterlingArcher::class.java
 					)
 					spawner.setCheckRanges(40, -12, 12, 16)
 					spawner.setSpawnRanges(20, -6, 6, 64)
@@ -444,9 +430,9 @@ class LOTRVillageGenRhun(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVilla
 					k1 += 15 - pathSide
 				}
 				if (abs(l.toDouble()) >= 1) {
-					addStructure(getRandomHouse(random), i1, -k1, 2)
+					addStructure(getRandomHouse(), i1, -k1, 2)
 				}
-				addStructure(getRandomHouse(random), i1, k1, 0)
+				addStructure(getRandomHouse(), i1, k1, 0)
 				val k2 = k1 + 20
 				if (l != 0) {
 					if (random.nextInt(3) == 0) {

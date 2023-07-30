@@ -22,30 +22,21 @@ class LOTRVillageGenHaradNomad(biome: LOTRBiome?, f: Float) : LOTRVillageGen(bio
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	enum class VillageType {
-		SMALL,
-		BIG
+		SMALL, BIG
 	}
 
 	class Instance(
-		village: LOTRVillageGenHaradNomad?,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenHaradNomad?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenHaradNomad?>(village, world, i, k, random, loc) {
 		private var villageType: VillageType? = null
 		private var numOuterHouses = 0
+
 		override fun addVillageStructures(random: Random) {
 			setupVillage(random)
 		}

@@ -26,27 +26,17 @@ class LOTRVillageGenHarnedor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	enum class VillageType {
-		VILLAGE,
-		FORTRESS
+		VILLAGE, FORTRESS
 	}
 
 	class Instance(
-		village: LOTRVillageGenHarnedor,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenHarnedor, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenHarnedor?>(village, world, i, k, random, loc) {
 		private var villageType: VillageType? = null
 		private lateinit var villageName: Array<String>
@@ -62,7 +52,7 @@ class LOTRVillageGenHarnedor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 			if (villageType == VillageType.VILLAGE) {
 				setupVillage(random)
 			} else {
-				setupFortress(random)
+				setupFortress()
 			}
 		}
 
@@ -105,7 +95,7 @@ class LOTRVillageGenHarnedor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 			return false
 		}
 
-		private fun setupFortress(random: Random) {
+		private fun setupFortress() {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClass(LOTREntityHarnedhrim::class.java)
@@ -162,8 +152,7 @@ class LOTRVillageGenHarnedor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 				addStructure(object : LOTRWorldGenNPCRespawner(false) {
 					override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 						spawner.setSpawnClasses(
-							LOTREntityHarnedorWarrior::class.java,
-							LOTREntityHarnedorArcher::class.java
+							LOTREntityHarnedorWarrior::class.java, LOTREntityHarnedorArcher::class.java
 						)
 						spawner.setCheckRanges(64, -12, 12, 12)
 						spawner.setSpawnRanges(32, -6, 6, 32)

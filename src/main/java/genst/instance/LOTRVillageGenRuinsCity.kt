@@ -126,14 +126,14 @@ class LOTRVillageGenRuinsCity(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
 			val i1 = abs(i.toDouble()).toInt()
 			val k1 = abs(k.toDouble()).toInt()
-			val innerOut: Int = 18
+			val innerOut = 18
 			if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
 				return GenstRoadType.PATH_COBBLE
 			}
 			if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
 				return GenstRoadType.PATH_COBBLE
 			}
-			val outerOut: Int = 66
+			val outerOut = 66
 			return if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
 				GenstRoadType.PATH_COBBLE
 			} else null

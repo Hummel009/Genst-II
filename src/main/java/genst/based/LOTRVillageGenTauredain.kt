@@ -17,23 +17,15 @@ class LOTRVillageGenTauredain(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	class Instance(
-		village: LOTRVillageGenTauredain?,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenTauredain?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenTauredain?>(village, world, i, k, random, loc) {
+
 		override fun addVillageStructures(random: Random) {
 			val smithyPos = random.nextInt(4)
 			addStructure(LOTRWorldGenTauredainChieftainPyramid(false), 0, -11, 0, true)

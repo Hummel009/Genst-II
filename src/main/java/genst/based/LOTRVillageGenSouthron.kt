@@ -22,82 +22,67 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	enum class VillageType {
-		VILLAGE,
-		TOWN,
-		FORT
+		VILLAGE, TOWN, FORT
 	}
 
 	class Instance(
-		village: LOTRVillageGenSouthron?,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenSouthron?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenSouthron?>(village, world, i, k, random, loc) {
 		private var villageType: VillageType? = null
 		private lateinit var villageName: Array<String>
+
 		override fun addVillageStructures(random: Random) {
-			if (villageType == VillageType.VILLAGE) {
-				setupVillage(random)
-			} else if (villageType == VillageType.TOWN) {
-				setupTown(random)
-			} else if (villageType == VillageType.FORT) {
-				setupFort(random)
+			when (villageType) {
+				VillageType.VILLAGE -> setupVillage(random)
+				VillageType.TOWN -> setupTown()
+				VillageType.FORT -> setupFort(random)
+				null -> {}
 			}
 		}
 
-		private fun getBarracks(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getBarracks(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronBarracks(false)
 		}
 
-		private fun getBazaar(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getBazaar(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronBazaar(false)
 		}
 
-		private fun getFlowers(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getFlowers(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownFlowers(false)
 		}
 
-		private fun getFortCorner(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getFortCorner(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronFortCorner(false)
 		}
 
-		private fun getFortGate(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getFortGate(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronFortGate(false)
 		}
 
-		private fun getFortress(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getFortress(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronFortress(false)
 		}
 
-		private fun getFortWallLong(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getFortWallLong(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronFortWall.Long(false)
 		}
 
-		private fun getFortWallShort(random: Random?): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronFortWall.Short(false)
-		}
-
-		private fun getHouse(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getHouse(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronHouse(false)
 		}
 
-		private fun getLamp(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getLamp(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronLamp(false)
 		}
 
-		private fun getMansion(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getMansion(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronMansion(false)
 		}
 
@@ -174,63 +159,63 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 			} else LOTRWorldGenSouthronHouse(false)
 		}
 
-		private fun getSignpost(random: Random?): LOTRWorldGenSouthronVillageSign {
+		private fun getSignpost(): LOTRWorldGenSouthronVillageSign {
 			return LOTRWorldGenSouthronVillageSign(false)
 		}
 
-		private fun getSmithy(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getSmithy(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronSmithy(false)
 		}
 
-		private fun getStables(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getStables(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronStables(false)
 		}
 
-		private fun getStatue(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getStatue(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronStatue(false)
 		}
 
-		private fun getTavern(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTavern(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTavern(false)
 		}
 
-		private fun getTower(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTower(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTower(false)
 		}
 
-		private fun getTownGate(random: Random?): LOTRWorldGenSouthronTownGate {
+		private fun getTownGate(): LOTRWorldGenSouthronTownGate {
 			return LOTRWorldGenSouthronTownGate(false)
 		}
 
-		private fun getTownWallCorner(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTownWallCorner(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownCorner(false)
 		}
 
-		private fun getTownWallExtra(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTownWallExtra(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownWall.Extra(false)
 		}
 
-		private fun getTownWallLong(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTownWallLong(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownWall.Long(false)
 		}
 
-		private fun getTownWallShort(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTownWallShort(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownWall.Short(false)
 		}
 
-		private fun getTownWallSideMid(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTownWallSideMid(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownWall.SideMid(false)
 		}
 
-		private fun getTraining(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTraining(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTraining(false)
 		}
 
-		private fun getTree(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getTree(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronTownTree(false)
 		}
 
-		private fun getWell(random: Random?): LOTRWorldGenStructureBase2 {
+		private fun getWell(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenSouthronWell(false)
 		}
 
@@ -286,14 +271,14 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 				}
 			}
 			placeChampionRespawner()
-			addStructure(getFortress(random), 0, -15, 0, true)
-			addStructure(getBarracks(random), -33, -8, 0, true)
-			addStructure(getBarracks(random), 32, -8, 0, true)
-			addStructure(getTower(random), -43, -36, 2, true)
-			addStructure(getTower(random), 43, -36, 2, true)
-			addStructure(getTower(random), -43, 36, 0, true)
-			addStructure(getTower(random), 43, 36, 0, true)
-			var l: Int = 0
+			addStructure(getFortress(), 0, -15, 0, true)
+			addStructure(getBarracks(), -33, -8, 0, true)
+			addStructure(getBarracks(), 32, -8, 0, true)
+			addStructure(getTower(), -43, -36, 2, true)
+			addStructure(getTower(), 43, -36, 2, true)
+			addStructure(getTower(), -43, 36, 0, true)
+			addStructure(getTower(), 43, 36, 0, true)
+			var l = 0
 			while (l <= 2) {
 				i = 10 + l * 11
 				k = -28
@@ -302,17 +287,17 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 				addStructure(getRandomFarm(random), -i, k, r)
 				++l
 			}
-			addStructure(getTraining(random), 0, 27, 0, true)
-			addStructure(getStables(random), -29, 33, 3, true)
-			addStructure(getStables(random), 29, 37, 1, true)
-			addStructure(getFortGate(random), 0, -47, 0, true)
+			addStructure(getTraining(), 0, 27, 0, true)
+			addStructure(getStables(), -29, 33, 3, true)
+			addStructure(getStables(), 29, 37, 1, true)
+			addStructure(getFortGate(), 0, -47, 0, true)
 			l = 0
 			while (l <= 9) {
 				i = 8 + l * 4
 				k = -46
 				r = 0
-				addStructure(getFortWallLong(random), -i, k, r, true)
-				addStructure(getFortWallLong(random), i, k, r, true)
+				addStructure(getFortWallLong(), -i, k, r, true)
+				addStructure(getFortWallLong(), i, k, r, true)
 				++l
 			}
 			l = -11
@@ -320,7 +305,7 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 				i = l * 4
 				k = 46
 				r = 2
-				addStructure(getFortWallLong(random), i, k, r, true)
+				addStructure(getFortWallLong(), i, k, r, true)
 				++l
 			}
 			l = -10
@@ -328,18 +313,18 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 				i = -50
 				k = l * 4
 				r = 3
-				addStructure(getFortWallLong(random), i, k, r, true)
+				addStructure(getFortWallLong(), i, k, r, true)
 				r = 1
-				addStructure(getFortWallLong(random), -i, k, r, true)
+				addStructure(getFortWallLong(), -i, k, r, true)
 				++l
 			}
-			addStructure(getFortCorner(random), -50, -46, 0, true)
-			addStructure(getFortCorner(random), 50, -46, 1, true)
-			addStructure(getFortCorner(random), -50, 46, 3, true)
-			addStructure(getFortCorner(random), 50, 46, 2, true)
+			addStructure(getFortCorner(), -50, -46, 0, true)
+			addStructure(getFortCorner(), 50, -46, 1, true)
+			addStructure(getFortCorner(), -50, 46, 3, true)
+			addStructure(getFortCorner(), 50, 46, 2, true)
 		}
 
-		private fun setupTown(random: Random) {
+		private fun setupTown() {
 			var i: Int
 			var r: Int
 			var k: Int
@@ -363,145 +348,145 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 					}, i1, k1, 0)
 				}
 			}
-			addStructure(getBazaar(random), 1, -2, 0, true)
-			addStructure(getLamp(random), 15, -2, 0, true)
-			addStructure(getLamp(random), -13, -2, 0, true)
-			addStructure(getLamp(random), 15, 18, 0, true)
-			addStructure(getLamp(random), -13, 18, 0, true)
-			addStructure(getWell(random), -16, 12, 1, true)
-			addStructure(getWell(random), -16, 4, 1, true)
-			addStructure(getFlowers(random), 18, 13, 3, true)
-			addStructure(getFlowers(random), 18, 3, 3, true)
-			var l: Int = 0
+			addStructure(getBazaar(), 1, -2, 0, true)
+			addStructure(getLamp(), 15, -2, 0, true)
+			addStructure(getLamp(), -13, -2, 0, true)
+			addStructure(getLamp(), 15, 18, 0, true)
+			addStructure(getLamp(), -13, 18, 0, true)
+			addStructure(getWell(), -16, 12, 1, true)
+			addStructure(getWell(), -16, 4, 1, true)
+			addStructure(getFlowers(), 18, 13, 3, true)
+			addStructure(getFlowers(), 18, 3, 3, true)
+			var l = 0
 			while (l <= 3) {
 				i = -41 + l * 19
 				k = -7
 				r = 2
-				addStructure(getMansion(random), i, k, r, true)
-				addStructure(getLamp(random), i + 6, k - 1, r, true)
+				addStructure(getMansion(), i, k, r, true)
+				addStructure(getLamp(), i + 6, k - 1, r, true)
 				i = 24 - l * 19
 				k = 23
 				r = 0
-				addStructure(getMansion(random), i, k, r, true)
-				addStructure(getLamp(random), i - 6, k + 1, r, true)
+				addStructure(getMansion(), i, k, r, true)
+				addStructure(getLamp(), i - 6, k + 1, r, true)
 				++l
 			}
-			addStructure(getSmithy(random), -25, 9, 1, true)
-			addStructure(getHouse(random), -25, 18, 1, true)
-			addStructure(getHouse(random), -25, -2, 1, true)
-			addStructure(getTree(random), -45, 8, 1, true)
-			addStructure(getHouse(random), -50, 18, 3, true)
-			addStructure(getHouse(random), -50, -2, 3, true)
-			addStructure(getWell(random), -51, -14, 2, true)
-			addStructure(getTree(random), -46, -29, 2, true)
-			addStructure(getFlowers(random), -42, -32, 3, true)
-			addStructure(getTree(random), -50, 30, 0, true)
+			addStructure(getSmithy(), -25, 9, 1, true)
+			addStructure(getHouse(), -25, 18, 1, true)
+			addStructure(getHouse(), -25, -2, 1, true)
+			addStructure(getTree(), -45, 8, 1, true)
+			addStructure(getHouse(), -50, 18, 3, true)
+			addStructure(getHouse(), -50, -2, 3, true)
+			addStructure(getWell(), -51, -14, 2, true)
+			addStructure(getTree(), -46, -29, 2, true)
+			addStructure(getFlowers(), -42, -32, 3, true)
+			addStructure(getTree(), -50, 30, 0, true)
 			l = -3
 			while (l <= 3) {
 				i = -56
 				k = -2 + l * 10
 				r = 1
-				addStructure(getHouse(random), i, k, r, true)
+				addStructure(getHouse(), i, k, r, true)
 				++l
 			}
-			addStructure(getStatue(random), 26, 8, 3, true)
-			addStructure(getHouse(random), 26, 18, 3, true)
-			addStructure(getHouse(random), 26, -2, 3, true)
+			addStructure(getStatue(), 26, 8, 3, true)
+			addStructure(getHouse(), 26, 18, 3, true)
+			addStructure(getHouse(), 26, -2, 3, true)
 			l = -3
 			while (l <= 2) {
 				i = 52
 				k = 8 + l * 10
 				r = 1
-				addStructure(getHouse(random), i, k, r, true)
+				addStructure(getHouse(), i, k, r, true)
 				++l
 			}
-			addStructure(getSmithy(random), 41, -33, 3, true)
+			addStructure(getSmithy(), 41, -33, 3, true)
 			l = -2
 			while (l <= 2) {
 				i = 65
 				k = 3 + l * 14
 				r = 2
-				addStructure(getHouse(random), i, k, r, true)
+				addStructure(getHouse(), i, k, r, true)
 				++l
 			}
-			addStructure(getWell(random), 57, -19, 2, true)
-			addStructure(getLamp(random), 57, -16, 2, true)
-			addStructure(getLamp(random), 57, -8, 2, true)
-			addStructure(getTree(random), 57, 1, 2, true)
-			addStructure(getLamp(random), 57, 4, 2, true)
-			addStructure(getLamp(random), 57, 12, 2, true)
-			addStructure(getTree(random), 57, 21, 2, true)
-			addStructure(getLamp(random), 57, 24, 2, true)
-			addStructure(getLamp(random), 57, 32, 2, true)
+			addStructure(getWell(), 57, -19, 2, true)
+			addStructure(getLamp(), 57, -16, 2, true)
+			addStructure(getLamp(), 57, -8, 2, true)
+			addStructure(getTree(), 57, 1, 2, true)
+			addStructure(getLamp(), 57, 4, 2, true)
+			addStructure(getLamp(), 57, 12, 2, true)
+			addStructure(getTree(), 57, 21, 2, true)
+			addStructure(getLamp(), 57, 24, 2, true)
+			addStructure(getLamp(), 57, 32, 2, true)
 			l = 0
 			while (l <= 3) {
 				i = 41 + l * 8
 				k = 34
 				r = 0
-				addStructure(getFlowers(random), i, k, r, true)
+				addStructure(getFlowers(), i, k, r, true)
 				++l
 			}
-			addStructure(getTree(random), 34, 25, 0, true)
-			addStructure(getStables(random), -20, -30, 1, true)
-			addStructure(getTavern(random), 17, -32, 1, true)
-			addStructure(getLamp(random), 19, -28, 1, true)
-			addStructure(getLamp(random), 19, -36, 1, true)
-			addStructure(getLamp(random), -16, -32, 3, true)
-			addStructure(getFlowers(random), 25, -32, 3, true)
-			addStructure(getTree(random), 34, -29, 2, true)
-			addStructure(getLamp(random), 34, -26, 2, true)
-			addStructure(getLamp(random), 34, -18, 2, true)
-			addStructure(getTree(random), 34, -9, 2, true)
-			addStructure(getTownGate(random).setSignText(villageName), 34, -47, 0, true)
-			addStructure(getTownWallCorner(random), 73, -47, 0, true)
-			addStructure(getTownWallCorner(random), -77, -43, 3, true)
-			addStructure(getTownWallCorner(random), -73, 47, 2, true)
-			addStructure(getTownWallCorner(random), 77, 43, 1, true)
+			addStructure(getTree(), 34, 25, 0, true)
+			addStructure(getStables(), -20, -30, 1, true)
+			addStructure(getTavern(), 17, -32, 1, true)
+			addStructure(getLamp(), 19, -28, 1, true)
+			addStructure(getLamp(), 19, -36, 1, true)
+			addStructure(getLamp(), -16, -32, 3, true)
+			addStructure(getFlowers(), 25, -32, 3, true)
+			addStructure(getTree(), 34, -29, 2, true)
+			addStructure(getLamp(), 34, -26, 2, true)
+			addStructure(getLamp(), 34, -18, 2, true)
+			addStructure(getTree(), 34, -9, 2, true)
+			addStructure(getTownGate().setSignText(villageName), 34, -47, 0, true)
+			addStructure(getTownWallCorner(), 73, -47, 0, true)
+			addStructure(getTownWallCorner(), -77, -43, 3, true)
+			addStructure(getTownWallCorner(), -73, 47, 2, true)
+			addStructure(getTownWallCorner(), 77, 43, 1, true)
 			l = 0
 			while (l <= 6) {
 				i = 68 - l * 4
 				k = -44
 				r = 0
 				if (l % 2 == 0) {
-					addStructure(getTownWallShort(random), i, k, r, true)
+					addStructure(getTownWallShort(), i, k, r, true)
 					++l
 					continue
 				}
-				addStructure(getTownWallLong(random), i, k, r, true)
+				addStructure(getTownWallLong(), i, k, r, true)
 				++l
 			}
-			addStructure(getTownWallExtra(random), 24, -44, 0, true)
+			addStructure(getTownWallExtra(), 24, -44, 0, true)
 			l = 0
 			while (l <= 22) {
 				i = 20 - l * 4
 				k = -44
 				r = 0
 				if (l % 2 == 0) {
-					addStructure(getTownWallShort(random), i, k, r, true)
+					addStructure(getTownWallShort(), i, k, r, true)
 					++l
 					continue
 				}
-				addStructure(getTownWallLong(random), i, k, r, true)
+				addStructure(getTownWallLong(), i, k, r, true)
 				++l
 			}
-			addStructure(getTownWallSideMid(random), 74, 0, 1, true)
-			addStructure(getTownWallSideMid(random), -74, 0, 3, true)
+			addStructure(getTownWallSideMid(), 74, 0, 1, true)
+			addStructure(getTownWallSideMid(), -74, 0, 3, true)
 			l = 1
 			while (l <= 9) {
 				i = 74
 				k = 2 + l * 4
 				if (l % 2 == 1) {
-					addStructure(getTownWallShort(random), i, k, 1, true)
-					addStructure(getTownWallShort(random), i, -k, 1, true)
-					addStructure(getTownWallShort(random), -i, k, 3, true)
-					addStructure(getTownWallShort(random), -i, -k, 3, true)
+					addStructure(getTownWallShort(), i, k, 1, true)
+					addStructure(getTownWallShort(), i, -k, 1, true)
+					addStructure(getTownWallShort(), -i, k, 3, true)
+					addStructure(getTownWallShort(), -i, -k, 3, true)
 					++l
 					continue
 				}
-				addStructure(getTownWallLong(random), i, k, 1, true)
-				addStructure(getTownWallLong(random), i, -k, 1, true)
-				addStructure(getTownWallLong(random), -i, k, 3, true)
-				addStructure(getTownWallLong(random), -i, -k, 3, true)
+				addStructure(getTownWallLong(), i, k, 1, true)
+				addStructure(getTownWallLong(), i, -k, 1, true)
+				addStructure(getTownWallLong(), -i, k, 3, true)
+				addStructure(getTownWallLong(), -i, -k, 3, true)
 				++l
 			}
 			l = -17
@@ -510,11 +495,11 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 				k = 44
 				r = 2
 				if (IntMath.mod(l, 2) == 1) {
-					addStructure(getTownWallShort(random), i, k, r, true)
+					addStructure(getTownWallShort(), i, k, r, true)
 					++l
 					continue
 				}
-				addStructure(getTownWallLong(random), i, k, r, true)
+				addStructure(getTownWallLong(), i, k, r, true)
 				++l
 			}
 		}
@@ -536,13 +521,13 @@ class LOTRVillageGenSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome
 					spawner.setBlockEnemySpawnRange(64)
 				}
 			}, 0, 0, 0)
-			addStructure(getWell(random), 0, -2, 0, true)
-			addStructure(getSignpost(random).setSignText(villageName), 0, -8, 0, true)
+			addStructure(getWell(), 0, -2, 0, true)
+			addStructure(getSignpost().setSignText(villageName), 0, -8, 0, true)
 			val rSquareEdge = 17
-			addStructure(getTavern(random), 0, rSquareEdge, 0, true)
-			addStructure(getMansion(random), -3, -rSquareEdge, 2, true)
-			addStructure(getMansion(random), -rSquareEdge, 3, 1, true)
-			addStructure(getMansion(random), rSquareEdge, -3, 3, true)
+			addStructure(getTavern(), 0, rSquareEdge, 0, true)
+			addStructure(getMansion(), -3, -rSquareEdge, 2, true)
+			addStructure(getMansion(), -rSquareEdge, 3, 1, true)
+			addStructure(getMansion(), rSquareEdge, -3, 3, true)
 			val backFenceX = 0
 			val backFenceZ = rSquareEdge + 19
 			val backFenceWidth = 12
