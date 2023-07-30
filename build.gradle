@@ -38,8 +38,17 @@ minecraft {
 	targetCompat = JavaVersion.VERSION_1_8
 }
 
+configurations {
+	embed
+	compile.extendsFrom(embed)
+}
+
 dependencies {
 	embed "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+}
+
+jar {
+	from configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
 }
 
 processResources {
