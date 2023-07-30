@@ -7,8 +7,7 @@ import net.minecraft.world.biome.BiomeGenBase
 import java.util.*
 
 object GenstRoadType {
-	@JvmField
-	var PATH_COBBLE: LOTRRoadType = object : LOTRRoadType() {
+	val PATH_COBBLE: LOTRRoadType = object : LOTRRoadType() {
 		override fun getBlock(rand: Random, biome: BiomeGenBase, top: Boolean, slab: Boolean): RoadBlock {
 			val blockTypes: Array<RoadBlock> = if (slab) {
 				arrayOf(

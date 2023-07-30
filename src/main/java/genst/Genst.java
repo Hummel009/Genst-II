@@ -15,6 +15,6 @@ public class Genst {
 
 	@Mod.EventHandler
 	public void serverStarting(FMLServerStartingEvent e) {
-		e.registerServerCommand(new GenstLogger());
+		e.registerServerCommand(GenstLogger.INSTANCE);
 	}
 }
