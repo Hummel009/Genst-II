@@ -22,7 +22,7 @@ object GenstLogger : CommandBase() {
 
 	override fun processCommand(sender: ICommandSender, args: Array<String>) {
 		val world = sender.entityWorld
-		for (wp in LOTRWaypoint.entries) {
+		for (wp in LOTRWaypoint.values()) {
 			if (!skip.contains(wp)) {
 				val x = wp.xCoord.toDouble()
 				val z = wp.zCoord.toDouble()
