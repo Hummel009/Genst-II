@@ -1,0 +1,17 @@
+[
+  {
+	"modid": "genst",
+	"name": "Genstructures",
+	"version": "2.0",
+	"credits": "Hummel009",
+	"authorList": [
+	  "Hummel009"
+	],
+	"description": "Genstructures: 2016-2019, we can do it again!",
+	"url": "",
+	"updateUrl": "",
+	"parent": "",
+	"dependencies": [],
+	"screenshots": []
+  }
+]
