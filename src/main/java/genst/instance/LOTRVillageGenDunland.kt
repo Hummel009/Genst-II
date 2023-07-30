@@ -22,23 +22,15 @@ class LOTRVillageGenDunland(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome)
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	class Instance(
-		village: LOTRVillageGenDunland?,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenDunland?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenDunland?>(village, world, i, k, random, loc) {
+
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
@@ -51,8 +43,7 @@ class LOTRVillageGenDunland(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(
-						LOTREntityDunlendingWarrior::class.java,
-						LOTREntityDunlendingArcher::class.java
+						LOTREntityDunlendingWarrior::class.java, LOTREntityDunlendingArcher::class.java
 					)
 					spawner.setCheckRanges(40, -12, 12, 16)
 					spawner.setSpawnRanges(20, -6, 6, 64)
@@ -66,9 +57,9 @@ class LOTRVillageGenDunland(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome)
 			addStructure(LOTRWorldGenDunlandHillFort(false), 0, -centreSide, 2, true)
 			if (random.nextBoolean()) {
 				addStructure(LOTRWorldGenDunlendingTavern(false), -pathEnd, 0, 1, true)
-				addStructure(getOtherVillageStructure(random), pathEnd, 0, 3, true)
+				addStructure(getOtherVillageStructure(), pathEnd, 0, 3, true)
 			} else {
-				addStructure(getOtherVillageStructure(random), -pathEnd, 0, 1, true)
+				addStructure(getOtherVillageStructure(), -pathEnd, 0, 1, true)
 				addStructure(LOTRWorldGenDunlendingTavern(false), pathEnd, 0, 3, true)
 			}
 			val rowHouses = 3
@@ -79,22 +70,22 @@ class LOTRVillageGenDunland(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome)
 					k1 += 15 - pathSide
 				}
 				if (abs(l.toDouble()) >= 1) {
-					addStructure(getRandomHouse(random), i1, -k1, 2)
+					addStructure(getRandomHouse(), i1, -k1, 2)
 				}
-				addStructure(getRandomHouse(random), i1, k1, 0)
+				addStructure(getRandomHouse(), i1, k1, 0)
 				val k2 = k1 + 20
 				if (l != 0) {
 					addStructure(LOTRWorldGenHayBales(false), i1, -k2, 2)
 				}
 				if (random.nextInt(3) == 0) {
-					addStructure(getRandomVillageFarm(random), i1, k2, 0)
+					addStructure(getRandomVillageFarm(), i1, k2, 0)
 					continue
 				}
 				addStructure(LOTRWorldGenHayBales(false), i1, k2, 0)
 			}
 		}
 
-		private fun getOtherVillageStructure(random: Random): LOTRWorldGenStructureBase2 {
+		private fun getOtherVillageStructure(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenDunlendingHouse(false)
 		}
 
@@ -108,11 +99,11 @@ class LOTRVillageGenDunland(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome)
 			} else null
 		}
 
-		private fun getRandomHouse(random: Random): LOTRWorldGenStructureBase2 {
+		private fun getRandomHouse(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenDunlendingHouse(false)
 		}
 
-		private fun getRandomVillageFarm(random: Random): LOTRWorldGenStructureBase2 {
+		private fun getRandomVillageFarm(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenDunlendingHouse(false)
 		}
 

@@ -21,17 +21,14 @@ class LOTRVillageGenHobbit(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) 
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	class Instance(village: LOTRVillageGenHobbit?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
 		AbstractInstance<LOTRVillageGenHobbit?>(village, world, i, k, random, loc) {
+
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {

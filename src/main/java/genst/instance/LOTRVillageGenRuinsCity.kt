@@ -20,23 +20,15 @@ class LOTRVillageGenRuinsCity(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	class Instance(
-		village: LOTRVillageGenRuinsCity?,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenRuinsCity?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenRuinsCity?>(village, world, i, k, random, loc) {
+
 		override fun addVillageStructures(random: Random) {
 			var marketZ: Int
 			if (random.nextBoolean()) {

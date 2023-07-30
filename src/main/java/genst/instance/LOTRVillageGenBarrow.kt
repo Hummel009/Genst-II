@@ -17,17 +17,14 @@ class LOTRVillageGenBarrow(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) 
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	class Instance(village: LOTRVillageGenBarrow?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
 		AbstractInstance<LOTRVillageGenBarrow?>(village, world, i, k, random, loc) {
+
 		override fun addVillageStructures(random: Random) {
 			addStructure(LOTRWorldGenBDBarrow(false), 0, 0, 0, true)
 		}

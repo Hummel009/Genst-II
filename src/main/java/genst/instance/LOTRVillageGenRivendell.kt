@@ -25,23 +25,15 @@ class LOTRVillageGenRivendell(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
 
 	class Instance(
-		village: LOTRVillageGenRivendell?,
-		world: World?,
-		i: Int,
-		k: Int,
-		random: Random?,
-		loc: LocationInfo?
+		village: LOTRVillageGenRivendell?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<LOTRVillageGenRivendell?>(village, world, i, k, random, loc) {
+
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
@@ -79,14 +71,14 @@ class LOTRVillageGenRivendell(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 					k1 += 15 - pathSide
 				}
 				if (abs(l.toDouble()) >= 1) {
-					addStructure(getRandomHouse(random), i1, -k1, 2)
+					addStructure(getRandomHouse(), i1, -k1, 2)
 				}
-				addStructure(getRandomHouse(random), i1, k1, 0)
+				addStructure(getRandomHouse(), i1, k1, 0)
 				if (l != 0) {
-					addStructure(getRandomHouse(random), i1, -k1, 2)
+					addStructure(getRandomHouse(), i1, -k1, 2)
 				}
 				if (random.nextInt(3) == 0) {
-					addStructure(getRandomHouse(random), i1, -k1, 2)
+					addStructure(getRandomHouse(), i1, -k1, 2)
 				}
 			}
 		}
@@ -107,7 +99,7 @@ class LOTRVillageGenRivendell(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biom
 			} else null
 		}
 
-		private fun getRandomHouse(random: Random): LOTRWorldGenStructureBase2 {
+		private fun getRandomHouse(): LOTRWorldGenStructureBase2 {
 			return LOTRWorldGenRivendellHouse(false)
 		}
 

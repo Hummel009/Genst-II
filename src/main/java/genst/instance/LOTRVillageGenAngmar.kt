@@ -21,11 +21,7 @@ class LOTRVillageGenAngmar(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) 
 	}
 
 	override fun createVillageInstance(
-		world: World,
-		i: Int,
-		k: Int,
-		random: Random,
-		loc: LocationInfo
+		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return Instance(this, world, i, k, random, loc)
 	}
@@ -33,6 +29,7 @@ class LOTRVillageGenAngmar(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) 
 	class Instance(village: LOTRVillageGenAngmar?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
 		AbstractInstance<LOTRVillageGenAngmar?>(village, world, i, k, random, loc) {
 		private var numOuterHouses = 0
+
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
