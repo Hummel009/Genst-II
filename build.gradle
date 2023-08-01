@@ -1,12 +1,7 @@
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-apply plugin: 'forge'
-apply plugin: 'kotlin'
-
 buildscript {
-	ext.kotlin_version = '1.8.22'
-
 	repositories {
 		mavenCentral()
 		maven {
@@ -15,19 +10,23 @@ buildscript {
 		}
 	}
 	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22"
 		classpath('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
 			changing = true
 		}
-		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 	}
 }
+
+apply plugin: 'forge'
+apply plugin: 'kotlin'
 
 final def currentDate = LocalDate.now()
 version = currentDate.format(DateTimeFormatter.ofPattern('yy.MM.dd'))
 group = 'com.yourname.modid'
 archivesBaseName = 'Genst II'
 
-targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_8
 
 minecraft {
 	version = '1.7.10-10.13.4.1614-1.7.10'
@@ -40,32 +39,18 @@ configurations {
 }
 
 dependencies {
-	embed "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+	embed "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22"
 }
 
 jar {
-	from configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
-}
-
-processResources {
-	inputs.property 'version', project.version
-	inputs.property 'mcversion', project.minecraft.version
-
-	from(sourceSets.main.resources.srcDirs) {
-		include 'mcmod.info'
-
-		expand 'version': project.version, 'mcversion': project.minecraft.version
-	}
-
-	from(sourceSets.main.resources.srcDirs) {
-		exclude 'mcmod.info'
-	}
+    from(configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }) {
+        duplicatesStrategy 'exclude'
+    }
 }
 
 compileKotlin {
 	kotlinOptions {
 		jvmTarget = '1.8'
 		freeCompilerArgs += '-opt-in=kotlin.RequiresOptIn'
-
 	}
 }
