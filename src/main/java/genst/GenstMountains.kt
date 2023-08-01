@@ -7,11 +7,7 @@ import net.minecraftforge.common.util.EnumHelper
 object GenstMountains {
 	private fun addMountain(name: String?, x: Double, z: Double, h: Float, r: Int, lava: Int) {
 		val classArr = arrayOf<Class<*>>(
-			java.lang.Double.TYPE,
-			java.lang.Double.TYPE,
-			java.lang.Float.TYPE,
-			Integer.TYPE,
-			Integer.TYPE
+			java.lang.Double.TYPE, java.lang.Double.TYPE, java.lang.Float.TYPE, Integer.TYPE, Integer.TYPE
 		)
 		val args = arrayOf<Any>(x, z, h, r, lava)
 		EnumHelper.addEnum(LOTRMountains::class.java, name, classArr, args)
