@@ -27,12 +27,3 @@ forge*changelog.txt
 # LOTR
 **/libs/**/*.lang
 **/libs/**/*.txt
-
-# server
-server/config
-server/crash-reports
-server/logs
-server/mods/*.jar
-server/world
-server/server.properties
-server/*.json
