@@ -32,7 +32,6 @@ object GenstLogger : CommandBase() {
 		}
 	}
 
-	@JvmStatic
 	fun postInit() {
 		skip.add(LOTRWaypoint.BREE)
 		skip.add(LOTRWaypoint.COMBE)

@@ -13,7 +13,6 @@ object GenstMountains {
 		EnumHelper.addEnum(LOTRMountains::class.java, name, classArr, args)
 	}
 
-	@JvmStatic
 	fun postInit() {
 		addMountain("PLACEHOLDER", LOTRWaypoint.TOLFALAS_ISLAND.x, LOTRWaypoint.TOLFALAS_ISLAND.y, 1f, 100, 0)
 		addMountain("PLACEHOLDER", LOTRWaypoint.GREEN_HILLS.x, LOTRWaypoint.GREEN_HILLS.y, 1f, 100, 0)

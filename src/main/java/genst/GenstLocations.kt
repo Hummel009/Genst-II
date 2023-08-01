@@ -23,7 +23,6 @@ object GenstLocations {
 		locations.add(inst)
 	}
 
-	@JvmStatic
 	fun postInit() {
 		val gondorFortPG: LOTRVillageGen = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0f) {
