@@ -24,7 +24,7 @@ object GenstLocations {
 	}
 
 	fun postInit() {
-		val gondorFortPG: LOTRVillageGen = object :
+		val gondorFortPG = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -38,7 +38,7 @@ object GenstLocations {
 		}
 		affix(gondorFortPG, LOTRWaypoint.GREEN_HILLS, 0, 0, 0)
 
-		val gondorFort: LOTRVillageGen = object :
+		val gondorFort = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -52,7 +52,7 @@ object GenstLocations {
 		}
 		affix(gondorFort, LOTRWaypoint.TOLFALAS_ISLAND, 0, 0, 0)
 
-		val gondorVillage: LOTRVillageGen = object :
+		val gondorVillage = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -66,7 +66,7 @@ object GenstLocations {
 		}
 		affix(gondorVillage, LOTRWaypoint.ANDUIN_MOUTH, 0, 0, 0)
 
-		val gondorVillagePel: LOTRVillageGen = object :
+		val gondorVillagePel = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -80,7 +80,7 @@ object GenstLocations {
 		}
 		affix(gondorVillagePel, LOTRWaypoint.PELARGIR, 0, -1, 0)
 
-		val gondorVillageLeb: LOTRVillageGen = object :
+		val gondorVillageLeb = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -94,7 +94,7 @@ object GenstLocations {
 		}
 		affix(gondorVillageLeb, LOTRWaypoint.LINHIR, 0, 1, 0)
 
-		val gondorVillageLam: LOTRVillageGen = object :
+		val gondorVillageLam = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -108,7 +108,7 @@ object GenstLocations {
 		}
 		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1, 0, 0)
 
-		val gondorFortLam: LOTRVillageGen = object :
+		val gondorFortLam = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -122,7 +122,7 @@ object GenstLocations {
 		}
 		affix(gondorFortLam, LOTRWaypoint.CALEMBEL, 0, 1, 0)
 
-		val gondorCityDA: LOTRVillageGen = object :
+		val gondorCityDA = object :
 			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0f) {
 			public override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -138,12 +138,12 @@ object GenstLocations {
 		affix(gondorCityDA, LOTRWaypoint.DOL_AMROTH, -1, 0, 0)
 
 		/* READY */
-		val angmar: LOTRVillageGen = LOTRVillageGenAngmar(LOTRBiome.forodwaith, 0.0f)
+		val angmar = LOTRVillageGenAngmar(LOTRBiome.forodwaith, 0.0f)
 		affix(angmar, LOTRWaypoint.CARN_DUM, 0, 0, 0)
 		affix(angmar, LOTRWaypoint.MOUNT_GRAM, 0, 0, 0)
 
 		/* READY */
-		val ruinsMedium: LOTRVillageGen = LOTRVillageGenRuinsMedium(LOTRBiome.forodwaith, 0.0f)
+		val ruinsMedium = LOTRVillageGenRuinsMedium(LOTRBiome.forodwaith, 0.0f)
 		affix(ruinsMedium, LOTRWaypoint.ARVEDUI_MINES, 0, 0, 0)
 		affix(ruinsMedium, LOTRWaypoint.HIMLING, 0, 0, 0)
 		affix(ruinsMedium, LOTRWaypoint.TOL_FUIN, 0, 0, 0)
@@ -157,7 +157,7 @@ object GenstLocations {
 		affix(ruinsMedium, LOTRWaypoint.GREENWAY_CROSSROADS, 0, 1, 0)
 		affix(ruinsMedium, LOTRWaypoint.SARN_FORD, 2, 2, 0)
 
-		val hobbit: LOTRVillageGen = LOTRVillageGenHobbit(LOTRBiome.forodwaith, 0.0f)
+		val hobbit = LOTRVillageGenHobbit(LOTRBiome.forodwaith, 0.0f)
 		affix(hobbit, LOTRWaypoint.BROCKENBORINGS, 0, 0, 1)
 		affix(hobbit, LOTRWaypoint.BUCKLEBURY, 0, 0, 0)
 		affix(hobbit, LOTRWaypoint.BYWATER, 0, 0, 1)
@@ -183,7 +183,7 @@ object GenstLocations {
 		affix(hobbit, LOTRWaypoint.WILLOWBOTTOM, 0, 0, 1)
 
 		/* READY */
-		val highElven: LOTRVillageGen = LOTRVillageGenHighElven(LOTRBiome.forodwaith, 0.0f)
+		val highElven = LOTRVillageGenHighElven(LOTRBiome.forodwaith, 0.0f)
 		affix(highElven, LOTRWaypoint.FORLOND, 0, 0, 0)
 		affix(highElven, LOTRWaypoint.HARLOND, 0, 0, 0)
 		affix(highElven, LOTRWaypoint.AMON_EREB, 0, 0, 0)
@@ -195,7 +195,7 @@ object GenstLocations {
 		affix(highElven, LOTRWaypoint.TOWER_HILLS, 0, 0, 0)
 
 		/* READY */
-		val ruinsCity: LOTRVillageGen = LOTRVillageGenRuinsCity(LOTRBiome.forodwaith, 0.0f)
+		val ruinsCity = LOTRVillageGenRuinsCity(LOTRBiome.forodwaith, 0.0f)
 		affix(ruinsCity, LOTRWaypoint.THARBAD, 0, 0, 0)
 		affix(ruinsCity, LOTRWaypoint.FORNOST, 0, 0, 0)
 		affix(ruinsCity, LOTRWaypoint.ANNUMINAS, 0, 0, 0)
@@ -211,24 +211,24 @@ object GenstLocations {
 		affix(ruinsCity, LOTRWaypoint.EDHELLOND, 0, 1, 0)
 
 		/* READY */
-		val ruinsSmallWooden: LOTRVillageGen = LOTRVillageGenRuinsSmallWooden(LOTRBiome.forodwaith, 0.0f)
+		val ruinsSmallWooden = LOTRVillageGenRuinsSmallWooden(LOTRBiome.forodwaith, 0.0f)
 		affix(ruinsSmallWooden, LOTRWaypoint.FORSAKEN_INN, 0, 0, 0)
 
 		/* READY */
-		val ruinsSmallStone: LOTRVillageGen = LOTRVillageGenRuinsSmallStone(LOTRBiome.forodwaith, 0.0f)
+		val ruinsSmallStone = LOTRVillageGenRuinsSmallStone(LOTRBiome.forodwaith, 0.0f)
 		affix(ruinsSmallStone, LOTRWaypoint.WEATHERTOP, 0, -1, 0)
 
 		/* READY */
-		val rivendell: LOTRVillageGen = LOTRVillageGenRivendell(LOTRBiome.forodwaith, 0.0f)
+		val rivendell = LOTRVillageGenRivendell(LOTRBiome.forodwaith, 0.0f)
 		affix(rivendell, LOTRWaypoint.RIVENDELL, 0, 0, 0)
 
 		/* READY */
-		val barrow: LOTRVillageGen = LOTRVillageGenBarrow(LOTRBiome.forodwaith, 0.0f)
+		val barrow = LOTRVillageGenBarrow(LOTRBiome.forodwaith, 0.0f)
 		affix(barrow, LOTRWaypoint.TOL_MORWEN, 0, 0, 0)
 		affix(barrow, LOTRWaypoint.GLADDEN_FIELDS, 0, 0, 0)
 
 		/* READY */
-		val dunland: LOTRVillageGen = LOTRVillageGenDunland(LOTRBiome.forodwaith, 0.0f)
+		val dunland = LOTRVillageGenDunland(LOTRBiome.forodwaith, 0.0f)
 		affix(dunland, LOTRWaypoint.NORTH_DUNLAND, 0, 0, 0)
 		affix(dunland, LOTRWaypoint.SOUTH_DUNLAND, 0, 0, 0)
 		affix(dunland, LOTRWaypoint.DWARROWVALE, 0, 0, 0)
