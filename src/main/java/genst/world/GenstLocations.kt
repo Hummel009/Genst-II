@@ -1,7 +1,6 @@
 package genst.world
 
 import genst.GenstLogger
-import genst.addFixedLocation
 import genst.instance.*
 import lotr.common.LOTRDimension
 import lotr.common.block.LOTRBlockBrick
@@ -16,15 +15,7 @@ import net.minecraft.world.World
 import java.util.*
 
 object GenstLocations {
-	private var locations: MutableSet<LOTRVillageGen> = HashSet()
-
-	private fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int) {
-		GenstLogger.skip.add(wp)
-		inst.addFixedLocation(
-			wp, addX, addY, rotation, "PLACEHOLDER"
-		)
-		locations.add(inst)
-	}
+	var locations: MutableSet<LOTRVillageGen> = HashSet()
 
 	fun postInit() {
 		val gondorFortPG = object :

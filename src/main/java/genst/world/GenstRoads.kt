@@ -1,10 +1,7 @@
 package genst.world
 
-import cpw.mods.fml.relauncher.ReflectionHelper
-import genst.info
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.map.LOTRRoads
 import lotr.common.world.map.LOTRWaypoint
 import net.minecraft.init.Blocks
 import net.minecraft.world.biome.BiomeGenBase
@@ -35,18 +32,5 @@ object GenstRoads {
 	fun postInit() {
 		val gondorTown = 0.3359375
 		registerRoad("Linker", arrayOf(LOTRWaypoint.PELARGIR, LOTRWaypoint.PELARGIR.info(-0.1, -gondorTown)))
-	}
-
-	private fun registerRoad(name: String, waypoints: Array<Any>) {
-		val addControlZoneMethod = ReflectionHelper.findMethod<LOTRRoads?>(
-			LOTRRoads::class.java, null, arrayOf("registerRoad"), *arrayOf<Class<*>>(
-				String::class.java, Array<Any>::class.java
-			)
-		)
-		try {
-			addControlZoneMethod.invoke(null, *arrayOf<Any>(name, waypoints))
-		} catch (e: Exception) {
-			e.printStackTrace()
-		}
 	}
 }

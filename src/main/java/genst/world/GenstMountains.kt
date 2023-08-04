@@ -1,18 +1,8 @@
 package genst.world
 
-import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRWaypoint
-import net.minecraftforge.common.util.EnumHelper
 
 object GenstMountains {
-	private fun addMountain(name: String?, x: Double, z: Double, h: Float, r: Int, lava: Int) {
-		val classArr = arrayOf<Class<*>>(
-			java.lang.Double.TYPE, java.lang.Double.TYPE, java.lang.Float.TYPE, Integer.TYPE, Integer.TYPE
-		)
-		val args = arrayOf<Any>(x, z, h, r, lava)
-		EnumHelper.addEnum(LOTRMountains::class.java, name, classArr, args)
-	}
-
 	fun postInit() {
 		addMountain("PLACEHOLDER", LOTRWaypoint.ANDUIN_MOUTH.x, LOTRWaypoint.ANDUIN_MOUTH.y, 0.5f, 200, 0)
 		addMountain("PLACEHOLDER", LOTRWaypoint.TOLFALAS_ISLAND.x, LOTRWaypoint.TOLFALAS_ISLAND.y, 1f, 100, 0)
