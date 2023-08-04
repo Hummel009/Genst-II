@@ -1,10 +1,11 @@
-package genst
+package genst.world
 
+import genst.GenstLogger
+import genst.addFixedLocation
 import genst.instance.*
 import lotr.common.LOTRDimension
 import lotr.common.block.LOTRBlockBrick
 import lotr.common.world.biome.LOTRBiome
-import lotr.common.world.genlayer.LOTRGenLayerWorld
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.LOTRWorldGenGondorStructure
 import lotr.common.world.village.LOTRVillageGen
@@ -17,14 +18,10 @@ import java.util.*
 object GenstLocations {
 	private var locations: MutableSet<LOTRVillageGen> = HashSet()
 
-	private fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addZ: Double, rotation: Int) {
+	private fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int) {
 		GenstLogger.skip.add(wp)
 		inst.addFixedLocation(
-			wp,
-			(addX * LOTRGenLayerWorld.scale).toInt(),
-			(addZ * LOTRGenLayerWorld.scale).toInt(),
-			rotation,
-			"PLACEHOLDER"
+			wp, addX, addY, rotation, "PLACEHOLDER"
 		)
 		locations.add(inst)
 	}

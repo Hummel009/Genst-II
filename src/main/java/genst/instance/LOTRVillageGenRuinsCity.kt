@@ -1,6 +1,6 @@
 package genst.instance
 
-import genst.GenstRoads
+import genst.world.GenstRoads
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.LOTRWorldGenNumenorRuin

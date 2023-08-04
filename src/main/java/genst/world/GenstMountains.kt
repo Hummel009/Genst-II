@@ -1,4 +1,4 @@
-package genst
+package genst.world
 
 import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRWaypoint

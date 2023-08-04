@@ -3,6 +3,9 @@ package genst
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLServerStartingEvent
+import genst.world.GenstLocations
+import genst.world.GenstMountains
+import genst.world.GenstRoads
 
 @Mod(modid = "genst", dependencies = "required-after:lotr")
 class Genst {

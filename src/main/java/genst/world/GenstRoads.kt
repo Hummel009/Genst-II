@@ -1,6 +1,7 @@
-package genst
+package genst.world
 
 import cpw.mods.fml.relauncher.ReflectionHelper
+import genst.info
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRRoads
@@ -8,7 +9,6 @@ import lotr.common.world.map.LOTRWaypoint
 import net.minecraft.init.Blocks
 import net.minecraft.world.biome.BiomeGenBase
 import java.util.*
-
 
 object GenstRoads {
 	val PATH_COBBLE: LOTRRoadType = object : LOTRRoadType() {
@@ -33,7 +33,7 @@ object GenstRoads {
 	}
 
 	fun postInit() {
-		val gondorTown = 0.3453125
+		val gondorTown = 0.3359375
 		registerRoad("Linker", arrayOf(LOTRWaypoint.PELARGIR, LOTRWaypoint.PELARGIR.info(-0.1, -gondorTown)))
 	}
 
@@ -49,8 +49,4 @@ object GenstRoads {
 			e.printStackTrace()
 		}
 	}
-}
-
-private fun LOTRWaypoint.info(x: Double, y: Double): DoubleArray {
-	return doubleArrayOf(this.x + x, this.y + y)
 }
