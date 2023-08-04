@@ -14,6 +14,7 @@ object GenstMountains {
 	}
 
 	fun postInit() {
+		addMountain("PLACEHOLDER", LOTRWaypoint.ANDUIN_MOUTH.x, LOTRWaypoint.ANDUIN_MOUTH.y, 0.5f, 200, 0)
 		addMountain("PLACEHOLDER", LOTRWaypoint.TOLFALAS_ISLAND.x, LOTRWaypoint.TOLFALAS_ISLAND.y, 1f, 100, 0)
 		addMountain("PLACEHOLDER", LOTRWaypoint.GREEN_HILLS.x, LOTRWaypoint.GREEN_HILLS.y, 1f, 100, 0)
 		addMountain("PLACEHOLDER", LOTRWaypoint.HIMLING.x, LOTRWaypoint.HIMLING.y, 1f, 100, 0)

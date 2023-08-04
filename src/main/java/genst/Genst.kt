@@ -9,6 +9,7 @@ class Genst {
 	@Mod.EventHandler
 	fun postInit(e: FMLPostInitializationEvent) {
 		GenstMountains.postInit()
+		GenstRoads.postInit()
 		GenstLocations.postInit()
 		GenstLogger.postInit()
 	}
