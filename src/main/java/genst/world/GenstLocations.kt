@@ -1,6 +1,7 @@
 package genst.world
 
 import genst.instance.*
+import genst.utils.affix
 import lotr.common.LOTRDimension
 import lotr.common.block.LOTRBlockBrick
 import lotr.common.world.biome.LOTRBiome

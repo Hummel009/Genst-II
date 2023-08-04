@@ -1,5 +1,6 @@
 package genst.world
 
+import genst.utils.addMountain
 import lotr.common.world.map.LOTRWaypoint
 
 object GenstMountains {

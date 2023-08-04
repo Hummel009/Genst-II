@@ -1,5 +1,7 @@
 package genst.world
 
+import genst.utils.info
+import genst.utils.registerRoad
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
