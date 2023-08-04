@@ -35,6 +35,6 @@ object GenstRoads {
 		val gondorTown = 0.3359375
 		registerRoad("Linker", arrayOf(LOTRWaypoint.PELARGIR, LOTRWaypoint.PELARGIR.info(-0.1, -gondorTown)))
 		registerRoad("Linker", arrayOf(LOTRWaypoint.LINHIR, LOTRWaypoint.LINHIR.info(-0.1, gondorTown)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.LINHIR, LOTRWaypoint.LINHIR.info(gondorTown, -0.1)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.ETHRING, LOTRWaypoint.ETHRING.info(gondorTown + 0.1, -0.2)))
 	}
 }

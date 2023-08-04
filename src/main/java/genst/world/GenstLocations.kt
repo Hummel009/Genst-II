@@ -97,7 +97,7 @@ object GenstLocations {
 					}
 				}
 			}
-		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1.0, -0.1, 1)
+		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1.1, -0.2, 1)
 
 		val gondorFortLam =
 			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
