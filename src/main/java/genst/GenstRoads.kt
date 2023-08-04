@@ -1,5 +1,6 @@
 package genst
 
+import cpw.mods.fml.relauncher.ReflectionHelper
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRRoads
@@ -32,23 +33,24 @@ object GenstRoads {
 	}
 
 	fun postInit() {
-		registerRoad("Linker", arrayOf(LOTRWaypoint.PELARGIR, LOTRWaypoint.PELARGIR.info(0.0, -0.5)))
+		val gondorTown = 0.3453125
+		registerRoad("Linker", arrayOf(LOTRWaypoint.PELARGIR, LOTRWaypoint.PELARGIR.info(-0.1, -gondorTown)))
 	}
 
 	private fun registerRoad(name: String, waypoints: Array<Any>) {
-		try {
-			val lotrRoadsClass = LOTRRoads::class.java
-			val registerRoadMethod = lotrRoadsClass.getDeclaredMethod(
-				"registerRoad", String::class.java, Array<Any>::class.java
+		val addControlZoneMethod = ReflectionHelper.findMethod<LOTRRoads?>(
+			LOTRRoads::class.java, null, arrayOf("registerRoad"), *arrayOf<Class<*>>(
+				String::class.java, Array<Any>::class.java
 			)
-			registerRoadMethod.setAccessible(true)
-			registerRoadMethod.invoke(null, name, waypoints)
+		)
+		try {
+			addControlZoneMethod.invoke(null, *arrayOf<Any>(name, waypoints))
 		} catch (e: Exception) {
 			e.printStackTrace()
 		}
 	}
 }
 
-private fun LOTRWaypoint.info(x: Double, y: Double): Array<Double> {
-	return arrayOf(this.x + x, this.y + y)
+private fun LOTRWaypoint.info(x: Double, y: Double): DoubleArray {
+	return doubleArrayOf(this.x + x, this.y + y)
 }
