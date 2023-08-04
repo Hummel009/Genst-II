@@ -1,6 +1,5 @@
 package genst.world
 
-import genst.GenstLogger
 import genst.instance.*
 import lotr.common.LOTRDimension
 import lotr.common.block.LOTRBlockBrick

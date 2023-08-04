@@ -9,12 +9,20 @@ import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraftforge.common.util.EnumHelper
 
+fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int) {
+	GenstLogger.skip.add(wp)
+	inst.addFixedLocation(
+		wp, addX, addY, rotation, "PLACEHOLDER"
+	)
+	GenstLocations.locations.add(inst)
+}
+
 @Suppress("UNCHECKED_CAST")
 fun LOTRVillageGen.addFixedLocation(
 	wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int, name: String
 ): LocationInfo {
 	val loc = LocationInfo(
-		LOTRWaypoint.mapToWorldX(wp.x + addX), LOTRWaypoint.mapToWorldX(wp.y + addY), rotation, name
+		LOTRWaypoint.mapToWorldX(wp.x + addX), LOTRWaypoint.mapToWorldZ(wp.y + addY), rotation, name
 	).setFixedLocation(wp)
 
 	val field = LOTRVillageGen::class.java.getDeclaredField("fixedLocations")
@@ -41,18 +49,11 @@ fun registerRoad(name: String, waypoints: Array<Any>) {
 	}
 }
 
-fun addMountain(name: String?, x: Double, z: Double, h: Float, r: Int, lava: Int) {
+fun addMountain(x: Double, z: Double, h: Float, r: Int, lava: Int) {
 	val classArr = arrayOf<Class<*>>(
 		java.lang.Double.TYPE, java.lang.Double.TYPE, java.lang.Float.TYPE, Integer.TYPE, Integer.TYPE
 	)
 	val args = arrayOf<Any>(x, z, h, r, lava)
-	EnumHelper.addEnum(LOTRMountains::class.java, name, classArr, args)
-}
-
-fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int) {
-	GenstLogger.skip.add(wp)
-	inst.addFixedLocation(
-		wp, addX, addY, rotation, "PLACEHOLDER"
-	)
-	GenstLocations.locations.add(inst)
+	var i = 0
+	EnumHelper.addEnum(LOTRMountains::class.java, "PLACEHOLDER_${i++}", classArr, args)
 }
