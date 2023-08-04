@@ -11,9 +11,7 @@ import net.minecraftforge.common.util.EnumHelper
 
 fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int) {
 	GenstLogger.skip.add(wp)
-	inst.addFixedLocation(
-		wp, addX, addY, rotation, "PLACEHOLDER"
-	)
+	inst.addFixedLocation(wp, addX, addY, rotation, "PLACEHOLDER")
 	GenstLocations.locations.add(inst)
 }
 
