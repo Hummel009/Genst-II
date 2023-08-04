@@ -3,14 +3,11 @@ package genst.world
 import genst.instance.*
 import genst.utils.affix
 import lotr.common.LOTRDimension
-import lotr.common.block.LOTRBlockBrick
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.LOTRWorldGenGondorStructure
 import lotr.common.world.village.LOTRVillageGen
-import lotr.common.world.village.LOTRVillageGenGondor
 import lotr.common.world.village.LocationInfo
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
@@ -18,123 +15,116 @@ object GenstLocations {
 	var locations: MutableSet<LOTRVillageGen> = HashSet()
 
 	fun postInit() {
-		val gondorFortPG = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
+		val gondorFortPG =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.FORT
+						}
 					}
 				}
 			}
-		}
 		affix(gondorFortPG, LOTRWaypoint.GREEN_HILLS, 0.0, 0.0, 0)
 
-		val gondorFort = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
+		val gondorFort =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.FORT
+						}
 					}
 				}
 			}
-		}
 		affix(gondorFort, LOTRWaypoint.TOLFALAS_ISLAND, 0.0, 0.0, 0)
 
-		val gondorVillage = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.VILLAGE
+		val gondorVillage =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.VILLAGE
+						}
 					}
 				}
 			}
-		}
 		affix(gondorVillage, LOTRWaypoint.ANDUIN_MOUTH, 0.0, 0.0, 0)
 
-		val gondorVillagePel = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
-
-					override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-						val block = world.getBlock(i, j, k)
-						val road = block is LOTRBlockBrick
-						val path = block == Blocks.cobblestone
-						return villageType == VillageType.TOWN && (path || road)
+		val gondorVillagePel =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.TOWN
+						}
 					}
 				}
 			}
-		}
 		affix(gondorVillagePel, LOTRWaypoint.PELARGIR, -0.1, -1.0, 0)
 
-		val gondorVillageLeb = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
+		val gondorVillageLeb =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.TOWN
+						}
 					}
 				}
 			}
-		}
-		affix(gondorVillageLeb, LOTRWaypoint.LINHIR, 0.0, 1.0, 0)
+		affix(gondorVillageLeb, LOTRWaypoint.LINHIR, -0.1, 1.0, 2)
 
-		val gondorVillageLam = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.VILLAGE
+		val gondorVillageLam =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.TOWN
+						}
 					}
 				}
 			}
-		}
-		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1.0, 0.0, 0)
+		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1.0, -0.1, 1)
 
-		val gondorFortLam = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
+		val gondorFortLam =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.TOWN
+						}
 					}
 				}
 			}
-		}
 		affix(gondorFortLam, LOTRWaypoint.CALEMBEL, 0.0, 1.0, 0)
 
-		val gondorCityDA = object :
-			LOTRVillageGenGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0f) {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
+		val gondorCityDA =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.TOWN
+						}
 					}
 				}
 			}
-		}
 		affix(gondorCityDA, LOTRWaypoint.TARNOST, 0.0, -1.0, 0)
 		affix(gondorCityDA, LOTRWaypoint.DOL_AMROTH, -1.0, 0.0, 0)
 
