@@ -128,6 +128,9 @@ object GenstLocations {
 		affix(gondorCityDA, LOTRWaypoint.TARNOST, 0.0, -1.0, Dir.NORTH)
 		affix(gondorCityDA, LOTRWaypoint.DOL_AMROTH, -1.0, 0.0, Dir.WEST)
 
+		val erech = GenstErech(LOTRBiome.forodwaith, 0.0f)
+		affix(erech, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
+
 		/* READY */
 		val angmar = LOTRVillageGenAngmar(LOTRBiome.forodwaith, 0.0f)
 		affix(angmar, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)

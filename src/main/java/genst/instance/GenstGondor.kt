@@ -1,6 +1,6 @@
 package genst.instance
 
-import lotr.common.block.LOTRBlockBrick
+import lotr.common.block.LOTRBlockBrickBase
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.structure2.LOTRWorldGenGondorStructure
 import lotr.common.world.village.LOTRVillageGenGondor
@@ -21,7 +21,7 @@ open class GenstGondor(
 	) : LOTRVillageGenGondor.Instance(village, world, i, k, random, loc) {
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			val road = block is LOTRBlockBrick
+			val road = block is LOTRBlockBrickBase
 			val path = block == Blocks.cobblestone
 			return villageType == VillageType.TOWN && (path || road)
 		}
