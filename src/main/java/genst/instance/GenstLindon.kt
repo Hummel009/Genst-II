@@ -1,13 +1,12 @@
 package genst.instance
 
+import lotr.common.block.LOTRBlockBrickBase
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityHighElf
 import lotr.common.entity.npc.LOTREntityHighElfWarrior
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.structure2.LOTRWorldGenHighElfHouse
-import lotr.common.world.structure2.LOTRWorldGenHighElvenTower
-import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
+import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.util.MathHelper
@@ -15,7 +14,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 16
 		gridRandomDisplace = 2
@@ -29,12 +28,12 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(
+	open class Instance(
 		village: GenstLindon?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<GenstLindon?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(LOTRWorldGenHighElvenTower(false), 0, -4, 0, true)
+			addStructure(getTower(), 0, -4, 0, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClass(LOTREntityHighElfWarrior::class.java)
@@ -51,10 +50,10 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
-			addStructure(LOTRWorldGenHighElfHouse(false), -21, 0, 1)
-			addStructure(LOTRWorldGenHighElfHouse(false), 0, -21, 2)
-			addStructure(LOTRWorldGenHighElfHouse(false), 21, 0, 3)
-			addStructure(LOTRWorldGenHighElfHouse(false), 0, 21, 0)
+			addStructure(getForge(), -21, 0, 1, true)
+			addStructure(getForge(), 0, -21, 2, true)
+			addStructure(getForge(), 21, 0, 3, true)
+			addStructure(getForge(), 0, 21, 0, true)
 			val houses = 20
 			val frac = 1.0f / houses
 			var turn = 0.0f
@@ -80,7 +79,7 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 					l = 61
 					i = Math.round(l * cos)
 					k = Math.round(l * sin)
-					addStructure(LOTRWorldGenHighElfHouse(false), i, k, r)
+					addStructure(getHouse(), i, k, r, true)
 					continue
 				}
 			}
@@ -88,22 +87,22 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val farmZ = 17
 			val farmSize = 6
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHighElfHouse(false), -farmX + farmSize, -farmZ, 1)
+				addStructure(getHouse(), -farmX + farmSize, -farmZ, 1, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHighElfHouse(false), -farmZ + farmSize, -farmX, 1)
+				addStructure(getHouse(), -farmZ + farmSize, -farmX, 1, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHighElfHouse(false), farmX - farmSize, -farmZ, 3)
+				addStructure(getHouse(), farmX - farmSize, -farmZ, 3, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHighElfHouse(false), farmZ - farmSize, -farmX, 3)
+				addStructure(getHouse(), farmZ - farmSize, -farmX, 3, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHighElfHouse(false), -farmX + farmSize, farmZ, 1)
+				addStructure(getHouse(), -farmX + farmSize, farmZ, 1, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHighElfHouse(false), farmX - farmSize, farmZ, 3)
+				addStructure(getHouse(), farmX - farmSize, farmZ, 3, true)
 			}
 		}
 
@@ -113,12 +112,12 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val dSq = i * i + k * k
 			val imn = 20 + random.nextInt(4)
 			if (dSq < imn * imn) {
-				return LOTRRoadType.HIGH_ELVEN
+				return LOTRRoadType.PATH
 			}
 			val omn = 53 - random.nextInt(4)
 			val omx = 60 + random.nextInt(4)
 			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs((i1 - k1).toDouble()) <= 2 + random.nextInt(4)) {
-				return LOTRRoadType.HIGH_ELVEN
+				return LOTRRoadType.PATH
 			}
 			return null
 		}
@@ -128,10 +127,23 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return true
+			val block = world.getBlock(i, j, k)
+			return block is LOTRBlockBrickBase
 		}
 
 		override fun setupVillageProperties(random: Random) {
+		}
+
+		open fun getForge(): LOTRWorldGenStructureBase2 {
+			return LOTRWorldGenHighElvenForge(false)
+		}
+
+		open fun getHouse(): LOTRWorldGenStructureBase2 {
+			return LOTRWorldGenHighElfHouse(false)
+		}
+
+		open fun getTower(): LOTRWorldGenStructureBase2 {
+			return LOTRWorldGenHighElvenTower(false)
 		}
 	}
 }

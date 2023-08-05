@@ -1,5 +1,6 @@
 package genst.instance
 
+import lotr.common.block.LOTRBlockBrickBase
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
 import lotr.common.entity.npc.LOTREntityAngmarOrcArcher
@@ -34,7 +35,7 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstNorthernOrcs?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(LOTRWorldGenNorthernOrcTower(false), 0, -4, 0, true)
+			addStructure(StructureNorthernOrcTower(false), 0, -4, 0, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)
@@ -51,10 +52,10 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
-			addStructure(LOTRWorldGenAngmarWargPit(false), -21, 0, 1)
-			addStructure(LOTRWorldGenAngmarWargPit(false), 0, -21, 2)
-			addStructure(LOTRWorldGenAngmarWargPit(false), 21, 0, 3)
-			addStructure(LOTRWorldGenAngmarWargPit(false), 0, 21, 0)
+			addStructure(LOTRWorldGenAngmarWargPit(false), -21, 0, 1, true)
+			addStructure(LOTRWorldGenAngmarWargPit(false), 0, -21, 2, true)
+			addStructure(LOTRWorldGenAngmarWargPit(false), 21, 0, 3, true)
+			addStructure(LOTRWorldGenAngmarWargPit(false), 0, 21, 0, true)
 			val houses = 20
 			val frac = 1.0f / houses
 			var turn = 0.0f
@@ -80,7 +81,7 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 					l = 61
 					i = Math.round(l * cos)
 					k = Math.round(l * sin)
-					addStructure(LOTRWorldGenGundabadTent(false), i, k, r)
+					addStructure(LOTRWorldGenGundabadTent(false), i, k, r, true)
 					continue
 				}
 			}
@@ -88,22 +89,22 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val farmZ = 17
 			val farmSize = 6
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenGundabadTent(false), -farmX + farmSize, -farmZ, 1)
+				addStructure(LOTRWorldGenGundabadTent(false), -farmX + farmSize, -farmZ, 1, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenGundabadTent(false), -farmZ + farmSize, -farmX, 1)
+				addStructure(LOTRWorldGenGundabadTent(false), -farmZ + farmSize, -farmX, 1, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenGundabadForgeTent(false), farmX - farmSize, -farmZ, 3)
+				addStructure(LOTRWorldGenGundabadForgeTent(false), farmX - farmSize, -farmZ, 3, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenAngmarTent(false), farmZ - farmSize, -farmX, 3)
+				addStructure(LOTRWorldGenAngmarTent(false), farmZ - farmSize, -farmX, 3, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenAngmarTent(false), -farmX + farmSize, farmZ, 1)
+				addStructure(LOTRWorldGenAngmarTent(false), -farmX + farmSize, farmZ, 1, true)
 			}
 			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenAngmarForgeTent(false), farmX - farmSize, farmZ, 3)
+				addStructure(LOTRWorldGenAngmarForgeTent(false), farmX - farmSize, farmZ, 3, true)
 			}
 		}
 
@@ -117,7 +118,16 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is BlockStone || block is BlockSnow || block is BlockSnowBlock || block is BlockOre || block is BlockGravel || block is BlockDirt
+			val set = hashSetOf(
+				BlockStone::class.java,
+				BlockSnow::class.java,
+				BlockSnowBlock::class.java,
+				BlockOre::class.java,
+				BlockGravel::class.java,
+				BlockDirt::class.java,
+				LOTRBlockBrickBase::class.java
+			)
+			return set.contains(block.javaClass)
 		}
 
 		override fun setupVillageProperties(random: Random) {

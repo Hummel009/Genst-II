@@ -10,7 +10,7 @@ import java.util.*
 import kotlin.math.abs
 
 
-class LOTRWorldGenNorthernOrcTower(flag: Boolean) : LOTRWorldGenStructureBase2(flag) {
+class StructureNorthernOrcTower(flag: Boolean) : LOTRWorldGenStructureBase2(flag) {
 	override fun generateWithSetRotation(world: World, random: Random, i: Int, j: Int, k: Int, rot: Int): Boolean {
 		var i = i
 		var j = j
