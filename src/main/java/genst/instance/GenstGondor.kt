@@ -10,8 +10,8 @@ import net.minecraft.world.World
 import java.util.*
 
 open class GenstGondor(
-	biome: LOTRBiome, fief: LOTRWorldGenGondorStructure.GondorFiefdom, f: Float
-) : LOTRVillageGenGondor(biome, fief, f) {
+	fief: LOTRWorldGenGondorStructure.GondorFiefdom
+) : LOTRVillageGenGondor(LOTRBiome.forodwaith, fief, 0.0f) {
 	init {
 		villageChunkRadius = 6
 	}

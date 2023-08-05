@@ -9,11 +9,11 @@ import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
 import java.util.*
 
-class LOTRVillageGenRuinsMedium(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
+class LOTRVillageGenRuinsMedium : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 10
 		gridRandomDisplace = 1
-		spawnChance = f
+		spawnChance = 0.0f
 		villageChunkRadius = 5
 	}
 

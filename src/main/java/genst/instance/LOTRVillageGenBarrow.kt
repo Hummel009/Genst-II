@@ -8,11 +8,11 @@ import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
 import java.util.*
 
-class LOTRVillageGenBarrow(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
+class LOTRVillageGenBarrow : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 14
 		gridRandomDisplace = 1
-		spawnChance = f
+		spawnChance = 0.0f
 		villageChunkRadius = 6
 	}
 

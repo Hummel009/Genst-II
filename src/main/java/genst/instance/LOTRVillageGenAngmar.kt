@@ -12,11 +12,11 @@ import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
 
-class LOTRVillageGenAngmar(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
+class LOTRVillageGenAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
-		spawnChance = f
+		spawnChance = 0.0f
 		villageChunkRadius = 4
 	}
 

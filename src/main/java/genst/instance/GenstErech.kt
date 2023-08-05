@@ -9,11 +9,11 @@ import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
-class GenstErech(biome: LOTRBiome, f: Float) : LOTRVillageGen(biome) {
+class GenstErech : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 10
 		gridRandomDisplace = 1
-		spawnChance = f
+		spawnChance = 0.0f
 		villageChunkRadius = 2
 	}
 
