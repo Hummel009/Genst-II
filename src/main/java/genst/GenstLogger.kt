@@ -50,7 +50,6 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.MOUNT_CELEBDIL)
 		skip.add(LOTRWaypoint.MOUNT_FANUIDHOL)
 		skip.add(LOTRWaypoint.MOUNT_METHEDRAS)
-		skip.add(LOTRWaypoint.GOBLIN_TOWN)
 		skip.add(LOTRWaypoint.EAGLES_EYRIE)
 		skip.add(LOTRWaypoint.SCATHA)
 		skip.add(LOTRWaypoint.CARROCK)

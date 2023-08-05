@@ -2,7 +2,6 @@ package genst.instance
 
 import lotr.common.LOTRMod
 import lotr.common.entity.npc.*
-import lotr.common.world.structure.LOTRWorldGenStructureBase
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
 import net.minecraft.entity.IEntityLivingData
 import net.minecraft.init.Blocks

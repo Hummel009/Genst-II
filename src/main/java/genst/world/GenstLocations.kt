@@ -154,21 +154,18 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GUNDABAD, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GOBLIN_TOWN, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
-		location = LOTRVillageGenRuinsMedium()
-		affix(location, LOTRWaypoint.ARVEDUI_MINES, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.HIMLING, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.TOL_FUIN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MENELTARMA_SUMMIT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.WITHERED_HEATH, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FIELD_OF_CELEBRANT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.CORSAIRS_LANDING, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FORDS_OF_ISEN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.SARN_FORD, 2.0, 2.0, Dir.NORTH)
+		location = GenstLindon()
+		affix(location, LOTRWaypoint.AMON_EREB, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FORLINDON, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HARLINDON, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FORLOND, -0.6, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.HARLOND, -0.6, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.MITHLOND_NORTH, 0.45, 0.45, Dir.SOUTH)
+		affix(location, LOTRWaypoint.MITHLOND_SOUTH, -0.45, -0.45, Dir.NORTH)
+		affix(location, LOTRWaypoint.TOWER_HILLS, 0.0, -0.6, Dir.NORTH)
 
 		location = LOTRVillageGenHobbit()
 		affix(location, LOTRWaypoint.BROCKENBORINGS, 0.0, 0.0, Dir.EAST)
@@ -196,16 +193,31 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.WILLOWBOTTOM, 0.0, 0.0, Dir.EAST)
 
 		/* READY */
-		location = LOTRVillageGenHighElven()
-		affix(location, LOTRWaypoint.FORLOND, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.HARLOND, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.AMON_EREB, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MITHLOND_NORTH, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MITHLOND_SOUTH, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FORLINDON, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.HARLINDON, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.TOWER_HILLS, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.TOWER_HILLS, 0.0, 0.0, Dir.NORTH)
+		location = LOTRVillageGenRivendell()
+		affix(location, LOTRWaypoint.RIVENDELL, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		location = LOTRVillageGenDunland()
+		affix(location, LOTRWaypoint.NORTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SOUTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.DWARROWVALE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.WULFBURG, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FRECA_HOLD, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		location = LOTRVillageGenRuinsMedium()
+		affix(location, LOTRWaypoint.ARVEDUI_MINES, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HIMLING, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.TOL_FUIN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MENELTARMA_SUMMIT, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.WITHERED_HEATH, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FIELD_OF_CELEBRANT, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.CORSAIRS_LANDING, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FORDS_OF_ISEN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SARN_FORD, 2.0, 2.0, Dir.NORTH)
 
 		/* READY */
 		location = LOTRVillageGenRuinsCity()
@@ -232,22 +244,10 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
 
 		/* READY */
-		location = LOTRVillageGenRivendell()
-		affix(location, LOTRWaypoint.RIVENDELL, 0.0, 0.0, Dir.NORTH)
-
-		/* READY */
 		location = LOTRVillageGenBarrow()
 		affix(location, LOTRWaypoint.TOL_MORWEN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GLADDEN_FIELDS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CROSSINGS_OF_POROS, 1.0, 1.0, Dir.NORTH)
-
-		/* READY */
-		location = LOTRVillageGenDunland()
-		affix(location, LOTRWaypoint.NORTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.SOUTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.DWARROWVALE, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.WULFBURG, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FRECA_HOLD, 0.0, 0.0, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
