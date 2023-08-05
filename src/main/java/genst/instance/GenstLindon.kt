@@ -6,7 +6,6 @@ import lotr.common.entity.npc.LOTREntityHighElfWarrior
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.LOTRWorldGenHighElfHouse
-import lotr.common.world.structure2.LOTRWorldGenHighElvenForge
 import lotr.common.world.structure2.LOTRWorldGenHighElvenTower
 import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
@@ -52,10 +51,10 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
-			addStructure(LOTRWorldGenHighElvenForge(false), -21, 0, 1)
-			addStructure(LOTRWorldGenHighElvenForge(false), 0, -21, 2)
-			addStructure(LOTRWorldGenHighElvenForge(false), 21, 0, 3)
-			addStructure(LOTRWorldGenHighElvenForge(false), 0, 21, 0)
+			addStructure(LOTRWorldGenHighElfHouse(false), -21, 0, 1)
+			addStructure(LOTRWorldGenHighElfHouse(false), 0, -21, 2)
+			addStructure(LOTRWorldGenHighElfHouse(false), 21, 0, 3)
+			addStructure(LOTRWorldGenHighElfHouse(false), 0, 21, 0)
 			val houses = 20
 			val frac = 1.0f / houses
 			var turn = 0.0f
