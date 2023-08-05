@@ -99,7 +99,7 @@ object GenstLocations {
 			}
 		affix(gondorVillageLam, LOTRWaypoint.ETHRING, 1.1, -0.2, Dir.EAST)
 
-		val gondorFortLam =
+		val gondorTownLam =
 			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 0.0f) {
 				override fun createVillageInstance(
 					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -111,7 +111,7 @@ object GenstLocations {
 					}
 				}
 			}
-		affix(gondorFortLam, LOTRWaypoint.CALEMBEL, 0.2, -1.1, Dir.NORTH)
+		affix(gondorTownLam, LOTRWaypoint.CALEMBEL, 0.2, -1.1, Dir.NORTH)
 
 		val gondorCityDA =
 			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 0.0f) {
@@ -127,6 +127,20 @@ object GenstLocations {
 			}
 		affix(gondorCityDA, LOTRWaypoint.TARNOST, 0.0, -1.0, Dir.NORTH)
 		affix(gondorCityDA, LOTRWaypoint.DOL_AMROTH, -1.0, 0.0, Dir.WEST)
+
+		val gondorCity =
+			object : GenstGondor(LOTRBiome.forodwaith, LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 0.0f) {
+				override fun createVillageInstance(
+					world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+				): AbstractInstance<*> {
+					return object : Instance(this, world, i, k, random, loc) {
+						override fun setupVillageProperties(random: Random) {
+							villageType = VillageType.TOWN
+						}
+					}
+				}
+			}
+		affix(gondorCity, LOTRWaypoint.MINAS_TIRITH, -1.0, 0.0, Dir.WEST)
 
 		val erech = GenstErech(LOTRBiome.forodwaith, 0.0f)
 		affix(erech, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
@@ -220,6 +234,7 @@ object GenstLocations {
 		val barrow = LOTRVillageGenBarrow(LOTRBiome.forodwaith, 0.0f)
 		affix(barrow, LOTRWaypoint.TOL_MORWEN, 0.0, 0.0, Dir.NORTH)
 		affix(barrow, LOTRWaypoint.GLADDEN_FIELDS, 0.0, 0.0, Dir.NORTH)
+		affix(barrow, LOTRWaypoint.CROSSINGS_OF_POROS, 11.0, 1.0, Dir.NORTH)
 
 		/* READY */
 		val dunland = LOTRVillageGenDunland(LOTRBiome.forodwaith, 0.0f)

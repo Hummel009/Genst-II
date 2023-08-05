@@ -39,5 +39,6 @@ object GenstRoads {
 		registerRoad("Linker", arrayOf(LOTRWaypoint.CALEMBEL, LOTRWaypoint.CALEMBEL.info(0.2, -gondorTown - 0.1)))
 		registerRoad("Linker", arrayOf(LOTRWaypoint.DOL_AMROTH, LOTRWaypoint.DOL_AMROTH.info(-gondorTown, 0.0)))
 		registerRoad("Linker", arrayOf(LOTRWaypoint.TARNOST, LOTRWaypoint.TARNOST.info(0.0, -gondorTown)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.MINAS_TIRITH, LOTRWaypoint.MINAS_TIRITH.info(-gondorTown, 0.0)))
 	}
 }
