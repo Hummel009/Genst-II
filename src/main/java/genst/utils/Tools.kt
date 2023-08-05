@@ -9,9 +9,9 @@ import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import net.minecraftforge.common.util.EnumHelper
 
-fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int) {
+fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, dir: GenstLocations.Dir) {
 	GenstLogger.skip.add(wp)
-	inst.addFixedLocation(wp, addX, addY, rotation, "PLACEHOLDER")
+	inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER")
 	GenstLocations.locations.add(inst)
 }
 
