@@ -17,8 +17,8 @@ import java.util.*
 
 class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 12
-		gridRandomDisplace = 1
+		gridScale = 16
+		gridRandomDisplace = 2
 		spawnChance = 0.0f
 		villageChunkRadius = 6
 	}

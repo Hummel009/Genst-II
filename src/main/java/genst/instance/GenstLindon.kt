@@ -18,8 +18,8 @@ import kotlin.math.abs
 
 class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 12
-		gridRandomDisplace = 1
+		gridScale = 16
+		gridRandomDisplace = 2
 		spawnChance = 0.0f
 		villageChunkRadius = 6
 	}
@@ -129,7 +129,7 @@ class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
+			return true
 		}
 
 		override fun setupVillageProperties(random: Random) {
