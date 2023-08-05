@@ -25,5 +25,9 @@ open class GenstGondor(
 			val path = block == Blocks.cobblestone
 			return villageType == VillageType.TOWN && (path || road)
 		}
+
+		override fun isFlat(): Boolean {
+			return false
+		}
 	}
 }
