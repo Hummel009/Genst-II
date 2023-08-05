@@ -10,6 +10,12 @@ import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.block.BlockDirt
+import net.minecraft.block.BlockGravel
+import net.minecraft.block.BlockOre
+import net.minecraft.block.BlockSnow
+import net.minecraft.block.BlockSnowBlock
+import net.minecraft.block.BlockStone
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
@@ -49,10 +55,10 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
-			addStructure(LOTRWorldGenAngmarHillmanHouse(false), -21, 0, 1)
-			addStructure(LOTRWorldGenAngmarHillmanChieftainHouse(false), 0, -21, 2)
+			addStructure(LOTRWorldGenAngmarWargPit(false), -21, 0, 1)
+			addStructure(LOTRWorldGenAngmarWargPit(false), 0, -21, 2)
 			addStructure(LOTRWorldGenAngmarWargPit(false), 21, 0, 3)
-			addStructure(LOTRWorldGenAngmarTower2(false), 0, 21, 0)
+			addStructure(LOTRWorldGenAngmarWargPit(false), 0, 21, 0)
 			val houses = 20
 			val frac = 1.0f / houses
 			var turn = 0.0f
@@ -78,7 +84,7 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 					l = 61
 					i = Math.round(l * cos)
 					k = Math.round(l * sin)
-					addStructure(LOTRWorldGenGundabadForgeTent(false), i, k, r)
+					addStructure(LOTRWorldGenGundabadTent(false), i, k, r)
 					continue
 				}
 			}
@@ -114,7 +120,8 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
+			val block = world.getBlock(i, j, k)
+			return block is BlockStone || block is BlockSnow || block is BlockSnowBlock || block is BlockOre || block is BlockGravel || block is BlockDirt
 		}
 
 		override fun setupVillageProperties(random: Random) {

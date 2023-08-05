@@ -153,6 +153,7 @@ object GenstLocations {
 		location = GenstNorthernOrcs()
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_GUNDABAD, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = LOTRVillageGenRuinsMedium()

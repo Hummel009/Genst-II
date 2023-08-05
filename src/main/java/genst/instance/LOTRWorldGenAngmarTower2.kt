@@ -3,7 +3,6 @@ package genst.instance
 import lotr.common.LOTRMod
 import lotr.common.entity.npc.LOTREntityAngmarOrcMercenaryCaptain
 import lotr.common.item.LOTRItemBanner
-import lotr.common.world.biome.LOTRBiomeGenAngmar
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
 import net.minecraft.init.Blocks
 import net.minecraft.world.World
@@ -226,11 +225,7 @@ class LOTRWorldGenAngmarTower2(flag: Boolean) : LOTRWorldGenStructureBase2(flag)
 		var j12: Int
 		var k12: Int
 		if (restrictions) {
-			if (world.getBiomeGenForCoords(i, k) !is LOTRBiomeGenAngmar) {
-				return false
-			}
-			val l = world.getBlock(i, shadI - 1, k)
-			if (l !== Blocks.grass && l !== Blocks.dirt && l !== Blocks.stone) {
+			if (!isSurface(world, i, shadI - 1, k)) {
 				return false
 			}
 		}
