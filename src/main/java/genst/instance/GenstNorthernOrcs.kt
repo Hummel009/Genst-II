@@ -3,6 +3,8 @@ package genst.instance
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
 import lotr.common.entity.npc.LOTREntityAngmarOrcArcher
+import lotr.common.entity.npc.LOTREntityGundabadOrc
+import lotr.common.entity.npc.LOTREntityGundabadOrcArcher
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
@@ -12,12 +14,12 @@ import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
 
-class LOTRVillageGenAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
+class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 4
+		villageChunkRadius = 6
 	}
 
 	override fun createVillageInstance(
@@ -26,36 +28,38 @@ class LOTRVillageGenAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(village: LOTRVillageGenAngmar?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
-		AbstractInstance<LOTRVillageGenAngmar?>(village, world, i, k, random, loc) {
+	class Instance(village: GenstNorthernOrcs?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
+		AbstractInstance<GenstNorthernOrcs?>(village, world, i, k, random, loc) {
 		private var numOuterHouses = 0
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
-					spawner.setSpawnClass(LOTREntityAngmarOrc::class.java)
-					spawner.setCheckRanges(80, -12, 12, 50)
-					spawner.setSpawnRanges(40, -8, 8, 40)
+					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)
+					spawner.setCheckRanges(40, -12, 12, 40)
+					spawner.setSpawnRanges(20, -6, 6, 64)
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
-					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)
-					spawner.setCheckRanges(80, -12, 12, 24)
-					spawner.setSpawnRanges(40, -8, 8, 40)
+					spawner.setSpawnClasses(LOTREntityGundabadOrc::class.java, LOTREntityGundabadOrcArcher::class.java)
+					spawner.setCheckRanges(40, -12, 12, 16)
+					spawner.setSpawnRanges(20, -6, 6, 64)
 					spawner.setBlockEnemySpawnRange(60)
 				}
 			}, 0, 0, 0)
-			addStructure(LOTRWorldGenAngmarTower2(false), 0, 0, 0, true)
-			addStructure(LOTRWorldGenAngmarHillmanChieftainHouse(false), 0, 14, 0, true)
-			addStructure(LOTRWorldGenAngmarHillmanHouse(false), 0, -14, 2, true)
-			addStructure(LOTRWorldGenAngmarForgeTent(false), -14, 0, 1, true)
-			addStructure(LOTRWorldGenAngmarForgeTent(false), 14, 0, 3, true)
-			val minOuterSize = MathHelper.getRandomIntegerInRange(random, 35, 45)
-			val frac = 1.0f / numOuterHouses
+			addStructure(LOTRWorldGenAngmarHillmanHouse(false), -21, 0, 1)
+			addStructure(LOTRWorldGenAngmarHillmanChieftainHouse(false), 0, -21, 2)
+			addStructure(LOTRWorldGenAngmarWargPit(false), 21, 0, 3)
+			addStructure(LOTRWorldGenAngmarTower2(false), 0, 21, 0)
+			val houses = 20
+			val frac = 1.0f / houses
 			var turn = 0.0f
 			while (turn < 1.0f) {
+				var k: Int
+				var l: Int
+				var i: Int
 				val turnR = Math.toRadians((frac.let { turn += it; turn } * 360.0f).toDouble()).toFloat()
 				val sin = MathHelper.sin(turnR)
 				val cos = MathHelper.cos(turnR)
@@ -70,10 +74,34 @@ class LOTRVillageGenAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3
 				}
-				val l = minOuterSize + random.nextInt(5)
-				val i = Math.round(l * cos)
-				val k = Math.round(l * sin)
-				addStructure(LOTRWorldGenAngmarTent(false), i, k, r)
+				if (random.nextBoolean()) {
+					l = 61
+					i = Math.round(l * cos)
+					k = Math.round(l * sin)
+					addStructure(LOTRWorldGenGundabadForgeTent(false), i, k, r)
+					continue
+				}
+			}
+			val farmX = 38
+			val farmZ = 17
+			val farmSize = 6
+			if (random.nextBoolean()) {
+				addStructure(LOTRWorldGenGundabadTent(false), -farmX + farmSize, -farmZ, 1)
+			}
+			if (random.nextBoolean()) {
+				addStructure(LOTRWorldGenGundabadTent(false), -farmZ + farmSize, -farmX, 1)
+			}
+			if (random.nextBoolean()) {
+				addStructure(LOTRWorldGenGundabadForgeTent(false), farmX - farmSize, -farmZ, 3)
+			}
+			if (random.nextBoolean()) {
+				addStructure(LOTRWorldGenAngmarTent(false), farmZ - farmSize, -farmX, 3)
+			}
+			if (random.nextBoolean()) {
+				addStructure(LOTRWorldGenAngmarTent(false), -farmX + farmSize, farmZ, 1)
+			}
+			if (random.nextBoolean()) {
+				addStructure(LOTRWorldGenAngmarForgeTent(false), farmX - farmSize, farmZ, 3)
 			}
 		}
 

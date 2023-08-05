@@ -150,7 +150,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
 
 		/* READY */
-		location = LOTRVillageGenAngmar()
+		location = GenstNorthernOrcs()
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)
 
