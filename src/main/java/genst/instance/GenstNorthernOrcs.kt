@@ -39,6 +39,7 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 		private var numOuterHouses = 0
 
 		override fun addVillageStructures(random: Random) {
+			addStructure(LOTRWorldGenNorthernOrcTower(false), 0, -4, 0, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)
