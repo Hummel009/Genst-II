@@ -1,14 +1,7 @@
 package genst.instance
 
 import lotr.common.entity.LOTREntityNPCRespawner
-import lotr.common.entity.npc.LOTREntityDunlending
-import lotr.common.entity.npc.LOTREntityDunlendingArcher
-import lotr.common.entity.npc.LOTREntityDunlendingAxeThrower
-import lotr.common.entity.npc.LOTREntityDunlendingBerserker
-import lotr.common.entity.npc.LOTREntityDunlendingWarrior
-import lotr.common.entity.npc.LOTREntityEasterling
-import lotr.common.entity.npc.LOTREntityEasterlingArcher
-import lotr.common.entity.npc.LOTREntityEasterlingWarrior
+import lotr.common.entity.npc.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
