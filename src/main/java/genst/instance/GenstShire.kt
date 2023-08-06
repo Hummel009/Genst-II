@@ -70,8 +70,8 @@ class GenstShire : LOTRVillageGen(LOTRBiome.forodwaith) {
 				val k2 = k1 + 20
 				if (l != 0) {
 					addStructure(LOTRWorldGenHayBales(false), i1, -k2, 2, true)
+					addStructure(LOTRWorldGenHayBales(false), i1, k2, 0, true)
 				}
-				addStructure(LOTRWorldGenHayBales(false), i1, k2, 0, true)
 			}
 		}
 
