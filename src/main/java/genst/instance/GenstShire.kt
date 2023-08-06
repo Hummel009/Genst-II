@@ -12,7 +12,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-class LOTRVillageGenHobbit : LOTRVillageGen(LOTRBiome.forodwaith) {
+class GenstShire : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 14
 		gridRandomDisplace = 1
@@ -26,8 +26,9 @@ class LOTRVillageGenHobbit : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(village: LOTRVillageGenHobbit?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
-		AbstractInstance<LOTRVillageGenHobbit?>(village, world, i, k, random, loc) {
+	class Instance(
+		village: GenstShire, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
+	) : AbstractInstance<GenstShire?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
@@ -48,14 +49,12 @@ class LOTRVillageGenHobbit : LOTRVillageGen(LOTRBiome.forodwaith) {
 			}, 0, 0, 0)
 			val pathEnd = 68
 			val pathSide = 7
+			val centreSide = 19
 			addStructure(LOTRWorldGenBreeWell(false), 0, -2, 0, true)
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenHobbitTavern(false), -pathEnd, 0, 1, true)
-				addStructure(getOtherVillageStructure(random), pathEnd, 0, 3, true)
-			} else {
-				addStructure(getOtherVillageStructure(random), -pathEnd, 0, 1, true)
-				addStructure(LOTRWorldGenHobbitTavern(false), pathEnd, 0, 3, true)
-			}
+			addStructure(LOTRWorldGenHobbitHole(false), 0, -centreSide, 2, true)
+			addStructure(LOTRWorldGenHobbitWindmill(false), 0, centreSide, 0, true)
+			addStructure(LOTRWorldGenHobbitTavern(false), -pathEnd, 0, 1, true)
+			addStructure(LOTRWorldGenHobbitTavern(false), pathEnd, 0, 3, true)
 			val rowHouses = 3
 			for (l in -rowHouses..rowHouses) {
 				val i1 = l * 18
@@ -64,21 +63,17 @@ class LOTRVillageGenHobbit : LOTRVillageGen(LOTRBiome.forodwaith) {
 					k1 += 15 - pathSide
 				}
 				if (abs(l.toDouble()) >= 1) {
-					addStructure(LOTRWorldGenHobbitBurrow(false), i1, -k1, 2)
+					addStructure(LOTRWorldGenHobbitBurrow(false), i1, -k1, 2, true)
 				}
-				addStructure(LOTRWorldGenHobbitBurrow(false), i1, k1, 0)
+				if (abs(l.toDouble()) >= 1) {
+					addStructure(LOTRWorldGenHobbitBurrow(false), i1, k1, 0, true)
+				}
 				val k2 = k1 + 20
 				if (l != 0) {
-					addStructure(LOTRWorldGenHayBales(false), i1, -k2, 2)
+					addStructure(LOTRWorldGenHayBales(false), i1, -k2, 2, true)
 				}
-				addStructure(LOTRWorldGenHayBales(false), i1, k2, 0)
+				addStructure(LOTRWorldGenHayBales(false), i1, k2, 0, true)
 			}
-		}
-
-		private fun getOtherVillageStructure(random: Random): LOTRWorldGenStructureBase2 {
-			return if (random.nextBoolean()) {
-				LOTRWorldGenHobbitFarm(false)
-			} else LOTRWorldGenHobbitWindmill(false)
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
@@ -86,9 +81,10 @@ class LOTRVillageGenHobbit : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val k1 = abs(k.toDouble()).toInt()
 			val dSq = i * i + k * k
 			val imn = 15 + random.nextInt(4)
-			return if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {
-				LOTRRoadType.PATH
-			} else null
+			if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {
+				return LOTRRoadType.PATH
+			}
+			return null
 		}
 
 		override fun isFlat(): Boolean {
@@ -99,6 +95,7 @@ class LOTRVillageGenHobbit : LOTRVillageGen(LOTRBiome.forodwaith) {
 			return false
 		}
 
-		override fun setupVillageProperties(random: Random) {}
+		override fun setupVillageProperties(random: Random) {
+		}
 	}
 }
