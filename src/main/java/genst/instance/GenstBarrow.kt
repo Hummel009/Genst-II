@@ -8,12 +8,12 @@ import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
 import java.util.*
 
-class LOTRVillageGenBarrow : LOTRVillageGen(LOTRBiome.forodwaith) {
+class GenstBarrow : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 14
+		gridScale = 10
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 6
+		villageChunkRadius = 2
 	}
 
 	override fun createVillageInstance(
@@ -22,9 +22,9 @@ class LOTRVillageGenBarrow : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(village: LOTRVillageGenBarrow?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
-		AbstractInstance<LOTRVillageGenBarrow?>(village, world, i, k, random, loc) {
-
+	class Instance(
+		village: GenstBarrow?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
+	) : AbstractInstance<GenstBarrow?>(village, world, i, k, random, loc) {
 		override fun addVillageStructures(random: Random) {
 			addStructure(LOTRWorldGenBDBarrow(false), 0, 0, 0, true)
 		}
