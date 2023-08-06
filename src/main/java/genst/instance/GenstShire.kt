@@ -52,9 +52,8 @@ class GenstShire : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val centreSide = 19
 			addStructure(LOTRWorldGenBreeWell(false), 0, -2, 0, true)
 			addStructure(LOTRWorldGenHobbitHole(false), 0, -centreSide, 2, true)
-			addStructure(LOTRWorldGenHobbitWindmill(false), 0, centreSide, 0, true)
 			addStructure(LOTRWorldGenHobbitTavern(false), -pathEnd, 0, 1, true)
-			addStructure(LOTRWorldGenHobbitTavern(false), pathEnd, 0, 3, true)
+			addStructure(LOTRWorldGenHobbitWindmill(false), pathEnd, 0, 3, true)
 			val rowHouses = 3
 			for (l in -rowHouses..rowHouses) {
 				val i1 = l * 18
