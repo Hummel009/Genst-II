@@ -171,6 +171,14 @@ object GenstLocations {
 		location = GenstRivendell()
 		affix(location, LOTRWaypoint.RIVENDELL, 0.0, -0.7, Dir.NORTH)
 
+		/* READY */
+		location = GenstDunland()
+		affix(location, LOTRWaypoint.NORTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SOUTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.DWARROWVALE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.WULFBURG, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FRECA_HOLD, 0.0, 0.0, Dir.NORTH)
+
 		location = LOTRVillageGenHobbit()
 		affix(location, LOTRWaypoint.BROCKENBORINGS, 0.0, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.BUCKLEBURY, 0.0, 0.0, Dir.NORTH)
@@ -195,14 +203,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.WAYMEET, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.WHITFURROWS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.WILLOWBOTTOM, 0.0, 0.0, Dir.EAST)
-
-		/* READY */
-		location = LOTRVillageGenDunland()
-		affix(location, LOTRWaypoint.NORTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.SOUTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.DWARROWVALE, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.WULFBURG, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FRECA_HOLD, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = LOTRVillageGenRuinsMedium()
