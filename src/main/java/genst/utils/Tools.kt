@@ -10,19 +10,21 @@ import lotr.common.world.village.LOTRVillageGen
 import net.minecraftforge.common.util.EnumHelper
 
 fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, dir: GenstLocations.Dir) {
-	GenstLogger.skip.add(wp)
-	inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER")
-	GenstLocations.locations[wp] = inst
+	if (wp.isNotForbidden()) {
+		GenstLogger.skip.add(wp)
+		inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER")
+		GenstLocations.locations.add(inst)
+	}
 }
 
-fun registerRoad(name: String, waypoints: Array<Any>) {
+fun registerRoad(waypoints: Array<Any>) {
 	val addControlZoneMethod = ReflectionHelper.findMethod<LOTRRoads?>(
 		LOTRRoads::class.java, null, arrayOf("registerRoad"), *arrayOf<Class<*>>(
 			String::class.java, Array<Any>::class.java
 		)
 	)
 	try {
-		addControlZoneMethod.invoke(null, *arrayOf<Any>(name, waypoints))
+		addControlZoneMethod.invoke(null, *arrayOf<Any>("Linker", waypoints))
 	} catch (e: Exception) {
 		e.printStackTrace()
 	}

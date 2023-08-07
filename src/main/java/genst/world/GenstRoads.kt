@@ -2,6 +2,7 @@ package genst.world
 
 import genst.utils.info
 import genst.utils.registerRoad
+import genst.utils.linkTo
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -33,49 +34,47 @@ object GenstRoads {
 
 	fun postInit() {
 		val gondorTown = 0.3359375
-		registerRoad("Linker", arrayOf(LOTRWaypoint.PELARGIR, LOTRWaypoint.PELARGIR.info(-0.1, -gondorTown)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.LINHIR, LOTRWaypoint.LINHIR.info(-0.1, gondorTown)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.ETHRING, LOTRWaypoint.ETHRING.info(gondorTown + 0.1, -0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.CALEMBEL, LOTRWaypoint.CALEMBEL.info(0.2, -gondorTown - 0.1)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.DOL_AMROTH, LOTRWaypoint.DOL_AMROTH.info(-gondorTown, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.TARNOST, LOTRWaypoint.TARNOST.info(0.0, -gondorTown)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.MINAS_TIRITH, LOTRWaypoint.MINAS_TIRITH.info(-gondorTown, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.TIGHFIELD, LOTRWaypoint.TIGHFIELD.info(0.0, -0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.GREENHOLM, LOTRWaypoint.GREENHOLM.info(0.0, -0.3)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.MICHEL_DELVING, LOTRWaypoint.MICHEL_DELVING.info(0.0, 0.5)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.LITTLE_DELVING, LOTRWaypoint.LITTLE_DELVING.info(0.0, -0.5)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.NOBOTTLE, LOTRWaypoint.NOBOTTLE.info(-0.1, -0.5)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.NEEDLEHOLE, LOTRWaypoint.NEEDLEHOLE.info(0.2, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.TUCKBOROUGH, LOTRWaypoint.TUCKBOROUGH.info(-0.2, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.BYWATER, LOTRWaypoint.BYWATER.info(0.0, 0.4)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.FROGMORTON, LOTRWaypoint.FROGMORTON.info(0.0, 0.4)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.OATBARTON, LOTRWaypoint.OATBARTON.info(0.0, -0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.SCARY, LOTRWaypoint.SCARY.info(0.0, -0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.HAY_GATE, LOTRWaypoint.HAY_GATE.info(0.0, -0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.HAYSEND, LOTRWaypoint.HAYSEND.info(0.0, 0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.BUCKLEBURY, LOTRWaypoint.BUCKLEBURY.info(0.4, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.DEEPHALLOW, LOTRWaypoint.DEEPHALLOW.info(0.3, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.STOCK, LOTRWaypoint.STOCK.info(0.5, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.HOBBITON, LOTRWaypoint.HOBBITON.info(-0.3, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.OVERHILL, LOTRWaypoint.OVERHILL.info(0.0, -0.2)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.WILLOWBOTTOM, LOTRWaypoint.WILLOWBOTTOM.info(-0.2, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.LONGBOTTOM, LOTRWaypoint.LONGBOTTOM.info(0.5, -0.5)))
+		registerRoad(LOTRWaypoint.ETHRING.linkTo(gondorTown + 0.1, -0.2))
+		registerRoad(LOTRWaypoint.CALEMBEL.linkTo(0.2, -gondorTown - 0.1))
+		registerRoad(LOTRWaypoint.DOL_AMROTH.linkTo(-gondorTown, 0.0))
+		registerRoad(LOTRWaypoint.TARNOST.linkTo(0.0, -gondorTown))
+		registerRoad(LOTRWaypoint.MINAS_TIRITH.linkTo(-gondorTown, 0.0))
+		registerRoad(LOTRWaypoint.TIGHFIELD.linkTo(0.0, -0.2))
+		registerRoad(LOTRWaypoint.GREENHOLM.linkTo(0.0, -0.3))
+		registerRoad(LOTRWaypoint.MICHEL_DELVING.linkTo(0.0, 0.5))
+		registerRoad(LOTRWaypoint.LITTLE_DELVING.linkTo(0.0, -0.5))
+		registerRoad(LOTRWaypoint.NOBOTTLE.linkTo(-0.1, -0.5))
+		registerRoad(LOTRWaypoint.NEEDLEHOLE.linkTo(0.2, 0.0))
+		registerRoad(LOTRWaypoint.TUCKBOROUGH.linkTo(-0.2, 0.0))
+		registerRoad(LOTRWaypoint.BYWATER.linkTo(0.0, 0.4))
+		registerRoad(LOTRWaypoint.FROGMORTON.linkTo(0.0, 0.4))
+		registerRoad(LOTRWaypoint.OATBARTON.linkTo(0.0, -0.2))
+		registerRoad(LOTRWaypoint.SCARY.linkTo(0.0, -0.2))
+		registerRoad(LOTRWaypoint.HAY_GATE.linkTo(0.0, -0.2))
+		registerRoad(LOTRWaypoint.HAYSEND.linkTo(0.0, 0.2))
+		registerRoad(LOTRWaypoint.BUCKLEBURY.linkTo(0.4, 0.0))
+		registerRoad(LOTRWaypoint.DEEPHALLOW.linkTo(0.3, 0.0))
+		registerRoad(LOTRWaypoint.STOCK.linkTo(0.5, 0.0))
+		registerRoad(LOTRWaypoint.HOBBITON.linkTo(-0.3, 0.0))
+		registerRoad(LOTRWaypoint.OVERHILL.linkTo(0.0, -0.2))
+		registerRoad(LOTRWaypoint.WILLOWBOTTOM.linkTo(-0.2, 0.0))
+		registerRoad(LOTRWaypoint.THARBAD.linkTo(-0.7, 0.0))
+		registerRoad(LOTRWaypoint.FORNOST.linkTo(0.0, -0.1))
+		registerRoad(LOTRWaypoint.ANNUMINAS.linkTo(-0.1, 0.0))
+		registerRoad(LOTRWaypoint.OST_IN_EDHIL.linkTo(0.0, -0.1))
+		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-0.1, 0.0))
+		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.5))
+
 		registerRoad(
-			"Linker", arrayOf(LOTRWaypoint.LONGBOTTOM.info(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.info(0.5, -0.7))
+			arrayOf(LOTRWaypoint.LONGBOTTOM.info(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.info(0.5, -0.7))
 		)
-		registerRoad("Linker", arrayOf(LOTRWaypoint.WAYMEET, LOTRWaypoint.WAYMEET.info(0.55, -0.55)))
+		registerRoad(arrayOf(LOTRWaypoint.WAYMEET, LOTRWaypoint.WAYMEET.info(0.55, -0.55)))
 		registerRoad(
-			"Linker", arrayOf(LOTRWaypoint.WAYMEET.info(0.55, -0.55), LOTRWaypoint.WAYMEET.info(0.55, -0.75))
+			arrayOf(LOTRWaypoint.WAYMEET.info(0.55, -0.55), LOTRWaypoint.WAYMEET.info(0.55, -0.75))
 		)
-		registerRoad("Linker", arrayOf(LOTRWaypoint.WHITFURROWS, LOTRWaypoint.WHITFURROWS.info(0.6, -0.4)))
+		registerRoad(arrayOf(LOTRWaypoint.WHITFURROWS, LOTRWaypoint.WHITFURROWS.info(0.6, -0.4)))
 		registerRoad(
-			"Linker", arrayOf(LOTRWaypoint.WHITFURROWS.info(0.6, -0.4), LOTRWaypoint.WHITFURROWS.info(0.6, -0.6))
+			arrayOf(LOTRWaypoint.WHITFURROWS.info(0.6, -0.4), LOTRWaypoint.WHITFURROWS.info(0.6, -0.6))
 		)
-		registerRoad("Linker", arrayOf(LOTRWaypoint.THARBAD, LOTRWaypoint.THARBAD.info(-0.7, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.FORNOST, LOTRWaypoint.FORNOST.info(0.0, -0.1)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.ANNUMINAS, LOTRWaypoint.ANNUMINAS.info(-0.1, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.OST_IN_EDHIL, LOTRWaypoint.OST_IN_EDHIL.info(0.0, -0.1)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.LOND_DAER, LOTRWaypoint.LOND_DAER.info(-0.1, 0.0)))
-		registerRoad("Linker", arrayOf(LOTRWaypoint.EDHELLOND, LOTRWaypoint.EDHELLOND.info(0.0, -0.5)))
 	}
 }

@@ -1,9 +1,7 @@
 package genst.world
 
-import genst.GenstConfig
 import genst.instance.*
 import genst.utils.affix
-import genst.utils.isNotForbidden
 import lotr.common.LOTRDimension
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -14,7 +12,7 @@ import net.minecraft.world.World
 import java.util.*
 
 object GenstLocations {
-	var locations: MutableMap<LOTRWaypoint, LOTRVillageGen> = EnumMap(LOTRWaypoint::class.java)
+	var locations: MutableSet<LOTRVillageGen> = HashSet()
 
 	fun postInit() {
 		var location: LOTRVillageGen
@@ -309,11 +307,9 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.FORSAKEN_INN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
 
-		for ((wp, loc) in locations) {
-			if (wp.isNotForbidden()) {
-				for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
-					biome?.decorator?.addVillage(loc)
-				}
+		for (loc in locations) {
+			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
+				biome?.decorator?.addVillage(loc)
 			}
 		}
 	}
