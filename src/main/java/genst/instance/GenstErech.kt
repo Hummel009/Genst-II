@@ -12,8 +12,8 @@ class GenstErech : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridScale = 10
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 2
-		fixedVillageChunkRadius = 2
+		villageChunkRadius = 1
+		fixedVillageChunkRadius = 1
 	}
 
 	override fun createVillageInstance(

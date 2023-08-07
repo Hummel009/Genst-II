@@ -13,8 +13,8 @@ open class GenstGondor(
 	fief: LOTRWorldGenGondorStructure.GondorFiefdom
 ) : LOTRVillageGenGondor(LOTRBiome.forodwaith, fief, 0.0f) {
 	init {
-		villageChunkRadius = 6
-		fixedVillageChunkRadius = 6
+		villageChunkRadius = 5
+		fixedVillageChunkRadius = 5
 	}
 
 	open class Instance(

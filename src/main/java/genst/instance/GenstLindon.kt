@@ -19,8 +19,8 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridScale = 16
 		gridRandomDisplace = 2
 		spawnChance = 0.0f
-		villageChunkRadius = 6
-		fixedVillageChunkRadius = 6
+		villageChunkRadius = 5
+		fixedVillageChunkRadius = 5
 	}
 
 	override fun createVillageInstance(
