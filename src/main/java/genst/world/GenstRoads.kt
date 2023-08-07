@@ -64,7 +64,7 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.ANNUMINAS.linkTo(-0.1, 0.0))
 		registerRoad(LOTRWaypoint.OST_IN_EDHIL.linkTo(0.0, -0.1))
 		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-0.1, 0.0))
-		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.5))
+		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.4))
 
 		if (LOTRWaypoint.LONGBOTTOM.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.LONGBOTTOM.linkTo(0.5, -0.5))

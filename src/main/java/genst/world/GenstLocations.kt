@@ -283,7 +283,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.15, Dir.NORTH)
+		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.05, Dir.NORTH)
 
 		location = LOTRVillageGenRuinsMedium()
 		affix(location, LOTRWaypoint.OLD_ELF_WAY, 0.0, 1.0, Dir.NORTH)
