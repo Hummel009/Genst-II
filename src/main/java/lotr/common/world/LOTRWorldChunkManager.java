@@ -193,7 +193,7 @@ public class LOTRWorldChunkManager extends WorldChunkManager {
 				boolean structureNear = flags[1];
 				boolean fixedVillageNear = biome.decorator.anyFixedVillagesAt(this.worldObj, xPos, zPos);
 				if (fixedVillageNear) {
-					variant = LOTRBiomeVariant.STEPPE;
+					variant = BiomeVariantSteppe.INSTANCE;
 				} else if (!mountainNear) {
 					float variantChance = biome.variantChance;
 					int lakeCode;

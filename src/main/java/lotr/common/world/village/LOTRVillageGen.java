@@ -108,7 +108,7 @@ public abstract class LOTRVillageGen {
 				k1 = chunkZ * 16 + 8;
 				villageRange = this.villageChunkRadius * 16;
 				LOTRBiomeVariant variant = worldChunkMgr.getBiomeVariantAt(i1, k1);
-				if (variant == LOTRBiomeVariant.STEPPE) {
+				if (variant == BiomeVariantSteppe.INSTANCE) {
 					spawnChance = 0.0f;
 				}
 				if (villageRand.nextFloat() < this.spawnChance) {
