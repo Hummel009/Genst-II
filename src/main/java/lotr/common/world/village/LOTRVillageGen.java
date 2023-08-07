@@ -3,7 +3,6 @@ package lotr.common.world.village;
 import lotr.common.LOTRConfig;
 import lotr.common.LOTRMod;
 import lotr.common.util.CentredSquareArray;
-import lotr.common.world.BiomeVariantSteppe;
 import lotr.common.world.LOTRWorldChunkManager;
 import lotr.common.world.biome.LOTRBiome;
 import lotr.common.world.biome.variant.LOTRBiomeVariant;
