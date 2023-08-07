@@ -1,5 +1,6 @@
 package genst.utils
 
+import genst.GenstConfig
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -22,4 +23,8 @@ fun LOTRVillageGen.addFixedLocation(
 
 fun LOTRWaypoint.info(x: Double, y: Double): DoubleArray {
 	return doubleArrayOf(this.x + x, this.y + y)
+}
+
+fun LOTRWaypoint.isNotForbidden(): Boolean {
+	return GenstConfig.isNotForbidden(this) ?: false
 }

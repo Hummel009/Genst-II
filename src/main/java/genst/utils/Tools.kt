@@ -12,7 +12,7 @@ import net.minecraftforge.common.util.EnumHelper
 fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, dir: GenstLocations.Dir) {
 	GenstLogger.skip.add(wp)
 	inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER")
-	GenstLocations.locations.add(inst)
+	GenstLocations.locations[wp] = inst
 }
 
 fun registerRoad(name: String, waypoints: Array<Any>) {

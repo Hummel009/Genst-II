@@ -11,6 +11,7 @@ import genst.world.GenstRoads
 class Genst {
 	@Mod.EventHandler
 	fun postInit(e: FMLPostInitializationEvent) {
+		GenstConfig.preInit()
 		GenstMountains.postInit()
 		GenstRoads.postInit()
 		GenstLocations.postInit()
