@@ -30,11 +30,13 @@ fun registerRoad(waypoints: Array<Any>) {
 	}
 }
 
-var i: Int = 0
 fun addMountain(wp: LOTRWaypoint, h: Float, r: Int, lava: Int) {
-	addMountain(doubleArrayOf(wp.x, wp.y), h, r, lava)
+	if (wp.isNotForbidden()) {
+		addMountain(doubleArrayOf(wp.x, wp.y), h, r, lava)
+	}
 }
 
+var i: Int = 0
 fun addMountain(db: DoubleArray, h: Float, r: Int, lava: Int) {
 	val classArr = arrayOf<Class<*>>(
 		java.lang.Double.TYPE, java.lang.Double.TYPE, java.lang.Float.TYPE, Integer.TYPE, Integer.TYPE

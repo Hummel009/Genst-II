@@ -1,8 +1,9 @@
 package genst.world
 
 import genst.utils.info
-import genst.utils.registerRoad
+import genst.utils.isNotForbidden
 import genst.utils.linkTo
+import genst.utils.registerRoad
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -65,16 +66,25 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-0.1, 0.0))
 		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.5))
 
-		registerRoad(
-			arrayOf(LOTRWaypoint.LONGBOTTOM.info(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.info(0.5, -0.7))
-		)
-		registerRoad(arrayOf(LOTRWaypoint.WAYMEET, LOTRWaypoint.WAYMEET.info(0.55, -0.55)))
-		registerRoad(
-			arrayOf(LOTRWaypoint.WAYMEET.info(0.55, -0.55), LOTRWaypoint.WAYMEET.info(0.55, -0.75))
-		)
-		registerRoad(arrayOf(LOTRWaypoint.WHITFURROWS, LOTRWaypoint.WHITFURROWS.info(0.6, -0.4)))
-		registerRoad(
-			arrayOf(LOTRWaypoint.WHITFURROWS.info(0.6, -0.4), LOTRWaypoint.WHITFURROWS.info(0.6, -0.6))
-		)
+		if (LOTRWaypoint.LONGBOTTOM.isNotForbidden()) {
+			registerRoad(LOTRWaypoint.LONGBOTTOM.linkTo(0.5, -0.5))
+			registerRoad(
+				arrayOf(LOTRWaypoint.LONGBOTTOM.info(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.info(0.5, -0.7))
+			)
+		}
+
+		if (LOTRWaypoint.WAYMEET.isNotForbidden()) {
+			registerRoad(LOTRWaypoint.WAYMEET.linkTo(0.55, -0.55))
+			registerRoad(
+				arrayOf(LOTRWaypoint.WAYMEET.info(0.55, -0.55), LOTRWaypoint.WAYMEET.info(0.55, -0.75))
+			)
+		}
+
+		if (LOTRWaypoint.WHITFURROWS.isNotForbidden()) {
+			registerRoad(LOTRWaypoint.WHITFURROWS.linkTo(0.6, -0.4))
+			registerRoad(
+				arrayOf(LOTRWaypoint.WHITFURROWS.info(0.6, -0.4), LOTRWaypoint.WHITFURROWS.info(0.6, -0.6))
+			)
+		}
 	}
 }
