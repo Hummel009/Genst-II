@@ -16,7 +16,8 @@ open class GenstRuinedCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridScale = 14
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 6
+		villageChunkRadius = 7
+		fixedVillageChunkRadius = 7
 	}
 
 	override fun createVillageInstance(
