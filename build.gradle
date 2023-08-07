@@ -44,8 +44,7 @@ dependencies {
 
 jar {
 	manifest {
-		attributes 'FMLCorePlugin': 'genst.core.LoadingPlugin'
-		attributes 'FMLCorePluginContainsFMLMod': 'true'
+		attributes 'Main-Class': 'genst.GenstPatchKt'
 	}
 	from(configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }) {
 		duplicatesStrategy 'exclude'
