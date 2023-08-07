@@ -9,6 +9,5 @@ object BiomeVariantSteppe : LOTRBiomeVariant(52, "steppe", VariantScale.LARGE) {
 		setTrees(0.01F)
 		setGrass(3.0F)
 		setFlowers(0.8F)
-		disableStructures = true
 	}
 }
