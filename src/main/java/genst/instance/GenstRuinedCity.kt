@@ -11,7 +11,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-class LOTRVillageGenRuinsCity : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstRuinedCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 14
 		gridRandomDisplace = 1
@@ -25,9 +25,9 @@ class LOTRVillageGenRuinsCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(
-		village: LOTRVillageGenRuinsCity?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<LOTRVillageGenRuinsCity?>(village, world, i, k, random, loc) {
+	open class Instance(
+		village: GenstRuinedCity?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
+	) : AbstractInstance<GenstRuinedCity?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			var marketZ: Int
@@ -115,19 +115,23 @@ class LOTRVillageGenRuinsCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(STONE(5, 7), wellZ, wellX, 0, true)
 		}
 
+		open fun getRoadType(): LOTRRoadType {
+			return GenstRoads.PATH_COBBLE
+		}
+
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
 			val i1 = abs(i.toDouble()).toInt()
 			val k1 = abs(k.toDouble()).toInt()
 			val innerOut = 18
 			if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
-				return GenstRoads.PATH_COBBLE
+				return getRoadType()
 			}
 			if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
-				return GenstRoads.PATH_COBBLE
+				return getRoadType()
 			}
 			val outerOut = 66
 			return if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
-				GenstRoads.PATH_COBBLE
+				getRoadType()
 			} else null
 		}
 

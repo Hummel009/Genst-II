@@ -71,5 +71,11 @@ object GenstRoads {
 		registerRoad(
 			"Linker", arrayOf(LOTRWaypoint.WHITFURROWS.info(0.6, -0.4), LOTRWaypoint.WHITFURROWS.info(0.6, -0.6))
 		)
+		registerRoad("Linker", arrayOf(LOTRWaypoint.THARBAD, LOTRWaypoint.THARBAD.info(-0.7, 0.0)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.FORNOST, LOTRWaypoint.FORNOST.info(0.0, -0.1)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.ANNUMINAS, LOTRWaypoint.ANNUMINAS.info(-0.1, 0.0)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.OST_IN_EDHIL, LOTRWaypoint.OST_IN_EDHIL.info(0.0, -0.1)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.LOND_DAER, LOTRWaypoint.LOND_DAER.info(-0.1, 0.0)))
+		registerRoad("Linker", arrayOf(LOTRWaypoint.EDHELLOND, LOTRWaypoint.EDHELLOND.info(0.0, -0.5)))
 	}
 }

@@ -3,6 +3,7 @@ package genst.world
 import genst.instance.*
 import genst.utils.affix
 import lotr.common.LOTRDimension
+import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.LOTRWorldGenGondorStructure
 import lotr.common.world.village.LOTRVillageGen
@@ -224,7 +225,73 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.GLADDEN_FIELDS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CROSSINGS_OF_POROS, 1.0, 1.0, Dir.NORTH)
 
+		/* READY */
+		location = object : GenstRuinedCity() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.ARNOR.setRepair(0.92f)
+					}
+				}
+			}
+		}
+
+		affix(location, LOTRWaypoint.ANNUMINAS, -0.65, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.THARBAD, -1.35, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.65, Dir.NORTH)
+		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		location = object : GenstRuinedCity() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.PATH
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.LOND_DAER, -0.65, 0.0, Dir.WEST)
+
+		/* READY */
+		location = object : GenstRuinedCity() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.HIGH_ELVEN_RUINED.setRepair(0.7f)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.65, Dir.NORTH)
+
+		/* READY */
+		location = object : GenstRuinedCity() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.DOL_AMROTH
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.15, Dir.NORTH)
+
 		location = LOTRVillageGenRuinsMedium()
+		affix(location, LOTRWaypoint.OLD_ELF_WAY, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.THE_TROLLSHAWS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FRAMSBURG, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.ARVEDUI_MINES, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.HIMLING, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.TOL_FUIN, 0.0, 0.0, Dir.NORTH)
@@ -237,26 +304,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 1.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SARN_FORD, 2.0, 2.0, Dir.NORTH)
-
-		location = LOTRVillageGenRuinsCity()
-		affix(location, LOTRWaypoint.THARBAD, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FORNOST, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ANNUMINAS, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.LOND_DAER, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FRAMSBURG, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OLD_ELF_WAY, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.THE_TROLLSHAWS, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.EDHELLOND, 0.0, 1.0, Dir.NORTH)
-
-		location = LOTRVillageGenRuinsSmallWooden()
 		affix(location, LOTRWaypoint.FORSAKEN_INN, 0.0, 0.0, Dir.NORTH)
-
-		location = LOTRVillageGenRuinsSmallStone()
 		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
 
 		for (loc in locations) {
