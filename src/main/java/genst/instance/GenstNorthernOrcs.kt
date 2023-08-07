@@ -22,6 +22,7 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridRandomDisplace = 2
 		spawnChance = 0.0f
 		villageChunkRadius = 6
+		fixedVillageChunkRadius = 6
 	}
 
 	override fun createVillageInstance(

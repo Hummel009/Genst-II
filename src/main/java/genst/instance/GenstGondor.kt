@@ -14,6 +14,7 @@ open class GenstGondor(
 ) : LOTRVillageGenGondor(LOTRBiome.forodwaith, fief, 0.0f) {
 	init {
 		villageChunkRadius = 6
+		fixedVillageChunkRadius = 6
 	}
 
 	open class Instance(
