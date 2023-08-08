@@ -370,6 +370,19 @@ object GenstLocations {
 		/* READY */
 		affix(GenstKhamul, LOTRWaypoint.KHAMUL_TOWER, 0.0, 0.0, Dir.NORTH)
 
+		location = object : GenstRohan() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.FORT
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.WOLD, 0.0, -0.5, Dir.SOUTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)

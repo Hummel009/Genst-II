@@ -211,10 +211,6 @@ open class GenstRhun(radius: Int) : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(LOTRWorldGenEasterlingLamp(false), lampX, -lampX, 2, false)
 			addStructure(LOTRWorldGenEasterlingLamp(false), -lampX, lampX, 0, false)
 			addStructure(LOTRWorldGenEasterlingLamp(false), lampX, lampX, 0, false)
-			lampX = 7
-			val lampZ = 64
-			addStructure(LOTRWorldGenEasterlingLamp(false), -lampX, lampZ, 2, false)
-			addStructure(LOTRWorldGenEasterlingLamp(false), lampX, lampZ, 2, false)
 		}
 
 		private fun setupTown(random: Random) {

@@ -34,7 +34,11 @@ object GenstRoads {
 	}
 
 	fun postInit() {
-		val gondorTown = 0.3453125 //shift 1.0
+		val gondorTown = 44.0 / 128.0
+		val rhunTown = 34.0 / 128.0
+		val rhunFort = 67.0 / 128.0
+		val rohanFort = 77.0 / 128.0
+
 		registerRoad(LOTRWaypoint.ETHRING.linkTo(gondorTown + 0.1, -0.2))
 		registerRoad(LOTRWaypoint.CALEMBEL.linkTo(0.2, -gondorTown - 0.1))
 		registerRoad(LOTRWaypoint.DOL_AMROTH.linkTo(-gondorTown, 0.0))
@@ -72,9 +76,6 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.REDWATER_FORD.linkTo(0.0, 0.5))
 		registerRoad(LOTRWaypoint.DORWINION_PORT.linkTo(0.3, 0.0))
 		registerRoad(LOTRWaypoint.DORWINION_FORD.linkTo(-0.3, 0.0))
-
-		val rhunTown = 0.2734375 //shift 1.0
-		val rhunFort = 0.5328125 //shift 1.0
 		registerRoad(LOTRWaypoint.BORDER_TOWN.linkTo(0.3, rhunTown + 0.1))
 		registerRoad(LOTRWaypoint.RHUN_SEA_CITY.linkTo(0.0, -rhunTown + 0.1))
 		registerRoad(LOTRWaypoint.RHUN_CAPITAL.linkTo(-rhunTown - 0.2, 0.5))
@@ -88,6 +89,8 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.RHUN_NORTHEAST.linkTo(0.0, -0.5))
 		registerRoad(LOTRWaypoint.RHUN_SOUTHEAST.linkTo(rhunFort - 0.2, -0.1))
 		registerRoad(LOTRWaypoint.MORDOR_FORD.linkTo(-0.4, -rhunFort + 0.1))
+
+		registerRoad(LOTRWaypoint.WOLD.linkTo(0.0, -rohanFort + 0.5))
 
 		if (LOTRWaypoint.DORWINION_CROSSROADS.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.DORWINION_CROSSROADS.linkTo(0.5, -0.3))
