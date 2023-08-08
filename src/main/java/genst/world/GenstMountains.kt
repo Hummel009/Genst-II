@@ -11,6 +11,7 @@ object GenstMountains {
 		addMountain(LOTRWaypoint.GREEN_HILLS, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.TOL_MORWEN, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.GLADDEN_FIELDS, 1.0f, 100, 0)
+		addMountain(LOTRWaypoint.KHAMUL_TOWER, 2.0f, 100, 0)
 		addMountain(LOTRWaypoint.CROSSINGS_OF_POROS.shift(1.0, 1.0), 1.0f, 100, 0)
 	}
 }

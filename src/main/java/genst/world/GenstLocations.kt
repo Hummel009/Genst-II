@@ -159,8 +159,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.IMLOTH_MELUI, 0.0, 0.0, Dir.WEST)
 
 		/* READY */
-		location = GenstErech()
-		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
+		affix(GenstErech, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
 
 		/* READY */
 		location = GenstNorthernOrcs()
@@ -301,6 +300,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.DORWINION_HILLS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.DORWINION_COURT, 0.5, -0.5, Dir.NORTH)
 
+		/* READY */
 		location = object : GenstDorwinion() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -314,6 +314,7 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.5, -0.5, Dir.NORTH)
 
+		/* READY */
 		location = object : GenstRhun(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -326,6 +327,48 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.BORDER_TOWN, 0.3, 1.1, Dir.SOUTH) //Taragal
+		affix(location, LOTRWaypoint.RHUN_SEA_CITY, 0.0, -0.9, Dir.NORTH) //Belrhuk
+		affix(location, LOTRWaypoint.RHUN_CAPITAL, -1.2, 0.5, Dir.WEST) //Rhunost
+		affix(location, LOTRWaypoint.RHUN_SOUTH_PASS, 1.0, 0.2, Dir.EAST) //Pass of Rhudel
+		affix(location, LOTRWaypoint.RHUN_NORTH_CITY, -0.9, 0.0, Dir.WEST) //Atalak
+		affix(location, LOTRWaypoint.RHUN_EAST_CITY, 0.0, 0.9, Dir.SOUTH) //Karslan
+		affix(location, LOTRWaypoint.RHUN_EAST_TOWN, 0.3, -1.0, Dir.NORTH) //Karanoda
+		affix(location, LOTRWaypoint.BAZYLAN, 0.3, 1.1, Dir.SOUTH)
+
+		/* READY */
+		location = object : GenstRhun(6) {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.VILLAGE
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.BALCARAS, 0.0, 0.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.RHUN_ROAD_WAY, 0.0, 0.4, Dir.SOUTH) //Redway
+
+		/* READY */
+		location = object : GenstRhun(6) {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.FORT
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.RHUN_NORTH_FORD, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.RHUN_NORTHEAST, 0.0, -0.6, Dir.NORTH) //Nortern Marches
+		affix(location, LOTRWaypoint.RHUN_SOUTHEAST, 0.8, -0.1, Dir.EAST) //Southern Marches
+		affix(location, LOTRWaypoint.MORDOR_FORD, -0.4, -0.9, Dir.NORTH)
+
+		/* READY */
+		affix(GenstKhamul, LOTRWaypoint.KHAMUL_TOWER, 0.0, 0.0, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {

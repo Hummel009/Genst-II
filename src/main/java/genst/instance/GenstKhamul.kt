@@ -2,12 +2,13 @@ package genst.instance
 
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
+import lotr.common.world.structure2.LOTRWorldGenEasterlingTower
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
 import java.util.*
 
-object GenstErech : LOTRVillageGen(LOTRBiome.forodwaith) {
+object GenstKhamul : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
@@ -23,10 +24,10 @@ object GenstErech : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstErech?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstErech?>(village, world, i, k, random, loc) {
+		village: GenstKhamul?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
+	) : AbstractInstance<GenstKhamul?>(village, world, i, k, random, loc) {
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureErech, 0, 0, 0, true)
+			addStructure(LOTRWorldGenEasterlingTower(false), 0, 0, 0, true)
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {

@@ -78,8 +78,6 @@ open class GenstDorwinion : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 				if (abs(l.toDouble()) >= 1) {
 					addStructure(LOTRWorldGenDorwinionHouse(false), i1, -k1, 2, true)
-				}
-				if (abs(l.toDouble()) >= 1) {
 					addStructure(LOTRWorldGenDorwinionElfHouse(false), i1, k1, 0, true)
 				}
 				val k2 = k1 + 20
