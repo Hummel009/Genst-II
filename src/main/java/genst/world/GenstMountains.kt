@@ -1,7 +1,7 @@
 package genst.world
 
 import genst.utils.addMountain
-import genst.utils.info
+import genst.utils.shift
 import lotr.common.world.map.LOTRWaypoint
 
 object GenstMountains {
@@ -17,6 +17,6 @@ object GenstMountains {
 		addMountain(LOTRWaypoint.OATBARTON, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.NEEDLEHOLE, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.NOBOTTLE, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.CROSSINGS_OF_POROS.info(1.0, 1.0), 1f, 100, 0)
+		addMountain(LOTRWaypoint.CROSSINGS_OF_POROS.shift(1.0, 1.0), 1f, 100, 0)
 	}
 }

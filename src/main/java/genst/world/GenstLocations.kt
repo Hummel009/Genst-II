@@ -294,28 +294,25 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.REDWATER_FORD, 0.0, 0.5, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DALE_CROSSROADS, -0.2, -1.0, Dir.NORTH)
 
-		/* UNDER CONSTRUCTION */
-		location = LOTRVillageGenRuinsMedium()
-		affix(location, LOTRWaypoint.OLD_ELF_WAY, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.THE_TROLLSHAWS, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FRAMSBURG, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ARVEDUI_MINES, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.HIMLING, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.TOL_FUIN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MENELTARMA_SUMMIT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.WITHERED_HEATH, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FIELD_OF_CELEBRANT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.CORSAIRS_LANDING, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FORDS_OF_ISEN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.SARN_FORD, 2.0, 2.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FORSAKEN_INN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
+		/* READY */
+		location = GenstDorwinion()
+		affix(location, LOTRWaypoint.DORWINION_PORT, 0.3, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.DORWINION_FORD, -0.3, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.DORWINION_HILLS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.DORWINION_COURT, 0.5, -0.5, Dir.NORTH)
+
+		location = object : GenstDorwinion() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.PATH
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.5, -0.5, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {

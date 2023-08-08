@@ -1,9 +1,9 @@
 package genst.world
 
-import genst.utils.info
 import genst.utils.isNotForbidden
 import genst.utils.linkTo
 import genst.utils.registerRoad
+import genst.utils.shift
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -70,32 +70,61 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.DALE_PORT.linkTo(0.3, 0.0))
 		registerRoad(LOTRWaypoint.RUNNING_FORD.linkTo(-0.3, 0.0))
 		registerRoad(LOTRWaypoint.REDWATER_FORD.linkTo(0.0, 0.5))
+		registerRoad(LOTRWaypoint.DORWINION_PORT.linkTo(0.3, 0.0))
+		registerRoad(LOTRWaypoint.DORWINION_FORD.linkTo(-0.3, 0.0))
+
+		if (LOTRWaypoint.DORWINION_CROSSROADS.isNotForbidden()) {
+			registerRoad(LOTRWaypoint.DORWINION_CROSSROADS.linkTo(0.5, -0.3))
+			registerRoad(
+				arrayOf(
+					LOTRWaypoint.DORWINION_CROSSROADS.shift(0.5, -0.3),
+					LOTRWaypoint.DORWINION_CROSSROADS.shift(0.5, -0.5)
+				)
+			)
+		}
+
+		if (LOTRWaypoint.DORWINION_COURT.isNotForbidden()) {
+			registerRoad(LOTRWaypoint.DORWINION_COURT.linkTo(0.5, -0.3))
+			registerRoad(
+				arrayOf(
+					LOTRWaypoint.DORWINION_COURT.shift(0.5, -0.3), LOTRWaypoint.DORWINION_COURT.shift(0.5, -0.5)
+				)
+			)
+		}
 
 		if (LOTRWaypoint.DALE_CROSSROADS.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.DALE_CROSSROADS.linkTo(-0.2, -0.5))
 			registerRoad(
-				arrayOf(LOTRWaypoint.DALE_CROSSROADS.info(-0.2, -0.5), LOTRWaypoint.DALE_CROSSROADS.info(-0.2, -1.0))
+				arrayOf(
+					LOTRWaypoint.DALE_CROSSROADS.shift(-0.2, -0.5), LOTRWaypoint.DALE_CROSSROADS.shift(-0.2, -1.0)
+				)
 			)
 		}
 
 		if (LOTRWaypoint.LONGBOTTOM.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.LONGBOTTOM.linkTo(0.5, -0.5))
 			registerRoad(
-				arrayOf(LOTRWaypoint.LONGBOTTOM.info(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.info(0.5, -0.7))
+				arrayOf(
+					LOTRWaypoint.LONGBOTTOM.shift(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.shift(0.5, -0.7)
+				)
 			)
 		}
 
 		if (LOTRWaypoint.WAYMEET.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.WAYMEET.linkTo(0.55, -0.55))
 			registerRoad(
-				arrayOf(LOTRWaypoint.WAYMEET.info(0.55, -0.55), LOTRWaypoint.WAYMEET.info(0.55, -0.75))
+				arrayOf(
+					LOTRWaypoint.WAYMEET.shift(0.55, -0.55), LOTRWaypoint.WAYMEET.shift(0.55, -0.75)
+				)
 			)
 		}
 
 		if (LOTRWaypoint.WHITFURROWS.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.WHITFURROWS.linkTo(0.6, -0.4))
 			registerRoad(
-				arrayOf(LOTRWaypoint.WHITFURROWS.info(0.6, -0.4), LOTRWaypoint.WHITFURROWS.info(0.6, -0.6))
+				arrayOf(
+					LOTRWaypoint.WHITFURROWS.shift(0.6, -0.4), LOTRWaypoint.WHITFURROWS.shift(0.6, -0.6)
+				)
 			)
 		}
 	}

@@ -33,9 +33,6 @@ object GenstLogger : CommandBase() {
 	}
 
 	fun postInit() {
-		skip.add(LOTRWaypoint.RAS_MORTHIL)
-		skip.add(LOTRWaypoint.TARLANG)
-		skip.add(LOTRWaypoint.CROSSINGS_ERUI)
 		skip.add(LOTRWaypoint.BREE)
 		skip.add(LOTRWaypoint.COMBE)
 		skip.add(LOTRWaypoint.STADDLE)
