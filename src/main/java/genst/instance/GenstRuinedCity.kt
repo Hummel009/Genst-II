@@ -13,7 +13,7 @@ import kotlin.math.abs
 
 open class GenstRuinedCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 14
+		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
 		villageChunkRadius = 7

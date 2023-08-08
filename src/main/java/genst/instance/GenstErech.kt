@@ -9,11 +9,11 @@ import java.util.*
 
 class GenstErech : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 10
+		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 1
-		fixedVillageChunkRadius = 1
+		villageChunkRadius = 2
+		fixedVillageChunkRadius = 2
 	}
 
 	override fun createVillageInstance(

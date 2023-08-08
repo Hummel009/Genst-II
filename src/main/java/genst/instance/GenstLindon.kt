@@ -16,11 +16,11 @@ import kotlin.math.abs
 
 open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 16
-		gridRandomDisplace = 2
+		gridScale = 12
+		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 5
-		fixedVillageChunkRadius = 5
+		villageChunkRadius = 6
+		fixedVillageChunkRadius = 6
 	}
 
 	override fun createVillageInstance(

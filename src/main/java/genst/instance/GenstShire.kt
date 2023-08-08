@@ -14,11 +14,11 @@ import kotlin.math.abs
 
 class GenstShire : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
-		gridScale = 14
+		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 4
-		fixedVillageChunkRadius = 4
+		villageChunkRadius = 5
+		fixedVillageChunkRadius = 5
 	}
 
 	override fun createVillageInstance(

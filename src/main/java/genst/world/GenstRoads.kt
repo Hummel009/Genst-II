@@ -65,6 +65,18 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.OST_IN_EDHIL.linkTo(0.0, -0.1))
 		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-0.1, 0.0))
 		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.4))
+		registerRoad(LOTRWaypoint.DALE_CITY.linkTo(-0.3, 0.0))
+		registerRoad(LOTRWaypoint.LONG_LAKE.linkTo(0.0, 0.3))
+		registerRoad(LOTRWaypoint.DALE_PORT.linkTo(0.3, 0.0))
+		registerRoad(LOTRWaypoint.RUNNING_FORD.linkTo(-0.3, 0.0))
+		registerRoad(LOTRWaypoint.REDWATER_FORD.linkTo(0.0, 0.5))
+
+		if (LOTRWaypoint.DALE_CROSSROADS.isNotForbidden()) {
+			registerRoad(LOTRWaypoint.DALE_CROSSROADS.linkTo(-0.2, -0.5))
+			registerRoad(
+				arrayOf(LOTRWaypoint.DALE_CROSSROADS.info(-0.2, -0.5), LOTRWaypoint.DALE_CROSSROADS.info(-0.2, -1.0))
+			)
+		}
 
 		if (LOTRWaypoint.LONGBOTTOM.isNotForbidden()) {
 			registerRoad(LOTRWaypoint.LONGBOTTOM.linkTo(0.5, -0.5))

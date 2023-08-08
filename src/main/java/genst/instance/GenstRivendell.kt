@@ -1,6 +1,5 @@
 package genst.instance
 
-import lotr.common.world.structure2.LOTRWorldGenHighElvenTower
 import lotr.common.world.structure2.LOTRWorldGenRivendellForge
 import lotr.common.world.structure2.LOTRWorldGenRivendellHouse
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
