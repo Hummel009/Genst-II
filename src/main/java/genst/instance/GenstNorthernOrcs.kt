@@ -1,6 +1,7 @@
 package genst.instance
 
 import lotr.common.block.LOTRBlockBrickBase
+import lotr.common.block.LOTRBlockSlabBase
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
 import lotr.common.entity.npc.LOTREntityAngmarOrcArcher
@@ -126,7 +127,8 @@ class GenstNorthernOrcs : LOTRVillageGen(LOTRBiome.forodwaith) {
 				BlockOre::class.java,
 				BlockGravel::class.java,
 				BlockDirt::class.java,
-				LOTRBlockBrickBase::class.java
+				LOTRBlockBrickBase::class.java,
+				LOTRBlockSlabBase::class.java
 			)
 			return set.contains(block.javaClass)
 		}

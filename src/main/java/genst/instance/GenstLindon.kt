@@ -1,6 +1,7 @@
 package genst.instance
 
 import lotr.common.block.LOTRBlockBrickBase
+import lotr.common.block.LOTRBlockSlabBase
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityHighElf
 import lotr.common.entity.npc.LOTREntityHighElfWarrior
@@ -129,7 +130,7 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase
 		}
 
 		override fun setupVillageProperties(random: Random) {

@@ -314,6 +314,19 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.5, -0.5, Dir.NORTH)
 
+		location = object : GenstRhun(6) {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.TOWN
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.BORDER_TOWN, 0.3, 1.1, Dir.SOUTH) //Taragal
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)

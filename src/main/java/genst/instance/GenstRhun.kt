@@ -3,17 +3,14 @@ package genst.instance
 import lotr.common.block.LOTRBlockBrickBase
 import lotr.common.block.LOTRBlockSlabBase
 import lotr.common.world.biome.LOTRBiome
-import lotr.common.world.structure2.LOTRWorldGenGondorStructure
-import lotr.common.world.village.LOTRVillageGenGondor
+import lotr.common.world.village.LOTRVillageGenRhun
 import lotr.common.world.village.LocationInfo
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
-open class GenstGondor(
-	fief: LOTRWorldGenGondorStructure.GondorFiefdom,
+open class GenstRhun(
 	radius: Int
-) : LOTRVillageGenGondor(LOTRBiome.forodwaith, fief, 0.0f) {
+) : LOTRVillageGenRhun(LOTRBiome.forodwaith, 0.0f, false) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
@@ -23,12 +20,11 @@ open class GenstGondor(
 	}
 
 	open class Instance(
-		village: LOTRVillageGenGondor, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	) : LOTRVillageGenGondor.Instance(village, world, i, k, random, loc) {
+		village: LOTRVillageGenRhun, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : LOTRVillageGenRhun.Instance(village, world, i, k, random, loc) {
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			val path = block == Blocks.cobblestone
-			return path || block is LOTRBlockBrickBase || block is LOTRBlockSlabBase
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase
 		}
 
 		override fun isFlat(): Boolean {
