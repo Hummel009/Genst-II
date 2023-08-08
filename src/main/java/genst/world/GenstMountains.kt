@@ -6,17 +6,12 @@ import lotr.common.world.map.LOTRWaypoint
 
 object GenstMountains {
 	fun postInit() {
-		addMountain(LOTRWaypoint.ANDUIN_MOUTH, 0.5f, 200, 0)
+		addMountain(LOTRWaypoint.ANDUIN_MOUTH, 0.5f, 100, 0)
 		addMountain(LOTRWaypoint.TOLFALAS_ISLAND, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.GREEN_HILLS, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.HIMLING, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.TOL_FUIN, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.TOL_MORWEN, 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.GLADDEN_FIELDS, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.MENELTARMA_SUMMIT, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.OATBARTON, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.NEEDLEHOLE, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.NOBOTTLE, 1.0f, 100, 0)
-		addMountain(LOTRWaypoint.CROSSINGS_OF_POROS.shift(1.0, 1.0), 1f, 100, 0)
+		addMountain(LOTRWaypoint.DORWINION_HILLS, 1.0f, 100, 0)
+		addMountain(LOTRWaypoint.CROSSINGS_OF_POROS.shift(1.0, 1.0), 1.0f, 100, 0)
 	}
 }
