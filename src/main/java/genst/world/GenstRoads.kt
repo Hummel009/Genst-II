@@ -76,6 +76,13 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.RHUN_NORTHEAST.linkTo(0.0, -basicVillage + 0.5))
 		registerRoad(LOTRWaypoint.WOLD.linkTo(0.0, -rohanFort + 0.5))
 
+		registerRoadI(LOTRWaypoint.EDORAS.linkTo(-0.3, rohanFort - 0.4), false)
+		registerRoadI(LOTRWaypoint.GRIMSLADE.linkTo(-0.2, rohanFort - 0.4), false)
+		registerRoadI(LOTRWaypoint.HELMS_DEEP.linkTo(-0.4, rohanFort - 0.3), false)
+		registerRoadI(LOTRWaypoint.ALDBURG.linkTo(-0.15, rohanFort - 0.4), false)
+		registerRoadI(LOTRWaypoint.MERING_STREAM.linkTo(-0.4, rohanFort - 0.3), false)
+		registerRoadI(LOTRWaypoint.HELMS_CROSSROADS.linkTo(0.4, -rohanFort + 0.3), false)
+		registerRoadI(LOTRWaypoint.ENTWADE.linkTo(-rohanFort + 0.3, -0.1), true)
 		registerRoadI(LOTRWaypoint.STOCK.linkTo(basicVillage - 0.6, -0.1), true)
 		registerRoadI(LOTRWaypoint.PELARGIR.linkTo(-0.1, -gondorTown), false)
 		registerRoadI(LOTRWaypoint.LINHIR.linkTo(-0.2, gondorTown - 0.1), false)

@@ -1,6 +1,9 @@
 package genst.instance
 
 import lotr.common.block.LOTRBlockBrickBase
+import lotr.common.block.LOTRBlockDirtPath
+import lotr.common.block.LOTRBlockGrass
+import lotr.common.block.LOTRBlockRock
 import lotr.common.block.LOTRBlockSlabBase
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.village.LOTRVillageGenRohan
@@ -22,7 +25,7 @@ open class GenstRohan : LOTRVillageGenRohan(LOTRBiome.forodwaith, 0.0f) {
 	) : LOTRVillageGenRohan.Instance(village, world, i, k, random, loc) {
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath
 		}
 
 		override fun isFlat(): Boolean {

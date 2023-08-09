@@ -3,6 +3,7 @@ package genst.world
 import genst.instance.*
 import genst.utils.affix
 import lotr.common.LOTRDimension
+import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.LOTRWorldGenGondorStructure
@@ -241,6 +242,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.THARBAD, -1.4, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.7, Dir.NORTH)
 		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -370,6 +372,7 @@ object GenstLocations {
 		/* READY */
 		affix(GenstKhamul, LOTRWaypoint.KHAMUL_TOWER, 0.0, 0.0, Dir.NORTH)
 
+		/* READY */
 		location = object : GenstRohan() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -382,6 +385,38 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.WOLD, 0.0, -0.5, Dir.SOUTH)
+		affix(location, LOTRWaypoint.ENTWADE, -0.7, -0.1, Dir.EAST)
+		affix(location, LOTRWaypoint.EDORAS, -0.3, 0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.GRIMSLADE, -0.2, 0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.HELMS_DEEP, -0.4, 0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.ALDBURG, -0.15, 0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.MERING_STREAM, -0.4, 0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.HELMS_CROSSROADS, 0.4, -0.6, Dir.SOUTH)
+
+		/* READY */
+		location = object : GenstRohan() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.VILLAGE
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.EASTMARK, 0.0, 0.0, Dir.SOUTH)
+
+		location = GenstLighthouse()
+		affix(location, LOTRWaypoint.HALIFIRIEN, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.CALENHAD, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MINRIMMON, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.ERELAS, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.NARDOL, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.EILENACH, 0.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.AMON_DIN, 1.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MINAS_TIRITH, -4.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MINAS_TIRITH, -2.5, 0.0, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
