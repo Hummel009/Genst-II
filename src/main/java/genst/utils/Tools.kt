@@ -8,12 +8,35 @@ import lotr.common.world.map.LOTRRoads
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import net.minecraftforge.common.util.EnumHelper
+import kotlin.math.abs
 
 fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, dir: GenstLocations.Dir) {
 	if (wp.isNotForbidden()) {
 		GenstLogger.skip.add(wp)
 		inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER")
 		GenstLocations.locations.add(inst)
+	}
+}
+
+fun registerRoadI(data: Array<Any>, subtractX: Boolean) {
+	val wp = data[0] as LOTRWaypoint
+	val final = data[1] as DoubleArray
+	if (wp.isNotForbidden()) {
+		val origX = wp.x
+		val origY = wp.y
+		val finalX = final[0]
+		val finalY = final[1]
+		val wayX = abs((origX - finalX) / 2.0)
+		val wayY = abs((origY - finalY) / 2.0)
+		if (subtractX) {
+			val shift = if (origX < finalX) -wayX else wayX
+			registerRoad(arrayOf(wp, doubleArrayOf(finalX + shift, finalY)))
+			registerRoad(arrayOf(doubleArrayOf(finalX + shift, finalY), doubleArrayOf(finalX, finalY)))
+		} else {
+			val shift = if (origY < finalY) -wayY else wayY
+			registerRoad(arrayOf(wp, doubleArrayOf(finalX, finalY + shift)))
+			registerRoad(arrayOf(doubleArrayOf(finalX, finalY + shift), doubleArrayOf(finalX, finalY)))
+		}
 	}
 }
 

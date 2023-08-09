@@ -85,7 +85,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.LINHIR, -0.1, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.LINHIR, -0.2, 0.9, Dir.SOUTH)
 
 		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 6) {
@@ -99,7 +99,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.ETHRING, 1.1, -0.2, Dir.EAST)
+		affix(location, LOTRWaypoint.ETHRING, 1.0, -0.2, Dir.EAST)
 
 		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 6) {
@@ -127,7 +127,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.TARNOST, 0.0, -1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.TARNOST, 0.0, -0.9, Dir.NORTH)
 		affix(location, LOTRWaypoint.DOL_AMROTH, -1.0, 0.0, Dir.WEST)
 
 		/* READY */
@@ -142,7 +142,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.MINAS_TIRITH, -1.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.MINAS_TIRITH, -0.9, 0.0, Dir.WEST)
 
 		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LOSSARNACH, 3) {
@@ -198,7 +198,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.TIGHFIELD, 0.0, -0.2, Dir.NORTH)
 		affix(location, LOTRWaypoint.GREENHOLM, 0.0, -0.3, Dir.NORTH)
 		affix(location, LOTRWaypoint.MICHEL_DELVING, 0.0, 0.5, Dir.SOUTH)
-		affix(location, LOTRWaypoint.LITTLE_DELVING, 0.0, -0.5, Dir.NORTH)
+		affix(location, LOTRWaypoint.LITTLE_DELVING, 0.0, -0.4, Dir.NORTH)
 		affix(location, LOTRWaypoint.NOBOTTLE, -0.1, -0.5, Dir.NORTH)
 		affix(location, LOTRWaypoint.NEEDLEHOLE, 0.2, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.TUCKBOROUGH, -0.2, 0.0, Dir.WEST)
@@ -210,12 +210,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.HAYSEND, 0.0, 0.2, Dir.SOUTH)
 		affix(location, LOTRWaypoint.BUCKLEBURY, 0.4, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.DEEPHALLOW, 0.3, 0.0, Dir.EAST)
-		affix(location, LOTRWaypoint.STOCK, 0.5, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.STOCK, 0.4, -0.1, Dir.EAST)
 		affix(location, LOTRWaypoint.HOBBITON, -0.3, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.OVERHILL, 0.0, -0.2, Dir.NORTH)
 		affix(location, LOTRWaypoint.WILLOWBOTTOM, -0.2, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.LONGBOTTOM, 0.5, -0.7, Dir.NORTH)
-		affix(location, LOTRWaypoint.WAYMEET, 0.55, -0.75, Dir.NORTH)
+		affix(location, LOTRWaypoint.LONGBOTTOM, 0.5, -0.5, Dir.NORTH)
+		affix(location, LOTRWaypoint.WAYMEET, -1.0, -0.5, Dir.WEST)
 		affix(location, LOTRWaypoint.WHITFURROWS, 0.6, -0.6, Dir.NORTH)
 
 		/* READY */
@@ -237,9 +237,9 @@ object GenstLocations {
 			}
 		}
 
-		affix(location, LOTRWaypoint.ANNUMINAS, -0.65, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.THARBAD, -1.35, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.65, Dir.NORTH)
+		affix(location, LOTRWaypoint.ANNUMINAS, -0.7, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.THARBAD, -1.4, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.7, Dir.NORTH)
 		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
@@ -254,7 +254,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.LOND_DAER, -0.65, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.LOND_DAER, -0.7, 0.0, Dir.WEST)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -268,7 +268,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.65, Dir.NORTH)
+		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.7, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -282,7 +282,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.05, Dir.NORTH)
+		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.1, Dir.NORTH)
 
 		/* READY */
 		location = GenstDale()
@@ -291,7 +291,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.DALE_PORT, 0.3, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.RUNNING_FORD, -0.3, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.REDWATER_FORD, 0.0, 0.5, Dir.SOUTH)
-		affix(location, LOTRWaypoint.DALE_CROSSROADS, -0.2, -1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.DALE_CROSSROADS, -0.3, -0.9, Dir.NORTH)
 
 		/* READY */
 		location = GenstDorwinion()

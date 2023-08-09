@@ -22,7 +22,7 @@ fun LOTRVillageGen.addFixedLocation(
 }
 
 fun LOTRWaypoint.linkTo(x: Double, y: Double): Array<Any> {
-	return if (this.isNotForbidden()) arrayOf(this, doubleArrayOf(this.x + x, this.y + y)) else emptyArray<Any>()
+	return if (this.isNotForbidden()) arrayOf(this, shift(x, y)) else emptyArray<Any>()
 }
 
 fun LOTRWaypoint.shift(x: Double, y: Double): DoubleArray {

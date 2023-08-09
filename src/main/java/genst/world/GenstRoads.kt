@@ -1,9 +1,8 @@
 package genst.world
 
-import genst.utils.isNotForbidden
 import genst.utils.linkTo
 import genst.utils.registerRoad
-import genst.utils.shift
+import genst.utils.registerRoadI
 import lotr.common.LOTRMod
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -38,113 +37,66 @@ object GenstRoads {
 		val rhunTown = 34.0 / 128.0
 		val rhunFort = 67.0 / 128.0
 		val rohanFort = 77.0 / 128.0
+		val basicVillage = 113.0 / 128.0
 
-		registerRoad(LOTRWaypoint.ETHRING.linkTo(gondorTown + 0.1, -0.2))
-		registerRoad(LOTRWaypoint.CALEMBEL.linkTo(0.2, -gondorTown - 0.1))
 		registerRoad(LOTRWaypoint.DOL_AMROTH.linkTo(-gondorTown, 0.0))
-		registerRoad(LOTRWaypoint.TARNOST.linkTo(0.0, -gondorTown))
-		registerRoad(LOTRWaypoint.MINAS_TIRITH.linkTo(-gondorTown, 0.0))
-		registerRoad(LOTRWaypoint.TIGHFIELD.linkTo(0.0, -0.2))
-		registerRoad(LOTRWaypoint.GREENHOLM.linkTo(0.0, -0.3))
-		registerRoad(LOTRWaypoint.MICHEL_DELVING.linkTo(0.0, 0.5))
-		registerRoad(LOTRWaypoint.LITTLE_DELVING.linkTo(0.0, -0.5))
-		registerRoad(LOTRWaypoint.NOBOTTLE.linkTo(-0.1, -0.5))
-		registerRoad(LOTRWaypoint.NEEDLEHOLE.linkTo(0.2, 0.0))
-		registerRoad(LOTRWaypoint.TUCKBOROUGH.linkTo(-0.2, 0.0))
-		registerRoad(LOTRWaypoint.BYWATER.linkTo(0.0, 0.4))
-		registerRoad(LOTRWaypoint.FROGMORTON.linkTo(0.0, 0.4))
-		registerRoad(LOTRWaypoint.OATBARTON.linkTo(0.0, -0.2))
-		registerRoad(LOTRWaypoint.SCARY.linkTo(0.0, -0.2))
-		registerRoad(LOTRWaypoint.HAY_GATE.linkTo(0.0, -0.2))
-		registerRoad(LOTRWaypoint.HAYSEND.linkTo(0.0, 0.2))
-		registerRoad(LOTRWaypoint.BUCKLEBURY.linkTo(0.4, 0.0))
-		registerRoad(LOTRWaypoint.DEEPHALLOW.linkTo(0.3, 0.0))
-		registerRoad(LOTRWaypoint.STOCK.linkTo(0.5, 0.0))
-		registerRoad(LOTRWaypoint.HOBBITON.linkTo(-0.3, 0.0))
-		registerRoad(LOTRWaypoint.OVERHILL.linkTo(0.0, -0.2))
-		registerRoad(LOTRWaypoint.WILLOWBOTTOM.linkTo(-0.2, 0.0))
-		registerRoad(LOTRWaypoint.THARBAD.linkTo(-0.7, 0.0))
-		registerRoad(LOTRWaypoint.FORNOST.linkTo(0.0, -0.1))
-		registerRoad(LOTRWaypoint.ANNUMINAS.linkTo(-0.1, 0.0))
-		registerRoad(LOTRWaypoint.OST_IN_EDHIL.linkTo(0.0, -0.1))
-		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-0.1, 0.0))
-		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.4))
-		registerRoad(LOTRWaypoint.DALE_CITY.linkTo(-0.3, 0.0))
-		registerRoad(LOTRWaypoint.LONG_LAKE.linkTo(0.0, 0.3))
-		registerRoad(LOTRWaypoint.DALE_PORT.linkTo(0.3, 0.0))
-		registerRoad(LOTRWaypoint.RUNNING_FORD.linkTo(-0.3, 0.0))
-		registerRoad(LOTRWaypoint.REDWATER_FORD.linkTo(0.0, 0.5))
-		registerRoad(LOTRWaypoint.DORWINION_PORT.linkTo(0.3, 0.0))
-		registerRoad(LOTRWaypoint.DORWINION_FORD.linkTo(-0.3, 0.0))
-		registerRoad(LOTRWaypoint.BORDER_TOWN.linkTo(0.3, rhunTown + 0.1))
-		registerRoad(LOTRWaypoint.RHUN_SEA_CITY.linkTo(0.0, -rhunTown + 0.1))
-		registerRoad(LOTRWaypoint.RHUN_CAPITAL.linkTo(-rhunTown - 0.2, 0.5))
-		registerRoad(LOTRWaypoint.RHUN_SOUTH_PASS.linkTo(rhunTown, 0.2))
-		registerRoad(LOTRWaypoint.RHUN_NORTH_CITY.linkTo(-rhunTown + 0.1, 0.0))
-		registerRoad(LOTRWaypoint.RHUN_EAST_CITY.linkTo(0.0, rhunTown - 0.1))
-		registerRoad(LOTRWaypoint.RHUN_EAST_TOWN.linkTo(0.3, -rhunTown))
-		registerRoad(LOTRWaypoint.BAZYLAN.linkTo(0.3, rhunTown + 0.1))
-		registerRoad(LOTRWaypoint.RHUN_ROAD_WAY.linkTo(0.0, 0.4))
-		registerRoad(LOTRWaypoint.RHUN_NORTH_FORD.linkTo(0.0, 0.5))
-		registerRoad(LOTRWaypoint.RHUN_NORTHEAST.linkTo(0.0, -0.5))
-		registerRoad(LOTRWaypoint.RHUN_SOUTHEAST.linkTo(rhunFort - 0.2, -0.1))
-		registerRoad(LOTRWaypoint.MORDOR_FORD.linkTo(-0.4, -rhunFort + 0.1))
-
+		registerRoad(LOTRWaypoint.TARNOST.linkTo(0.0, -gondorTown + 0.1))
+		registerRoad(LOTRWaypoint.MINAS_TIRITH.linkTo(-gondorTown + 0.1, 0.0))
+		registerRoad(LOTRWaypoint.TIGHFIELD.linkTo(0.0, -basicVillage + 0.8))
+		registerRoad(LOTRWaypoint.GREENHOLM.linkTo(0.0, -basicVillage + 0.7))
+		registerRoad(LOTRWaypoint.MICHEL_DELVING.linkTo(0.0, basicVillage - 0.5))
+		registerRoad(LOTRWaypoint.LITTLE_DELVING.linkTo(0.0, -basicVillage + 0.6))
+		registerRoad(LOTRWaypoint.NEEDLEHOLE.linkTo(basicVillage - 0.8, 0.0))
+		registerRoad(LOTRWaypoint.TUCKBOROUGH.linkTo(-basicVillage + 0.8, 0.0))
+		registerRoad(LOTRWaypoint.BYWATER.linkTo(0.0, basicVillage - 0.6))
+		registerRoad(LOTRWaypoint.FROGMORTON.linkTo(0.0, basicVillage - 0.6))
+		registerRoad(LOTRWaypoint.OATBARTON.linkTo(0.0, -basicVillage + 0.8))
+		registerRoad(LOTRWaypoint.SCARY.linkTo(0.0, -basicVillage + 0.8))
+		registerRoad(LOTRWaypoint.HAY_GATE.linkTo(0.0, -basicVillage + 0.8))
+		registerRoad(LOTRWaypoint.HAYSEND.linkTo(0.0, basicVillage - 0.8))
+		registerRoad(LOTRWaypoint.BUCKLEBURY.linkTo(basicVillage - 0.6, 0.0))
+		registerRoad(LOTRWaypoint.DEEPHALLOW.linkTo(basicVillage - 0.7, 0.0))
+		registerRoad(LOTRWaypoint.HOBBITON.linkTo(-basicVillage + 0.7, 0.0))
+		registerRoad(LOTRWaypoint.OVERHILL.linkTo(0.0, -basicVillage + 0.8))
+		registerRoad(LOTRWaypoint.WILLOWBOTTOM.linkTo(-basicVillage + 0.8, 0.0))
+		registerRoad(LOTRWaypoint.THARBAD.linkTo(-0.75, 0.0))
+		registerRoad(LOTRWaypoint.FORNOST.linkTo(0.0, -0.15))
+		registerRoad(LOTRWaypoint.ANNUMINAS.linkTo(-0.15, 0.0))
+		registerRoad(LOTRWaypoint.OST_IN_EDHIL.linkTo(0.0, -0.15))
+		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-0.15, 0.0))
+		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -0.45))
+		registerRoad(LOTRWaypoint.DALE_CITY.linkTo(-basicVillage + 0.7, 0.0))
+		registerRoad(LOTRWaypoint.LONG_LAKE.linkTo(0.0, basicVillage - 0.7))
+		registerRoad(LOTRWaypoint.DALE_PORT.linkTo(basicVillage - 0.7, 0.0))
+		registerRoad(LOTRWaypoint.RUNNING_FORD.linkTo(-basicVillage + 0.7, 0.0))
+		registerRoad(LOTRWaypoint.REDWATER_FORD.linkTo(0.0, basicVillage - 0.5))
+		registerRoad(LOTRWaypoint.DORWINION_PORT.linkTo(basicVillage - 0.7, 0.0))
+		registerRoad(LOTRWaypoint.DORWINION_FORD.linkTo(-basicVillage + 0.7, 0.0))
+		registerRoad(LOTRWaypoint.RHUN_NORTH_FORD.linkTo(0.0, basicVillage - 0.5))
+		registerRoad(LOTRWaypoint.RHUN_NORTHEAST.linkTo(0.0, -basicVillage + 0.5))
 		registerRoad(LOTRWaypoint.WOLD.linkTo(0.0, -rohanFort + 0.5))
 
-		if (LOTRWaypoint.DORWINION_CROSSROADS.isNotForbidden()) {
-			registerRoad(LOTRWaypoint.DORWINION_CROSSROADS.linkTo(0.5, -0.3))
-			registerRoad(
-				arrayOf(
-					LOTRWaypoint.DORWINION_CROSSROADS.shift(0.5, -0.3),
-					LOTRWaypoint.DORWINION_CROSSROADS.shift(0.5, -0.5)
-				)
-			)
-		}
-
-		if (LOTRWaypoint.DORWINION_COURT.isNotForbidden()) {
-			registerRoad(LOTRWaypoint.DORWINION_COURT.linkTo(0.5, -0.3))
-			registerRoad(
-				arrayOf(
-					LOTRWaypoint.DORWINION_COURT.shift(0.5, -0.3), LOTRWaypoint.DORWINION_COURT.shift(0.5, -0.5)
-				)
-			)
-		}
-
-		if (LOTRWaypoint.DALE_CROSSROADS.isNotForbidden()) {
-			registerRoad(LOTRWaypoint.DALE_CROSSROADS.linkTo(-0.2, -0.5))
-			registerRoad(
-				arrayOf(
-					LOTRWaypoint.DALE_CROSSROADS.shift(-0.2, -0.5), LOTRWaypoint.DALE_CROSSROADS.shift(-0.2, -1.0)
-				)
-			)
-		}
-
-		if (LOTRWaypoint.LONGBOTTOM.isNotForbidden()) {
-			registerRoad(LOTRWaypoint.LONGBOTTOM.linkTo(0.5, -0.5))
-			registerRoad(
-				arrayOf(
-					LOTRWaypoint.LONGBOTTOM.shift(0.5, -0.5), LOTRWaypoint.LONGBOTTOM.shift(0.5, -0.7)
-				)
-			)
-		}
-
-		if (LOTRWaypoint.WAYMEET.isNotForbidden()) {
-			registerRoad(LOTRWaypoint.WAYMEET.linkTo(0.55, -0.55))
-			registerRoad(
-				arrayOf(
-					LOTRWaypoint.WAYMEET.shift(0.55, -0.55), LOTRWaypoint.WAYMEET.shift(0.55, -0.75)
-				)
-			)
-		}
-
-		if (LOTRWaypoint.WHITFURROWS.isNotForbidden()) {
-			registerRoad(LOTRWaypoint.WHITFURROWS.linkTo(0.6, -0.4))
-			registerRoad(
-				arrayOf(
-					LOTRWaypoint.WHITFURROWS.shift(0.6, -0.4), LOTRWaypoint.WHITFURROWS.shift(0.6, -0.6)
-				)
-			)
-		}
+		registerRoadI(LOTRWaypoint.STOCK.linkTo(basicVillage - 0.6, -0.1), true)
+		registerRoadI(LOTRWaypoint.PELARGIR.linkTo(-0.1, -gondorTown), false)
+		registerRoadI(LOTRWaypoint.LINHIR.linkTo(-0.2, gondorTown - 0.1), false)
+		registerRoadI(LOTRWaypoint.ETHRING.linkTo(gondorTown, -0.2), true)
+		registerRoadI(LOTRWaypoint.CALEMBEL.linkTo(0.2, -gondorTown - 0.1), false)
+		registerRoadI(LOTRWaypoint.NOBOTTLE.linkTo(-0.1, -basicVillage + 0.5), false)
+		registerRoadI(LOTRWaypoint.BORDER_TOWN.linkTo(0.3, rhunTown + 0.1), false)
+		registerRoadI(LOTRWaypoint.RHUN_SEA_CITY.linkTo(0.0, -rhunTown + 0.1), false)
+		registerRoadI(LOTRWaypoint.RHUN_CAPITAL.linkTo(-rhunTown - 0.2, 0.5), true)
+		registerRoadI(LOTRWaypoint.RHUN_SOUTH_PASS.linkTo(rhunTown, 0.2), true)
+		registerRoadI(LOTRWaypoint.RHUN_NORTH_CITY.linkTo(-rhunTown + 0.1, 0.0), true)
+		registerRoadI(LOTRWaypoint.RHUN_EAST_CITY.linkTo(0.0, rhunTown - 0.1), false)
+		registerRoadI(LOTRWaypoint.RHUN_EAST_TOWN.linkTo(0.3, -rhunTown), false)
+		registerRoadI(LOTRWaypoint.BAZYLAN.linkTo(0.3, rhunTown + 0.1), false)
+		registerRoadI(LOTRWaypoint.RHUN_SOUTHEAST.linkTo(rhunFort - 0.2, -0.1), true)
+		registerRoadI(LOTRWaypoint.MORDOR_FORD.linkTo(-0.4, -rhunFort + 0.1), false)
+		registerRoadI(LOTRWaypoint.DORWINION_CROSSROADS.linkTo(0.5, -0.5), false)
+		registerRoadI(LOTRWaypoint.DORWINION_COURT.linkTo(0.5, -0.5), false)
+		registerRoadI(LOTRWaypoint.DALE_CROSSROADS.linkTo(-0.3, -0.9), false)
+		registerRoadI(LOTRWaypoint.LONGBOTTOM.linkTo(0.5, -basicVillage + 0.5), false)
+		registerRoadI(LOTRWaypoint.WAYMEET.linkTo(-basicVillage, -0.5), true)
+		registerRoadI(LOTRWaypoint.WHITFURROWS.linkTo(0.6, -basicVillage + 0.4), false)
 	}
 }
