@@ -3,7 +3,6 @@ package genst.world
 import genst.instance.*
 import genst.utils.affix
 import lotr.common.LOTRDimension
-import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.LOTRWorldGenGondorStructure
