@@ -9,7 +9,7 @@ object GenstConfig {
 	private var cfg: Configuration? = null
 	private var on: MutableMap<LOTRWaypoint, Boolean?> = EnumMap(LOTRWaypoint::class.java)
 
-	fun load() {
+	private fun load() {
 		on[LOTRWaypoint.HIMLING] = cfg?.get("waypoints", "Enable HIMLING", true)?.boolean
 		on[LOTRWaypoint.TOL_FUIN] = cfg?.get("waypoints", "Enable TOL_FUIN", true)?.boolean
 		on[LOTRWaypoint.TOL_MORWEN] = cfg?.get("waypoints", "Enable TOL_MORWEN", true)?.boolean
