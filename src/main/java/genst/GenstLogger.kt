@@ -42,13 +42,6 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.WITHYWINDLE_VALLEY)
 		skip.add(LOTRWaypoint.LAST_BRIDGE)
 
-		//пересмотреть - руины башенного типа
-		skip.add(LOTRWaypoint.MOUNT_RERIR)
-		skip.add(LOTRWaypoint.MOUNT_DOLMED)
-		skip.add(LOTRWaypoint.NORTH_DOWNS)
-		skip.add(LOTRWaypoint.SOUTH_DOWNS)
-		skip.add(LOTRWaypoint.WEATHERTOP)
-
 		//пересмотреть - деревянные руины
 		skip.add(LOTRWaypoint.FORSAKEN_INN)
 	}

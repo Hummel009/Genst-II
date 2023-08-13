@@ -422,6 +422,14 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MINAS_TIRITH, -4.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MINAS_TIRITH, -2.5, 0.0, Dir.NORTH)
 
+		/* READY */
+		location = GenstTower()
+		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_RERIR, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_DOLMED, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.NORTH_DOWNS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SOUTH_DOWNS, 0.0, 0.0, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)
