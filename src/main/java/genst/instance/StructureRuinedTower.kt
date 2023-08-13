@@ -114,7 +114,7 @@ class StructureRuinedTower(flag: Boolean) : LOTRWorldGenStructureBase2(flag) {
 			iShad,
 			jShad + maxHeight + 1,
 			kShad,
-			LOTRChestContents.TROLL_HOARD
+			LOTRChestContents.BARROW_DOWNS
 		)
 		when (rotation) {
 			0 -> {
