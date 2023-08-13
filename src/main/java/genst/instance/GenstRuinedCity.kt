@@ -3,6 +3,7 @@ package genst.instance
 import genst.world.GenstRoads
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
+import lotr.common.world.structure2.LOTRWorldGenEasterlingStatue
 import lotr.common.world.structure2.LOTRWorldGenNumenorRuin
 import lotr.common.world.structure2.LOTRWorldGenStoneRuin.STONE
 import lotr.common.world.village.LOTRVillageGen
@@ -39,6 +40,7 @@ open class GenstRuinedCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 			}
 			val mansionX = 12
 			val mansionZ = 20
+			addStructure(StructureRuinedTower(false), 0, 0, 2, true)
 			addStructure(LOTRWorldGenNumenorRuin(false), -mansionX, -mansionZ, 2, true)
 			addStructure(LOTRWorldGenNumenorRuin(false), mansionX, -mansionZ, 2, true)
 			addStructure(LOTRWorldGenNumenorRuin(false), -mansionX, mansionZ, 0, true)
