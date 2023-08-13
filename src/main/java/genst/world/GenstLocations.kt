@@ -223,6 +223,9 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.TOL_MORWEN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GLADDEN_FIELDS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CROSSINGS_OF_POROS, 1.0, 1.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HIMLING, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.TOL_FUIN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MENELTARMA_SUMMIT, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -231,17 +234,19 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.ARNOR.setRepair(0.92f)
+						return LOTRRoadType.ARNOR
 					}
 				}
 			}
 		}
 
-		affix(location, LOTRWaypoint.ANNUMINAS, -0.7, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.OLD_ELF_WAY, 0.0, -0.8, Dir.NORTH)
+		affix(location, LOTRWaypoint.ANNUMINAS, -0.8, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.THARBAD, -1.4, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.8, Dir.NORTH)
 		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 0.9, Dir.SOUTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -255,7 +260,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.LOND_DAER, -0.7, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.LOND_DAER, -0.8, 0.0, Dir.WEST)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -264,12 +269,12 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.HIGH_ELVEN_RUINED.setRepair(0.7f)
+						return LOTRRoadType.HIGH_ELVEN_RUINED
 					}
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.8, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {

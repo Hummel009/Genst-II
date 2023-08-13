@@ -1,10 +1,14 @@
 package genst.instance
 
+import lotr.common.block.LOTRBlockBrickBase
+import lotr.common.block.LOTRBlockRock
+import lotr.common.block.LOTRBlockSlabBase
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.LOTRWorldGenGondorTurret
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.block.BlockStone
 import net.minecraft.world.World
 import java.util.*
 
@@ -39,7 +43,8 @@ class GenstLighthouse : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
+			val block = world.getBlock(i, j, k)
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is BlockStone
 		}
 
 		override fun setupVillageProperties(random: Random) {}
