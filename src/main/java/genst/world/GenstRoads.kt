@@ -50,6 +50,7 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.DORWINION_FORD.linkTo(-basicVillage + 0.7, 0.0))
 		registerRoad(LOTRWaypoint.DORWINION_PORT.linkTo(basicVillage - 0.7, 0.0))
 		registerRoad(LOTRWaypoint.EDHELLOND.linkTo(0.0, -ruinedCity - 0.1))
+		registerRoad(LOTRWaypoint.ENEDWAITH_ROAD.linkTo(ruinedCity, 0.0))
 		registerRoad(LOTRWaypoint.FORNOST.linkTo(0.0, -ruinedCity + 0.2))
 		registerRoad(LOTRWaypoint.FROGMORTON.linkTo(0.0, basicVillage - 0.6))
 		registerRoad(LOTRWaypoint.GREENHOLM.linkTo(0.0, -basicVillage + 0.7))

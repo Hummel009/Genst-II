@@ -33,16 +33,24 @@ object GenstLogger : CommandBase() {
 	}
 
 	fun postInit() {
+		//mevans has already done this
 		skip.add(LOTRWaypoint.BREE)
 		skip.add(LOTRWaypoint.COMBE)
 		skip.add(LOTRWaypoint.STADDLE)
 		skip.add(LOTRWaypoint.ARCHET)
+
+		//genst isn't needed
 		skip.add(LOTRWaypoint.BRANDYWINE_BRIDGE)
 		skip.add(LOTRWaypoint.SARN_FORD)
 		skip.add(LOTRWaypoint.WITHYWINDLE_VALLEY)
 		skip.add(LOTRWaypoint.LAST_BRIDGE)
 
-		//пересмотреть - деревянные руины
-		skip.add(LOTRWaypoint.FORSAKEN_INN)
+		//impossible
+		skip.add(LOTRWaypoint.WEST_GATE)
+		skip.add(LOTRWaypoint.BELEGOST)
+		skip.add(LOTRWaypoint.NOGROD)
+		skip.add(LOTRWaypoint.THORIN_HALLS)
+		skip.add(LOTRWaypoint.ARVEDUI_MINES)
+		skip.add(LOTRWaypoint.THRAIN_HALLS)
 	}
 }

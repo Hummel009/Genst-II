@@ -182,6 +182,7 @@ object GenstLocations {
 		/* READY */
 		location = GenstRivendell()
 		affix(location, LOTRWaypoint.RIVENDELL, 0.0, -0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.FORD_BRUINEN, 0.0, -0.7, Dir.NORTH)
 
 		/* READY */
 		location = GenstDunland()
@@ -191,6 +192,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.WULFBURG, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.FRECA_HOLD, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CORSAIRS_LANDING, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FORDS_OF_ISEN, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = GenstShire()
@@ -261,6 +263,7 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.LOND_DAER, -0.8, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.EAST)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
