@@ -56,14 +56,7 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(getForge(), -21, 0, 1, true)
 			addStructure(getForge(), 0, -21, 2, true)
 			addStructure(getForge(), 21, 0, 3, true)
-			addStructure(object : LOTRWorldGenStructureBase2(false) {
-				override fun generateWithSetRotation(
-					world: World, random: Random, i: Int, j: Int, k: Int, rot: Int
-				): Boolean {
-					return LOTRWorldGenHighElvenHall(false).generate(world, random, i, j, k)
-				}
-
-			}, 0, 21, 0, true)
+			addStructure(getHall(), 0, 21, 0, true)
 			val houses = 20
 			val frac = 1.0f / houses
 			var turn = 0.0f
@@ -113,6 +106,17 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			}
 			if (random.nextBoolean()) {
 				addStructure(getHouse(), farmX - farmSize, farmZ, 3, true)
+			}
+		}
+
+		open fun getHall(): LOTRWorldGenStructureBase2? {
+			return object : LOTRWorldGenStructureBase2(false) {
+				override fun generateWithSetRotation(
+					world: World, random: Random, i: Int, j: Int, k: Int, rot: Int
+				): Boolean {
+					return LOTRWorldGenHighElvenHall(false).generate(world, random, i, j, k)
+				}
+
 			}
 		}
 
