@@ -519,6 +519,32 @@ object GenstLocations {
 		/* READY */
 		affix(GenstBreeInn, LOTRWaypoint.FORSAKEN_INN, 0.0, -0.1, Dir.NORTH)
 
+		/* READY */
+		location = GenstDolGuldur()
+		affix(location, LOTRWaypoint.DOL_GULDUR, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MIRKWOOD_MOUNTAINS, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		location = GenstMordor()
+		affix(location, LOTRWaypoint.UDUN, 0.6, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.BARAD_DUR, 0.4, -0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.MINAS_MORGUL, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.DURTHANG, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.CARACH_ANGREN, 0.0, -0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.CIRITH_UNGOL, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MORIGOST, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.NARGROTH, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.AMON_ANGREN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SEREGOST, 0.0, -0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.FELLBEASTS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.EASTERN_GUARD, 0.6, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.NURNEN_NORTHERN_SHORE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.NURNEN_SOUTHERN_SHORE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.NURNEN_WESTERN_SHORE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.NURNEN_EASTERN_SHORE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.THAURBAND, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.VALLEY_OF_SPIDERS, 0.0, 0.0, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)

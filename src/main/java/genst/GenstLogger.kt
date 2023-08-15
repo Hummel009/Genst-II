@@ -74,5 +74,6 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.ARGONATH)
 		skip.add(LOTRWaypoint.MORANNON)
 		skip.add(LOTRWaypoint.MOUNT_DOOM)
+		skip.add(LOTRWaypoint.BARAZ_DUM)
 	}
 }
