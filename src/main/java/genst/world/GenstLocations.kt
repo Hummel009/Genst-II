@@ -1,7 +1,7 @@
 package genst.world
 
-import genst.instance.*
 import genst.utils.affix
+import genst.world.settlement.*
 import lotr.common.LOTRDimension
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -157,6 +157,7 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.MINAS_TIRITH, -0.9, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.CAIR_ANDROS, -1.0, 0.0, Dir.WEST)
 
 		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LOSSARNACH, 3) {
@@ -171,6 +172,21 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.IMLOTH_MELUI, 0.0, 0.0, Dir.WEST)
+
+		/* READY */
+		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 3) {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.FORT
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.EMYN_ARNEN, 0.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.HENNETH_ANNUN, 0.0, 0.0, Dir.WEST)
 
 		/* READY */
 		affix(GenstErech, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
@@ -244,6 +260,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MENELTARMA_SUMMIT, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.WITHERED_HEATH, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SCATHA, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.CROSSROADS_ITHILIEN, 0.3, 0.3, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -285,6 +302,8 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -1.0, 0.3, Dir.WEST)
 		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.NORTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SOUTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -313,6 +332,38 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.1, Dir.NORTH)
+
+		/* READY */
+		location = object : GenstRuinedCity(5) {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.GONDOR
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.OSGILIATH_WEST, 0.7, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.OSGILIATH_WEST, 2.0, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.OSGILIATH_EAST, -0.7, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.OSGILIATH_EAST, -2.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.OSGILIATH_EAST, -3.3, 0.0, Dir.WEST)
+
+		/* READY */
+		location = object : GenstRuinedCity() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType {
+						return LOTRRoadType.GONDOR
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.NORTH_ITHILIEN, 0.9, 0.0, Dir.EAST)
 
 		/* READY */
 		location = GenstDale()
@@ -461,6 +512,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MOUNT_FANUIDHOL, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_METHEDRAS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.RAS_MORTHIL, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.THE_TROLLSHAWS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.AMON_LHAW, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.AMON_HEN, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		affix(GenstBreeInn, LOTRWaypoint.FORSAKEN_INN, 0.0, -0.1, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
