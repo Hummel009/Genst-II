@@ -26,13 +26,15 @@ fun registerRoadI(data: Array<Any>, subtractX: Boolean) {
 		val origY = wp.y
 		val finalX = final[0]
 		val finalY = final[1]
-		val wayX = abs((origX - finalX) / 2.0)
-		val wayY = abs((origY - finalY) / 2.0)
 		if (subtractX) {
+			val wayXprev = abs((origX - finalX) / 2.0)
+			val wayX = if (wayXprev > 0.1) 0.1 else wayXprev
 			val shift = if (origX < finalX) -wayX else wayX
 			registerRoad(arrayOf(wp, doubleArrayOf(finalX + shift, finalY)))
 			registerRoad(arrayOf(doubleArrayOf(finalX + shift, finalY), doubleArrayOf(finalX, finalY)))
 		} else {
+			val wayYprev = abs((origY - finalY) / 2.0)
+			val wayY = if (wayYprev > 0.1) 0.1 else wayYprev
 			val shift = if (origY < finalY) -wayY else wayY
 			registerRoad(arrayOf(wp, doubleArrayOf(finalX, finalY + shift)))
 			registerRoad(arrayOf(doubleArrayOf(finalX, finalY + shift), doubleArrayOf(finalX, finalY)))

@@ -39,18 +39,32 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.STADDLE)
 		skip.add(LOTRWaypoint.ARCHET)
 
-		//genst isn't needed
+		//skip
+		skip.add(LOTRWaypoint.WELLINGHALL)
+		skip.add(LOTRWaypoint.TREEBEARD_HILL)
+		skip.add(LOTRWaypoint.DERNDINGLE)
+		skip.add(LOTRWaypoint.CAPE_OF_FOROCHEL)
+		skip.add(LOTRWaypoint.SOUTH_FOROCHEL)
 		skip.add(LOTRWaypoint.BRANDYWINE_BRIDGE)
 		skip.add(LOTRWaypoint.SARN_FORD)
-		skip.add(LOTRWaypoint.WITHYWINDLE_VALLEY)
 		skip.add(LOTRWaypoint.LAST_BRIDGE)
-
-		//impossible
+		skip.add(LOTRWaypoint.EAGLES_EYRIE)
+		skip.add(LOTRWaypoint.CARROCK)
+		skip.add(LOTRWaypoint.OLD_FORD)
 		skip.add(LOTRWaypoint.WEST_GATE)
 		skip.add(LOTRWaypoint.BELEGOST)
 		skip.add(LOTRWaypoint.NOGROD)
 		skip.add(LOTRWaypoint.THORIN_HALLS)
 		skip.add(LOTRWaypoint.ARVEDUI_MINES)
 		skip.add(LOTRWaypoint.THRAIN_HALLS)
+		skip.add(LOTRWaypoint.DAINS_HALLS)
+		skip.add(LOTRWaypoint.DIMRILL_DALE)
+		skip.add(LOTRWaypoint.RAUROS)
+		skip.add(LOTRWaypoint.FOREST_GATE)
+		skip.add(LOTRWaypoint.ENCHANTED_RIVER)
+		skip.add(LOTRWaypoint.RIVER_GATE)
+		skip.add(LOTRWaypoint.EREBOR)
+		skip.add(LOTRWaypoint.WEST_PEAK)
+		skip.add(LOTRWaypoint.EAST_PEAK)
 	}
 }

@@ -74,6 +74,20 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.PELARGIR, -0.1, -1.0, Dir.NORTH)
 
 		/* READY */
+		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.BLACKROOT_VALE, 3) {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.FORT
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.TARLANG, 0.0, 0.7, Dir.SOUTH)
+
+		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -228,6 +242,8 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.HIMLING, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.TOL_FUIN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MENELTARMA_SUMMIT, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.WITHERED_HEATH, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SCATHA, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -264,6 +280,11 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.LOND_DAER, -0.8, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.FRAMSBURG, -0.9, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.ANDUIN_CROSSROADS, -0.8, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -1.0, 0.3, Dir.WEST)
+		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -399,6 +420,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ALDBURG, -0.15, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.MERING_STREAM, -0.4, 0.7, Dir.NORTH)
 		affix(location, LOTRWaypoint.HELMS_CROSSROADS, 0.4, -0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.DUNHARROW, 0.0, 0.0, Dir.SOUTH)
 
 		/* READY */
 		location = object : GenstRohan() {
@@ -413,6 +435,7 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.EASTMARK, 0.0, 0.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.FIELD_OF_CELEBRANT, 0.0, 0.0, Dir.SOUTH)
 
 		location = GenstLighthouse()
 		affix(location, LOTRWaypoint.HALIFIRIEN, 0.0, 1.0, Dir.NORTH)
@@ -432,6 +455,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MOUNT_DOLMED, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.NORTH_DOWNS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SOUTH_DOWNS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HIGH_PASS, 0.0, -0.2, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_CARADHRAS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_CELEBDIL, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_FANUIDHOL, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_METHEDRAS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.RAS_MORTHIL, 0.0, 0.0, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
