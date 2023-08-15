@@ -12,32 +12,32 @@ import kotlin.math.abs
 
 class StructureNorthernOrcTower(flag: Boolean) : LOTRWorldGenStructureBase2(flag) {
 	override fun generateWithSetRotation(world: World, random: Random, i: Int, j: Int, k: Int, rot: Int): Boolean {
-		var i = i
-		var j = j
-		var k = k
+		var iShad = i
+		var jShad = j
+		var kShad = k
 		val height = 5 + random.nextInt(4)
-		j += height
+		jShad += height
 		var rotation = random.nextInt(4)
 		if (!restrictions && usingPlayer != null) {
 			rotation = usingPlayerRotation()
 		}
 		when (rotation) {
-			0 -> ++k
-			1 -> --i
-			2 -> --k
-			3 -> ++i
+			0 -> ++kShad
+			1 -> --iShad
+			2 -> --kShad
+			3 -> ++iShad
 		}
 		var j1: Int
 		var orcs: Int
 		var l: Int
 		if (restrictions) {
-			j1 = i - 3
-			while (j1 <= i + 3) {
-				orcs = k - 3
-				while (orcs <= k + 3) {
+			j1 = iShad - 3
+			while (j1 <= iShad + 3) {
+				orcs = kShad - 3
+				while (orcs <= kShad + 3) {
 					l = world.getHeightValue(j1, orcs) - 1
-					val l = world.getBlock(j1, l, orcs)
-					if (l !== Blocks.grass) {
+					val lShad = world.getBlock(j1, l, orcs)
+					if (lShad !== Blocks.grass) {
 						return false
 					}
 					++orcs
@@ -45,27 +45,27 @@ class StructureNorthernOrcTower(flag: Boolean) : LOTRWorldGenStructureBase2(flag
 				++j1
 			}
 		}
-		j1 = i - 3
-		while (j1 <= i + 3) {
-			orcs = k - 3
-			while (orcs <= k + 3) {
-				setBlockAndNotifyAdequately(world, j1, j, orcs, LOTRMod.planks, 3)
-				setBlockAndNotifyAdequately(world, j1, j + 6, orcs, LOTRMod.planks, 3)
-				if (abs(1 - i) == 3 || abs(orcs - k) == 3) {
-					setBlockAndNotifyAdequately(world, j1, j + 1, orcs, LOTRMod.fence, 3)
-					setBlockAndNotifyAdequately(world, j1, j + 5, orcs, LOTRMod.fence, 3)
-					setBlockAndNotifyAdequately(world, j1, j + 7, orcs, LOTRMod.fence, 3)
+		j1 = iShad - 3
+		while (j1 <= iShad + 3) {
+			orcs = kShad - 3
+			while (orcs <= kShad + 3) {
+				setBlockAndNotifyAdequately(world, j1, jShad, orcs, LOTRMod.planks, 3)
+				setBlockAndNotifyAdequately(world, j1, jShad + 6, orcs, LOTRMod.planks, 3)
+				if (abs(1 - iShad) == 3 || abs(orcs - kShad) == 3) {
+					setBlockAndNotifyAdequately(world, j1, jShad + 1, orcs, LOTRMod.fence, 3)
+					setBlockAndNotifyAdequately(world, j1, jShad + 5, orcs, LOTRMod.fence, 3)
+					setBlockAndNotifyAdequately(world, j1, jShad + 7, orcs, LOTRMod.fence, 3)
 				}
 				++orcs
 			}
 			++j1
 		}
-		j1 = i - 3
-		while (j1 <= i + 3) {
-			orcs = k - 3
-			while (orcs <= k + 3) {
-				l = j + 5
-				while ((l >= j || !LOTRMod.isOpaque(world, j1, l, orcs)) && l >= 0) {
+		j1 = iShad - 3
+		while (j1 <= iShad + 3) {
+			orcs = kShad - 3
+			while (orcs <= kShad + 3) {
+				l = jShad + 5
+				while ((l >= jShad || !LOTRMod.isOpaque(world, j1, l, orcs)) && l >= 0) {
 					setBlockAndNotifyAdequately(world, j1, l, orcs, LOTRMod.wood, 3)
 					setGrassToDirt(world, j1, l - 1, orcs)
 					--l
@@ -74,65 +74,65 @@ class StructureNorthernOrcTower(flag: Boolean) : LOTRWorldGenStructureBase2(flag
 			}
 			j1 += 6
 		}
-		j1 = j + 2
-		while (j1 <= j + 4) {
-			setBlockAndNotifyAdequately(world, i - 2, j1, k - 3, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i - 2, j1, k + 3, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i + 2, j1, k - 3, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i + 2, j1, k + 3, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i - 3, j1, k - 2, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i + 3, j1, k - 2, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i - 3, j1, k + 2, LOTRMod.fence, 3)
-			setBlockAndNotifyAdequately(world, i + 3, j1, k + 2, LOTRMod.fence, 3)
+		j1 = jShad + 2
+		while (j1 <= jShad + 4) {
+			setBlockAndNotifyAdequately(world, iShad - 2, j1, kShad - 3, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad - 2, j1, kShad + 3, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad + 2, j1, kShad - 3, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad + 2, j1, kShad + 3, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad - 3, j1, kShad - 2, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad + 3, j1, kShad - 2, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad - 3, j1, kShad + 2, LOTRMod.fence, 3)
+			setBlockAndNotifyAdequately(world, iShad + 3, j1, kShad + 2, LOTRMod.fence, 3)
 			++j1
 		}
-		j1 = j + 11
-		while ((j1 >= j || !LOTRMod.isOpaque(world, i, j1, k)) && j1 >= 0) {
-			setBlockAndNotifyAdequately(world, i, j1, k, LOTRMod.wood, 3)
-			setGrassToDirt(world, i, j1 - 1, k)
-			if (j1 <= j + 6) {
-				setBlockAndNotifyAdequately(world, i, j1, k - 1, Blocks.ladder, 2)
+		j1 = jShad + 11
+		while ((j1 >= jShad || !LOTRMod.isOpaque(world, iShad, j1, kShad)) && j1 >= 0) {
+			setBlockAndNotifyAdequately(world, iShad, j1, kShad, LOTRMod.wood, 3)
+			setGrassToDirt(world, iShad, j1 - 1, kShad)
+			if (j1 <= jShad + 6) {
+				setBlockAndNotifyAdequately(world, iShad, j1, kShad - 1, Blocks.ladder, 2)
 			}
 			--j1
 		}
-		setBlockAndNotifyAdequately(world, i, j + 1, k - 1, LOTRMod.trapdoorCharred, 0)
-		setBlockAndNotifyAdequately(world, i, j + 7, k - 1, LOTRMod.trapdoorCharred, 0)
-		placeOrcTorch(world, i - 3, j + 8, k - 3)
-		placeOrcTorch(world, i - 3, j + 8, k + 3)
-		placeOrcTorch(world, i + 3, j + 8, k - 3)
-		placeOrcTorch(world, i + 3, j + 8, k + 3)
-		setBlockAndNotifyAdequately(world, i, j + 12, k, LOTRMod.fence, 3)
-		setBlockAndNotifyAdequately(world, i, j + 13, k, LOTRMod.fence, 3)
-		setBlockAndNotifyAdequately(world, i, j + 12, k - 1, LOTRMod.fence, 3)
-		setBlockAndNotifyAdequately(world, i, j + 12, k + 1, LOTRMod.fence, 3)
-		setBlockAndNotifyAdequately(world, i - 1, j + 12, k, LOTRMod.fence, 3)
-		setBlockAndNotifyAdequately(world, i + 1, j + 12, k, LOTRMod.fence, 3)
-		placeOrcTorch(world, i, j + 14, k)
-		placeOrcTorch(world, i, j + 13, k - 1)
-		placeOrcTorch(world, i, j + 13, k + 1)
-		placeOrcTorch(world, i - 1, j + 13, k)
-		placeOrcTorch(world, i + 1, j + 13, k)
+		setBlockAndNotifyAdequately(world, iShad, jShad + 1, kShad - 1, LOTRMod.trapdoorCharred, 0)
+		setBlockAndNotifyAdequately(world, iShad, jShad + 7, kShad - 1, LOTRMod.trapdoorCharred, 0)
+		placeOrcTorch(world, iShad - 3, jShad + 8, kShad - 3)
+		placeOrcTorch(world, iShad - 3, jShad + 8, kShad + 3)
+		placeOrcTorch(world, iShad + 3, jShad + 8, kShad - 3)
+		placeOrcTorch(world, iShad + 3, jShad + 8, kShad + 3)
+		setBlockAndNotifyAdequately(world, iShad, jShad + 12, kShad, LOTRMod.fence, 3)
+		setBlockAndNotifyAdequately(world, iShad, jShad + 13, kShad, LOTRMod.fence, 3)
+		setBlockAndNotifyAdequately(world, iShad, jShad + 12, kShad - 1, LOTRMod.fence, 3)
+		setBlockAndNotifyAdequately(world, iShad, jShad + 12, kShad + 1, LOTRMod.fence, 3)
+		setBlockAndNotifyAdequately(world, iShad - 1, jShad + 12, kShad, LOTRMod.fence, 3)
+		setBlockAndNotifyAdequately(world, iShad + 1, jShad + 12, kShad, LOTRMod.fence, 3)
+		placeOrcTorch(world, iShad, jShad + 14, kShad)
+		placeOrcTorch(world, iShad, jShad + 13, kShad - 1)
+		placeOrcTorch(world, iShad, jShad + 13, kShad + 1)
+		placeOrcTorch(world, iShad - 1, jShad + 13, kShad)
+		placeOrcTorch(world, iShad + 1, jShad + 13, kShad)
 		var slaver: LOTREntityNPC = LOTREntityAngmarOrcMercenaryCaptain(world)
-		slaver.setLocationAndAngles(i.toDouble() + 1.5, (j + 7).toDouble(), k.toDouble() + 1.5, 0.0f, 0.0f)
+		slaver.setLocationAndAngles(iShad.toDouble() + 1.5, (jShad + 7).toDouble(), kShad.toDouble() + 1.5, 0.0f, 0.0f)
 		slaver.onSpawnWithEgg(null as IEntityLivingData?)
 		slaver.setPersistentAndTraderShouldRespawn()
 		world.spawnEntityInWorld(slaver)
-		slaver.setHomeArea(i, j + 6, k, 12)
+		slaver.setHomeArea(iShad, jShad + 6, kShad, 12)
 		slaver = LOTREntityGundabadOrcMercenaryCaptain(world)
-		slaver.setLocationAndAngles(i.toDouble() + 1.5, (j + 7).toDouble(), k.toDouble() + 1.5, 0.0f, 0.0f)
+		slaver.setLocationAndAngles(iShad.toDouble() + 1.5, (jShad + 7).toDouble(), kShad.toDouble() + 1.5, 0.0f, 0.0f)
 		slaver.onSpawnWithEgg(null as IEntityLivingData?)
 		slaver.setPersistentAndTraderShouldRespawn()
 		world.spawnEntityInWorld(slaver)
-		slaver.setHomeArea(i, j + 6, k, 12)
+		slaver.setHomeArea(iShad, jShad + 6, kShad, 12)
 		orcs = 2 + random.nextInt(3)
 		l = 0
 		while (l < orcs) {
 			val orc = if (random.nextInt(2) == 0) LOTREntityAngmarOrc(world) else LOTREntityGundabadOrc(world)
-			orc.setLocationAndAngles(i.toDouble() + 1.5, (j + 1).toDouble(), k.toDouble() + 1.5, 0.0f, 0.0f)
+			orc.setLocationAndAngles(iShad.toDouble() + 1.5, (jShad + 1).toDouble(), kShad.toDouble() + 1.5, 0.0f, 0.0f)
 			orc.onSpawnWithEgg(null as IEntityLivingData?)
 			orc.isNPCPersistent = true
 			world.spawnEntityInWorld(orc)
-			orc.setHomeArea(i, j + 1, k, 8)
+			orc.setHomeArea(iShad, jShad + 1, kShad, 8)
 			++l
 		}
 		return true

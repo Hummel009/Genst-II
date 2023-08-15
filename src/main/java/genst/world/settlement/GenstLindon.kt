@@ -7,6 +7,7 @@ import lotr.common.entity.npc.LOTREntityHighElf
 import lotr.common.entity.npc.LOTREntityHighElfWarrior
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
+import lotr.common.world.structure.LOTRWorldGenHighElvenHall
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -55,7 +56,14 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(getForge(), -21, 0, 1, true)
 			addStructure(getForge(), 0, -21, 2, true)
 			addStructure(getForge(), 21, 0, 3, true)
-			addStructure(getForge(), 0, 21, 0, true)
+			addStructure(object : LOTRWorldGenStructureBase2(false) {
+				override fun generateWithSetRotation(
+					world: World, random: Random, i: Int, j: Int, k: Int, rot: Int
+				): Boolean {
+					return LOTRWorldGenHighElvenHall(false).generate(world, random, i, j, k)
+				}
+
+			}, 0, 21, 0, true)
 			val houses = 20
 			val frac = 1.0f / houses
 			var turn = 0.0f
