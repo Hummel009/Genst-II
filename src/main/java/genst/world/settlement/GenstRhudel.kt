@@ -1,14 +1,15 @@
 package genst.world.settlement
 
-import lotr.common.block.LOTRBlockBrickBase
-import lotr.common.block.LOTRBlockSlabBase
+import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.village.LOTRVillageGenRhun
 import lotr.common.world.village.LocationInfo
+import net.minecraft.block.BlockStone
+import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
-open class GenstRhun(
+open class GenstRhudel(
 	radius: Int
 ) : LOTRVillageGenRhun(LOTRBiome.forodwaith, 0.0f, false) {
 	init {
@@ -24,7 +25,7 @@ open class GenstRhun(
 	) : LOTRVillageGenRhun.Instance(village, world, i, k, random, loc) {
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
 		override fun isFlat(): Boolean {

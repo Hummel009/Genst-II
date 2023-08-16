@@ -62,6 +62,7 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.HAYSEND.linkTo(0.0, basicVillage - 0.8))
 		registerRoad(LOTRWaypoint.HAY_GATE.linkTo(0.0, -basicVillage + 0.8))
 		registerRoad(LOTRWaypoint.HOBBITON.linkTo(-basicVillage + 0.7, 0.0))
+		registerRoad(LOTRWaypoint.RHUN_SOUTHEAST.linkTo(rhunFort - 0.2, 0.0))
 		registerRoad(LOTRWaypoint.LITTLE_DELVING.linkTo(0.0, -basicVillage + 0.6))
 		registerRoad(LOTRWaypoint.LOND_DAER.linkTo(-ruinedCity + 0.2, 0.0))
 		registerRoad(LOTRWaypoint.LONG_LAKE.linkTo(0.0, basicVillage - 0.7))

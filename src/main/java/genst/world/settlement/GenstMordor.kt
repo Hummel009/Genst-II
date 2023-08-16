@@ -1,7 +1,6 @@
 package genst.world.settlement
 
-import lotr.common.block.LOTRBlockBrickBase
-import lotr.common.block.LOTRBlockSlabBase
+import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.*
 import lotr.common.world.biome.LOTRBiome
@@ -11,6 +10,7 @@ import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.block.BlockStone
+import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
@@ -161,7 +161,7 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is BlockStone
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
 		override fun setupVillageProperties(random: Random) {

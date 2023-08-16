@@ -1,10 +1,13 @@
 package genst.world.settlement
 
 import genst.world.structure.StructureRuinedTower
+import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.block.BlockStone
+import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
@@ -39,7 +42,8 @@ class GenstTower : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
+			val block = world.getBlock(i, j, k)
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
 		override fun setupVillageProperties(random: Random) {}

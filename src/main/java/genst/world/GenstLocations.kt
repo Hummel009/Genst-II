@@ -396,7 +396,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.5, -0.5, Dir.NORTH)
 
 		/* READY */
-		location = object : GenstRhun(6) {
+		location = object : GenstRhudel(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
@@ -417,7 +417,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.BAZYLAN, 0.3, 1.1, Dir.SOUTH)
 
 		/* READY */
-		location = object : GenstRhun(6) {
+		location = object : GenstRhudel(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
@@ -432,7 +432,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.RHUN_ROAD_WAY, 0.0, 0.4, Dir.SOUTH) //Redway
 
 		/* READY */
-		location = object : GenstRhun(6) {
+		location = object : GenstRhudel(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
@@ -447,6 +447,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.RHUN_NORTHEAST, 0.0, -0.6, Dir.NORTH) //Nortern Marches
 		affix(location, LOTRWaypoint.RHUN_SOUTHEAST, 0.8, -0.1, Dir.EAST) //Southern Marches
 		affix(location, LOTRWaypoint.MORDOR_FORD, -0.4, -0.9, Dir.NORTH)
+		affix(location, LOTRWaypoint.KHAND_NORTH_ROAD, 0.8, 0.0, Dir.EAST) //Southern Marches
 
 		/* READY */
 		affix(GenstKhamul, LOTRWaypoint.KHAMUL_TOWER, 0.0, 0.0, Dir.NORTH)
