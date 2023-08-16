@@ -17,7 +17,7 @@ class GenstTower : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
 		villageChunkRadius = 2
-		fixedVillageChunkRadius = 2
+		fixedVillageChunkRadius = 0
 	}
 
 	override fun createVillageInstance(

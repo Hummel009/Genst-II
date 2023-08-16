@@ -169,8 +169,8 @@ public class StructureWoodenHouse extends LOTRWorldGenRohanStructure {
 		}
 		setBlockAndMetadata(world, -4, 3, -6, plank2SlabBlock, plank2SlabMeta | 8);
 		setBlockAndMetadata(world, 3, 3, -6, plank2SlabBlock, plank2SlabMeta | 8);
-		setBlockAndMetadata(world, -1, 4, -6, rockSlabBlock, rockSlabMeta);
-		setBlockAndMetadata(world, 0, 4, -6, rockSlabBlock, rockSlabMeta);
+		setBlockAndMetadata(world, -1, 4, -6, Blocks.stone_slab, 0);
+		setBlockAndMetadata(world, 0, 4, -6, Blocks.stone_slab, 0);
 		setBlockAndMetadata(world, -2, 4, -7, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 1, 4, -7, fenceBlock, fenceMeta);
 		for (i1 = -1; i1 <= 0; ++i1) {
@@ -226,41 +226,41 @@ public class StructureWoodenHouse extends LOTRWorldGenRohanStructure {
 		for (k13 = 1; k13 <= 3; ++k13) {
 			for (i13 = 2; i13 <= 3; ++i13) {
 				for (j1 = 5; (j1 >= 0 || !isOpaque(world, i13, j1, k13)) && getY(j1) >= 0; --j1) {
-					setBlockAndMetadata(world, i13, j1, k13, brickBlock, brickMeta);
+					setBlockAndMetadata(world, i13, j1, k13, Blocks.stonebrick, 0);
 				}
 			}
 		}
-		setBlockAndMetadata(world, 3, 5, 1, brickStairBlock, 2);
-		setBlockAndMetadata(world, 3, 5, 3, brickStairBlock, 3);
-		setBlockAndMetadata(world, 2, 6, 1, brickStairBlock, 2);
-		setBlockAndMetadata(world, 2, 6, 3, brickStairBlock, 3);
-		setBlockAndMetadata(world, 3, 6, 2, brickStairBlock, 0);
-		setBlockAndMetadata(world, 1, 6, 2, brickBlock, brickMeta);
+		setBlockAndMetadata(world, 3, 5, 1, Blocks.stone_brick_stairs, 2);
+		setBlockAndMetadata(world, 3, 5, 3, Blocks.stone_brick_stairs, 3);
+		setBlockAndMetadata(world, 2, 6, 1, Blocks.stone_brick_stairs, 2);
+		setBlockAndMetadata(world, 2, 6, 3, Blocks.stone_brick_stairs, 3);
+		setBlockAndMetadata(world, 3, 6, 2, Blocks.stone_brick_stairs, 0);
+		setBlockAndMetadata(world, 1, 6, 2, Blocks.stonebrick, 0);
 		for (int j17 = 6; j17 <= 8; ++j17) {
-			setBlockAndMetadata(world, 2, j17, 2, brickBlock, brickMeta);
+			setBlockAndMetadata(world, 2, j17, 2, Blocks.stonebrick, 0);
 		}
-		setBlockAndMetadata(world, 2, 9, 2, rockSlabBlock, rockSlabMeta);
+		setBlockAndMetadata(world, 2, 9, 2, Blocks.stone_slab, 0);
 		for (k13 = 0; k13 <= 4; ++k13) {
-			setBlockAndMetadata(world, 2, 4, k13, brickBlock, brickMeta);
+			setBlockAndMetadata(world, 2, 4, k13, Blocks.stonebrick, 0);
 			for (int step2 = 0; step2 <= 1; ++step2) {
-				setBlockAndMetadata(world, 1 - step2, 5 + step2, k13, brickStairBlock, 5);
+				setBlockAndMetadata(world, 1 - step2, 5 + step2, k13, Blocks.stone_brick_stairs, 5);
 			}
 		}
 		for (int k161 : new int[]{0, 4}) {
 			for (int j18 = 1; j18 <= 3; ++j18) {
-				setBlockAndMetadata(world, 2, j18, k161, rockWallBlock, rockWallMeta);
+				setBlockAndMetadata(world, 2, j18, k161, Blocks.cobblestone_wall, 0);
 			}
 		}
 		setBlockAndMetadata(world, 2, 0, 2, LOTRMod.hearth, 0);
 		setBlockAndMetadata(world, 2, 1, 2, Blocks.fire, 0);
 		setBlockAndMetadata(world, 2, 2, 2, Blocks.furnace, 5);
-		setBlockAndMetadata(world, 2, 3, 2, brickCarvedBlock, brickCarvedMeta);
-		setBlockAndMetadata(world, 1, 0, 2, rockSlabDoubleBlock, rockSlabDoubleMeta);
-		setBlockAndMetadata(world, 1, 1, 1, brickBlock, brickMeta);
+		setBlockAndMetadata(world, 2, 3, 2, Blocks.stonebrick, 3);
+		setBlockAndMetadata(world, 1, 0, 2, Blocks.stonebrick, 0);
+		setBlockAndMetadata(world, 1, 1, 1, Blocks.stonebrick, 0);
 		setBlockAndMetadata(world, 1, 1, 2, barsBlock, 0);
-		setBlockAndMetadata(world, 1, 1, 3, brickBlock, brickMeta);
+		setBlockAndMetadata(world, 1, 1, 3, Blocks.stonebrick, 0);
 		for (k14 = 1; k14 <= 3; ++k14) {
-			setBlockAndMetadata(world, 1, 2, k14, rockSlabBlock, rockSlabMeta);
+			setBlockAndMetadata(world, 1, 2, k14, Blocks.stone_slab, 0);
 		}
 		for (int i16 = -2; i16 <= 1; ++i16) {
 			setBlockAndMetadata(world, i16, 5, -4, plank2SlabBlock, plank2SlabMeta);
@@ -268,7 +268,7 @@ public class StructureWoodenHouse extends LOTRWorldGenRohanStructure {
 		setBlockAndMetadata(world, -3, 1, -4, plankStairBlock, 3);
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, -3, 1, -1, tableBlock, 0);
+		setBlockAndMetadata(world, -3, 1, -1, Blocks.anvil, 0);
 		this.placeChest(world, random, -3, 1, 0, 4, LOTRChestContents.BARROW_DOWNS);
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7);
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);

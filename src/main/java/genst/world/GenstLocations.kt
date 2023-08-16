@@ -546,6 +546,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.THAURBAND, 0.0, 0.6, Dir.SOUTH)
 		affix(location, LOTRWaypoint.VALLEY_OF_SPIDERS, 0.0, 0.0, Dir.NORTH)
 
+		/* READY */
+		location = GenstWoodenHouse()
+		affix(location, LOTRWaypoint.WITHYWINDLE_VALLEY, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.BEORN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.RHOSGOBEL, 0.0, 0.0, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)
