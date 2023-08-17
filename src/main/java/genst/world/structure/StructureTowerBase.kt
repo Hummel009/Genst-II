@@ -242,7 +242,7 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 			}
 			placeStairs(world, 2, sectionBase + 5, 5, 4)
 		}
-		this.placeChest(world, random, -1, 1, 5, 0, LOTRChestContents.BARROW_DOWNS)
+		this.placeChest(world, random, -1, 1, 5, LOTRMod.chestStone, 0, LOTRChestContents.BARROW_DOWNS, -1)
 		var k1: Int = -3
 		while (k1 <= 3) {
 			step = 0
