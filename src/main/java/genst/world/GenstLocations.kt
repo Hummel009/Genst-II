@@ -207,9 +207,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
 
 		/* READY */
-		location = GenstNorthernOrcs()
+		location = GenstAngmar()
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		location = GenstGundabad()
 		affix(location, LOTRWaypoint.MOUNT_GUNDABAD, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GOBLIN_TOWN, 0.0, 0.0, Dir.NORTH)
 
