@@ -9,17 +9,17 @@ import net.minecraft.world.World
 object StructureIsengard : StructureTowerBase(false) {
 	override fun getStairsBlock(): Block = LOTRMod.stairsBlackGondorBrick
 
-	override fun getBrickMeta(): Int = 11
+	override fun getBrickMeta() = 11
 
 	override fun getBrickBlock(): Block = LOTRMod.brick2
 
 	override fun getWallBlock(): Block = LOTRMod.wall2
 
-	override fun getWallMeta(): Int = 10
+	override fun getWallMeta() = 10
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityUrukHaiMercenaryCaptain(world)
 
 	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
 
-	override fun getSections(): Int = 9
+	override fun getSections() = 9
 }

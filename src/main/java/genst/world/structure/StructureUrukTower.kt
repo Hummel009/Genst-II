@@ -9,11 +9,11 @@ import net.minecraft.world.World
 class StructureUrukTower(flag: Boolean) : StructureTowerBase(flag) {
 	override fun getBrickBlock(): Block = LOTRMod.brick2
 
-	override fun getBrickMeta(): Int = 7
+	override fun getBrickMeta() = 7
 
 	override fun getWallBlock(): Block = LOTRMod.wall2
 
-	override fun getWallMeta(): Int = 7
+	override fun getWallMeta() = 7
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityUrukHaiMercenaryCaptain(world)
 
@@ -21,5 +21,5 @@ class StructureUrukTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getStairsBlock(): Block = LOTRMod.stairsUrukBrick
 
-	override fun getSections(): Int = 7
+	override fun getSections() = 7
 }

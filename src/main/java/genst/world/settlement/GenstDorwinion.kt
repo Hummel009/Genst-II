@@ -100,20 +100,15 @@ open class GenstDorwinion : LOTRVillageGen(LOTRBiome.forodwaith) {
 			return null
 		}
 
-		open fun getRoadType(): LOTRRoadType {
-			return LOTRRoadType.DORWINION
-		}
+		open fun getRoadType(): LOTRRoadType = LOTRRoadType.DORWINION
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat() = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
 			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
-		override fun setupVillageProperties(random: Random) {
-		}
+		override fun setupVillageProperties(random: Random) {}
 	}
 }

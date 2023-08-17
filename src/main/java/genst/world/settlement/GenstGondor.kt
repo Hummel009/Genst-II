@@ -11,8 +11,7 @@ import net.minecraft.world.World
 import java.util.*
 
 open class GenstGondor(
-	fief: LOTRWorldGenGondorStructure.GondorFiefdom,
-	radius: Int
+	fief: LOTRWorldGenGondorStructure.GondorFiefdom, radius: Int
 ) : LOTRVillageGenGondor(LOTRBiome.forodwaith, fief, 0.0f) {
 	init {
 		gridScale = 12
@@ -25,13 +24,12 @@ open class GenstGondor(
 	open class Instance(
 		village: LOTRVillageGenGondor, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	) : LOTRVillageGenGondor.Instance(village, world, i, k, random, loc) {
+
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
 			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat() = false
 	}
 }

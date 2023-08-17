@@ -37,7 +37,7 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstLindon?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(getTower(), 0, -4, 0, true)
+			addStructure(getTower(), 0, -7, 0, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClass(LOTREntityHighElfWarrior::class.java)
@@ -90,35 +90,12 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val farmX = 38
 			val farmZ = 17
 			val farmSize = 6
-			if (random.nextBoolean()) {
-				addStructure(getHouse(), -farmX + farmSize, -farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(getHouse(), -farmZ + farmSize, -farmX, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(getHouse(), farmX - farmSize, -farmZ, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(getHouse(), farmZ - farmSize, -farmX, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(getHouse(), -farmX + farmSize, farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(getHouse(), farmX - farmSize, farmZ, 3, true)
-			}
-		}
-
-		open fun getHall(): LOTRWorldGenStructureBase2? {
-			return object : LOTRWorldGenStructureBase2(false) {
-				override fun generateWithSetRotation(
-					world: World, random: Random, i: Int, j: Int, k: Int, rot: Int
-				): Boolean {
-					return LOTRWorldGenHighElvenHall(false).generate(world, random, i, j, k)
-				}
-
-			}
+			addStructure(getHouse(), -farmX + farmSize, -farmZ, 1, true)
+			addStructure(getHouse(), -farmZ + farmSize, -farmX, 1, true)
+			addStructure(getHouse(), farmX - farmSize, -farmZ, 3, true)
+			addStructure(getHouse(), farmZ - farmSize, -farmX, 3, true)
+			addStructure(getHouse(), -farmX + farmSize, farmZ, 1, true)
+			addStructure(getHouse(), farmX - farmSize, farmZ, 3, true)
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
@@ -137,28 +114,30 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			return null
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat() = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
 			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
-		override fun setupVillageProperties(random: Random) {
+		override fun setupVillageProperties(random: Random) {}
+
+		open fun getHall(): LOTRWorldGenStructureBase2 {
+			return object : LOTRWorldGenStructureBase2(false) {
+				override fun generateWithSetRotation(
+					world: World, random: Random, i: Int, j: Int, k: Int, rot: Int
+				): Boolean {
+					return LOTRWorldGenHighElvenHall(false).generate(world, random, i, j, k)
+				}
+
+			}
 		}
 
-		open fun getForge(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenHighElvenForge(false)
-		}
+		open fun getForge(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElvenForge(false)
 
-		open fun getHouse(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenHighElfHouse(false)
-		}
+		open fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElfHouse(false)
 
-		open fun getTower(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenHighElvenTower(false)
-		}
+		open fun getTower(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElvenTower(false)
 	}
 }

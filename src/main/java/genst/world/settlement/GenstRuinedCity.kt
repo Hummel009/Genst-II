@@ -1,7 +1,7 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureRuinedTower
 import genst.world.GenstRoads
+import genst.world.structure.StructureRuinedTower
 import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
@@ -123,9 +123,7 @@ open class GenstRuinedCity(
 			addStructure(STONE(5, 7), wellZ, wellX, 0, true)
 		}
 
-		open fun getRoadType(): LOTRRoadType {
-			return GenstRoads.PATH_COBBLE
-		}
+		open fun getRoadType(): LOTRRoadType = GenstRoads.PATH_COBBLE
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
 			val i1 = abs(i.toDouble()).toInt()
@@ -143,9 +141,7 @@ open class GenstRuinedCity(
 			} else null
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat() = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)

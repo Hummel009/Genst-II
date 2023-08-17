@@ -13,21 +13,13 @@ class GenstRivendell : GenstLindon() {
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	): AbstractInstance<*> {
 		return object : Instance(this, world, i, k, random, loc) {
-			override fun getForge(): LOTRWorldGenStructureBase2 {
-				return LOTRWorldGenRivendellForge(false)
-			}
+			override fun getForge(): LOTRWorldGenStructureBase2 = LOTRWorldGenRivendellForge(false)
 
-			override fun getHouse(): LOTRWorldGenStructureBase2 {
-				return LOTRWorldGenRivendellHouse(false)
-			}
+			override fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenRivendellHouse(false)
 
-			override fun getTower(): LOTRWorldGenStructureBase2 {
-				return StructureRivendellTower(false)
-			}
+			override fun getTower(): LOTRWorldGenStructureBase2 = StructureRivendellTower(false)
 
-			override fun getHall(): LOTRWorldGenStructureBase2 {
-				return LOTRWorldGenRivendellForge(false)
-			}
+			override fun getHall(): LOTRWorldGenStructureBase2 = LOTRWorldGenRivendellForge(false)
 		}
 	}
 }

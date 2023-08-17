@@ -2,7 +2,6 @@ package genst.world.settlement
 
 import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
-import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.block.BlockStone
@@ -28,20 +27,16 @@ open class GenstSingle : LOTRVillageGen(LOTRBiome.forodwaith) {
 	open class Instance(
 		village: GenstSingle?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
 	) : AbstractInstance<GenstSingle?>(village, world, i, k, random, loc) {
-		override fun addVillageStructures(random: Random) {
-		}
 
-		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			return null
-		}
+		override fun addVillageStructures(random: Random) {}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun getPath(random: Random, i: Int, k: Int) = null
+
+		override fun isFlat() = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone  || block is LOTRBlockWaste || block == Blocks.cobblestone
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block is LOTRBlockWaste || block == Blocks.cobblestone
 		}
 
 		override fun setupVillageProperties(random: Random) {}

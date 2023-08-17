@@ -7,7 +7,6 @@ import lotr.common.entity.npc.LOTREntityDolGuldurOrcArcher
 import lotr.common.entity.npc.LOTREntityMirkTroll
 import lotr.common.entity.npc.LOTREntityMirkwoodSpider
 import lotr.common.world.biome.LOTRBiome
-import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -37,7 +36,7 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstDolGuldur?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(LOTRWorldGenDolGuldurTower(false), 0, -4, 0, true)
+			addStructure(LOTRWorldGenDolGuldurTower(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(
@@ -92,40 +91,23 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val farmX = 38
 			val farmZ = 17
 			val farmSize = 6
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenDolGuldurTent(false), -farmX + farmSize, -farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenDolGuldurTent(false), -farmZ + farmSize, -farmX, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenDolGuldurForgeTent(false), farmX - farmSize, -farmZ, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenDolGuldurTent(false), farmZ - farmSize, -farmX, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenDolGuldurTent(false), -farmX + farmSize, farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenDolGuldurForgeTent(false), farmX - farmSize, farmZ, 3, true)
-			}
+			addStructure(LOTRWorldGenDolGuldurTent(false), -farmX + farmSize, -farmZ, 1, true)
+			addStructure(LOTRWorldGenDolGuldurTent(false), -farmZ + farmSize, -farmX, 1, true)
+			addStructure(LOTRWorldGenDolGuldurForgeTent(false), farmX - farmSize, -farmZ, 3, true)
+			addStructure(LOTRWorldGenDolGuldurTent(false), farmZ - farmSize, -farmX, 3, true)
+			addStructure(LOTRWorldGenDolGuldurTent(false), -farmX + farmSize, farmZ, 1, true)
+			addStructure(LOTRWorldGenDolGuldurForgeTent(false), farmX - farmSize, farmZ, 3, true)
 		}
 
-		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			return null
-		}
+		override fun getPath(random: Random, i: Int, k: Int) = null
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat() = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
 			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
-		override fun setupVillageProperties(random: Random) {
-		}
+		override fun setupVillageProperties(random: Random) {}
 	}
 }

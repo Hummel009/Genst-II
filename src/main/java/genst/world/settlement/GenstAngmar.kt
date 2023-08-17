@@ -14,6 +14,9 @@ import lotr.common.world.structure2.LOTRWorldGenAngmarWargPit
 import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.block.BlockGravel
+import net.minecraft.block.BlockSnow
+import net.minecraft.block.BlockSnowBlock
 import net.minecraft.block.BlockStone
 import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
@@ -118,16 +121,13 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 			return null
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat() = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block is LOTRBlockWaste || block == Blocks.cobblestone
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block is LOTRBlockWaste || block is BlockSnow || block is BlockSnowBlock || block is BlockGravel || block == Blocks.cobblestone
 		}
 
-		override fun setupVillageProperties(random: Random) {
-		}
+		override fun setupVillageProperties(random: Random) {}
 	}
 }
