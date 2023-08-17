@@ -1,8 +1,7 @@
 package genst.world.settlement
 
 import genst.world.structure.StructureUrukTower
-import lotr.common.block.LOTRBlockBrickBase
-import lotr.common.block.LOTRBlockSlabBase
+import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityUrukHai
 import lotr.common.entity.npc.LOTREntityUrukHaiBerserker
@@ -16,10 +15,12 @@ import lotr.common.world.structure2.LOTRWorldGenUrukTent
 import lotr.common.world.structure2.LOTRWorldGenUrukWargPit
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.block.*
+import net.minecraft.block.BlockStone
+import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
+import kotlin.math.abs
 
 class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -41,7 +42,7 @@ class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstUruk?>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureUrukTower(false), 0, -4, 0, true)
+			addStructure(StructureUrukTower(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityUrukHai::class.java, LOTREntityUrukHaiCrossbower::class.java)
@@ -94,27 +95,27 @@ class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val farmX = 38
 			val farmZ = 17
 			val farmSize = 6
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenUrukTent(false), -farmX + farmSize, -farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenUrukTent(false), -farmZ + farmSize, -farmX, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenUrukForgeTent(false), farmX - farmSize, -farmZ, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenUrukTent(false), farmZ - farmSize, -farmX, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenUrukTent(false), -farmX + farmSize, farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenUrukForgeTent(false), farmX - farmSize, farmZ, 3, true)
-			}
+			addStructure(LOTRWorldGenUrukTent(false), -farmX + farmSize, -farmZ, 1, true)
+			addStructure(LOTRWorldGenUrukTent(false), -farmZ + farmSize, -farmX, 1, true)
+			addStructure(LOTRWorldGenUrukForgeTent(false), farmX - farmSize, -farmZ, 3, true)
+			addStructure(LOTRWorldGenUrukTent(false), farmZ - farmSize, -farmX, 3, true)
+			addStructure(LOTRWorldGenUrukTent(false), -farmX + farmSize, farmZ, 1, true)
+			addStructure(LOTRWorldGenUrukForgeTent(false), farmX - farmSize, farmZ, 3, true)
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
+			val i1 = abs(i)
+			val k1 = abs(k)
+			val dSq = i * i + k * k
+			val imn = 20 + random.nextInt(4)
+			if (dSq < imn * imn) {
+				return LOTRRoadType.PATH
+			}
+			val omn = 53 - random.nextInt(4)
+			val omx = 60 + random.nextInt(4)
+			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs(i1 - k1) <= 2 + random.nextInt(4)) {
+				return LOTRRoadType.PATH
+			}
 			return null
 		}
 
@@ -124,17 +125,7 @@ class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			val set = hashSetOf(
-				BlockStone::class.java,
-				BlockSnow::class.java,
-				BlockSnowBlock::class.java,
-				BlockOre::class.java,
-				BlockGravel::class.java,
-				BlockDirt::class.java,
-				LOTRBlockBrickBase::class.java,
-				LOTRBlockSlabBase::class.java
-			)
-			return set.contains(block.javaClass)
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block is LOTRBlockWaste || block == Blocks.cobblestone
 		}
 
 		override fun setupVillageProperties(random: Random) {
