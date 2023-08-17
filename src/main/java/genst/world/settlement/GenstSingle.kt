@@ -3,7 +3,6 @@ package genst.world.settlement
 import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.structure2.LOTRWorldGenGondorTurret
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.block.BlockStone
@@ -11,7 +10,7 @@ import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
-class GenstLighthouse : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstSingle : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
@@ -26,11 +25,10 @@ class GenstLighthouse : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(
-		village: GenstLighthouse?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstLighthouse?>(village, world, i, k, random, loc) {
+	open class Instance(
+		village: GenstSingle?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
+	) : AbstractInstance<GenstSingle?>(village, world, i, k, random, loc) {
 		override fun addVillageStructures(random: Random) {
-			addStructure(LOTRWorldGenGondorTurret(false), 0, 0, 0, true)
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
