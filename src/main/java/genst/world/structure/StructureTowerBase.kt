@@ -4,6 +4,7 @@ import lotr.common.LOTRMod
 import lotr.common.world.structure.LOTRChestContents
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
 import net.minecraft.block.Block
+import net.minecraft.entity.EntityCreature
 import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
@@ -407,8 +408,11 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			k1 += 4
 		}
 		setBlockAndMetadata(world, 0, topHeight + 1, -4, LOTRMod.commandTable, 0)
+		spawnNPCAndSetHome(getCommander(world), world, 0, topHeight + 1, 0, 16);
 		return true
 	}
+
+	abstract fun getCommander(world: World): EntityCreature
 
 	abstract fun getSecondaryBrick(): Block
 

@@ -1,10 +1,14 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
+import lotr.common.entity.npc.LOTREntityUrukHaiMercenaryCaptain
 import net.minecraft.block.Block
+import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureUrukTower(flag: Boolean) : StructureTowerBase(flag) {
+	override fun getCommander(world: World): EntityCreature = LOTREntityUrukHaiMercenaryCaptain(world)
+
 	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
 
 	override fun getSections(): Int = 7
