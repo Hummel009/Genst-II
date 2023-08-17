@@ -1,9 +1,12 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
+import net.minecraft.block.Block
 import net.minecraft.world.World
 
 object StructureIsengard : StructureTowerBase() {
+	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
+
 	override fun getSections(): Int = 9
 
 	override fun placeWall(world: World, i: Int, j: Int, k: Int) {

@@ -1,9 +1,12 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
+import net.minecraft.block.Block
 import net.minecraft.world.World
 
 object StructureUrukTower : StructureTowerBase() {
+	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
+
 	override fun getSections(): Int = 7
 
 	override fun placeWall(world: World, i: Int, j: Int, k: Int) {

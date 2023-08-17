@@ -3,6 +3,7 @@ package genst.world.structure
 import lotr.common.LOTRMod
 import lotr.common.world.structure.LOTRChestContents
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
+import net.minecraft.block.Block
 import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
@@ -144,7 +145,6 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 							continue
 						}
 						placeWall(world, i1, sectionBase + 2, k12)
-						this.placeSkull(world, random, i1, sectionBase + 2, k12)
 						++k12
 					}
 					++i1
@@ -164,28 +164,27 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 				placeStairs(world, 1, sectionBase + 3, -radius, 5)
 				i1 = -5
 				while (i1 <= 5) {
-					setBlockAndMetadata(world, i1, sectionBase, 0, LOTRMod.guldurilBrick, 4)
+					setBlockAndMetadata(world, i1, sectionBase, 0, getSecondaryBrick(), 4)
 					++i1
 				}
 				k14 = -6
 				while (k14 <= 3) {
-					setBlockAndMetadata(world, 0, sectionBase, k14, LOTRMod.guldurilBrick, 4)
+					setBlockAndMetadata(world, 0, sectionBase, k14, getSecondaryBrick(), 4)
 					++k14
 				}
-				setBlockAndMetadata(world, 0, sectionBase + 1, 0, LOTRMod.guldurilBrick, 4)
+				setBlockAndMetadata(world, 0, sectionBase + 1, 0, getSecondaryBrick(), 4)
 				placeWall(world, 0, sectionBase + 2, 0)
-				this.placeSkull(world, random, 0, sectionBase + 3, 0)
 			}
 			j12 = sectionBase + 1
 			while (j12 <= sectionBase + 5) {
-				setBlockAndMetadata(world, -2, j12, -5, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, 2, j12, -5, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, 5, j12, -2, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, 5, j12, 2, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, -3, j12, 4, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, 3, j12, 4, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, -5, j12, -2, LOTRMod.wood, 2)
-				setBlockAndMetadata(world, -5, j12, 2, LOTRMod.wood, 2)
+				setBlockAndMetadata(world, -2, j12, -5, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, 2, j12, -5, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, 5, j12, -2, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, 5, j12, 2, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, -3, j12, 4, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, 3, j12, 4, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, -5, j12, -2, LOTRMod.woodBeamV2, 1)
+				setBlockAndMetadata(world, -5, j12, 2, LOTRMod.woodBeamV2, 1)
 				++j12
 			}
 			setBlockAndMetadata(world, -3, sectionBase + 4, 3, Blocks.torch, 4)
@@ -410,6 +409,8 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 		setBlockAndMetadata(world, 0, topHeight + 1, -4, LOTRMod.commandTable, 0)
 		return true
 	}
+
+	abstract fun getSecondaryBrick(): Block
 
 	abstract fun getSections(): Int
 
