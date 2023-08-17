@@ -41,7 +41,7 @@ open class GenstSingle : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
+			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone  || block is LOTRBlockWaste || block == Blocks.cobblestone
 		}
 
 		override fun setupVillageProperties(random: Random) {}

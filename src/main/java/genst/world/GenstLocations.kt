@@ -5,7 +5,6 @@ import genst.world.settlement.*
 import genst.world.structure.*
 import lotr.common.LOTRDimension
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.map.LOTRRoads
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
@@ -648,7 +647,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureUrukTower, 0, 0, 0, true)
+						addStructure(StructureUrukTower, 0, 0, 2, true)
 					}
 				}
 			}
