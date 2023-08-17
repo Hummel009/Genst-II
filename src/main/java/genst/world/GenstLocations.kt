@@ -2,7 +2,10 @@ package genst.world
 
 import genst.utils.affix
 import genst.world.settlement.*
-import genst.world.structure.*
+import genst.world.structure.StructureErech
+import genst.world.structure.StructureIsengard
+import genst.world.structure.StructureRuinedTower
+import genst.world.structure.StructureWoodenHouse
 import lotr.common.LOTRDimension
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -641,17 +644,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ISENGARD, 0.0, -3.5, Dir.NORTH)
 
 		/* READY */
-		location = object : GenstSingle() {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureUrukTower, 0, 0, 2, true)
-					}
-				}
-			}
-		}
+		location = GenstUruk()
 		affix(location, LOTRWaypoint.URUK_HIGHLANDS, 0.0, 0.0, Dir.NORTH)
 
 		for (loc in locations) {

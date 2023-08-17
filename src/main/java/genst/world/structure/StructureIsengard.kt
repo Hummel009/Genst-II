@@ -4,7 +4,7 @@ import lotr.common.LOTRMod
 import net.minecraft.block.Block
 import net.minecraft.world.World
 
-object StructureIsengard : StructureTowerBase() {
+object StructureIsengard : StructureTowerBase(false) {
 	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
 
 	override fun getSections(): Int = 9

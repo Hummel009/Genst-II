@@ -4,7 +4,7 @@ import lotr.common.LOTRMod
 import net.minecraft.block.Block
 import net.minecraft.world.World
 
-object StructureUrukTower : StructureTowerBase() {
+class StructureUrukTower(flag: Boolean) : StructureTowerBase(flag) {
 	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
 
 	override fun getSections(): Int = 7

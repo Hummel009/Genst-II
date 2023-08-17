@@ -10,7 +10,7 @@ import java.util.*
 import kotlin.math.abs
 import kotlin.math.pow
 
-abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
+abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(flag) {
 	override fun generateWithSetRotation(world: World, random: Random, i: Int, j: Int, k: Int, rotation: Int): Boolean {
 		var i1: Int
 		var j1: Int
