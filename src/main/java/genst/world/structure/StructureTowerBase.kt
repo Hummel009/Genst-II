@@ -2,7 +2,6 @@ package genst.world.structure
 
 import lotr.common.LOTRMod
 import lotr.common.entity.npc.LOTREntityDolGuldurOrcChieftain
-import lotr.common.item.LOTRItemBanner
 import lotr.common.world.structure.LOTRChestContents
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
 import net.minecraft.init.Blocks
@@ -28,7 +27,7 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 		val radius = 6
 		val radiusPlusOne = radius + 1
 		this.setOriginAndRotation(world, i, j, k, rotation, radiusPlusOne)
-		val sections = 3 + random.nextInt(3)
+		val sections = getSections()
 		val sectionHeight = 6
 		val topHeight = sections * sectionHeight
 		val radiusD = radius - 0.5
@@ -79,7 +78,7 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 				j13 = 0
 				while ((j13 == 0 || !isOpaque(world, i13, j13, k13)) && getY(j13) >= 0) {
 					if (distSq >= wallThresholdMin) {
-						placeRandomBrick(world, random, i13, j13, k13)
+						placeBrick(world, random, i13, j13, k13)
 					} else {
 						setBlockAndMetadata(world, i13, j13, k13, Blocks.stonebrick, 0)
 					}
@@ -102,7 +101,7 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 							continue
 						}
 						if (distSq3 >= wallThresholdMin) {
-							placeRandomBrick(world, random, i12, j12, k15)
+							placeBrick(world, random, i12, j12, k15)
 							continue
 						}
 						if (j12 == sectionBase + sectionHeight) {
@@ -139,13 +138,13 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 						val i2 = abs(i1.toDouble()).toInt()
 						val k2 = abs(k12.toDouble()).toInt()
 						if (i2 == 1 || k2 == 1) {
-							setBlockAndMetadata(world, i1, sectionBase + 1, k12, LOTRMod.wall2, 8)
+							placeWall(world, i1, sectionBase + 1, k12)
 						}
 						if (i2 != 1 || k2 != 1) {
 							++k12
 							continue
 						}
-						setBlockAndMetadata(world, i1, sectionBase + 2, k12, LOTRMod.wall2, 8)
+						placeWall(world, i1, sectionBase + 2, k12)
 						this.placeSkull(world, random, i1, sectionBase + 2, k12)
 						++k12
 					}
@@ -162,9 +161,8 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 					setBlockAndMetadata(world, i1, sectionBase, -radius, Blocks.stonebrick, 0)
 					++i1
 				}
-				placeRandomStairs(world, random, -1, sectionBase + 3, -radius, 4)
-				placeRandomStairs(world, random, 1, sectionBase + 3, -radius, 5)
-				placeWallBanner(world, 0, sectionBase + 6, -radius, LOTRItemBanner.BannerType.DOL_GULDUR, 2)
+				placeStairs(world, random, -1, sectionBase + 3, -radius, 4)
+				placeStairs(world, random, 1, sectionBase + 3, -radius, 5)
 				i1 = -5
 				while (i1 <= 5) {
 					setBlockAndMetadata(world, i1, sectionBase, 0, LOTRMod.guldurilBrick, 4)
@@ -176,7 +174,7 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 					++k14
 				}
 				setBlockAndMetadata(world, 0, sectionBase + 1, 0, LOTRMod.guldurilBrick, 4)
-				setBlockAndMetadata(world, 0, sectionBase + 2, 0, LOTRMod.wall2, 8)
+				placeWall(world, 0, sectionBase + 2, 0)
 				this.placeSkull(world, random, 0, sectionBase + 3, 0)
 			}
 			j12 = sectionBase + 1
@@ -246,19 +244,19 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 			}
 			setBlockAndMetadata(world, 2, sectionBase + 5, 5, Blocks.stone_brick_stairs, 4)
 		}
-		this.placeChest(world, random, -1, 1, 5, 0, LOTRChestContents.DOL_GULDUR_TOWER)
+		this.placeChest(world, random, -1, 1, 5, 0, LOTRChestContents.BARROW_DOWNS)
 		var k1: Int = -3
 		while (k1 <= 3) {
 			step = 0
 			while (step <= 3) {
 				placeBrickSupports(world, random, -9 + step, k1)
 				placeBrickSupports(world, random, 9 - step, k1)
-				placeRandomStairs(world, random, -9 + step, 1 + step * 2, k1, 1)
-				placeRandomStairs(world, random, 9 - step, 1 + step * 2, k1, 0)
+				placeStairs(world, random, -9 + step, 1 + step * 2, k1, 1)
+				placeStairs(world, random, 9 - step, 1 + step * 2, k1, 0)
 				j12 = 1
 				while (j12 <= step * 2) {
-					placeRandomBrick(world, random, -9 + step, j12, k1)
-					placeRandomBrick(world, random, 9 - step, j12, k1)
+					placeBrick(world, random, -9 + step, j12, k1)
+					placeBrick(world, random, 9 - step, j12, k1)
 					++j12
 				}
 				++step
@@ -271,12 +269,12 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 			while (step <= 3) {
 				placeBrickSupports(world, random, i13, -9 + step)
 				placeBrickSupports(world, random, i13, 9 - step)
-				placeRandomStairs(world, random, i13, 1 + step * 2, -9 + step, 2)
-				placeRandomStairs(world, random, i13, 1 + step * 2, 9 - step, 3)
+				placeStairs(world, random, i13, 1 + step * 2, -9 + step, 2)
+				placeStairs(world, random, i13, 1 + step * 2, 9 - step, 3)
 				j12 = 1
 				while (j12 <= step * 2) {
-					placeRandomBrick(world, random, i13, j12, -9 + step)
-					placeRandomBrick(world, random, i13, j12, 9 - step)
+					placeBrick(world, random, i13, j12, -9 + step)
+					placeBrick(world, random, i13, j12, 9 - step)
 					++j12
 				}
 				++step
@@ -294,18 +292,18 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 				}
 				val i2 = abs(i13.toDouble()).toInt()
 				val k2 = abs(k13.toDouble()).toInt()
-				setBlockAndMetadata(world, i13, topHeight + 1, k13, LOTRMod.wall2, 8)
+				placeWall(world, i13, topHeight + 1, k13)
 				if (i2 < 3 || k2 < 3) {
 					++k13
 					continue
 				}
-				setBlockAndMetadata(world, i13, topHeight + 2, k13, LOTRMod.wall2, 8)
+				placeWall(world, i13, topHeight + 2, k13)
 				if (i2 != 4 || k2 != 4) {
 					++k13
 					continue
 				}
-				setBlockAndMetadata(world, i13, topHeight + 3, k13, LOTRMod.wall2, 8)
-				setBlockAndMetadata(world, i13, topHeight + 4, k13, LOTRMod.wall2, 8)
+				placeWall(world, i13, topHeight + 3, k13)
+				placeWall(world, i13, topHeight + 4, k13)
 				setBlockAndMetadata(world, i13, topHeight + 5, k13, LOTRMod.morgulTorch, 5)
 				++k13
 			}
@@ -318,47 +316,47 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 			while (step <= 4) {
 				j12 = topHeight + 1 + step * 2
 				k12 = -9 + step
-				placeRandomStairs(world, random, i13, j12 - 2, k12, 7)
+				placeStairs(world, random, i13, j12 - 2, k12, 7)
 				j2 = j12 - 1
 				while (j2 <= j12 + 1) {
-					placeRandomBrick(world, random, i13, j2, k12)
+					placeBrick(world, random, i13, j2, k12)
 					++j2
 				}
-				placeRandomStairs(world, random, i13, j12 + 2, k12, 2)
+				placeStairs(world, random, i13, j12 + 2, k12, 2)
 				k12 = 9 - step
-				placeRandomStairs(world, random, i13, j12 - 2, k12, 6)
+				placeStairs(world, random, i13, j12 - 2, k12, 6)
 				j2 = j12 - 1
 				while (j2 <= j12 + 1) {
-					placeRandomBrick(world, random, i13, j2, k12)
+					placeBrick(world, random, i13, j2, k12)
 					++j2
 				}
-				placeRandomStairs(world, random, i13, j12 + 2, k12, 3)
+				placeStairs(world, random, i13, j12 + 2, k12, 3)
 				++step
 			}
 			j1 = topHeight - 4
 			while (j1 <= topHeight + 2) {
 				k14 = -9
 				while (k14 <= -8) {
-					placeRandomBrick(world, random, i13, j1, k14)
+					placeBrick(world, random, i13, j1, k14)
 					++k14
 				}
 				k14 = 8
 				while (k14 <= 9) {
-					placeRandomBrick(world, random, i13, j1, k14)
+					placeBrick(world, random, i13, j1, k14)
 					++k14
 				}
 				++j1
 			}
-			placeRandomBrick(world, random, i13, topHeight - 1, -7)
-			placeRandomBrick(world, random, i13, topHeight, -7)
-			setBlockAndMetadata(world, i13, topHeight + 1, -7, LOTRMod.wall2, 8)
-			placeRandomBrick(world, random, i13, topHeight - 1, 7)
-			placeRandomBrick(world, random, i13, topHeight, 7)
-			setBlockAndMetadata(world, i13, topHeight + 1, 7, LOTRMod.wall2, 8)
-			placeRandomStairs(world, random, i13, topHeight - 4, -9, 6)
-			placeRandomStairs(world, random, i13, topHeight - 5, -8, 6)
-			placeRandomStairs(world, random, i13, topHeight - 4, 9, 7)
-			placeRandomStairs(world, random, i13, topHeight - 5, 8, 7)
+			placeBrick(world, random, i13, topHeight - 1, -7)
+			placeBrick(world, random, i13, topHeight, -7)
+			placeWall(world, i13, topHeight + 1, -7)
+			placeBrick(world, random, i13, topHeight - 1, 7)
+			placeBrick(world, random, i13, topHeight, 7)
+			placeWall(world, i13, topHeight + 1, 7)
+			placeStairs(world, random, i13, topHeight - 4, -9, 6)
+			placeStairs(world, random, i13, topHeight - 5, -8, 6)
+			placeStairs(world, random, i13, topHeight - 4, 9, 7)
+			placeStairs(world, random, i13, topHeight - 5, 8, 7)
 			i13 += 4
 		}
 		k1 = -2
@@ -367,47 +365,47 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 			while (step <= 4) {
 				j12 = topHeight + 1 + step * 2
 				i12 = -9 + step
-				placeRandomStairs(world, random, i12, j12 - 2, k1, 4)
+				placeStairs(world, random, i12, j12 - 2, k1, 4)
 				j2 = j12 - 1
 				while (j2 <= j12 + 1) {
-					placeRandomBrick(world, random, i12, j2, k1)
+					placeBrick(world, random, i12, j2, k1)
 					++j2
 				}
-				placeRandomStairs(world, random, i12, j12 + 2, k1, 1)
+				placeStairs(world, random, i12, j12 + 2, k1, 1)
 				i12 = 9 - step
-				placeRandomStairs(world, random, i12, j12 - 2, k1, 5)
+				placeStairs(world, random, i12, j12 - 2, k1, 5)
 				j2 = j12 - 1
 				while (j2 <= j12 + 1) {
-					placeRandomBrick(world, random, i12, j2, k1)
+					placeBrick(world, random, i12, j2, k1)
 					++j2
 				}
-				placeRandomStairs(world, random, i12, j12 + 2, k1, 0)
+				placeStairs(world, random, i12, j12 + 2, k1, 0)
 				++step
 			}
 			j1 = topHeight - 4
 			while (j1 <= topHeight + 2) {
 				i1 = -9
 				while (i1 <= -8) {
-					placeRandomBrick(world, random, i1, j1, k1)
+					placeBrick(world, random, i1, j1, k1)
 					++i1
 				}
 				i1 = 8
 				while (i1 <= 9) {
-					placeRandomBrick(world, random, i1, j1, k1)
+					placeBrick(world, random, i1, j1, k1)
 					++i1
 				}
 				++j1
 			}
-			placeRandomBrick(world, random, -7, topHeight - 1, k1)
-			placeRandomBrick(world, random, -7, topHeight, k1)
-			setBlockAndMetadata(world, -7, topHeight + 1, k1, LOTRMod.wall2, 8)
-			placeRandomBrick(world, random, 7, topHeight - 1, k1)
-			placeRandomBrick(world, random, 7, topHeight, k1)
-			setBlockAndMetadata(world, 7, topHeight + 1, k1, LOTRMod.wall2, 8)
-			placeRandomStairs(world, random, -9, topHeight - 4, k1, 5)
-			placeRandomStairs(world, random, -8, topHeight - 5, k1, 5)
-			placeRandomStairs(world, random, 9, topHeight - 4, k1, 4)
-			placeRandomStairs(world, random, 8, topHeight - 5, k1, 4)
+			placeBrick(world, random, -7, topHeight - 1, k1)
+			placeBrick(world, random, -7, topHeight, k1)
+			placeWall(world, -7, topHeight + 1, k1)
+			placeBrick(world, random, 7, topHeight - 1, k1)
+			placeBrick(world, random, 7, topHeight, k1)
+			placeWall(world, 7, topHeight + 1, k1)
+			placeStairs(world, random, -9, topHeight - 4, k1, 5)
+			placeStairs(world, random, -8, topHeight - 5, k1, 5)
+			placeStairs(world, random, 9, topHeight - 4, k1, 4)
+			placeStairs(world, random, 8, topHeight - 5, k1, 4)
 			k1 += 4
 		}
 		spawnNPCAndSetHome(LOTREntityDolGuldurOrcChieftain(world), world, 0, topHeight + 1, 0, 16)
@@ -415,16 +413,20 @@ abstract class StructureTowerBase : LOTRWorldGenStructureBase2(false) {
 		return true
 	}
 
-	private fun placeBrickSupports(world: World?, random: Random, i: Int, k: Int) {
+	abstract fun getSections(): Int
+
+	private fun placeBrickSupports(world: World, random: Random, i: Int, k: Int) {
 		var j = 0
 		while (!isOpaque(world, i, j, k) && getY(j) >= 0) {
-			placeRandomBrick(world, random, i, j, k)
+			placeBrick(world, random, i, j, k)
 			setGrassToDirt(world, i, j - 1, k)
 			--j
 		}
 	}
 
-	abstract fun placeRandomBrick(world: World?, random: Random, i: Int, j: Int, k: Int)
+	abstract fun placeWall(world: World, i: Int, j: Int, k: Int)
 
-	abstract fun placeRandomStairs(world: World?, random: Random, i: Int, j: Int, k: Int, meta: Int)
+	abstract fun placeBrick(world: World, random: Random, i: Int, j: Int, k: Int)
+
+	abstract fun placeStairs(world: World, random: Random, i: Int, j: Int, k: Int, meta: Int)
 }
