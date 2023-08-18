@@ -173,15 +173,15 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 				setBlockAndMetadata(world, 1, sectionBase + 3, -radius, stairsBlock, 5)
 				i1 = -5
 				while (i1 <= 5) {
-					setBlockAndMetadata(world, i1, sectionBase, 0, secondaryBrick, 4)
+					setBlockAndMetadata(world, i1, sectionBase, 0, secondaryBrick, 0)
 					++i1
 				}
 				k14 = -6
 				while (k14 <= 3) {
-					setBlockAndMetadata(world, 0, sectionBase, k14, secondaryBrick, 4)
+					setBlockAndMetadata(world, 0, sectionBase, k14, secondaryBrick, 0)
 					++k14
 				}
-				setBlockAndMetadata(world, 0, sectionBase + 1, 0, secondaryBrick, 4)
+				setBlockAndMetadata(world, 0, sectionBase + 1, 0, secondaryBrick, 0)
 				setBlockAndMetadata(world, 0, sectionBase + 2, 0, wallBlock, wallMeta)
 			}
 			j12 = sectionBase + 1

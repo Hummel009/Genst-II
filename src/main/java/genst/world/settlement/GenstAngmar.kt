@@ -40,8 +40,8 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstAngmar?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstAngmar?>(village, world, i, k, random, loc) {
+		village: GenstAngmar, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstAngmar>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(StructureAngmarTower(false), 0, 6, 2, true)

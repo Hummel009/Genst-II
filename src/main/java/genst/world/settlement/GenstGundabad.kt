@@ -38,8 +38,8 @@ class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstGundabad?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstGundabad?>(village, world, i, k, random, loc) {
+		village: GenstGundabad, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstGundabad>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(StructureGundabadTower(false), 0, 6, 2, true)

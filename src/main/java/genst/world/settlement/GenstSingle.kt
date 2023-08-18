@@ -25,8 +25,8 @@ open class GenstSingle : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	open class Instance(
-		village: GenstSingle?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstSingle?>(village, world, i, k, random, loc) {
+		village: GenstSingle, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstSingle>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {}
 

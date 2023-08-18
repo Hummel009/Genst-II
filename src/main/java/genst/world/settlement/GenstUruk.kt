@@ -38,8 +38,8 @@ class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstUruk?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstUruk?>(village, world, i, k, random, loc) {
+		village: GenstUruk, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstUruk>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(StructureUrukTower(false), 0, 6, 2, true)

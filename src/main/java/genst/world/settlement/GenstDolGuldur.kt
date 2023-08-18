@@ -1,5 +1,6 @@
 package genst.world.settlement
 
+import genst.world.structure.StructureDolGuldurTower
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityDolGuldurOrc
@@ -7,7 +8,10 @@ import lotr.common.entity.npc.LOTREntityDolGuldurOrcArcher
 import lotr.common.entity.npc.LOTREntityMirkTroll
 import lotr.common.entity.npc.LOTREntityMirkwoodSpider
 import lotr.common.world.biome.LOTRBiome
-import lotr.common.world.structure2.*
+import lotr.common.world.structure2.LOTRWorldGenDolGuldurForgeTent
+import lotr.common.world.structure2.LOTRWorldGenDolGuldurSpiderPit
+import lotr.common.world.structure2.LOTRWorldGenDolGuldurTent
+import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.block.BlockStone
@@ -32,11 +36,11 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstDolGuldur?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstDolGuldur?>(village, world, i, k, random, loc) {
+		village: GenstDolGuldur, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstDolGuldur>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(LOTRWorldGenDolGuldurTower(false), 0, 6, 2, true)
+			addStructure(StructureDolGuldurTower(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(

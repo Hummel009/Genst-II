@@ -33,8 +33,8 @@ open class GenstRuinedCity(
 	}
 
 	open class Instance(
-		village: GenstRuinedCity?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstRuinedCity?>(village, world, i, k, random, loc) {
+		village: GenstRuinedCity, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstRuinedCity>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			var marketZ: Int
@@ -126,8 +126,8 @@ open class GenstRuinedCity(
 		open fun getRoadType(): LOTRRoadType = GenstRoads.PATH_COBBLE
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			val i1 = abs(i.toDouble()).toInt()
-			val k1 = abs(k.toDouble()).toInt()
+			val i1 = abs(i)
+			val k1 = abs(k)
 			val innerOut = 18
 			if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
 				return getRoadType()
@@ -138,7 +138,9 @@ open class GenstRuinedCity(
 			val outerOut = 66
 			return if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
 				getRoadType()
-			} else null
+			} else {
+				null
+			}
 		}
 
 		override fun isFlat() = false

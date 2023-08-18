@@ -33,8 +33,8 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	open class Instance(
-		village: GenstLindon?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstLindon?>(village, world, i, k, random, loc) {
+		village: GenstLindon, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstLindon>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(getTower(), 0, -7, 0, true)
@@ -99,8 +99,8 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			val i1 = abs(i.toDouble()).toInt()
-			val k1 = abs(k.toDouble()).toInt()
+			val i1 = abs(i)
+			val k1 = abs(k)
 			val dSq = i * i + k * k
 			val imn = 20 + random.nextInt(4)
 			if (dSq < imn * imn) {
@@ -108,7 +108,7 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 			}
 			val omn = 53 - random.nextInt(4)
 			val omx = 60 + random.nextInt(4)
-			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs((i1 - k1).toDouble()) <= 2 + random.nextInt(4)) {
+			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs(i1 - k1) <= 2 + random.nextInt(4)) {
 				return LOTRRoadType.PATH
 			}
 			return null

@@ -1,11 +1,11 @@
 package genst.world.settlement
 
+import genst.world.structure.StructureMordorTower
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.structure.LOTRWorldGenMordorTower
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -32,18 +32,11 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstMordor?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstMordor?>(village, world, i, k, random, loc) {
+		village: GenstMordor, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstMordor>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(object : LOTRWorldGenStructureBase2(false) {
-				override fun generateWithSetRotation(
-					world: World, random: Random, i: Int, j: Int, k: Int, rot: Int
-				): Boolean {
-					return LOTRWorldGenMordorTower(false).generate(world, random, i, j, k)
-				}
-
-			}, 0, -4, 0, true)
+			addStructure(StructureMordorTower(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(
@@ -81,7 +74,7 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 			}, 0, 0, 0)
 			addStructure(LOTRWorldGenMordorWargPit(false), -21, 0, 1, true)
-			addStructure(LOTRWorldGenBlackUrukFort(false), 0, -21, 2, true)
+			addStructure(LOTRWorldGenMordorSpiderPit(false), 0, -21, 2, true)
 			addStructure(LOTRWorldGenMordorWargPit(false), 21, 0, 3, true)
 			addStructure(LOTRWorldGenMordorSpiderPit(false), 0, 21, 0, true)
 			val houses = 20
@@ -116,29 +109,17 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val farmX = 38
 			val farmZ = 17
 			val farmSize = 6
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenMordorTent(false), -farmX + farmSize, -farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenMordorTent(false), -farmZ + farmSize, -farmX, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenMordorForgeTent(false), farmX - farmSize, -farmZ, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenMordorTent(false), farmZ - farmSize, -farmX, 3, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenMordorTent(false), -farmX + farmSize, farmZ, 1, true)
-			}
-			if (random.nextBoolean()) {
-				addStructure(LOTRWorldGenMordorForgeTent(false), farmX - farmSize, farmZ, 3, true)
-			}
+			addStructure(LOTRWorldGenMordorTent(false), -farmX + farmSize, -farmZ, 1, true)
+			addStructure(LOTRWorldGenMordorTent(false), -farmZ + farmSize, -farmX, 1, true)
+			addStructure(LOTRWorldGenMordorForgeTent(false), farmX - farmSize, -farmZ, 3, true)
+			addStructure(LOTRWorldGenMordorTent(false), farmZ - farmSize, -farmX, 3, true)
+			addStructure(LOTRWorldGenMordorTent(false), -farmX + farmSize, farmZ, 1, true)
+			addStructure(LOTRWorldGenMordorForgeTent(false), farmX - farmSize, farmZ, 3, true)
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			val i1 = abs(i.toDouble()).toInt()
-			val k1 = abs(k.toDouble()).toInt()
+			val i1 = abs(i)
+			val k1 = abs(k)
 			val dSq = i * i + k * k
 			val imn = 20 + random.nextInt(4)
 			if (dSq < imn * imn) {
@@ -146,10 +127,7 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 			}
 			val omn = 53 - random.nextInt(4)
 			val omx = 60 + random.nextInt(4)
-			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs((i1 - k1).toDouble()) <= 2 + random.nextInt(
-					4
-				)
-			) {
+			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs(i1 - k1) <= 2 + random.nextInt(4)) {
 				return LOTRRoadType.MORDOR
 			}
 			return null

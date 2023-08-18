@@ -30,8 +30,8 @@ class GenstDunland : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstDunland, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstDunland?>(village, world, i, k, random, loc) {
+		village: GenstDunland, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstDunland>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
@@ -73,10 +73,10 @@ class GenstDunland : LOTRVillageGen(LOTRBiome.forodwaith) {
 			for (l in -rowHouses..rowHouses) {
 				val i1 = l * 18
 				var k1 = pathSide
-				if (abs(i1.toDouble()) <= 15) {
+				if (abs(i1) <= 15) {
 					k1 += 15 - pathSide
 				}
-				if (abs(l.toDouble()) >= 1) {
+				if (abs(l) >= 1) {
 					addStructure(LOTRWorldGenDunlendingHouse(false), i1, -k1, 2, true)
 				}
 				addStructure(LOTRWorldGenDunlendingHouse(false), i1, k1, 0, true)
@@ -89,8 +89,8 @@ class GenstDunland : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			val i1 = abs(i.toDouble()).toInt()
-			val k1 = abs(k.toDouble()).toInt()
+			val i1 = abs(i)
+			val k1 = abs(k)
 			val dSq = i * i + k * k
 			val imn = 15 + random.nextInt(4)
 			if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {

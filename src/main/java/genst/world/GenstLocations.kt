@@ -296,9 +296,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.ARNOR
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.ARNOR
 				}
 			}
 		}
@@ -317,9 +315,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.PATH
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
 				}
 			}
 		}
@@ -339,9 +335,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.HIGH_ELVEN_RUINED
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.HIGH_ELVEN_RUINED
 				}
 			}
 		}
@@ -353,9 +347,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.DOL_AMROTH
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.DOL_AMROTH
 				}
 			}
 		}
@@ -367,9 +359,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.GONDOR
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.GONDOR
 				}
 			}
 		}
@@ -385,9 +375,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.GONDOR
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.GONDOR
 				}
 			}
 		}
@@ -415,9 +403,7 @@ object GenstLocations {
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType {
-						return LOTRRoadType.PATH
-					}
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
 				}
 			}
 		}
