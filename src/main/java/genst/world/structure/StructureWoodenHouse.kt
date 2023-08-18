@@ -318,7 +318,7 @@ class StructureWoodenHouse(flag: Boolean) : LOTRWorldGenRohanStructure(flag) {
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2)
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0)
 		setBlockAndMetadata(world, -3, 1, -1, Blocks.anvil, 0)
-		this.placeChest(world, random, -3, 1, 0, 4, LOTRChestContents.BARROW_DOWNS)
+		this.placeChest(world, random, -3, 1, 0, 4, ChestContents.TREASURE)
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7)
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta or 8)
 		setBlockAndMetadata(world, 2, 1, -2, plankStairBlock, 6)
@@ -406,7 +406,7 @@ class StructureWoodenHouse(flag: Boolean) : LOTRWorldGenRohanStructure(flag) {
 				while (!isOpaque(world, i15, j110 - 1, k12) && getY(j110) >= 0) {
 					--j110
 				}
-				this.placeChest(world, random, i15, j110, k12, 3, LOTRChestContents.BARROW_DOWNS)
+				this.placeChest(world, random, i15, j110, k12, 3, ChestContents.TREASURE)
 			}
 		}
 		return true

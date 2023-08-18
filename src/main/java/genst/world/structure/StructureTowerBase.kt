@@ -251,7 +251,7 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			}
 			setBlockAndMetadata(world, 2, sectionBase + 5, 5, stairsBlock, 4)
 		}
-		this.placeChest(world, random, -1, 1, 5, LOTRMod.chestStone, 0, LOTRChestContents.BARROW_DOWNS, -1)
+		this.placeChest(world, random, -1, 1, 5, LOTRMod.chestStone, 0, ChestContents.TREASURE, -1)
 		var k1: Int = -3
 		while (k1 <= 3) {
 			step = 0
