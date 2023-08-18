@@ -7,6 +7,8 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureGundabadTower(flag: Boolean) : StructureTowerBase(flag) {
+	override fun getBarsBlock(): Block = LOTRMod.dwarfBars
+
 	override fun getBrickBlock(): Block = LOTRMod.brick
 
 	override fun getBrickMeta() = 6

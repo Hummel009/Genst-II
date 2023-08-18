@@ -7,6 +7,8 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureDolGuldurTower(flag: Boolean) : StructureTowerBase(flag) {
+	override fun getBarsBlock(): Block = LOTRMod.orcSteelBars
+
 	override fun getBrickBlock(): Block = LOTRMod.brick2
 
 	override fun getBrickMeta() = 8

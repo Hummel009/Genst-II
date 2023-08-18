@@ -4,9 +4,12 @@ import lotr.common.LOTRMod
 import lotr.common.entity.npc.LOTREntityUrukHaiMercenaryCaptain
 import net.minecraft.block.Block
 import net.minecraft.entity.EntityCreature
+import net.minecraft.init.Blocks
 import net.minecraft.world.World
 
 object StructureIsengard : StructureTowerBase(false) {
+	override fun getBarsBlock(): Block = Blocks.iron_bars
+
 	override fun getStairsBlock(): Block = LOTRMod.stairsBlackGondorBrick
 
 	override fun getBrickMeta() = 11

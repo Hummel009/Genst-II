@@ -8,6 +8,8 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureMordorTower(flag: Boolean) : StructureTowerBase(flag) {
+	override fun getBarsBlock(): Block = LOTRMod.orcSteelBars
+
 	override fun getBrickBlock(): Block = LOTRMod.brick
 
 	override fun getBrickMeta() = 0

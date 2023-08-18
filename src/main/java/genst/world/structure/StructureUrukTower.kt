@@ -7,6 +7,8 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureUrukTower(flag: Boolean) : StructureTowerBase(flag) {
+	override fun getBarsBlock(): Block = LOTRMod.urukBars
+
 	override fun getBrickBlock(): Block = LOTRMod.brick2
 
 	override fun getBrickMeta() = 7

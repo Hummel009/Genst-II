@@ -35,6 +35,7 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 		val wallThresholdMin = (radiusD * radiusD).toInt()
 		val wallThresholdMax = (radiusDPlusOne * radiusDPlusOne).toInt()
 
+		val barsBlock = getBarsBlock()
 		val brickBlock = getBrickBlock()
 		val brickMeta = getBrickMeta()
 		val wallBlock = getWallBlock()
@@ -126,13 +127,13 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			while (j12 <= sectionBase + 3) {
 				k12 = -1
 				while (k12 <= 1) {
-					setBlockAndMetadata(world, -radius, j12, k12, Blocks.iron_bars, 0)
-					setBlockAndMetadata(world, radius, j12, k12, Blocks.iron_bars, 0)
+					setBlockAndMetadata(world, -radius, j12, k12, barsBlock, 0)
+					setBlockAndMetadata(world, radius, j12, k12, barsBlock, 0)
 					++k12
 				}
 				i12 = -1
 				while (i12 <= 1) {
-					setBlockAndMetadata(world, i12, j12, -radius, Blocks.iron_bars, 0)
+					setBlockAndMetadata(world, i12, j12, -radius, barsBlock, 0)
 					++i12
 				}
 				++j12
@@ -427,6 +428,8 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			--j
 		}
 	}
+
+	abstract fun getBarsBlock(): Block
 
 	abstract fun getStairsBlock(): Block
 
