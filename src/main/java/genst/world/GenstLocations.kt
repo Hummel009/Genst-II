@@ -6,7 +6,9 @@ import genst.world.structure.*
 import lotr.common.LOTRDimension
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
-import lotr.common.world.structure2.*
+import lotr.common.world.structure2.LOTRWorldGenBDBarrow
+import lotr.common.world.structure2.LOTRWorldGenBreeInn
+import lotr.common.world.structure2.LOTRWorldGenGondorStructure
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
@@ -517,7 +519,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(LOTRWorldGenGondorTurret(false), 0, 0, 0, true)
+						addStructure(StructureGondorTower(false), 0, 0, 0, true)
 					}
 				}
 			}
