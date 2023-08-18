@@ -2,10 +2,7 @@ package genst.world
 
 import genst.utils.affix
 import genst.world.settlement.*
-import genst.world.structure.StructureErech
-import genst.world.structure.StructureIsengard
-import genst.world.structure.StructureRuinedTower
-import genst.world.structure.StructureWoodenHouse
+import genst.world.structure.*
 import lotr.common.LOTRDimension
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
@@ -470,7 +467,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(LOTRWorldGenEasterlingTower(false), 0, 0, 0, true)
+						addStructure(StructureKhamulTower, 0, 0, 0, true)
 					}
 				}
 			}

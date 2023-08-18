@@ -12,9 +12,9 @@ object StructureIsengard : StructureTowerBase(false) {
 
 	override fun getStairsBlock(): Block = LOTRMod.stairsBlackGondorBrick
 
-	override fun getBrickMeta() = 11
-
 	override fun getBrickBlock(): Block = LOTRMod.brick2
+
+	override fun getBrickMeta() = 11
 
 	override fun getWallBlock(): Block = LOTRMod.wall2
 
