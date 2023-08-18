@@ -1,7 +1,7 @@
 package genst.utils
 
 import cpw.mods.fml.relauncher.ReflectionHelper
-import genst.GenstLogger
+import genst.command.GenstLogger
 import genst.world.GenstLocations
 import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRRoads

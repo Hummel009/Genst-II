@@ -1,4 +1,4 @@
-package genst
+package genst.command
 
 import lotr.common.world.map.LOTRWaypoint
 import net.minecraft.command.CommandBase
@@ -8,17 +8,11 @@ import java.util.*
 object GenstLogger : CommandBase() {
 	val skip: MutableSet<LOTRWaypoint> = EnumSet.noneOf(LOTRWaypoint::class.java)
 
-	override fun addTabCompletionOptions(sender: ICommandSender, args: Array<String>): List<String?> {
-		return emptyList<String>()
-	}
+	override fun addTabCompletionOptions(sender: ICommandSender, args: Array<String>) = emptyList<String>()
 
-	override fun getCommandName(): String {
-		return "genst"
-	}
+	override fun getCommandName() = "genst"
 
-	override fun getCommandUsage(sender: ICommandSender): String {
-		return "Something went wrong."
-	}
+	override fun getCommandUsage(sender: ICommandSender) = "Something went wrong."
 
 	override fun processCommand(sender: ICommandSender, args: Array<String>) {
 		val world = sender.entityWorld

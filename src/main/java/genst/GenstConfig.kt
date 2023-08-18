@@ -289,7 +289,7 @@ object GenstConfig {
 		}
 	}
 
-	fun preInit() {
+	fun postInit() {
 		cfg = Configuration(File("config", "Genst II.cfg"))
 		load()
 	}
