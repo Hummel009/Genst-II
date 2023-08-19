@@ -11,11 +11,11 @@ class StructureDolGuldurTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getBrickBlock(): Block = LOTRMod.brick2
 
-	override fun getBrickMeta() = 8
+	override fun getBrickMeta(): Int = 8
 
 	override fun getWallBlock(): Block = LOTRMod.wall2
 
-	override fun getWallMeta() = 8
+	override fun getWallMeta(): Int = 8
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityDolGuldurOrcChieftain(world)
 
@@ -23,5 +23,5 @@ class StructureDolGuldurTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getStairsBlock(): Block = LOTRMod.stairsDolGuldurBrick
 
-	override fun getSections() = 7
+	override fun getSections(): Int = 7
 }

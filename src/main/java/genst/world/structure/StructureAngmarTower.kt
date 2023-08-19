@@ -11,11 +11,11 @@ class StructureAngmarTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getBrickBlock(): Block = LOTRMod.brick2
 
-	override fun getBrickMeta() = 0
+	override fun getBrickMeta(): Int = 0
 
 	override fun getWallBlock(): Block = LOTRMod.wall2
 
-	override fun getWallMeta() = 0
+	override fun getWallMeta(): Int = 0
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityAngmarOrcMercenaryCaptain(world)
 

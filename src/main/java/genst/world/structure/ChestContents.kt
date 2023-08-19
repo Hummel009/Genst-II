@@ -6,7 +6,7 @@ import net.minecraft.init.Items
 import net.minecraft.item.ItemStack
 import net.minecraft.util.WeightedRandomChestContent
 
-val TREASURE = LOTRChestContents(
+val TREASURE: LOTRChestContents = LOTRChestContents(
 	4, 8, arrayOf<WeightedRandomChestContent?>(
 		WeightedRandomChestContent(ItemStack(LOTRMod.silverCoin, 1, 0), 1, 20, 200),
 		WeightedRandomChestContent(ItemStack(LOTRMod.silverCoin, 1, 1), 1, 8, 20),

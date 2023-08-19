@@ -8,20 +8,16 @@ import java.util.*
 object GenstLogger : CommandBase() {
 	val skip: MutableSet<LOTRWaypoint> = EnumSet.noneOf(LOTRWaypoint::class.java)
 
-	override fun addTabCompletionOptions(sender: ICommandSender, args: Array<String>) = emptyList<String>()
+	override fun addTabCompletionOptions(sender: ICommandSender, args: Array<String>): List<String> = emptyList()
 
-	override fun getCommandName() = "genst"
+	override fun getCommandName(): String = "genst"
 
-	override fun getCommandUsage(sender: ICommandSender) = "Something went wrong."
+	override fun getCommandUsage(sender: ICommandSender): String = "Something went wrong."
 
 	override fun processCommand(sender: ICommandSender, args: Array<String>) {
-		val world = sender.entityWorld
 		for (wp in LOTRWaypoint.values()) {
 			if (!skip.contains(wp)) {
-				val x = wp.xCoord.toDouble()
-				val z = wp.zCoord.toDouble()
-				val bm = world.getBiomeGenForCoords(x.toInt(), z.toInt())
-				println(wp.codeName + " " + bm.biomeName)
+				println(wp.displayName)
 			}
 		}
 	}
@@ -69,5 +65,7 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.MORANNON)
 		skip.add(LOTRWaypoint.MOUNT_DOOM)
 		skip.add(LOTRWaypoint.BARAZ_DUM)
+
+		skip.add(LOTRWaypoint.CROSSINGS_OF_HARAD)
 	}
 }

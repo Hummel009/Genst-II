@@ -13,15 +13,15 @@ object StructureKhamulTower : StructureTowerBase(false) {
 
 	override fun getBrickBlock(): Block = LOTRMod.brick5
 
-	override fun getBrickMeta() = 11
+	override fun getBrickMeta(): Int = 11
 
 	override fun getWallBlock(): Block = LOTRMod.wall3
 
-	override fun getWallMeta() = 15
+	override fun getWallMeta(): Int = 15
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityEasterlingWarlord(world)
 
 	override fun getSecondaryBrick(): Block = LOTRMod.brick6
 
-	override fun getSections() = 9
+	override fun getSections(): Int = 9
 }

@@ -11,11 +11,11 @@ class StructureGundabadTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getBrickBlock(): Block = LOTRMod.brick
 
-	override fun getBrickMeta() = 6
+	override fun getBrickMeta(): Int = 6
 
 	override fun getWallBlock(): Block = LOTRMod.wall
 
-	override fun getWallMeta() = 7
+	override fun getWallMeta(): Int = 7
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityGundabadOrcMercenaryCaptain(world)
 
