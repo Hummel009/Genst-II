@@ -18,9 +18,7 @@ object GenstLogger : CommandBase() {
 		val world = sender.entityWorld
 		for (wp in LOTRWaypoint.values()) {
 			if (!skip.contains(wp)) {
-				val x = wp.xCoord.toDouble()
-				val z = wp.zCoord.toDouble()
-				val bm = world.getBiomeGenForCoords(x.toInt(), z.toInt())
+				val bm = world.getBiomeGenForCoords(wp.xCoord, wp.zCoord)
 				println(wp.codeName + " " + wp.displayName + " " + bm.biomeName)
 			}
 		}
