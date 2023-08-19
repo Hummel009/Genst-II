@@ -560,6 +560,9 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.THE_TROLLSHAWS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.AMON_LHAW, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.AMON_HEN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_SAND, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_GREEN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.MOUNT_THUNDER, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstSingle() {
