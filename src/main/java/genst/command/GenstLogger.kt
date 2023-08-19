@@ -21,7 +21,7 @@ object GenstLogger : CommandBase() {
 				val x = wp.xCoord.toDouble()
 				val z = wp.zCoord.toDouble()
 				val bm = world.getBiomeGenForCoords(x.toInt(), z.toInt())
-				println(wp.displayName + " " + bm.biomeName)
+				println(wp.codeName + " " + wp.displayName + " " + bm.biomeName)
 			}
 		}
 	}
