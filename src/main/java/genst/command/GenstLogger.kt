@@ -15,9 +15,13 @@ object GenstLogger : CommandBase() {
 	override fun getCommandUsage(sender: ICommandSender): String = "Something went wrong."
 
 	override fun processCommand(sender: ICommandSender, args: Array<String>) {
+		val world = sender.entityWorld
 		for (wp in LOTRWaypoint.values()) {
 			if (!skip.contains(wp)) {
-				println(wp.displayName)
+				val x = wp.xCoord.toDouble()
+				val z = wp.zCoord.toDouble()
+				val bm = world.getBiomeGenForCoords(x.toInt(), z.toInt())
+				println(wp.displayName + " " + bm.biomeName)
 			}
 		}
 	}
@@ -65,7 +69,6 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.MORANNON)
 		skip.add(LOTRWaypoint.MOUNT_DOOM)
 		skip.add(LOTRWaypoint.BARAZ_DUM)
-
 		skip.add(LOTRWaypoint.CROSSINGS_OF_HARAD)
 	}
 }
