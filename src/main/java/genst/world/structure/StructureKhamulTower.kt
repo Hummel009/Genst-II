@@ -2,8 +2,8 @@ package genst.world.structure
 
 import lotr.common.LOTRMod
 import lotr.common.entity.npc.LOTREntityEasterlingWarlord
+import lotr.common.entity.npc.LOTREntityNPC
 import net.minecraft.block.Block
-import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 object StructureKhamulTower : StructureTowerBase(false) {
@@ -17,7 +17,9 @@ object StructureKhamulTower : StructureTowerBase(false) {
 
 	override fun getBars(): Block = LOTRMod.goldBars
 
-	override fun getCaptain(world: World): EntityCreature = LOTREntityEasterlingWarlord(world)
+	override fun getCaptain(world: World): LOTREntityNPC = LOTREntityEasterlingWarlord(world)
 
 	override fun getSections(): Int = 9
+
+	override fun enableSpires(): Boolean = true
 }

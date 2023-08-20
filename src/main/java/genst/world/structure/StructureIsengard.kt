@@ -1,9 +1,9 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
+import lotr.common.entity.npc.LOTREntityNPC
 import lotr.common.entity.npc.LOTREntityUrukHaiMercenaryCaptain
 import net.minecraft.block.Block
-import net.minecraft.entity.EntityCreature
 import net.minecraft.init.Blocks
 import net.minecraft.world.World
 
@@ -18,7 +18,9 @@ object StructureIsengard : StructureTowerBase(false) {
 
 	override fun getBars(): Block = Blocks.iron_bars
 
-	override fun getCaptain(world: World): EntityCreature = LOTREntityUrukHaiMercenaryCaptain(world)
+	override fun getCaptain(world: World): LOTREntityNPC = LOTREntityUrukHaiMercenaryCaptain(world)
 
 	override fun getSections(): Int = 9
+
+	override fun enableSpires(): Boolean = true
 }

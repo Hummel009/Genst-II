@@ -2,8 +2,8 @@ package genst.world.structure
 
 import lotr.common.LOTRMod
 import lotr.common.entity.npc.LOTREntityDolGuldurOrcChieftain
+import lotr.common.entity.npc.LOTREntityNPC
 import net.minecraft.block.Block
-import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureDolGuldurTower(flag: Boolean) : StructureTowerBase(flag) {
@@ -17,7 +17,9 @@ class StructureDolGuldurTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getBars(): Block = LOTRMod.orcSteelBars
 
-	override fun getCaptain(world: World): EntityCreature = LOTREntityDolGuldurOrcChieftain(world)
+	override fun getCaptain(world: World): LOTREntityNPC = LOTREntityDolGuldurOrcChieftain(world)
 
 	override fun getSections(): Int = 7
+
+	override fun enableSpires(): Boolean = true
 }

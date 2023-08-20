@@ -1,9 +1,9 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
+import lotr.common.entity.npc.LOTREntityNPC
 import lotr.common.entity.npc.LOTREntityRivendellLord
 import net.minecraft.block.Block
-import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureRivendellTower(flag: Boolean) : StructureTowerBase(flag) {
@@ -17,7 +17,9 @@ class StructureRivendellTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getBars(): Block = LOTRMod.highElfBars
 
-	override fun getCaptain(world: World): EntityCreature = LOTREntityRivendellLord(world)
+	override fun getCaptain(world: World): LOTREntityNPC = LOTREntityRivendellLord(world)
 
 	override fun getSections(): Int = 7
+
+	override fun enableSpires(): Boolean = false
 }

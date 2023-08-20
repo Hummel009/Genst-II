@@ -2,8 +2,8 @@ package genst.world.structure
 
 import lotr.common.LOTRMod
 import lotr.common.entity.npc.LOTREntityHighElfLord
+import lotr.common.entity.npc.LOTREntityNPC
 import net.minecraft.block.Block
-import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureLindonTower(flag: Boolean) : StructureTowerBase(flag) {
@@ -17,7 +17,9 @@ class StructureLindonTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getBars(): Block = LOTRMod.highElfBars
 
-	override fun getCaptain(world: World): EntityCreature = LOTREntityHighElfLord(world)
+	override fun getCaptain(world: World): LOTREntityNPC = LOTREntityHighElfLord(world)
 
 	override fun getSections(): Int = 7
+
+	override fun enableSpires(): Boolean = false
 }

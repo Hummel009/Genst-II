@@ -1,9 +1,9 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
+import lotr.common.entity.npc.LOTREntityNPC
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
 import net.minecraft.block.Block
-import net.minecraft.entity.EntityCreature
 import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
@@ -317,107 +317,111 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			}
 			++i13
 		}
-		setAir(world, -2, topHeight + 1, 5)
-		i13 = -2
-		while (i13 <= 2) {
-			step = 0
-			while (step <= 4) {
-				j12 = topHeight + 1 + step * 2
-				k12 = -9 + step
-				setBlockAndMetadata(world, i13, j12 - 2, k12, stairsBlock, 7)
-				j2 = j12 - 1
-				while (j2 <= j12 + 1) {
-					setBlockAndMetadata(world, i13, j2, k12, brickBlock, brickMeta)
-					++j2
+		if (enableSpires()) {
+			setAir(world, -2, topHeight + 1, 5)
+			i13 = -2
+			while (i13 <= 2) {
+				step = 0
+				while (step <= 4) {
+					j12 = topHeight + 1 + step * 2
+					k12 = -9 + step
+					setBlockAndMetadata(world, i13, j12 - 2, k12, stairsBlock, 7)
+					j2 = j12 - 1
+					while (j2 <= j12 + 1) {
+						setBlockAndMetadata(world, i13, j2, k12, brickBlock, brickMeta)
+						++j2
+					}
+					setBlockAndMetadata(world, i13, j12 + 2, k12, stairsBlock, 2)
+					k12 = 9 - step
+					setBlockAndMetadata(world, i13, j12 - 2, k12, stairsBlock, 6)
+					j2 = j12 - 1
+					while (j2 <= j12 + 1) {
+						setBlockAndMetadata(world, i13, j2, k12, brickBlock, brickMeta)
+						++j2
+					}
+					setBlockAndMetadata(world, i13, j12 + 2, k12, stairsBlock, 3)
+					++step
 				}
-				setBlockAndMetadata(world, i13, j12 + 2, k12, stairsBlock, 2)
-				k12 = 9 - step
-				setBlockAndMetadata(world, i13, j12 - 2, k12, stairsBlock, 6)
-				j2 = j12 - 1
-				while (j2 <= j12 + 1) {
-					setBlockAndMetadata(world, i13, j2, k12, brickBlock, brickMeta)
-					++j2
+				j1 = topHeight - 4
+				while (j1 <= topHeight + 2) {
+					k14 = -9
+					while (k14 <= -8) {
+						setBlockAndMetadata(world, i13, j1, k14, brickBlock, brickMeta)
+						++k14
+					}
+					k14 = 8
+					while (k14 <= 9) {
+						setBlockAndMetadata(world, i13, j1, k14, brickBlock, brickMeta)
+						++k14
+					}
+					++j1
 				}
-				setBlockAndMetadata(world, i13, j12 + 2, k12, stairsBlock, 3)
-				++step
+				setBlockAndMetadata(world, i13, topHeight - 1, -7, brickBlock, brickMeta)
+				setBlockAndMetadata(world, i13, topHeight, -7, brickBlock, brickMeta)
+				setBlockAndMetadata(world, i13, topHeight + 1, -7, wallBlock, wallMeta)
+				setBlockAndMetadata(world, i13, topHeight - 1, 7, brickBlock, brickMeta)
+				setBlockAndMetadata(world, i13, topHeight, 7, brickBlock, brickMeta)
+				setBlockAndMetadata(world, i13, topHeight + 1, 7, wallBlock, wallMeta)
+				setBlockAndMetadata(world, i13, topHeight - 4, -9, stairsBlock, 6)
+				setBlockAndMetadata(world, i13, topHeight - 5, -8, stairsBlock, 6)
+				setBlockAndMetadata(world, i13, topHeight - 4, 9, stairsBlock, 7)
+				setBlockAndMetadata(world, i13, topHeight - 5, 8, stairsBlock, 7)
+				i13 += 4
 			}
-			j1 = topHeight - 4
-			while (j1 <= topHeight + 2) {
-				k14 = -9
-				while (k14 <= -8) {
-					setBlockAndMetadata(world, i13, j1, k14, brickBlock, brickMeta)
-					++k14
+			k1 = -2
+			while (k1 <= 2) {
+				step = 0
+				while (step <= 4) {
+					j12 = topHeight + 1 + step * 2
+					i12 = -9 + step
+					setBlockAndMetadata(world, i12, j12 - 2, k1, stairsBlock, 4)
+					j2 = j12 - 1
+					while (j2 <= j12 + 1) {
+						setBlockAndMetadata(world, i12, j2, k1, brickBlock, brickMeta)
+						++j2
+					}
+					setBlockAndMetadata(world, i12, j12 + 2, k1, stairsBlock, 1)
+					i12 = 9 - step
+					setBlockAndMetadata(world, i12, j12 - 2, k1, stairsBlock, 5)
+					j2 = j12 - 1
+					while (j2 <= j12 + 1) {
+						setBlockAndMetadata(world, i12, j2, k1, brickBlock, brickMeta)
+						++j2
+					}
+					setBlockAndMetadata(world, i12, j12 + 2, k1, stairsBlock, 0)
+					++step
 				}
-				k14 = 8
-				while (k14 <= 9) {
-					setBlockAndMetadata(world, i13, j1, k14, brickBlock, brickMeta)
-					++k14
+				j1 = topHeight - 4
+				while (j1 <= topHeight + 2) {
+					i1 = -9
+					while (i1 <= -8) {
+						setBlockAndMetadata(world, i1, j1, k1, brickBlock, brickMeta)
+						++i1
+					}
+					i1 = 8
+					while (i1 <= 9) {
+						setBlockAndMetadata(world, i1, j1, k1, brickBlock, brickMeta)
+						++i1
+					}
+					++j1
 				}
-				++j1
+				setBlockAndMetadata(world, -7, topHeight - 1, k1, brickBlock, brickMeta)
+				setBlockAndMetadata(world, -7, topHeight, k1, brickBlock, brickMeta)
+				setBlockAndMetadata(world, -7, topHeight + 1, k1, wallBlock, wallMeta)
+				setBlockAndMetadata(world, 7, topHeight - 1, k1, brickBlock, brickMeta)
+				setBlockAndMetadata(world, 7, topHeight, k1, brickBlock, brickMeta)
+				setBlockAndMetadata(world, 7, topHeight + 1, k1, wallBlock, wallMeta)
+				setBlockAndMetadata(world, -9, topHeight - 4, k1, stairsBlock, 5)
+				setBlockAndMetadata(world, -8, topHeight - 5, k1, stairsBlock, 5)
+				setBlockAndMetadata(world, 9, topHeight - 4, k1, stairsBlock, 4)
+				setBlockAndMetadata(world, 8, topHeight - 5, k1, stairsBlock, 4)
+				k1 += 4
 			}
-			setBlockAndMetadata(world, i13, topHeight - 1, -7, brickBlock, brickMeta)
-			setBlockAndMetadata(world, i13, topHeight, -7, brickBlock, brickMeta)
-			setBlockAndMetadata(world, i13, topHeight + 1, -7, wallBlock, wallMeta)
-			setBlockAndMetadata(world, i13, topHeight - 1, 7, brickBlock, brickMeta)
-			setBlockAndMetadata(world, i13, topHeight, 7, brickBlock, brickMeta)
-			setBlockAndMetadata(world, i13, topHeight + 1, 7, wallBlock, wallMeta)
-			setBlockAndMetadata(world, i13, topHeight - 4, -9, stairsBlock, 6)
-			setBlockAndMetadata(world, i13, topHeight - 5, -8, stairsBlock, 6)
-			setBlockAndMetadata(world, i13, topHeight - 4, 9, stairsBlock, 7)
-			setBlockAndMetadata(world, i13, topHeight - 5, 8, stairsBlock, 7)
-			i13 += 4
-		}
-		k1 = -2
-		while (k1 <= 2) {
-			step = 0
-			while (step <= 4) {
-				j12 = topHeight + 1 + step * 2
-				i12 = -9 + step
-				setBlockAndMetadata(world, i12, j12 - 2, k1, stairsBlock, 4)
-				j2 = j12 - 1
-				while (j2 <= j12 + 1) {
-					setBlockAndMetadata(world, i12, j2, k1, brickBlock, brickMeta)
-					++j2
-				}
-				setBlockAndMetadata(world, i12, j12 + 2, k1, stairsBlock, 1)
-				i12 = 9 - step
-				setBlockAndMetadata(world, i12, j12 - 2, k1, stairsBlock, 5)
-				j2 = j12 - 1
-				while (j2 <= j12 + 1) {
-					setBlockAndMetadata(world, i12, j2, k1, brickBlock, brickMeta)
-					++j2
-				}
-				setBlockAndMetadata(world, i12, j12 + 2, k1, stairsBlock, 0)
-				++step
-			}
-			j1 = topHeight - 4
-			while (j1 <= topHeight + 2) {
-				i1 = -9
-				while (i1 <= -8) {
-					setBlockAndMetadata(world, i1, j1, k1, brickBlock, brickMeta)
-					++i1
-				}
-				i1 = 8
-				while (i1 <= 9) {
-					setBlockAndMetadata(world, i1, j1, k1, brickBlock, brickMeta)
-					++i1
-				}
-				++j1
-			}
-			setBlockAndMetadata(world, -7, topHeight - 1, k1, brickBlock, brickMeta)
-			setBlockAndMetadata(world, -7, topHeight, k1, brickBlock, brickMeta)
-			setBlockAndMetadata(world, -7, topHeight + 1, k1, wallBlock, wallMeta)
-			setBlockAndMetadata(world, 7, topHeight - 1, k1, brickBlock, brickMeta)
-			setBlockAndMetadata(world, 7, topHeight, k1, brickBlock, brickMeta)
-			setBlockAndMetadata(world, 7, topHeight + 1, k1, wallBlock, wallMeta)
-			setBlockAndMetadata(world, -9, topHeight - 4, k1, stairsBlock, 5)
-			setBlockAndMetadata(world, -8, topHeight - 5, k1, stairsBlock, 5)
-			setBlockAndMetadata(world, 9, topHeight - 4, k1, stairsBlock, 4)
-			setBlockAndMetadata(world, 8, topHeight - 5, k1, stairsBlock, 4)
-			k1 += 4
 		}
 		setBlockAndMetadata(world, 0, topHeight + 1, -4, LOTRMod.commandTable, 0)
-		spawnNPCAndSetHome(getCaptain(world), world, 0, topHeight + 1, 0, 16)
+		val captain = getCaptain(world)
+		captain.spawnRidingHorse = false
+		spawnNPCAndSetHome(captain, world, 0, topHeight + 1, 0, 16)
 		return true
 	}
 
@@ -440,7 +444,9 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 
 	abstract fun getBars(): Block
 
-	abstract fun getCaptain(world: World): EntityCreature
+	abstract fun getCaptain(world: World): LOTREntityNPC
 
 	abstract fun getSections(): Int
+
+	abstract fun enableSpires(): Boolean
 }
