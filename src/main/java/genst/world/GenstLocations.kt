@@ -253,6 +253,36 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.BARAZ_DUM, 0.1, 0.0, Dir.EAST)
 
 		/* READY */
+		location = object : GenstSingle() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun addVillageStructures(random: Random) {
+						addStructure(StructureWoodElvenTower(false), 0, 6, 2, true)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.THRANDUIL_HALLS, 0.0, -0.1, Dir.NORTH)
+
+		/* READY */
+		location = object : GenstSingle() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun addVillageStructures(random: Random) {
+						addStructure(StructureLothlorienTower(false), 0, 6, 2, true)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.NIMRODEL, 0.0, 0.1, Dir.SOUTH)
+		affix(location, LOTRWaypoint.CARAS_GALADHON, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.CERIN_AMROTH, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
 		location = GenstAngmar()
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)

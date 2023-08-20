@@ -9,7 +9,7 @@ import net.minecraft.world.World
 class StructureLindonTower(flag: Boolean) : StructureTowerBase(flag) {
 	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick3, 2)
 
-	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.pillar, 10)
+	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)
 
 	override fun getWall(): Pair<Block, Int> = Pair(LOTRMod.wall2, 11)
 
