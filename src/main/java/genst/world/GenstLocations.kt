@@ -1,6 +1,5 @@
 package genst.world
 
-import genst.command.GenstLogger
 import genst.utils.affix
 import genst.world.settlement.*
 import genst.world.structure.*
@@ -205,6 +204,53 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
+
+		/* READY */
+		location = object : GenstSingle() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun addVillageStructures(random: Random) {
+						addStructure(StructureDwarvenTower(false), 0, 6, 2, true)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.EREBOR, 0.0, -0.1, Dir.NORTH)
+		affix(location, LOTRWaypoint.WEST_PEAK, 0.0, -0.1, Dir.NORTH)
+		affix(location, LOTRWaypoint.EAST_PEAK, 0.0, -0.1, Dir.NORTH)
+
+		/* READY */
+		location = object : GenstSingle() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun addVillageStructures(random: Random) {
+						addStructure(StructureBlueDwarvenTower(false), 0, 6, 2, true)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.BELEGOST, 0.0, -0.1, Dir.NORTH)
+		affix(location, LOTRWaypoint.NOGROD, 0.0, 0.1, Dir.SOUTH)
+		affix(location, LOTRWaypoint.THORIN_HALLS, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.THRAIN_HALLS, 0.0, 0.0, Dir.NORTH)
+
+		/* READY */
+		location = object : GenstSingle() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun addVillageStructures(random: Random) {
+						addStructure(StructureRedDwarvenTower(false), 0, 6, 2, true)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.BARAZ_DUM, 0.1, 0.0, Dir.EAST)
 
 		/* READY */
 		location = GenstAngmar()
@@ -525,20 +571,20 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureGondorTower(false), 0, 0, 0, true)
+						addStructure(StructureGondorTower(false), 0, 6, 2, true)
 					}
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.HALIFIRIEN, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.CALENHAD, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MINRIMMON, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ERELAS, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.NARDOL, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.EILENACH, 0.0, 1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.AMON_DIN, 1.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MINAS_TIRITH, -4.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.MINAS_TIRITH, -2.5, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HALIFIRIEN, 0.0, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.CALENHAD, 0.0, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.MINRIMMON, 0.0, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.ERELAS, 0.0, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.NARDOL, 0.0, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.EILENACH, 0.0, 1.0, Dir.SOUTH)
+		affix(location, LOTRWaypoint.AMON_DIN, 1.0, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.MINAS_TIRITH, -4.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.MINAS_TIRITH, -2.5, 0.0, Dir.WEST)
 
 		/* READY */
 		location = object : GenstSingle() {
@@ -552,6 +598,7 @@ object GenstLocations {
 				}
 			}
 		}
+		affix(location, LOTRWaypoint.DAINS_HALLS, 0.0, -0.1, Dir.NORTH)
 		affix(location, LOTRWaypoint.ARVEDUI_MINES, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_RERIR, 0.0, 0.0, Dir.NORTH)

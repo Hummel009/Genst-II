@@ -57,17 +57,8 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.KHAND_FORD)
 		skip.add(LOTRWaypoint.HARADUIN_MOUTH)
 
-		skip.add(LOTRWaypoint.BELEGOST)
-		skip.add(LOTRWaypoint.NOGROD)
-		skip.add(LOTRWaypoint.THORIN_HALLS)
-		skip.add(LOTRWaypoint.THRAIN_HALLS)
-		skip.add(LOTRWaypoint.DAINS_HALLS)
-		skip.add(LOTRWaypoint.EREBOR)
-		skip.add(LOTRWaypoint.WEST_PEAK)
-		skip.add(LOTRWaypoint.EAST_PEAK)
-		skip.add(LOTRWaypoint.BARAZ_DUM)
-
 		skip.add(LOTRWaypoint.THRANDUIL_HALLS)
+
 		skip.add(LOTRWaypoint.CARAS_GALADHON)
 		skip.add(LOTRWaypoint.CERIN_AMROTH)
 		skip.add(LOTRWaypoint.NIMRODEL)

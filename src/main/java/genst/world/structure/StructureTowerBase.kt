@@ -419,9 +419,10 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			}
 		}
 		setBlockAndMetadata(world, 0, topHeight + 1, -4, LOTRMod.commandTable, 0)
-		val captain = getCaptain(world)
-		captain.spawnRidingHorse = false
-		spawnNPCAndSetHome(captain, world, 0, topHeight + 1, 0, 16)
+		getCaptain(world)?.let {
+			it.spawnRidingHorse = false
+			spawnNPCAndSetHome(it, world, 0, topHeight + 1, 0, 16)
+		}
 		return true
 	}
 
@@ -444,7 +445,7 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 
 	abstract fun getBars(): Block
 
-	abstract fun getCaptain(world: World): LOTREntityNPC
+	abstract fun getCaptain(world: World): LOTREntityNPC?
 
 	abstract fun getSections(): Int
 
