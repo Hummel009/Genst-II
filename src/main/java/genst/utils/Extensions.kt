@@ -5,7 +5,6 @@ import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 
-
 @Suppress("UNCHECKED_CAST")
 fun LOTRVillageGen.addFixedLocation(
 	wp: LOTRWaypoint, addX: Double, addY: Double, rotation: Int, name: String
