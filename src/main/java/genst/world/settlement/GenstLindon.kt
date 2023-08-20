@@ -1,5 +1,6 @@
 package genst.world.settlement
 
+import genst.world.structure.StructureLindonTower
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityHighElf
@@ -127,6 +128,6 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		open fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElfHouse(false)
 
-		open fun getTower(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElvenTower(false)
+		open fun getTower(): LOTRWorldGenStructureBase2 = StructureLindonTower(false)
 	}
 }

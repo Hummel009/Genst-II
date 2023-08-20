@@ -7,21 +7,17 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureAngmarTower(flag: Boolean) : StructureTowerBase(flag) {
-	override fun getBarsBlock(): Block = LOTRMod.orcSteelBars
+	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick2, 0)
 
-	override fun getBrickBlock(): Block = LOTRMod.brick2
+	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)
 
-	override fun getBrickMeta(): Int = 0
+	override fun getWall(): Pair<Block, Int> = Pair(LOTRMod.wall2, 0)
 
-	override fun getWallBlock(): Block = LOTRMod.wall2
+	override fun getStairs(): Block = LOTRMod.stairsAngmarBrick
 
-	override fun getWallMeta(): Int = 0
+	override fun getBars(): Block = LOTRMod.orcSteelBars
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityAngmarOrcMercenaryCaptain(world)
-
-	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
-
-	override fun getStairsBlock(): Block = LOTRMod.stairsAngmarBrick
 
 	override fun getSections(): Int = 5
 }

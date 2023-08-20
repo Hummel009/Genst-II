@@ -35,13 +35,14 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 		val wallThresholdMin = (radiusD * radiusD).toInt()
 		val wallThresholdMax = (radiusDPlusOne * radiusDPlusOne).toInt()
 
-		val barsBlock = getBarsBlock()
-		val brickBlock = getBrickBlock()
-		val brickMeta = getBrickMeta()
-		val wallBlock = getWallBlock()
-		val wallMeta = getWallMeta()
-		val stairsBlock = getStairsBlock()
-		val secondaryBrick = getSecondaryBrick()
+		val barsBlock = getBars()
+		val brickBlock = getBrick().first
+		val brickMeta = getBrick().second
+		val wallBlock = getWall().first
+		val wallMeta = getWall().second
+		val stairsBlock = getStairs()
+		val secondaryBrick = getSecondaryBrick().first
+		val secondaryBrickMeta = getSecondaryBrick().second
 
 		if (restrictions) {
 			var minHeight = 0
@@ -173,15 +174,15 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 				setBlockAndMetadata(world, 1, sectionBase + 3, -radius, stairsBlock, 5)
 				i1 = -5
 				while (i1 <= 5) {
-					setBlockAndMetadata(world, i1, sectionBase, 0, secondaryBrick, 0)
+					setBlockAndMetadata(world, i1, sectionBase, 0, secondaryBrick, secondaryBrickMeta)
 					++i1
 				}
 				k14 = -6
 				while (k14 <= 3) {
-					setBlockAndMetadata(world, 0, sectionBase, k14, secondaryBrick, 0)
+					setBlockAndMetadata(world, 0, sectionBase, k14, secondaryBrick, secondaryBrickMeta)
 					++k14
 				}
-				setBlockAndMetadata(world, 0, sectionBase + 1, 0, secondaryBrick, 0)
+				setBlockAndMetadata(world, 0, sectionBase + 1, 0, secondaryBrick, secondaryBrickMeta)
 				setBlockAndMetadata(world, 0, sectionBase + 2, 0, wallBlock, wallMeta)
 			}
 			j12 = sectionBase + 1
@@ -423,27 +424,23 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 	private fun placeBrickSupports(world: World, i: Int, k: Int) {
 		var j = 0
 		while (!isOpaque(world, i, j, k) && getY(j) >= 0) {
-			setBlockAndMetadata(world, i, j, k, getBrickBlock(), getBrickMeta())
+			setBlockAndMetadata(world, i, j, k, getBrick().first, getBrick().second)
 			setGrassToDirt(world, i, j - 1, k)
 			--j
 		}
 	}
 
-	abstract fun getBarsBlock(): Block
+	abstract fun getBrick(): Pair<Block, Int>
 
-	abstract fun getStairsBlock(): Block
+	abstract fun getSecondaryBrick(): Pair<Block, Int>
 
-	abstract fun getBrickMeta(): Int
+	abstract fun getWall(): Pair<Block, Int>
 
-	abstract fun getBrickBlock(): Block
+	abstract fun getStairs(): Block
 
-	abstract fun getWallBlock(): Block
-
-	abstract fun getWallMeta(): Int
+	abstract fun getBars(): Block
 
 	abstract fun getCaptain(world: World): EntityCreature
-
-	abstract fun getSecondaryBrick(): Block
 
 	abstract fun getSections(): Int
 }

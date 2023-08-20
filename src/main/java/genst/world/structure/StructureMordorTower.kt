@@ -7,21 +7,17 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureMordorTower(flag: Boolean) : StructureTowerBase(flag) {
-	override fun getBarsBlock(): Block = LOTRMod.orcSteelBars
+	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick, 0)
 
-	override fun getBrickBlock(): Block = LOTRMod.brick
+	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.guldurilBrick, 0)
 
-	override fun getBrickMeta(): Int = 0
+	override fun getWall(): Pair<Block, Int> = Pair(LOTRMod.wall, 1)
 
-	override fun getWallBlock(): Block = LOTRMod.wall
+	override fun getStairs(): Block = LOTRMod.stairsMordorBrick
 
-	override fun getWallMeta(): Int = 1
+	override fun getBars(): Block = LOTRMod.orcSteelBars
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityMordorOrcMercenaryCaptain(world)
-
-	override fun getSecondaryBrick(): Block = LOTRMod.guldurilBrick
-
-	override fun getStairsBlock(): Block = LOTRMod.stairsMordorBrick
 
 	override fun getSections(): Int = 7
 }

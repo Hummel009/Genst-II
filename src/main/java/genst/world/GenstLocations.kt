@@ -1,5 +1,6 @@
 package genst.world
 
+import genst.command.GenstLogger
 import genst.utils.affix
 import genst.world.settlement.*
 import genst.world.structure.*
@@ -279,6 +280,8 @@ object GenstLocations {
 				}
 			}
 		}
+		affix(location, LOTRWaypoint.SOUTH_FOROCHEL, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.CAPE_OF_FOROCHEL, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.TOL_MORWEN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GLADDEN_FIELDS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CROSSINGS_OF_POROS, 1.0, 1.0, Dir.NORTH)
@@ -327,6 +330,9 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.NORTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SOUTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.OLD_JUNGLE_RUIN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.ISLE_MIST, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HARAD_HORN, 0.0, 0.0, Dir.NORTH)
 
 		/* READY */
 		location = object : GenstRuinedCity() {
@@ -546,6 +552,7 @@ object GenstLocations {
 				}
 			}
 		}
+		affix(location, LOTRWaypoint.ARVEDUI_MINES, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.WEATHERTOP, 0.0, -1.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_RERIR, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_DOLMED, 0.0, 0.0, Dir.NORTH)

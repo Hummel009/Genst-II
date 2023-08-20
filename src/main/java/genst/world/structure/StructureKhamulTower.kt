@@ -7,21 +7,17 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 object StructureKhamulTower : StructureTowerBase(false) {
-	override fun getBarsBlock(): Block = LOTRMod.goldBars
+	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick5, 11)
 
-	override fun getStairsBlock(): Block = LOTRMod.stairsRhunBrick
+	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.brick6, 0)
 
-	override fun getBrickBlock(): Block = LOTRMod.brick5
+	override fun getWall(): Pair<Block, Int> = Pair(LOTRMod.wall3, 15)
 
-	override fun getBrickMeta(): Int = 11
+	override fun getStairs(): Block = LOTRMod.stairsRhunBrick
 
-	override fun getWallBlock(): Block = LOTRMod.wall3
-
-	override fun getWallMeta(): Int = 15
+	override fun getBars(): Block = LOTRMod.goldBars
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityEasterlingWarlord(world)
-
-	override fun getSecondaryBrick(): Block = LOTRMod.brick6
 
 	override fun getSections(): Int = 9
 }

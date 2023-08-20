@@ -7,21 +7,17 @@ import net.minecraft.entity.EntityCreature
 import net.minecraft.world.World
 
 class StructureUrukTower(flag: Boolean) : StructureTowerBase(flag) {
-	override fun getBarsBlock(): Block = LOTRMod.urukBars
+	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick2, 7)
 
-	override fun getBrickBlock(): Block = LOTRMod.brick2
+	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)
 
-	override fun getBrickMeta(): Int = 7
+	override fun getWall(): Pair<Block, Int> = Pair(LOTRMod.wall2, 7)
 
-	override fun getWallBlock(): Block = LOTRMod.wall2
+	override fun getStairs(): Block = LOTRMod.stairsUrukBrick
 
-	override fun getWallMeta(): Int = 7
+	override fun getBars(): Block = LOTRMod.urukBars
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityUrukHaiMercenaryCaptain(world)
-
-	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
-
-	override fun getStairsBlock(): Block = LOTRMod.stairsUrukBrick
 
 	override fun getSections(): Int = 7
 }

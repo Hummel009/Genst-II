@@ -8,21 +8,17 @@ import net.minecraft.init.Blocks
 import net.minecraft.world.World
 
 class StructureGondorTower(flag: Boolean) : StructureTowerBase(flag) {
-	override fun getBarsBlock(): Block = Blocks.iron_bars
+	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick, 1)
 
-	override fun getBrickBlock(): Block = LOTRMod.brick
+	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)
 
-	override fun getBrickMeta(): Int = 1
+	override fun getWall(): Pair<Block, Int> = Pair(LOTRMod.wall, 3)
 
-	override fun getWallBlock(): Block = LOTRMod.wall
+	override fun getStairs(): Block = LOTRMod.stairsGondorBrick
 
-	override fun getWallMeta(): Int = 3
+	override fun getBars(): Block = Blocks.iron_bars
 
 	override fun getCaptain(world: World): EntityCreature = LOTREntityGondorianCaptain(world)
-
-	override fun getSecondaryBrick(): Block = LOTRMod.scorchedStone
-
-	override fun getStairsBlock(): Block = LOTRMod.stairsGondorBrick
 
 	override fun getSections(): Int = 5
 }
