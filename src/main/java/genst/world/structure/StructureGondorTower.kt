@@ -20,7 +20,7 @@ class StructureGondorTower(flag: Boolean) : StructureTowerBase(flag) {
 
 	override fun getCaptain(world: World): LOTREntityNPC = LOTREntityGondorianCaptain(world)
 
-	override fun getSections(): Int = 5
+	override fun getSections(): Int = 7
 
 	override fun enableSpires(): Boolean = false
 }
