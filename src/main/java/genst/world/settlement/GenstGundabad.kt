@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureGundabadTower
+import genst.world.structure.StructureTowerGundabad
 import genst.world.structure.StructureGundabadWargPit
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
@@ -42,7 +42,7 @@ class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstGundabad>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureGundabadTower(false), 0, 6, 2, true)
+			addStructure(StructureTowerGundabad(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityGundabadOrc::class.java, LOTREntityGundabadOrcArcher::class.java)

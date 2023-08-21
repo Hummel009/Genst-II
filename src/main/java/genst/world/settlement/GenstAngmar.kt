@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureAngmarTower
+import genst.world.structure.StructureTowerAngmar
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
@@ -44,7 +44,7 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstAngmar>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureAngmarTower(false), 0, 6, 2, true)
+			addStructure(StructureTowerAngmar(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)

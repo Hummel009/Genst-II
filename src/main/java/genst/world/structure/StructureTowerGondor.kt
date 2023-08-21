@@ -7,7 +7,7 @@ import net.minecraft.block.Block
 import net.minecraft.init.Blocks
 import net.minecraft.world.World
 
-class StructureGondorTower(flag: Boolean) : StructureTowerBase(flag) {
+class StructureTowerGondor(flag: Boolean) : StructureTowerBase(flag) {
 	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick, 1)
 
 	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)

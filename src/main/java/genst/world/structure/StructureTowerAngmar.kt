@@ -6,7 +6,7 @@ import lotr.common.entity.npc.LOTREntityNPC
 import net.minecraft.block.Block
 import net.minecraft.world.World
 
-class StructureAngmarTower(flag: Boolean) : StructureTowerBase(flag) {
+class StructureTowerAngmar(flag: Boolean) : StructureTowerBase(flag) {
 	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick2, 0)
 
 	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)

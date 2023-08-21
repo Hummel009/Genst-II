@@ -7,7 +7,7 @@ import java.util.*
 
 object GenstConfig {
 	private var cfg: Configuration? = null
-	private var on: MutableMap<LOTRWaypoint, Boolean?> = EnumMap(LOTRWaypoint::class.java)
+	var on: MutableMap<LOTRWaypoint, Boolean?> = EnumMap(LOTRWaypoint::class.java)
 
 	private fun load() {
 		val wp = "waypoints"
@@ -294,9 +294,5 @@ object GenstConfig {
 	fun postInit() {
 		cfg = Configuration(File("config", "Genst II.cfg"))
 		load()
-	}
-
-	fun isNotForbidden(wp: LOTRWaypoint): Boolean? {
-		return on[wp]
 	}
 }

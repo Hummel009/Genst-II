@@ -13,7 +13,7 @@ import kotlin.math.abs
 var i: Int = 0
 
 fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, dir: GenstLocations.Dir) {
-	if (wp.isNotForbidden()) {
+	if (wp.isGenstEnabled()) {
 		GenstLogger.skip.add(wp)
 		inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER_${i++}")
 		GenstLocations.locations.add(inst)
@@ -23,7 +23,7 @@ fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, di
 fun registerRoadI(data: Array<Any>, subtractX: Boolean) {
 	val wp = data[0] as LOTRWaypoint
 	val final = data[1] as DoubleArray
-	if (wp.isNotForbidden()) {
+	if (wp.isGenstEnabled()) {
 		val origX = wp.x
 		val origY = wp.y
 		val finalX = final[0]
@@ -58,7 +58,7 @@ fun registerRoad(waypoints: Array<Any>) {
 }
 
 fun addMountain(wp: LOTRWaypoint, h: Float, r: Int, lava: Int) {
-	if (wp.isNotForbidden()) {
+	if (wp.isGenstEnabled()) {
 		addMountain(doubleArrayOf(wp.x, wp.y), h, r, lava)
 	}
 }

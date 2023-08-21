@@ -1,13 +1,12 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureLindonTower
+import genst.world.structure.StructureTowerLindon
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityHighElf
 import lotr.common.entity.npc.LOTREntityHighElfWarrior
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.structure.LOTRWorldGenHighElvenHall
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -128,6 +127,6 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		open fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElfHouse(false)
 
-		open fun getTower(): LOTRWorldGenStructureBase2 = StructureLindonTower(false)
+		open fun getTower(): LOTRWorldGenStructureBase2 = StructureTowerLindon(false)
 	}
 }

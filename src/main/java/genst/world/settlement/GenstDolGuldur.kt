@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureDolGuldurTower
+import genst.world.structure.StructureTowerDolGuldur
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityDolGuldurOrc
@@ -40,7 +40,7 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstDolGuldur>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureDolGuldurTower(false), 0, 6, 2, true)
+			addStructure(StructureTowerDolGuldur(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(

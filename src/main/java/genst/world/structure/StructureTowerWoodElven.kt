@@ -6,7 +6,7 @@ import lotr.common.entity.npc.LOTREntityWoodElfCaptain
 import net.minecraft.block.Block
 import net.minecraft.world.World
 
-class StructureWoodElvenTower(flag: Boolean) : StructureTowerBase(flag) {
+class StructureTowerWoodElven(flag: Boolean) : StructureTowerBase(flag) {
 	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick3, 5)
 
 	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.scorchedStone, 0)

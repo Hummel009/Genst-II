@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureMordorTower
+import genst.world.structure.StructureTowerMordor
 import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.*
@@ -36,7 +36,7 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstMordor>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureMordorTower(false), 0, 6, 2, true)
+			addStructure(StructureTowerMordor(false), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(

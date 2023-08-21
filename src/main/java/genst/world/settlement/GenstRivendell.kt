@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureRivendellTower
+import genst.world.structure.StructureTowerRivendell
 import lotr.common.world.structure2.LOTRWorldGenRivendellForge
 import lotr.common.world.structure2.LOTRWorldGenRivendellHouse
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
@@ -17,7 +17,7 @@ class GenstRivendell : GenstLindon() {
 
 			override fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenRivendellHouse(false)
 
-			override fun getTower(): LOTRWorldGenStructureBase2 = StructureRivendellTower(false)
+			override fun getTower(): LOTRWorldGenStructureBase2 = StructureTowerRivendell(false)
 		}
 	}
 }

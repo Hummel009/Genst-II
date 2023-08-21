@@ -6,7 +6,7 @@ import lotr.common.entity.npc.LOTREntityNPC
 import net.minecraft.block.Block
 import net.minecraft.world.World
 
-object StructureKhamulTower : StructureTowerBase(false) {
+object StructureTowerKhamul : StructureTowerBase(false) {
 	override fun getBrick(): Pair<Block, Int> = Pair(LOTRMod.brick5, 11)
 
 	override fun getSecondaryBrick(): Pair<Block, Int> = Pair(LOTRMod.brick6, 0)

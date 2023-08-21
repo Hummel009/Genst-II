@@ -212,7 +212,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureDwarvenTower(false), 0, 6, 2, true)
+						addStructure(StructureTowerDwarven(false), 0, 6, 2, true)
 					}
 				}
 			}
@@ -228,7 +228,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureBlueDwarvenTower(false), 0, 6, 2, true)
+						addStructure(StructureTowerBlueDwarven(false), 0, 6, 2, true)
 					}
 				}
 			}
@@ -245,7 +245,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureRedDwarvenTower(false), 0, 6, 2, true)
+						addStructure(StructureTowerRedDwarven(false), 0, 6, 2, true)
 					}
 				}
 			}
@@ -259,7 +259,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureWoodElvenTower(false), 0, 6, 2, true)
+						addStructure(StructureTowerWoodElven(false), 0, 6, 2, true)
 					}
 				}
 			}
@@ -273,7 +273,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureLothlorienTower(false), 0, 6, 2, true)
+						addStructure(StructureTowerLothlorien(false), 0, 6, 2, true)
 					}
 				}
 			}
@@ -551,7 +551,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureKhamulTower, 0, 0, 0, true)
+						addStructure(StructureTowerKhamul, 0, 0, 0, true)
 					}
 				}
 			}
@@ -601,7 +601,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureGondorTower(false), 0, 6, 2, true)
+						addStructure(StructureTowerGondor(false), 0, 6, 2, true)
 					}
 				}
 			}
@@ -711,7 +711,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureIsengard, 0, 0, 2, true)
+						addStructure(StructureTowerIsengard, 0, 0, 2, true)
 					}
 				}
 			}
