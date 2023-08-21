@@ -1,20 +1,20 @@
 package genst.world.settlement
 
-import lotr.common.LOTRMod
 import lotr.common.entity.LOTREntityNPCRespawner
-import lotr.common.entity.npc.LOTREntityMoredain
-import lotr.common.entity.npc.LOTREntityMoredainWarrior
+import lotr.common.entity.npc.LOTREntityHalfTroll
+import lotr.common.entity.npc.LOTREntityHalfTrollWarrior
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.structure2.*
+import lotr.common.world.structure2.LOTRWorldGenHalfTrollHouse
+import lotr.common.world.structure2.LOTRWorldGenHalfTrollWarlordHouse
+import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstHalfTrolls : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
@@ -30,13 +30,13 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	open class Instance(
-		village: GenstMorwaith, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	) : AbstractInstance<GenstMorwaith>(village, world, i, k, random, loc) {
+		village: GenstHalfTrolls, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstHalfTrolls>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
-					spawner.setSpawnClass(LOTREntityMoredain::class.java)
+					spawner.setSpawnClass(LOTREntityHalfTroll::class.java)
 					spawner.setCheckRanges(40, -12, 12, 40)
 					spawner.setSpawnRanges(20, -6, 6, 64)
 					spawner.setBlockEnemySpawnRange(60)
@@ -44,7 +44,7 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 			}, 0, 0, 0)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
-					spawner.setSpawnClass(LOTREntityMoredainWarrior::class.java)
+					spawner.setSpawnClass(LOTREntityHalfTrollWarrior::class.java)
 					spawner.setCheckRanges(40, -12, 12, 16)
 					spawner.setSpawnRanges(20, -6, 6, 64)
 					spawner.setBlockEnemySpawnRange(60)
@@ -53,13 +53,12 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val pathEnd = 68
 			val pathSide = 7
 			val centreSide = 19
-			addStructure(LOTRWorldGenMoredainMercTent(false), 0, -4, 0, true)
-			addStructure(LOTRWorldGenMoredainHutChieftain(false), 0, -centreSide, 2, true)
+			addStructure(LOTRWorldGenHalfTrollWarlordHouse(false), 0, -centreSide, 2, true)
 			if (hasSymmetry()) {
-				addStructure(LOTRWorldGenMoredainHutHunter(false), 0, centreSide, 0, true)
+				addStructure(LOTRWorldGenHalfTrollHouse(false), 0, centreSide, 0, true)
 			}
-			addStructure(LOTRWorldGenMoredainHutTrader(false), -pathEnd, 0, 1, true)
-			addStructure(LOTRWorldGenMoredainHutTrader(false), pathEnd, 0, 3, true)
+			addStructure(LOTRWorldGenHalfTrollHouse(false), -pathEnd, 0, 1, true)
+			addStructure(LOTRWorldGenHalfTrollHouse(false), pathEnd, 0, 3, true)
 			val rowHouses = 3
 			for (l in -rowHouses..rowHouses) {
 				val i1 = l * 18
@@ -68,8 +67,8 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 					k1 += 15 - pathSide
 				}
 				if (abs(l) >= 1) {
-					addStructure(LOTRWorldGenMoredainHutVillage(false), i1, -k1, 2, true)
-					addStructure(LOTRWorldGenMoredainHutVillage(false), i1, k1, 0, true)
+					addStructure(LOTRWorldGenHalfTrollHouse(false), i1, -k1, 2, true)
+					addStructure(LOTRWorldGenHalfTrollHouse(false), i1, k1, 0, true)
 				}
 			}
 		}
@@ -89,17 +88,7 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		open fun hasSymmetry(): Boolean = true
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			val block = world.getBlock(i, j, k)
-			val meta = world.getBlockMetadata(i, j, k)
-			val path = arrayOf(
-				Pair(LOTRMod.redClay, 0),
-				Pair(Blocks.clay, 0)
-			)
-			return path.any { (pairBlock, pairMeta) ->
-				block == pairBlock && meta == pairMeta
-			}
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		override fun setupVillageProperties(random: Random) {}
 	}

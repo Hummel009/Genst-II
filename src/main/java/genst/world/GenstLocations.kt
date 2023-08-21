@@ -761,6 +761,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.GREEN_VALLEY, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARAD_LAKES, 0.0, 0.0, Dir.NORTH)
 
+		location = GenstHalfTrolls()
+		affix(location, LOTRWaypoint.TROLL_ISLAND, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.BLACK_COAST, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.BLOOD_RIVER, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SHADOW_POINT, 0.0, 0.0, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)
