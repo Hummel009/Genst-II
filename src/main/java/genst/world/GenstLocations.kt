@@ -767,6 +767,14 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.BLOOD_RIVER, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SHADOW_POINT, 0.0, 0.0, Dir.NORTH)
 
+		location = GenstKopazul()
+		affix(location, LOTRWaypoint.GULF_TRADE_TOWN, 1.0, 0.0, Dir.WEST) //Bakrîzad
+		affix(location, LOTRWaypoint.GULF_CITY, 1.0, -0.4, Dir.WEST) //Khôpakadar
+		affix(location, LOTRWaypoint.GULF_NORTH_TOWN, 1.0, -0.5, Dir.WEST) //Yaphurushi
+		affix(location, LOTRWaypoint.GULF_OF_HARAD, 1.0, -0.5, Dir.WEST) //Arminazûl
+		affix(location, LOTRWaypoint.GULF_EAST_PORT, 1.0, 0.0, Dir.WEST) //Ephalôn
+		affix(location, LOTRWaypoint.GULF_EAST_BAY, 0.0, 0.0, Dir.NORTH) //Topaz Bay
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)
