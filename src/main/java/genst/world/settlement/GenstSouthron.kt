@@ -25,14 +25,15 @@ open class GenstSouthron : LOTRVillageGenSouthron(LOTRBiome.forodwaith, 0.0f) {
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.slabSingle, 6),
-				Pair(LOTRMod.brick, 4),
-				Pair(LOTRMod.slabSingleDirt, 0),
+				Pair(LOTRMod.slabSingle4, 0),
+				Pair(LOTRMod.slabSingle7, 1),
+				Pair(LOTRMod.slabSingleSand, 0),
 				Pair(LOTRMod.slabSingleDirt, 1),
-				Pair(LOTRMod.slabSingle11, 4),
-				Pair(Blocks.dirt, 1),
-				Pair(LOTRMod.dirtPath, 0),
-				Pair(LOTRMod.rock, 2)
+				Pair(LOTRMod.brick3, 11),
+				Pair(LOTRMod.brick, 15),
+				Pair(Blocks.sand, 0),
+				Pair(Blocks.sandstone, 0),
+				Pair(LOTRMod.dirtPath, 0)
 			)
 			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta
