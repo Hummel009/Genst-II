@@ -30,8 +30,8 @@ class GenstHarnennor : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstHarnennor, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
-	) : AbstractInstance<GenstHarnennor?>(village, world, i, k, random, loc) {
+		village: GenstHarnennor, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstHarnennor>(village, world, i, k, random, loc) {
 		private var palisade = false
 
 		override fun addVillageStructures(random: Random) {

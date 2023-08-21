@@ -33,7 +33,7 @@ open class GenstRhudel(
 				Pair(LOTRMod.brick5, 14),
 				Pair(LOTRMod.brick5, 11)
 			)
-			return path.any { (pairBlock, pairMeta) ->
+			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta
 			}
 		}

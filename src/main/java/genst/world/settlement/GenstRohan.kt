@@ -34,7 +34,7 @@ open class GenstRohan : LOTRVillageGenRohan(LOTRBiome.forodwaith, 0.0f) {
 				Pair(LOTRMod.dirtPath, 0),
 				Pair(LOTRMod.rock, 2)
 			)
-			return path.any { (pairBlock, pairMeta) ->
+			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta
 			}
 		}

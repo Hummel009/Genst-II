@@ -40,7 +40,7 @@ open class GenstGondor(
 				Pair(LOTRMod.brick3, 9),
 				Pair(Blocks.cobblestone, 0)
 			)
-			return path.any { (pairBlock, pairMeta) ->
+			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta
 			}
 		}
