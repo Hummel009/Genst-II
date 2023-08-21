@@ -1,7 +1,7 @@
 package genst.world.settlement
 
+import genst.utils.getAllowedBlocks
 import genst.world.structure.StructureTowerDolGuldur
-import lotr.common.block.*
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityDolGuldurOrc
 import lotr.common.entity.npc.LOTREntityDolGuldurOrcArcher
@@ -9,15 +9,12 @@ import lotr.common.entity.npc.LOTREntityMirkTroll
 import lotr.common.entity.npc.LOTREntityMirkwoodSpider
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
-import lotr.common.world.map.LOTRRoads
 import lotr.common.world.structure2.LOTRWorldGenDolGuldurForgeTent
 import lotr.common.world.structure2.LOTRWorldGenDolGuldurSpiderPit
 import lotr.common.world.structure2.LOTRWorldGenDolGuldurTent
 import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.block.BlockStone
-import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
@@ -110,8 +107,7 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
+			return getAllowedBlocks(world, i, j, k)
 		}
 
 		override fun setupVillageProperties(random: Random) {}

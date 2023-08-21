@@ -2,12 +2,12 @@ package genst.world.settlement
 
 import genst.utils.getAllowedBlocks
 import lotr.common.world.biome.LOTRBiome
-import lotr.common.world.village.LOTRVillageGenRohan
+import lotr.common.world.village.LOTRVillageGenSouthron
 import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
 import java.util.*
 
-open class GenstRohan : LOTRVillageGenRohan(LOTRBiome.forodwaith, 0.0f) {
+open class GenstSouthron : LOTRVillageGenSouthron(LOTRBiome.forodwaith, 0.0f) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
@@ -17,8 +17,8 @@ open class GenstRohan : LOTRVillageGenRohan(LOTRBiome.forodwaith, 0.0f) {
 	}
 
 	open class Instance(
-		village: LOTRVillageGenRohan, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	) : LOTRVillageGenRohan.Instance(village, world, i, k, random, loc) {
+		village: LOTRVillageGenSouthron, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : LOTRVillageGenSouthron.Instance(village, world, i, k, random, loc) {
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			return getAllowedBlocks(world, i, j, k)

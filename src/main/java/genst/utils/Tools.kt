@@ -3,10 +3,14 @@ package genst.utils
 import cpw.mods.fml.relauncher.ReflectionHelper
 import genst.command.GenstLogger
 import genst.world.GenstLocations
+import lotr.common.block.*
 import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRRoads
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
+import net.minecraft.block.*
+import net.minecraft.init.Blocks
+import net.minecraft.world.World
 import net.minecraftforge.common.util.EnumHelper
 import kotlin.math.abs
 
@@ -100,3 +104,41 @@ fun editWaypoint(wp: LOTRWaypoint, shiftX: Double, shiftY: Double) {
 	}
 }
 
+
+val classes: Array<Class<out Block>> = arrayOf(
+	BlockSnow::class.java,
+	BlockStone::class.java,
+	LOTRBlockRock::class.java,
+	BlockSand::class.java,
+	BlockSandStone::class.java,
+	LOTRBlockWaste::class.java,
+	BlockGravel::class.java,
+	BlockClay::class.java,
+	BlockHardenedClay::class.java,
+	LOTRBlockBrickBase::class.java,
+	LOTRBlockSlabBase::class.java,
+	LOTRBlockDirtPath::class.java,
+	LOTRBlockMud::class.java,
+	LOTRBlockMudGrass::class.java,
+	LOTRBlockPillarBase::class.java,
+	LOTRBlockWallBase::class.java,
+	LOTRBlockQuagmire::class.java,
+	LOTRBlockCobblebrick::class.java,
+	BlockDirt::class.java,
+	BlockGrass::class.java,
+	BlockOre::class.java,
+	BlockSlab::class.java,
+	BlockIce::class.java,
+	BlockSoulSand::class.java,
+	BlockStoneBrick::class.java,
+	BlockPackedIce::class.java,
+)
+
+val blocks: Array<Block> = arrayOf(
+	Blocks.cobblestone, Blocks.mossy_cobblestone
+)
+
+fun getAllowedBlocks(world: World, i: Int, j: Int, k: Int): Boolean {
+	val block = world.getBlock(i, j, k)
+	return classes.contains(block::class.java) || blocks.contains(block)
+}

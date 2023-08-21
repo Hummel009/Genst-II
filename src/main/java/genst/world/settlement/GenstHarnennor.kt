@@ -1,5 +1,6 @@
 package genst.world.settlement
 
+import genst.utils.getAllowedBlocks
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityHarnedhrim
 import lotr.common.entity.npc.LOTREntityHarnedorArcher
@@ -165,7 +166,7 @@ class GenstHarnennor : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
+			return getAllowedBlocks(world, i, j, k)
 		}
 
 		override fun setupVillageProperties(random: Random) {

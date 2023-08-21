@@ -1,16 +1,14 @@
 package genst.world.settlement
 
+import genst.utils.getAllowedBlocks
 import genst.world.GenstRoads
 import genst.world.structure.StructureRuinedTower
-import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.LOTRWorldGenNumenorRuin
 import lotr.common.world.structure2.LOTRWorldGenStoneRuin.STONE
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.block.BlockStone
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
@@ -146,8 +144,7 @@ open class GenstRuinedCity(
 		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
+			return getAllowedBlocks(world, i, j, k)
 		}
 
 		override fun setupVillageProperties(random: Random) {}

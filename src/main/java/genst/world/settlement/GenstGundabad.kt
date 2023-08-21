@@ -1,8 +1,8 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureTowerGundabad
+import genst.utils.getAllowedBlocks
 import genst.world.structure.StructureGundabadWargPit
-import lotr.common.block.*
+import genst.world.structure.StructureTowerGundabad
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.*
 import lotr.common.world.biome.LOTRBiome
@@ -12,15 +12,9 @@ import lotr.common.world.structure2.LOTRWorldGenGundabadTent
 import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.block.BlockGravel
-import net.minecraft.block.BlockSnow
-import net.minecraft.block.BlockSnowBlock
-import net.minecraft.block.BlockStone
-import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
-import kotlin.math.abs
 
 class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -113,27 +107,12 @@ class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(LOTRWorldGenGundabadForgeTent(false), farmX - farmSize, farmZ, 3, true)
 		}
 
-		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			val i1 = abs(i)
-			val k1 = abs(k)
-			val dSq = i * i + k * k
-			val imn = 20 + random.nextInt(4)
-			if (dSq < imn * imn) {
-				return LOTRRoadType.PATH
-			}
-			val omn = 53 - random.nextInt(4)
-			val omx = 60 + random.nextInt(4)
-			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && abs(i1 - k1) <= 2 + random.nextInt(4)) {
-				return LOTRRoadType.PATH
-			}
-			return null
-		}
+		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? = null
 
 		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block is LOTRBlockWaste || block is BlockSnow || block is BlockSnowBlock || block is BlockGravel || block == Blocks.cobblestone
+			return getAllowedBlocks(world, i, j, k)
 		}
 
 		override fun setupVillageProperties(random: Random) {}

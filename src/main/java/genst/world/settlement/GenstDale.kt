@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import lotr.common.block.*
+import genst.utils.getAllowedBlocks
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityDaleArcher
 import lotr.common.entity.npc.LOTREntityDaleLevyman
@@ -11,8 +11,6 @@ import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.block.BlockStone
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
@@ -103,8 +101,7 @@ class GenstDale : LOTRVillageGen(LOTRBiome.forodwaith) {
 		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			val block = world.getBlock(i, j, k)
-			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
+			return getAllowedBlocks(world, i, j, k)
 		}
 
 		override fun setupVillageProperties(random: Random) {}

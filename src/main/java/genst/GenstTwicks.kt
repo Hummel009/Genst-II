@@ -5,6 +5,6 @@ import lotr.common.world.map.LOTRWaypoint
 
 object GenstTwicks {
 	fun preInit() {
-		editWaypoint(LOTRWaypoint.UMBAR_CITY, 2.0, -2.0)
+		editWaypoint(LOTRWaypoint.UMBAR_CITY, 1.0, -2.0)
 	}
 }

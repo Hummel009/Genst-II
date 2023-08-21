@@ -698,8 +698,48 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.UMBAR_CITY, -0.7, -haradGateShift - 0.2, Dir.EAST)
-		affix(location, LOTRWaypoint.UMBAR_GATE, -haradGateShift - 0.2, 0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.UMBAR_GATE, -haradGateShift - 0.2, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.GATE_HERUMOR, -0.5, -haradGateShift, Dir.EAST)
+
+		location = object : GenstSouthron() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.TOWN
+						villageName = LOTRNames.getHaradVillageName(random)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.CEDAR_ROAD, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.COAST_RIVER_TOWN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.COAST_CITY, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.FERTILE_VALLEY, -0.6, -haradGateShift - 0.1, Dir.EAST)
+		affix(location, LOTRWaypoint.GARDENS_BERUTHIEL, -0.7, -haradGateShift - 0.25, Dir.EAST)
+		affix(location, LOTRWaypoint.COAST_FORTRESS, -0.7, -haradGateShift - 0.2, Dir.EAST)
+		affix(location, LOTRWaypoint.GATE_FUINUR, -0.6, -haradGateShift, Dir.EAST)
+		affix(location, LOTRWaypoint.AIN_AL_HARAD, -0.6, -haradGateShift, Dir.EAST)
+
+		location = object : GenstSouthron() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.FORT
+						villageName = LOTRNames.getHaradVillageName(random)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.SANDHILL_TOWN, 0.0, 0.0, Dir.NORTH)
+
+		location = GenstNomad()
+		affix(location, LOTRWaypoint.DESERT_RIVER_TOWN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SOUTH_DESERT_TOWN, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.DESERT_TOWN, 0.0, 0.6, Dir.SOUTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
