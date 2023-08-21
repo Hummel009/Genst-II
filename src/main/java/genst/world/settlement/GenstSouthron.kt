@@ -19,8 +19,6 @@ open class GenstSouthron : LOTRVillageGenSouthron(LOTRBiome.forodwaith, 0.0f) {
 		village: LOTRVillageGenSouthron, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	) : LOTRVillageGenSouthron.Instance(village, world, i, k, random, loc) {
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
-
 		override fun isFlat(): Boolean = false
 	}
 }

@@ -1,5 +1,6 @@
 package genst.world.settlement
 
+import lotr.common.LOTRMod
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityDaleArcher
 import lotr.common.entity.npc.LOTREntityDaleLevyman
@@ -10,6 +11,7 @@ import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
@@ -99,7 +101,17 @@ class GenstDale : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
+			val block = world.getBlock(i, j, k)
+			val meta = world.getBlockMetadata(i, j, k)
+			val path = arrayOf(
+				Pair(LOTRMod.brick5, 1),
+				Pair(LOTRMod.slabSingle9, 6)
+			)
+			return path.any { (pairBlock, pairMeta) ->
+				block == pairBlock && meta == pairMeta
+			}
+		}
 
 		override fun setupVillageProperties(random: Random) {}
 	}

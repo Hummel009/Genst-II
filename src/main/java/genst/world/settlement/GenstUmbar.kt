@@ -19,8 +19,6 @@ open class GenstUmbar : LOTRVillageGenUmbar(LOTRBiome.forodwaith, 0.0f) {
 		village: LOTRVillageGenUmbar, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	) : InstanceUmbar(village, world, i, k, random, loc) {
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
-
 		override fun isFlat(): Boolean = false
 	}
 }

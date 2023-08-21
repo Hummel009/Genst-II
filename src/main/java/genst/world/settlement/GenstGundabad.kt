@@ -11,6 +11,7 @@ import lotr.common.world.structure2.LOTRWorldGenGundabadTent
 import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
@@ -110,7 +111,16 @@ class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
+			val block = world.getBlock(i, j, k)
+			val meta = world.getBlockMetadata(i, j, k)
+			val path = arrayOf(
+				Pair(Blocks.snow, 0)
+			)
+			return path.any { (pairBlock, pairMeta) ->
+				block == pairBlock && meta == pairMeta
+			}
+		}
 
 		override fun setupVillageProperties(random: Random) {}
 	}

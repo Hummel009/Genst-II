@@ -1,6 +1,7 @@
 package genst.world.settlement
 
 import genst.world.structure.StructureTowerAngmar
+import lotr.common.LOTRMod
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
 import lotr.common.entity.npc.LOTREntityAngmarOrcArcher
@@ -13,6 +14,7 @@ import lotr.common.world.structure2.LOTRWorldGenAngmarWargPit
 import lotr.common.world.structure2.LOTRWorldGenNPCRespawner
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
@@ -102,7 +104,16 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
+			val block = world.getBlock(i, j, k)
+			val meta = world.getBlockMetadata(i, j, k)
+			val path = arrayOf(
+				Pair(Blocks.snow, 0)
+			)
+			return path.any { (pairBlock, pairMeta) ->
+				block == pairBlock && meta == pairMeta
+			}
+		}
 
 		override fun setupVillageProperties(random: Random) {}
 	}
