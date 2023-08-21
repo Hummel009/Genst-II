@@ -1,6 +1,5 @@
 package genst.world.settlement
 
-import genst.utils.getAllowedBlocks
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.village.LOTRVillageGenUmbar
 import lotr.common.world.village.LocationInfo
@@ -20,9 +19,7 @@ open class GenstUmbar : LOTRVillageGenUmbar(LOTRBiome.forodwaith, 0.0f) {
 		village: LOTRVillageGenUmbar, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	) : InstanceUmbar(village, world, i, k, random, loc) {
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return getAllowedBlocks(world, i, j, k)
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		override fun isFlat(): Boolean = false
 	}

@@ -1,6 +1,5 @@
 package genst.world.settlement
 
-import genst.utils.getAllowedBlocks
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityNomad
 import lotr.common.entity.npc.LOTREntityNomadArcher
@@ -47,9 +46,7 @@ open class GenstNomad : LOTRVillageGen(LOTRBiome.forodwaith) {
 			return false
 		}
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return getAllowedBlocks(world, i, j, k)
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		private fun setupVillage(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {

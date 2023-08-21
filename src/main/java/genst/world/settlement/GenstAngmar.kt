@@ -1,6 +1,5 @@
 package genst.world.settlement
 
-import genst.utils.getAllowedBlocks
 import genst.world.structure.StructureTowerAngmar
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
@@ -103,9 +102,7 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return getAllowedBlocks(world, i, j, k)
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		override fun setupVillageProperties(random: Random) {}
 	}

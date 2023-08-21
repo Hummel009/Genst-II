@@ -1,6 +1,5 @@
 package genst.world.settlement
 
-import genst.utils.getAllowedBlocks
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.village.LOTRVillageGenRhun
 import lotr.common.world.village.LocationInfo
@@ -22,9 +21,7 @@ open class GenstRhudel(
 		village: LOTRVillageGenRhun, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
 	) : LOTRVillageGenRhun.Instance(village, world, i, k, random, loc) {
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return getAllowedBlocks(world, i, j, k)
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		override fun isFlat(): Boolean = false
 	}
