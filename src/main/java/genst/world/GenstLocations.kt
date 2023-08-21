@@ -4,6 +4,7 @@ import genst.utils.affix
 import genst.world.settlement.*
 import genst.world.structure.*
 import lotr.common.LOTRDimension
+import lotr.common.entity.npc.LOTRNames
 import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.structure2.LOTRWorldGenBDBarrow
@@ -20,7 +21,6 @@ object GenstLocations {
 	fun postInit() {
 		var location: LOTRVillageGen
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 3) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -34,7 +34,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.GREEN_HILLS, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 3) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -48,7 +47,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.TOLFALAS_ISLAND, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -62,7 +60,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.ANDUIN_MOUTH, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -76,7 +73,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.PELARGIR, -0.1, -1.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.BLACKROOT_VALE, 3) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -90,7 +86,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.TARLANG, 0.0, 0.7, Dir.SOUTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -104,7 +99,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.LINHIR, -0.2, 0.9, Dir.SOUTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -118,7 +112,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.ETHRING, 1.0, -0.2, Dir.EAST)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -132,7 +125,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.CALEMBEL, 0.2, -1.1, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -147,7 +139,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.TARNOST, 0.0, -0.9, Dir.NORTH)
 		affix(location, LOTRWaypoint.DOL_AMROTH, -1.0, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -162,7 +153,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MINAS_TIRITH, -0.9, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.CAIR_ANDROS, -1.0, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LOSSARNACH, 3) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -176,7 +166,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.IMLOTH_MELUI, 0.0, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 3) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -191,7 +180,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.EMYN_ARNEN, 0.0, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.HENNETH_ANNUN, 0.0, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -205,7 +193,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -221,7 +208,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.WEST_PEAK, 0.0, -0.1, Dir.NORTH)
 		affix(location, LOTRWaypoint.EAST_PEAK, 0.0, -0.1, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -238,7 +224,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.THORIN_HALLS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.THRAIN_HALLS, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -252,7 +237,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.BARAZ_DUM, 0.1, 0.0, Dir.EAST)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -266,7 +250,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.THRANDUIL_HALLS, 0.0, -0.1, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -282,17 +265,14 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.CARAS_GALADHON, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CERIN_AMROTH, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = GenstAngmar()
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = GenstGundabad()
 		affix(location, LOTRWaypoint.MOUNT_GUNDABAD, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GOBLIN_TOWN, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = GenstLindon()
 		affix(location, LOTRWaypoint.AMON_EREB, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.FORLINDON, 0.0, 0.0, Dir.NORTH)
@@ -303,12 +283,10 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MITHLOND_SOUTH, -0.5, -0.5, Dir.NORTH)
 		affix(location, LOTRWaypoint.TOWER_HILLS, 0.0, -0.6, Dir.NORTH)
 
-		/* READY */
 		location = GenstRivendell()
 		affix(location, LOTRWaypoint.RIVENDELL, 0.0, -0.7, Dir.NORTH)
 		affix(location, LOTRWaypoint.FORD_BRUINEN, 0.0, -0.7, Dir.NORTH)
 
-		/* READY */
 		location = GenstDunland()
 		affix(location, LOTRWaypoint.NORTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SOUTH_DUNLAND, 0.0, 0.0, Dir.NORTH)
@@ -318,7 +296,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.CORSAIRS_LANDING, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.FORDS_OF_ISEN, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = GenstShire()
 		affix(location, LOTRWaypoint.BROCKENBORINGS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.TIGHFIELD, 0.0, -0.2, Dir.NORTH)
@@ -344,7 +321,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.WAYMEET, -1.0, -0.5, Dir.WEST)
 		affix(location, LOTRWaypoint.WHITFURROWS, 0.6, -0.6, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -368,7 +344,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.SCATHA, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CROSSROADS_ITHILIEN, 0.3, 0.3, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -387,7 +362,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 0.9, Dir.SOUTH)
 
-		/* READY */
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -410,7 +384,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ISLE_MIST, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARAD_HORN, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -422,7 +395,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.8, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -434,7 +406,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.1, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstRuinedCity(5) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -450,7 +421,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.OSGILIATH_EAST, -2.0, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.OSGILIATH_EAST, -3.3, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -462,7 +432,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.NORTH_ITHILIEN, 0.9, 0.0, Dir.EAST)
 
-		/* READY */
 		location = GenstDale()
 		affix(location, LOTRWaypoint.DALE_CITY, -0.3, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.LONG_LAKE, 0.0, 0.3, Dir.SOUTH)
@@ -471,14 +440,12 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.REDWATER_FORD, 0.0, 0.5, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DALE_CROSSROADS, -0.3, -0.9, Dir.NORTH)
 
-		/* READY */
 		location = GenstDorwinion()
 		affix(location, LOTRWaypoint.DORWINION_PORT, 0.3, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.DORWINION_FORD, -0.3, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.DORWINION_HILLS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.DORWINION_COURT, 0.5, -0.5, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstDorwinion() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -490,7 +457,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.5, -0.5, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstRhudel(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -511,7 +477,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.RHUN_EAST_TOWN, 0.3, -1.0, Dir.NORTH) //Karanoda
 		affix(location, LOTRWaypoint.BAZYLAN, 0.3, 1.1, Dir.SOUTH)
 
-		/* READY */
 		location = object : GenstRhudel(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -526,7 +491,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.BALCARAS, 0.0, 0.0, Dir.SOUTH)
 		affix(location, LOTRWaypoint.RHUN_ROAD_WAY, 0.0, 0.4, Dir.SOUTH) //Redway
 
-		/* READY */
 		location = object : GenstRhudel(6) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -544,7 +508,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MORDOR_FORD, -0.4, -0.9, Dir.NORTH)
 		affix(location, LOTRWaypoint.KHAND_NORTH_ROAD, 0.8, 0.0, Dir.EAST) //Southern Marches
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -558,7 +521,6 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.KHAMUL_TOWER, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstRohan() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -580,7 +542,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.HELMS_CROSSROADS, 0.4, -0.6, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DUNHARROW, 0.0, 0.0, Dir.SOUTH)
 
-		/* READY */
 		location = object : GenstRohan() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -616,7 +577,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MINAS_TIRITH, -4.0, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.MINAS_TIRITH, -2.5, 0.0, Dir.WEST)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -648,7 +608,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.MOUNT_GREEN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_THUNDER, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -662,12 +621,10 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.FORSAKEN_INN, 0.0, -0.1, Dir.NORTH)
 
-		/* READY */
 		location = GenstDolGuldur()
 		affix(location, LOTRWaypoint.DOL_GULDUR, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MIRKWOOD_MOUNTAINS, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = GenstMordor()
 		affix(location, LOTRWaypoint.UDUN, 0.6, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.BARAD_DUR, 0.4, -0.6, Dir.NORTH)
@@ -688,7 +645,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.THAURBAND, 0.0, 0.6, Dir.SOUTH)
 		affix(location, LOTRWaypoint.VALLEY_OF_SPIDERS, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -704,7 +660,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.BEORN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.RHOSGOBEL, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -718,16 +673,33 @@ object GenstLocations {
 		}
 		affix(location, LOTRWaypoint.ISENGARD, 0.0, -3.5, Dir.NORTH)
 
-		/* READY */
 		location = GenstUruk()
 		affix(location, LOTRWaypoint.URUK_HIGHLANDS, 0.0, 0.0, Dir.NORTH)
 
-		/* READY */
+		/* HARAD */
+		val haradGateShift = 34.0 / 128.0
+
 		location = GenstHarnennor()
 		affix(location, LOTRWaypoint.HARNEN_SEA_TOWN, 0.0, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARNEN_BLACK_TOWN, 0.0, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARNEN_RIVER_TOWN, 0.0, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARNEN_ROAD_TOWN, 0.5, -0.8, Dir.SOUTH)
+
+		location = object : GenstUmbar() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.TOWN
+						villageName = LOTRNames.getHaradVillageName(random)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.UMBAR_CITY, -0.7, -haradGateShift - 0.2, Dir.EAST)
+		affix(location, LOTRWaypoint.UMBAR_GATE, -haradGateShift - 0.2, 0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.GATE_HERUMOR, -0.5, -haradGateShift, Dir.EAST)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {

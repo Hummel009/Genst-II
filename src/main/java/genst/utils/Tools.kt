@@ -70,3 +70,33 @@ fun addMountain(db: DoubleArray, h: Float, r: Int, lava: Int) {
 	val args = arrayOf<Any>(db[0], db[1], h, r, lava)
 	EnumHelper.addEnum(LOTRMountains::class.java, "PLACEHOLDER_${i++}", classArr, args)
 }
+
+fun editWaypoint(wp: LOTRWaypoint, shiftX: Double, shiftY: Double) {
+	val name = wp.codeName
+	val x = wp.x + shiftX
+	val y = wp.y + shiftY
+	val enumClass = LOTRWaypoint::class.java
+	val enumValue = enumClass.enumConstants.find { it.name == name }
+
+	enumValue?.let {
+		val imgX = enumClass.getDeclaredField("imgX")
+		val imgY = enumClass.getDeclaredField("imgY")
+		val xCoord = enumClass.getDeclaredField("xCoord")
+		val zCoord = enumClass.getDeclaredField("zCoord")
+
+		imgX.isAccessible = true
+		imgY.isAccessible = true
+		xCoord.isAccessible = true
+		zCoord.isAccessible = true
+
+		imgX.set(it, x)
+		imgY.set(it, y)
+		xCoord.set(it, LOTRWaypoint.mapToWorldX(x))
+		zCoord.set(it, LOTRWaypoint.mapToWorldZ(y))
+
+		println("Modified $name: x=${it.x}, y=${it.y}")
+	} ?: {
+		println("Waypoint $name not found.")
+	}
+}
+

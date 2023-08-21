@@ -39,22 +39,17 @@ fun editJarFile(inputJarFile: File, outputJarFile: File, entryPathToRemove: Stri
 	JarFile(inputJarFile).use { inputJar ->
 		JarOutputStream(outputJarFile.outputStream()).use { outputJar ->
 			val entries = inputJar.entries()
-
 			while (entries.hasMoreElements()) {
 				val entry = entries.nextElement()
 				val entryName = entry.name
-
-				if (entryName == entryPathToRemove) {
-					continue
+				if (entryName != entryPathToRemove) {
+					val inputStream = inputJar.getInputStream(entry)
+					val newEntry = JarEntry(entryName)
+					outputJar.putNextEntry(newEntry)
+					inputStream.copyTo(outputJar)
+					inputStream.close()
+					outputJar.closeEntry()
 				}
-
-				val inputStream = inputJar.getInputStream(entry)
-				val newEntry = JarEntry(entryName)
-				outputJar.putNextEntry(newEntry)
-
-				inputStream.copyTo(outputJar)
-				inputStream.close()
-				outputJar.closeEntry()
 			}
 		}
 	}
