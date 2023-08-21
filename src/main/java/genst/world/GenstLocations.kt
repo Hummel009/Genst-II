@@ -727,7 +727,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.HARNEN_SEA_TOWN, 0.0, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARNEN_BLACK_TOWN, 0.0, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARNEN_RIVER_TOWN, 0.0, 0.6, Dir.NORTH)
-		affix(location, LOTRWaypoint.HARNEN_ROAD_TOWN, 0.3, -0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.HARNEN_ROAD_TOWN, 0.5, -0.8, Dir.SOUTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
