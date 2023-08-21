@@ -722,6 +722,23 @@ object GenstLocations {
 		location = GenstUruk()
 		affix(location, LOTRWaypoint.URUK_HIGHLANDS, 0.0, 0.0, Dir.NORTH)
 
+		/* READY */
+		location = object : GenstHarnennor() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun setupVillageProperties(random: Random) {
+						villageType = VillageType.VILLAGE
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.HARNEN_SEA_TOWN, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.HARNEN_BLACK_TOWN, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.HARNEN_RIVER_TOWN, 0.0, 0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.HARNEN_ROAD_TOWN, 0.3, -0.6, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)

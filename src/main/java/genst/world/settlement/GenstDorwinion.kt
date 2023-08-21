@@ -102,7 +102,7 @@ open class GenstDorwinion : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		open fun getRoadType(): LOTRRoadType = LOTRRoadType.DORWINION
 
-		override fun isFlat() = false
+		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)

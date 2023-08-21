@@ -56,5 +56,6 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.GULF_FORD)
 		skip.add(LOTRWaypoint.KHAND_FORD)
 		skip.add(LOTRWaypoint.HARADUIN_MOUTH)
+		skip.add(LOTRWaypoint.CROSSINGS_OF_LITHNEN)
 	}
 }

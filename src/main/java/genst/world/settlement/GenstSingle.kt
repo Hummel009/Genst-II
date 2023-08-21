@@ -2,6 +2,7 @@ package genst.world.settlement
 
 import lotr.common.block.*
 import lotr.common.world.biome.LOTRBiome
+import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
 import net.minecraft.block.BlockStone
@@ -30,9 +31,9 @@ open class GenstSingle : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		override fun addVillageStructures(random: Random) {}
 
-		override fun getPath(random: Random, i: Int, k: Int) = null
+		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? = null
 
-		override fun isFlat() = false
+		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)

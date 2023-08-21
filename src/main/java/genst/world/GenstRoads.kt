@@ -40,6 +40,7 @@ object GenstRoads {
 		val rohanFort = 77.0 / 128.0
 		val basicVillage = 113.0 / 128.0
 		val ruinedCity = 42.0 / 128.0
+		val harnennor = 67.0 / 128.0
 
 		registerRoad(LOTRWaypoint.ANDUIN_CROSSROADS.linkTo(-ruinedCity + 0.2, 0.0))
 		registerRoad(LOTRWaypoint.ANNUMINAS.linkTo(-ruinedCity + 0.2, 0.0))
@@ -59,6 +60,9 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.FROGMORTON.linkTo(0.0, basicVillage - 0.6))
 		registerRoad(LOTRWaypoint.GREENHOLM.linkTo(0.0, -basicVillage + 0.7))
 		registerRoad(LOTRWaypoint.GREENWAY_CROSSROADS.linkTo(0.0, ruinedCity - 0.1))
+		registerRoad(LOTRWaypoint.HARNEN_BLACK_TOWN.linkTo(0.0, harnennor - 0.4))
+		registerRoad(LOTRWaypoint.HARNEN_RIVER_TOWN.linkTo(0.0, harnennor - 0.4))
+		registerRoad(LOTRWaypoint.HARNEN_SEA_TOWN.linkTo(0.0, harnennor - 0.4))
 		registerRoad(LOTRWaypoint.HAYSEND.linkTo(0.0, basicVillage - 0.8))
 		registerRoad(LOTRWaypoint.HAY_GATE.linkTo(0.0, -basicVillage + 0.8))
 		registerRoad(LOTRWaypoint.HOBBITON.linkTo(-basicVillage + 0.7, 0.0))
@@ -100,6 +104,7 @@ object GenstRoads {
 		registerRoadI(LOTRWaypoint.ENTWADE.linkTo(-rohanFort + 0.3, -0.1), true)
 		registerRoadI(LOTRWaypoint.ETHRING.linkTo(gondorTown, -0.2), true)
 		registerRoadI(LOTRWaypoint.GRIMSLADE.linkTo(-0.2, rohanFort - 0.4), false)
+		registerRoadI(LOTRWaypoint.HARNEN_ROAD_TOWN.linkTo(0.3, -harnennor + 0.4), false)
 		registerRoadI(LOTRWaypoint.HELMS_CROSSROADS.linkTo(0.4, -rohanFort + 0.3), false)
 		registerRoadI(LOTRWaypoint.HELMS_DEEP.linkTo(-0.4, rohanFort - 0.3), false)
 		registerRoadI(LOTRWaypoint.LINHIR.linkTo(-0.2, gondorTown - 0.1), false)

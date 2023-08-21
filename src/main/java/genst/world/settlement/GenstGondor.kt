@@ -30,6 +30,6 @@ open class GenstGondor(
 			return block is LOTRBlockBrickBase || block is LOTRBlockSlabBase || block is LOTRBlockRock || block is LOTRBlockGrass || block is LOTRBlockDirtPath || block is BlockStone || block == Blocks.cobblestone
 		}
 
-		override fun isFlat() = false
+		override fun isFlat(): Boolean = false
 	}
 }

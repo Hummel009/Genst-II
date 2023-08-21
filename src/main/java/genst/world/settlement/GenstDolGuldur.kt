@@ -8,6 +8,8 @@ import lotr.common.entity.npc.LOTREntityDolGuldurOrcArcher
 import lotr.common.entity.npc.LOTREntityMirkTroll
 import lotr.common.entity.npc.LOTREntityMirkwoodSpider
 import lotr.common.world.biome.LOTRBiome
+import lotr.common.world.map.LOTRRoadType
+import lotr.common.world.map.LOTRRoads
 import lotr.common.world.structure2.LOTRWorldGenDolGuldurForgeTent
 import lotr.common.world.structure2.LOTRWorldGenDolGuldurSpiderPit
 import lotr.common.world.structure2.LOTRWorldGenDolGuldurTent
@@ -103,9 +105,9 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(LOTRWorldGenDolGuldurForgeTent(false), farmX - farmSize, farmZ, 3, true)
 		}
 
-		override fun getPath(random: Random, i: Int, k: Int) = null
+		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? = null
 
-		override fun isFlat() = false
+		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)
