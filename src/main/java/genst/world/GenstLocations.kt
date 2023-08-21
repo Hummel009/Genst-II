@@ -741,6 +741,26 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.SOUTH_DESERT_TOWN, 0.0, 0.6, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DESERT_TOWN, 0.0, 0.6, Dir.SOUTH)
 
+		location = object : GenstMorwaith() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun hasSymmetry(): Boolean = false
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.TOWN_BONES, 0.0, 0.2, Dir.SOUTH)
+
+		location = GenstMorwaith()
+		affix(location, LOTRWaypoint.DESERT_RIVER_TOWN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREAT_PLAINS_NORTH, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREAT_PLAINS_SOUTH, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREAT_PLAINS_WEST, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREAT_PLAINS_EAST, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.GREEN_VALLEY, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HARAD_LAKES, 0.0, 0.0, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)

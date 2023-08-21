@@ -92,6 +92,7 @@ object GenstRoads {
 		registerRoad(LOTRWaypoint.TARNOST.linkTo(0.0, -gondorTown + 0.1))
 		registerRoad(LOTRWaypoint.THARBAD.linkTo(-ruinedCity - 0.4, 0.0))
 		registerRoad(LOTRWaypoint.TIGHFIELD.linkTo(0.0, -basicVillage + 0.8))
+		registerRoad(LOTRWaypoint.TOWN_BONES.linkTo(0.0, basicVillage - 0.8))
 		registerRoad(LOTRWaypoint.TUCKBOROUGH.linkTo(-basicVillage + 0.8, 0.0))
 		registerRoad(LOTRWaypoint.WILLOWBOTTOM.linkTo(-basicVillage + 0.8, 0.0))
 		registerRoad(LOTRWaypoint.WOLD.linkTo(0.0, -rohanFort + 0.5))
