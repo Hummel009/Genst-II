@@ -58,6 +58,13 @@ class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 			}
 			addStructure(LOTRWorldGenTauredainChieftainPyramid(false), 0, 11, 2, true)
+
+			val square = 32
+			addStructure(LOTRWorldGenTauredainHouseStilts(false), -square, -square + 5, 2, true)
+			addStructure(LOTRWorldGenTauredainHouseStilts(false), square, -square + 5, 2, true)
+			addStructure(LOTRWorldGenTauredainHouseStilts(false), -square, square - 5, 0, true)
+			addStructure(LOTRWorldGenTauredainHouseStilts(false), square, square - 5, 0, true)
+
 			val mansionX = 12
 			val mansionZ = 20
 			addStructure(LOTRWorldGenTauredainHouseLarge(false), -mansionX + 1, -mansionZ, 2, true) //лево верх верх
@@ -85,35 +92,37 @@ class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 				val houseX = 10 + 14 * l
 				val houseZ1 = 58
 				val houseZ2 = 68
+
+				//внутренний контур
 				if (l <= 2) {
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseX, -houseZ1, 0, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseX, -houseZ1, 0, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseX, houseZ1, 2, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseX, houseZ1, 2, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseZ1, -houseX, 3, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseZ1, houseX, 3, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseZ1, -houseX, 1, true)
-					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseZ1, houseX, 1, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseX - 2, -houseZ1, 0, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseX + 1, -houseZ1, 0, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseX - 1, houseZ1, 2, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseX + 2, houseZ1, 2, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseZ1, -houseX - 1, 3, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), -houseZ1, houseX + 2, 3, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseZ1, -houseX - 2, 1, true)
+					addStructure(LOTRWorldGenTauredainHouseLarge(false), houseZ1, houseX + 1, 1, true)
 				}
 				if (l == 1) {
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseX, -houseZ2 - 2, 2, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseX, -houseZ2 - 2, 2, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseX, houseZ2 + 2, 0, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseX, houseZ2 + 2, 0, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseZ2 - 2, -houseX, 1, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseZ2 - 2, houseX, 1, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseZ2 + 2, -houseX, 3, true)
-					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseZ2 + 2, houseX, 3, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseX - 1, -houseZ2 - 2, 2, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseX + 2, -houseZ2 - 2, 2, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseX - 2, houseZ2 + 2, 0, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseX + 1, houseZ2 + 2, 0, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseZ2 - 2, -houseX - 2, 1, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), -houseZ2 - 2, houseX + 1, 1, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseZ2 + 2, -houseX - 1, 3, true)
+					addStructure(LOTRWorldGenTauredainHouseSimple(false), houseZ2 + 2, houseX + 2, 3, true)
 				} else {
 					val str = if (l == 3) LOTRWorldGenTauredainSmithy(false) else LOTRWorldGenTauredainHouseLarge(false)
-					addStructure(str, -houseX, -houseZ2, 2, true)
-					addStructure(str, houseX, -houseZ2, 2, true)
-					addStructure(str, -houseX, houseZ2, 0, true)
-					addStructure(str, houseX, houseZ2, 0, true)
-					addStructure(str, -houseZ2, -houseX, 1, true)
-					addStructure(str, -houseZ2, houseX, 1, true)
-					addStructure(str, houseZ2, -houseX, 3, true)
-					addStructure(str, houseZ2, houseX, 3, true)
+					addStructure(str, -houseX - 1, -houseZ2, 2, true)
+					addStructure(str, houseX + 2, -houseZ2, 2, true)
+					addStructure(str, -houseX - 2, houseZ2, 0, true)
+					addStructure(str, houseX + 1, houseZ2, 0, true)
+					addStructure(str, -houseZ2, -houseX - 2, 1, true)
+					addStructure(str, -houseZ2, houseX + 1, 1, true)
+					addStructure(str, houseZ2, -houseX - 1, 3, true)
+					addStructure(str, houseZ2, houseX + 2, 3, true)
 				}
 			}
 			val farmX = 58

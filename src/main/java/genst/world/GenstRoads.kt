@@ -43,6 +43,10 @@ object GenstRoads {
 		val harnennor = 65.0 / 128.0
 		val haradTown = 82.0 / 128.0
 		val kopazul = 30.0 / 128.0
+		val taurethrim = 42.0 / 128.0
+
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_TRADE.linkTo(-taurethrim + 0.2, 0.0))
+
 
 		registerRoad(LOTRWaypoint.AIN_AL_HARAD.linkTo(-haradTown + 0.5, 0.0))
 		registerRoad(LOTRWaypoint.ANDUIN_CROSSROADS.linkTo(-ruinedCity + 0.2, 0.0))
