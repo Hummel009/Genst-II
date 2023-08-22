@@ -13,7 +13,7 @@ import genst.world.GenstRoads
 class Genst {
 	@Mod.EventHandler
 	fun preInit(e: FMLPreInitializationEvent) {
-		GenstTwicks.preInit()
+		GenstTweaks.preInit()
 	}
 
 	@Mod.EventHandler

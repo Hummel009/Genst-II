@@ -13,8 +13,8 @@ open class GenstRohan : LOTRVillageGenRohan(LOTRBiome.forodwaith, 0.0f) {
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 5
-		fixedVillageChunkRadius = 5
+		villageChunkRadius = 4
+		fixedVillageChunkRadius = 2
 	}
 
 	open class Instance(
