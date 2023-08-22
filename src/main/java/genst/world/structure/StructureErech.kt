@@ -7,7 +7,7 @@ import java.util.*
 
 object StructureErech : LOTRWorldGenStructureBase2(true) {
 	override fun generateWithSetRotation(world: World, random: Random, x: Int, y: Int, z: Int, rot: Int): Boolean {
-		val radius = 9
+		val radius = 8
 		for (i in x - radius..x + radius) {
 			for (j in y - radius..y + radius) {
 				for (k in z - radius..z + radius) {

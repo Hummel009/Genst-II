@@ -514,7 +514,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.GRIMSLADE, -0.2, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.HELMS_DEEP, -0.4, 0.7, Dir.NORTH)
 		affix(location, LOTRWaypoint.ALDBURG, -0.15, 0.6, Dir.NORTH)
-		affix(location, LOTRWaypoint.MERING_STREAM, -0.4, 0.7, Dir.NORTH)
 		affix(location, LOTRWaypoint.HELMS_CROSSROADS, 0.4, -0.6, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DUNHARROW, 0.0, 0.0, Dir.SOUTH)
 
