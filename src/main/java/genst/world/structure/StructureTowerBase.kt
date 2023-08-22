@@ -447,6 +447,17 @@ abstract class StructureTowerBase(
 	}
 }
 
+class StructureTowerAngmar : StructureTowerBase(
+	Pair(LOTRMod.brick2, 0),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 0),
+	LOTRMod.stairsAngmarBrick,
+	LOTRMod.orcSteelBars,
+	LOTREntityAngmarOrcMercenaryCaptain::class.java,
+	5,
+	true
+)
+
 class StructureTowerBlueDwarven : StructureTowerBase(
 	Pair(LOTRMod.brick, 14),
 	Pair(LOTRMod.scorchedStone, 0),
@@ -599,15 +610,4 @@ class StructureTowerWoodElven : StructureTowerBase(
 	LOTREntityWoodElfCaptain::class.java,
 	7,
 	false
-)
-
-class StructureTowerAngmar : StructureTowerBase(
-	Pair(LOTRMod.brick2, 0),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 0),
-	LOTRMod.stairsAngmarBrick,
-	LOTRMod.orcSteelBars,
-	LOTREntityAngmarOrcMercenaryCaptain::class.java,
-	5,
-	true
 )
