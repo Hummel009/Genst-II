@@ -33,7 +33,7 @@ class GenstMordor : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstMordor>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureTowerMordor(false), 0, 6, 2, true)
+			addStructure(StructureTowerMordor(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(

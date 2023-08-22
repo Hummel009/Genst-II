@@ -36,7 +36,7 @@ class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstGundabad>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureTowerGundabad(false), 0, 6, 2, true)
+			addStructure(StructureTowerGundabad(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityGundabadOrc::class.java, LOTREntityGundabadOrcArcher::class.java)

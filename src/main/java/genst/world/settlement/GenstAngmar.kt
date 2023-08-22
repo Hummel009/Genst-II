@@ -39,7 +39,7 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstAngmar>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureTowerAngmar(false), 0, 6, 2, true)
+			addStructure(StructureTowerAngmar(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)

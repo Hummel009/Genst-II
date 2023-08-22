@@ -38,7 +38,7 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstDolGuldur>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureTowerDolGuldur(false), 0, 6, 2, true)
+			addStructure(StructureTowerDolGuldur(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(

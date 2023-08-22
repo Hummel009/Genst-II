@@ -39,7 +39,7 @@ class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstUruk>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureTowerUruks(false), 0, 6, 2, true)
+			addStructure(StructureTowerUruks(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityUrukHai::class.java, LOTREntityUrukHaiCrossbower::class.java)

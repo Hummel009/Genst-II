@@ -17,7 +17,7 @@ class GenstRivendell : GenstLindon() {
 
 			override fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenRivendellHouse(false)
 
-			override fun getTower(): LOTRWorldGenStructureBase2 = StructureTowerRivendell(false)
+			override fun getTower(): LOTRWorldGenStructureBase2 = StructureTowerRivendell()
 		}
 	}
 }

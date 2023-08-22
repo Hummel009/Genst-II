@@ -124,6 +124,6 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 		open fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenHighElfHouse(false)
 
-		open fun getTower(): LOTRWorldGenStructureBase2 = StructureTowerLindon(false)
+		open fun getTower(): LOTRWorldGenStructureBase2 = StructureTowerLindon()
 	}
 }
