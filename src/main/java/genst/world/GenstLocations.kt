@@ -199,7 +199,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureTowerDwarven(false), 0, 6, 2, true)
+						addStructure(StructureTowerDwarven(), 0, 6, 2, true)
 					}
 				}
 			}
@@ -214,7 +214,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureTowerBlueDwarven(false), 0, 6, 2, true)
+						addStructure(StructureTowerBlueDwarven(), 0, 6, 2, true)
 					}
 				}
 			}
@@ -230,7 +230,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureTowerRedDwarven(false), 0, 6, 2, true)
+						addStructure(StructureTowerRedDwarven(), 0, 6, 2, true)
 					}
 				}
 			}
@@ -243,7 +243,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureTowerWoodElven(false), 0, 6, 2, true)
+						addStructure(StructureTowerWoodElven(), 0, 6, 2, true)
 					}
 				}
 			}
@@ -256,7 +256,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureTowerLothlorien(false), 0, 6, 2, true)
+						addStructure(StructureTowerLothlorien(), 0, 6, 2, true)
 					}
 				}
 			}
@@ -562,7 +562,7 @@ object GenstLocations {
 			): AbstractInstance<*> {
 				return object : Instance(this, world, i, k, random, loc) {
 					override fun addVillageStructures(random: Random) {
-						addStructure(StructureTowerGondor(false), 0, 6, 2, true)
+						addStructure(StructureTowerGondor(), 0, 6, 2, true)
 					}
 				}
 			}

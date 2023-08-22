@@ -1,7 +1,7 @@
 package genst.world.structure
 
 import lotr.common.LOTRMod
-import lotr.common.entity.npc.LOTREntityNPC
+import lotr.common.entity.npc.*
 import lotr.common.world.structure2.LOTRWorldGenStructureBase2
 import net.minecraft.block.Block
 import net.minecraft.init.Blocks
@@ -10,7 +10,17 @@ import java.util.*
 import kotlin.math.abs
 import kotlin.math.pow
 
-abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(flag) {
+abstract class StructureTowerBase(
+	private var brick: Pair<Block, Int>,
+	private var brickDeco: Pair<Block, Int>,
+	private var wall: Pair<Block, Int>,
+	private var stairs: Block,
+	private var bars: Block,
+	private var captain: Class<out LOTREntityNPC>?,
+	private var sections: Int,
+	private var enableSpires: Boolean
+) : LOTRWorldGenStructureBase2(false) {
+
 	override fun generateWithSetRotation(world: World, random: Random, i: Int, j: Int, k: Int, rotation: Int): Boolean {
 		var i1: Int
 		var j1: Int
@@ -27,7 +37,7 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 		val radius = 6
 		val radiusPlusOne = radius + 1
 		this.setOriginAndRotation(world, i, j, k, rotation, radiusPlusOne)
-		val sections = getSections()
+		val sections = sections
 		val sectionHeight = 6
 		val topHeight = sections * sectionHeight
 		val radiusD = radius - 0.5
@@ -35,14 +45,14 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 		val wallThresholdMin = (radiusD * radiusD).toInt()
 		val wallThresholdMax = (radiusDPlusOne * radiusDPlusOne).toInt()
 
-		val barsBlock = getBars()
-		val brickBlock = getBrick().first
-		val brickMeta = getBrick().second
-		val wallBlock = getWall().first
-		val wallMeta = getWall().second
-		val stairsBlock = getStairs()
-		val secondaryBrick = getSecondaryBrick().first
-		val secondaryBrickMeta = getSecondaryBrick().second
+		val barsBlock = bars
+		val brickBlock = brick.first
+		val brickMeta = brick.second
+		val wallBlock = wall.first
+		val wallMeta = wall.second
+		val stairsBlock = stairs
+		val secondaryBrick = brickDeco.first
+		val secondaryBrickMeta = this.brickDeco.second
 
 		if (restrictions) {
 			var minHeight = 0
@@ -317,7 +327,7 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			}
 			++i13
 		}
-		if (enableSpires()) {
+		if (enableSpires) {
 			setAir(world, -2, topHeight + 1, 5)
 			i13 = -2
 			while (i13 <= 2) {
@@ -419,9 +429,10 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 			}
 		}
 		setBlockAndMetadata(world, 0, topHeight + 1, -4, LOTRMod.commandTable, 0)
-		getCaptain(world)?.let {
-			it.spawnRidingHorse = false
-			spawnNPCAndSetHome(it, world, 0, topHeight + 1, 0, 16)
+		captain?.let {
+			val obj = it.getConstructor(World::class.java).newInstance(world)
+			obj.spawnRidingHorse = false
+			spawnNPCAndSetHome(obj, world, 0, topHeight + 1, 0, 16)
 		}
 		return true
 	}
@@ -429,25 +440,174 @@ abstract class StructureTowerBase(flag: Boolean) : LOTRWorldGenStructureBase2(fl
 	private fun placeBrickSupports(world: World, i: Int, k: Int) {
 		var j = 0
 		while (!isOpaque(world, i, j, k) && getY(j) >= 0) {
-			setBlockAndMetadata(world, i, j, k, getBrick().first, getBrick().second)
+			setBlockAndMetadata(world, i, j, k, brick.first, brick.second)
 			setGrassToDirt(world, i, j - 1, k)
 			--j
 		}
 	}
-
-	abstract fun getBrick(): Pair<Block, Int>
-
-	abstract fun getSecondaryBrick(): Pair<Block, Int>
-
-	abstract fun getWall(): Pair<Block, Int>
-
-	abstract fun getStairs(): Block
-
-	abstract fun getBars(): Block
-
-	abstract fun getCaptain(world: World): LOTREntityNPC?
-
-	abstract fun getSections(): Int
-
-	abstract fun enableSpires(): Boolean
 }
+
+class StructureTowerBlueDwarven : StructureTowerBase(
+	Pair(LOTRMod.brick, 14),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall, 14),
+	LOTRMod.stairsBlueRockBrick,
+	LOTRMod.blueDwarfBars,
+	LOTREntityBlueDwarfCommander::class.java,
+	7,
+	false
+)
+
+class StructureTowerDolGuldur : StructureTowerBase(
+	Pair(LOTRMod.brick2, 8),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 8),
+	LOTRMod.stairsDolGuldurBrick,
+	LOTRMod.orcSteelBars,
+	LOTREntityDolGuldurOrcChieftain::class.java,
+	7,
+	true
+)
+
+class StructureTowerDwarven : StructureTowerBase(
+	Pair(LOTRMod.brick, 6),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall, 7),
+	LOTRMod.stairsDwarvenBrick,
+	LOTRMod.dwarfBars,
+	LOTREntityDwarfCommander::class.java,
+	7,
+	false
+)
+
+class StructureTowerGondor : StructureTowerBase(
+	Pair(LOTRMod.brick, 1),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall, 3),
+	LOTRMod.stairsGondorBrick,
+	Blocks.iron_bars,
+	LOTREntityGondorianCaptain::class.java,
+	7,
+	false
+)
+
+class StructureTowerGundabad : StructureTowerBase(
+	Pair(LOTRMod.brick, 6),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall, 7),
+	LOTRMod.stairsDwarvenBrick,
+	LOTRMod.dwarfBars,
+	LOTREntityGundabadOrcMercenaryCaptain::class.java,
+	5,
+	true
+)
+
+object StructureTowerIsengard : StructureTowerBase(
+	Pair(LOTRMod.brick2, 11),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 10),
+	LOTRMod.stairsBlackGondorBrick,
+	Blocks.iron_bars,
+	LOTREntityUrukHaiMercenaryCaptain::class.java,
+	9,
+	true
+)
+
+object StructureTowerKhamul : StructureTowerBase(
+	Pair(LOTRMod.brick5, 11),
+	Pair(LOTRMod.brick6, 0),
+	Pair(LOTRMod.wall3, 15),
+	LOTRMod.stairsRhunBrick,
+	LOTRMod.goldBars,
+	LOTREntityEasterlingWarlord::class.java,
+	9,
+	true
+)
+
+class StructureTowerLindon : StructureTowerBase(
+	Pair(LOTRMod.brick3, 2),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 11),
+	LOTRMod.stairsHighElvenBrick,
+	LOTRMod.highElfBars,
+	LOTREntityHighElfLord::class.java,
+	7,
+	false
+)
+
+class StructureTowerLothlorien : StructureTowerBase(
+	Pair(LOTRMod.brick, 11),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall, 10),
+	LOTRMod.stairsElvenBrick,
+	LOTRMod.galadhrimBars,
+	LOTREntityGaladhrimLord::class.java,
+	7,
+	false
+)
+
+class StructureTowerMordor : StructureTowerBase(
+	Pair(LOTRMod.brick, 0),
+	Pair(LOTRMod.guldurilBrick, 0),
+	Pair(LOTRMod.wall, 1),
+	LOTRMod.stairsMordorBrick,
+	LOTRMod.orcSteelBars,
+	LOTREntityMordorOrcMercenaryCaptain::class.java,
+	7,
+	true
+)
+
+class StructureTowerRedDwarven : StructureTowerBase(
+	Pair(LOTRMod.brick2, 2),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 3),
+	LOTRMod.stairsRedRockBrick,
+	LOTRMod.bronzeBars,
+	null,
+	7,
+	false
+)
+
+class StructureTowerRivendell : StructureTowerBase(
+	Pair(LOTRMod.brick3, 2),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 11),
+	LOTRMod.stairsHighElvenBrick,
+	LOTRMod.highElfBars,
+	LOTREntityRivendellLord::class.java,
+	7,
+	false
+)
+
+class StructureTowerUruks : StructureTowerBase(
+	Pair(LOTRMod.brick2, 7),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 7),
+	LOTRMod.stairsUrukBrick,
+	LOTRMod.urukBars,
+	LOTREntityUrukHaiMercenaryCaptain::class.java,
+	7,
+	true
+)
+
+class StructureTowerWoodElven : StructureTowerBase(
+	Pair(LOTRMod.brick3, 5),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall3, 0),
+	LOTRMod.stairsWoodElvenBrick,
+	LOTRMod.woodElfBars,
+	LOTREntityWoodElfCaptain::class.java,
+	7,
+	false
+)
+
+class StructureTowerAngmar : StructureTowerBase(
+	Pair(LOTRMod.brick2, 0),
+	Pair(LOTRMod.scorchedStone, 0),
+	Pair(LOTRMod.wall2, 0),
+	LOTRMod.stairsAngmarBrick,
+	LOTRMod.orcSteelBars,
+	LOTREntityAngmarOrcMercenaryCaptain::class.java,
+	5,
+	true
+)
