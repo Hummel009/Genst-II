@@ -32,6 +32,7 @@ object GenstLogger : CommandBase() {
 		skip.add(LOTRWaypoint.ARCHET)
 
 		//skip
+		skip.add(LOTRWaypoint.MERING_STREAM)
 		skip.add(LOTRWaypoint.WELLINGHALL)
 		skip.add(LOTRWaypoint.TREEBEARD_HILL)
 		skip.add(LOTRWaypoint.DERNDINGLE)

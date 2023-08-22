@@ -751,6 +751,9 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.GULF_EAST_PORT, 0.9, 0.0, Dir.WEST) //Ephalôn
 		affix(location, LOTRWaypoint.GULF_EAST_BAY, 0.0, 0.0, Dir.NORTH) //Topaz Bay
 
+		location = GenstTaurethrim()
+		affix(location, LOTRWaypoint.JUNGLE_CITY_TRADE, 0.0, 0.0, Dir.NORTH)
+
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {
 				biome?.decorator?.addVillage(loc)
