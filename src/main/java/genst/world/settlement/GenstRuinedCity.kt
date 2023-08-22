@@ -12,15 +12,13 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-open class GenstRuinedCity(
-	radius: Int = 6
-) : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstRuinedCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = radius
-		fixedVillageChunkRadius = radius
+		villageChunkRadius = 6
+		fixedVillageChunkRadius = 4
 	}
 
 	override fun createVillageInstance(

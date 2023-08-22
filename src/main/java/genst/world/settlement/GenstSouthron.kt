@@ -14,7 +14,7 @@ open class GenstSouthron : LOTRVillageGenSouthron(LOTRBiome.forodwaith, 0.0f) {
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
 		villageChunkRadius = 5
-		fixedVillageChunkRadius = 5
+		fixedVillageChunkRadius = 3
 	}
 
 	open class Instance(

@@ -17,5 +17,6 @@ object GenstMountains {
 		addMountain(LOTRWaypoint.KHAMUL_TOWER, 2.0f, 100, 0)
 		addMountain(LOTRWaypoint.CROSSINGS_OF_POROS.shift(1.0, 1.0), 1.0f, 100, 0)
 		addMountain(LOTRWaypoint.DUNHARROW, 1.0f, 100, 0)
+		addMountain(LOTRWaypoint.OSGILIATH_WEST.shift(3.0 - 0.15, 0.35), 1.0f, 50, 0)
 	}
 }

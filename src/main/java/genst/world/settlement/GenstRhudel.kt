@@ -14,7 +14,7 @@ open class GenstRhudel(
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = radius
+		villageChunkRadius = radius + 2
 		fixedVillageChunkRadius = radius
 	}
 

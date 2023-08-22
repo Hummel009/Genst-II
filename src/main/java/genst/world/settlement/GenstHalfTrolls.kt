@@ -19,7 +19,7 @@ open class GenstHalfTrolls : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 5
+		villageChunkRadius = 7
 		fixedVillageChunkRadius = 5
 	}
 

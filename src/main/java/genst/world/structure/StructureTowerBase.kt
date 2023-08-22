@@ -590,7 +590,7 @@ class StructureTowerRivendell : StructureTowerBase(
 	false
 )
 
-class StructureTowerUruks : StructureTowerBase(
+class StructureTowerUruk : StructureTowerBase(
 	Pair(LOTRMod.brick2, 7),
 	Pair(LOTRMod.scorchedStone, 0),
 	Pair(LOTRMod.wall2, 7),

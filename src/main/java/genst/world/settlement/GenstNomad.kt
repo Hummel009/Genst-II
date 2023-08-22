@@ -19,7 +19,7 @@ open class GenstNomad : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
 		villageChunkRadius = 5
-		fixedVillageChunkRadius = 5
+		fixedVillageChunkRadius = 3
 	}
 
 	override fun createVillageInstance(

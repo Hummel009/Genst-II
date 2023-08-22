@@ -19,8 +19,8 @@ class GenstHarnennor : LOTRVillageGen(LOTRBiome.forodwaith) {
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 6
-		fixedVillageChunkRadius = 6
+		villageChunkRadius = 5
+		fixedVillageChunkRadius = 3
 	}
 
 	override fun createVillageInstance(

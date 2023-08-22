@@ -1,6 +1,6 @@
 package genst.world.settlement
 
-import genst.world.structure.StructureTowerUruks
+import genst.world.structure.StructureTowerUruk
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityUrukHai
 import lotr.common.entity.npc.LOTREntityUrukHaiBerserker
@@ -39,7 +39,7 @@ class GenstUruk : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstUruk>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(StructureTowerUruks(), 0, 6, 2, true)
+			addStructure(StructureTowerUruk(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityUrukHai::class.java, LOTREntityUrukHaiCrossbower::class.java)
