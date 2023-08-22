@@ -21,6 +21,19 @@ object GenstLocations {
 	fun postInit() {
 		var location: LOTRVillageGen
 
+		location = object : GenstSingle() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun addVillageStructures(random: Random) {
+						addStructure(StructureErech, 0, 0, 0, true)
+					}
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
+
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 1) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -87,7 +100,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.TARLANG, 0.0, 0.7, Dir.SOUTH)
+		affix(location, LOTRWaypoint.TARLANG, -0.1, 0.6, Dir.SOUTH)
 
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 4) {
 			override fun createVillageInstance(
@@ -128,7 +141,7 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.TARNOST, 0.0, -0.9, Dir.NORTH)
-		affix(location, LOTRWaypoint.DOL_AMROTH, -1.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.DOL_AMROTH, -0.8, 0.0, Dir.WEST)
 
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LOSSARNACH, 1) {
 			override fun createVillageInstance(
@@ -155,19 +168,6 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.GREEN_HILLS, 0.0, 0.0, Dir.NORTH)
-
-		location = object : GenstSingle() {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureErech, 0, 0, 0, true)
-					}
-				}
-			}
-		}
-		affix(location, LOTRWaypoint.ERECH, -0.07, 0.0, Dir.WEST)
 
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
@@ -351,7 +351,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.FRAMSBURG, -0.9, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.ANDUIN_CROSSROADS, -0.8, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -1.0, 0.3, Dir.WEST)
+		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -0.9, 0.3, Dir.WEST)
 		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.NORTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
@@ -380,7 +380,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.EDHELLOND, 0.0, -1.1, Dir.NORTH)
+		affix(location, LOTRWaypoint.EDHELLOND, -0.2, -0.8, Dir.NORTH)
 
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
@@ -391,7 +391,7 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.NORTH_ITHILIEN, 0.9, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.NORTH_ITHILIEN, 0.8, 0.0, Dir.EAST)
 
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
@@ -413,7 +413,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.LONG_LAKE, 0.0, 0.3, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DALE_PORT, 0.3, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.RUNNING_FORD, -0.3, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.REDWATER_FORD, 0.0, 0.5, Dir.SOUTH)
+		affix(location, LOTRWaypoint.REDWATER_FORD, -0.2, 0.4, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DALE_CROSSROADS, -0.3, -0.9, Dir.NORTH)
 
 		location = GenstDorwinion()
