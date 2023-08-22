@@ -276,7 +276,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.BROCKENBORINGS, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.TIGHFIELD, 0.0, -0.2, Dir.NORTH)
 		affix(location, LOTRWaypoint.GREENHOLM, 0.0, -0.3, Dir.NORTH)
-		affix(location, LOTRWaypoint.MICHEL_DELVING, 0.0, 0.5, Dir.SOUTH)
+		affix(location, LOTRWaypoint.MICHEL_DELVING, 0.1, 0.4, Dir.SOUTH)
 		affix(location, LOTRWaypoint.LITTLE_DELVING, 0.0, -0.4, Dir.NORTH)
 		affix(location, LOTRWaypoint.NOBOTTLE, -0.1, -0.5, Dir.NORTH)
 		affix(location, LOTRWaypoint.NEEDLEHOLE, 0.2, 0.0, Dir.EAST)
@@ -294,7 +294,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.OVERHILL, 0.0, -0.2, Dir.NORTH)
 		affix(location, LOTRWaypoint.WILLOWBOTTOM, -0.2, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.LONGBOTTOM, 0.5, -0.5, Dir.NORTH)
-		affix(location, LOTRWaypoint.WAYMEET, -1.0, -0.5, Dir.WEST)
+		affix(location, LOTRWaypoint.WAYMEET, -0.7, -0.55, Dir.WEST)
 		affix(location, LOTRWaypoint.WHITFURROWS, 0.6, -0.6, Dir.NORTH)
 
 		location = object : GenstSingle() {
@@ -332,7 +332,7 @@ object GenstLocations {
 
 		affix(location, LOTRWaypoint.OLD_ELF_WAY, 0.0, -0.8, Dir.NORTH)
 		affix(location, LOTRWaypoint.ANNUMINAS, -0.8, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.THARBAD, -1.4, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.THARBAD, -1.0, -0.3, Dir.WEST)
 		affix(location, LOTRWaypoint.FORNOST, 0.0, -0.8, Dir.NORTH)
 		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
@@ -348,7 +348,7 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.LOND_DAER, -0.8, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 1.0, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 0.9, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.FRAMSBURG, -0.9, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.ANDUIN_CROSSROADS, -0.8, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -0.9, 0.3, Dir.WEST)
@@ -512,9 +512,9 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ENTWADE, -0.7, -0.1, Dir.EAST)
 		affix(location, LOTRWaypoint.EDORAS, -0.3, 0.6, Dir.NORTH)
 		affix(location, LOTRWaypoint.GRIMSLADE, -0.2, 0.6, Dir.NORTH)
-		affix(location, LOTRWaypoint.HELMS_DEEP, 0.0, 0.7, Dir.NORTH)
+		affix(location, LOTRWaypoint.HELMS_DEEP, 0.0, 0.5, Dir.NORTH)
 		affix(location, LOTRWaypoint.ALDBURG, -0.15, 0.6, Dir.NORTH)
-		affix(location, LOTRWaypoint.HELMS_CROSSROADS, 0.3, -0.6, Dir.SOUTH)
+		affix(location, LOTRWaypoint.HELMS_CROSSROADS, 0.3, -0.7, Dir.SOUTH)
 		affix(location, LOTRWaypoint.DUNHARROW, 0.0, 0.0, Dir.SOUTH)
 
 		location = object : GenstRohan() {
