@@ -15,7 +15,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-open class GenstKopazul : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstGulf : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
@@ -31,8 +31,8 @@ open class GenstKopazul : LOTRVillageGen(LOTRBiome.forodwaith) {
 	}
 
 	class Instance(
-		village: GenstKopazul, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	) : AbstractInstance<GenstKopazul>(village, world, i, k, random, loc) {
+		village: GenstGulf, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+	) : AbstractInstance<GenstGulf>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
