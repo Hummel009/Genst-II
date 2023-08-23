@@ -3,35 +3,9 @@ package genst.world
 import genst.utils.linkTo
 import genst.utils.registerRoad
 import genst.utils.registerRoadI
-import lotr.common.LOTRMod
-import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.map.LOTRWaypoint
-import net.minecraft.init.Blocks
-import net.minecraft.world.biome.BiomeGenBase
-import java.util.*
 
 object GenstRoads {
-	val PATH_COBBLE: LOTRRoadType = object : LOTRRoadType() {
-		override fun getBlock(rand: Random, biome: BiomeGenBase, top: Boolean, slab: Boolean): RoadBlock {
-			val blockTypes = if (slab) {
-				arrayOf(
-					RoadBlock(Blocks.stone_slab, 5),
-					RoadBlock(Blocks.stone_slab, 3),
-					RoadBlock(Blocks.stone_slab, 3),
-					RoadBlock(LOTRMod.slabSingleV, 4)
-				)
-			} else {
-				arrayOf(
-					RoadBlock(Blocks.stonebrick, 0),
-					RoadBlock(Blocks.cobblestone, 0),
-					RoadBlock(Blocks.cobblestone, 0),
-					RoadBlock(Blocks.mossy_cobblestone, 0)
-				)
-			}
-			return blockTypes[rand.nextInt(blockTypes.size)]
-		}
-	}
-
 	fun postInit() {
 		val gondorTown = 44.0 / 128.0
 		val gondorFort = 89.0 / 128.0
@@ -46,7 +20,13 @@ object GenstRoads {
 		val taurethrim = 42.0 / 128.0
 
 		registerRoad(LOTRWaypoint.JUNGLE_CITY_TRADE.linkTo(-taurethrim + 0.2, 0.0))
-
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_NORTH.linkTo(0.0, -taurethrim + 0.2))
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_DEEP.linkTo(0.0, taurethrim + 0.2))
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_WATCH.linkTo(0.0, taurethrim + 0.2))
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_OLD.linkTo(0.0, -taurethrim + 0.2))
+		registerRoad(LOTRWaypoint.JUNGLE_LAKES.linkTo(0.0, taurethrim + 0.2))
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_STONE.linkTo(0.0, -taurethrim + 0.2))
+		registerRoad(LOTRWaypoint.JUNGLE_CITY_CAVES.linkTo(-taurethrim + 0.2, 0.0))
 
 		registerRoad(LOTRWaypoint.AIN_AL_HARAD.linkTo(-haradTown + 0.5, 0.0))
 		registerRoad(LOTRWaypoint.ANDUIN_CROSSROADS.linkTo(-ruinedCity + 0.2, 0.0))

@@ -118,7 +118,7 @@ open class GenstRuinedCity : LOTRVillageGen(LOTRBiome.forodwaith) {
 			addStructure(STONE(5, 7), wellZ, wellX, 0, true)
 		}
 
-		open fun getRoadType(): LOTRRoadType = GenstRoads.PATH_COBBLE
+		open fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
 			val i1 = abs(i)

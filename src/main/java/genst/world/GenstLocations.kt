@@ -320,6 +320,20 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.SCATHA, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CROSSROADS_ITHILIEN, 0.3, 0.3, Dir.NORTH)
 
+		location = GenstRuinedCity()
+		affix(location, LOTRWaypoint.LOND_DAER, -0.8, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 0.9, 0.0, Dir.EAST)
+		affix(location, LOTRWaypoint.FRAMSBURG, -0.9, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.ANDUIN_CROSSROADS, -0.8, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -0.9, 0.3, Dir.WEST)
+		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.NORTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.SOUTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.OLD_JUNGLE_RUIN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.ISLE_MIST, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.HARAD_HORN, 0.0, 0.0, Dir.NORTH)
+
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -337,28 +351,6 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.ERYN_VORN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUTHS_ISEN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.GREENWAY_CROSSROADS, 0.0, 0.9, Dir.SOUTH)
-
-		location = object : GenstRuinedCity() {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
-				}
-			}
-		}
-		affix(location, LOTRWaypoint.LOND_DAER, -0.8, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.ENEDWAITH_ROAD, 0.9, 0.0, Dir.EAST)
-		affix(location, LOTRWaypoint.FRAMSBURG, -0.9, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.ANDUIN_CROSSROADS, -0.8, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.EAST_RHOVANION_ROAD, -0.9, 0.3, Dir.WEST)
-		affix(location, LOTRWaypoint.EAST_BIGHT, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
-		affix(location, LOTRWaypoint.NORTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.SOUTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OLD_JUNGLE_RUIN, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.ISLE_MIST, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.HARAD_HORN, 0.0, 0.0, Dir.NORTH)
 
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
@@ -392,16 +384,6 @@ object GenstLocations {
 			}
 		}
 		affix(location, LOTRWaypoint.NORTH_ITHILIEN, 0.8, 0.0, Dir.EAST)
-
-		location = object : GenstRuinedCity() {
-			override fun createVillageInstance(
-				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.GONDOR
-				}
-			}
-		}
 		affix(location, LOTRWaypoint.OSGILIATH_WEST, 0.7, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.OSGILIATH_WEST, 2.0, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.OSGILIATH_EAST, -0.6, 0.0, Dir.WEST)
@@ -753,6 +735,25 @@ object GenstLocations {
 
 		location = GenstTaurethrim()
 		affix(location, LOTRWaypoint.JUNGLE_CITY_TRADE, -0.8, 0.0, Dir.WEST)
+		affix(location, LOTRWaypoint.TAURELONDE, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.LAKE_HARAD, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.JUNGLE_CITY_NORTH, 0.0, -0.8, Dir.NORTH)
+		affix(location, LOTRWaypoint.JUNGLE_CITY_DEEP, 0.0, 0.8, Dir.SOUTH)
+		affix(location, LOTRWaypoint.JUNGLE_CITY_WATCH, 0.0, 0.8, Dir.SOUTH)
+		affix(location, LOTRWaypoint.JUNGLE_LAKES, 0.0, 0.8, Dir.SOUTH)
+		affix(location, LOTRWaypoint.JUNGLE_CITY_STONE, 0.0, -0.8, Dir.NORTH)
+		affix(location, LOTRWaypoint.JUNGLE_CITY_CAVES, -0.8, 0.0, Dir.WEST)
+
+		location = object : GenstTaurethrim() {
+			override fun createVillageInstance(
+				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
+			): AbstractInstance<*> {
+				return object : Instance(this, world, i, k, random, loc) {
+					override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
+				}
+			}
+		}
+		affix(location, LOTRWaypoint.JUNGLE_CITY_OLD, 0.0, -0.8, Dir.NORTH)
 
 		for (loc in locations) {
 			for (biome in LOTRDimension.MIDDLE_EARTH.biomeList) {

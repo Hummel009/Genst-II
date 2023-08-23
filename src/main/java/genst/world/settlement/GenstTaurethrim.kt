@@ -14,13 +14,13 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
-class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
+open class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
 		gridScale = 12
 		gridRandomDisplace = 1
 		spawnChance = 0.0f
-		villageChunkRadius = 7
-		fixedVillageChunkRadius = 5
+		villageChunkRadius = 6
+		fixedVillageChunkRadius = 4
 	}
 
 	override fun createVillageInstance(
@@ -29,11 +29,10 @@ class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 		return Instance(this, world, i, k, random, loc)
 	}
 
-	class Instance(village: GenstTaurethrim, world: World, i: Int, k: Int, random: Random, loc: LocationInfo) :
+	open class Instance(village: GenstTaurethrim, world: World, i: Int, k: Int, random: Random, loc: LocationInfo) :
 		AbstractInstance<GenstTaurethrim>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			var marketZ: Int
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClass(LOTREntityTauredain::class.java)
@@ -147,17 +146,19 @@ class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val k1 = abs(k)
 			val innerOut = 18
 			if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
-				return LOTRRoadType.TAUREDAIN
+				return getRoadType()
 			}
 			if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
-				return LOTRRoadType.TAUREDAIN
+				return getRoadType()
 			}
 			val outerOut = 66
 			if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
-				return LOTRRoadType.TAUREDAIN
+				return getRoadType()
 			}
 			return null
 		}
+
+		open fun getRoadType(): LOTRRoadType = LOTRRoadType.TAUREDAIN
 
 		override fun isFlat(): Boolean = false
 
