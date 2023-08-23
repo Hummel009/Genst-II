@@ -1,7 +1,6 @@
 package genst.utils
 
 import cpw.mods.fml.relauncher.ReflectionHelper
-import genst.command.GenstLogger
 import genst.world.GenstLocations
 import lotr.common.block.*
 import lotr.common.world.map.LOTRMountains
@@ -16,7 +15,6 @@ var i: Int = 0
 
 fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, dir: GenstLocations.Dir) {
 	if (wp.isGenstEnabled()) {
-		GenstLogger.skip.add(wp)
 		inst.addFixedLocation(wp, addX, addY, dir.ordinal, "PLACEHOLDER_${i++}")
 		GenstLocations.locations.add(inst)
 	}
