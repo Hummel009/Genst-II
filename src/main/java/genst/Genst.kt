@@ -1,19 +1,29 @@
 package genst
 
 import cpw.mods.fml.common.Mod
+import cpw.mods.fml.common.SidedProxy
 import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
-import cpw.mods.fml.common.event.FMLServerStartingEvent
-import genst.command.GenstLogger
+import genst.proxy.CommonProxy
 import genst.world.GenstLocations
 import genst.world.GenstMountains
 import genst.world.GenstRoads
+import genst.world.GenstWaypoints
 
 @Mod(modid = "genst", dependencies = "required-after:lotr")
 class Genst {
+	companion object {
+		const val VERSION: String = "23.08.25"
+
+		@SidedProxy(clientSide = "genst.proxy.ClientProxy", serverSide = "genst.proxy.CommonProxy")
+		@JvmStatic
+		lateinit var proxy: CommonProxy
+	}
+
 	@Mod.EventHandler
 	fun preInit(e: FMLPreInitializationEvent) {
-		GenstTweaks.preInit()
+		GenstWaypoints.preInit()
+		proxy.preInit()
 	}
 
 	@Mod.EventHandler
@@ -22,11 +32,5 @@ class Genst {
 		GenstMountains.postInit()
 		GenstRoads.postInit()
 		GenstLocations.postInit()
-		GenstLogger.postInit()
-	}
-
-	@Mod.EventHandler
-	fun serverStarting(e: FMLServerStartingEvent) {
-		e.registerServerCommand(GenstLogger)
 	}
 }
