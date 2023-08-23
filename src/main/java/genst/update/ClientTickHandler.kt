@@ -7,7 +7,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent
 import net.minecraft.client.Minecraft
 import net.minecraftforge.common.MinecraftForge
 
-object TickHandlerClient {
+object ClientTickHandler {
 	fun preInit() {
 		FMLCommonHandler.instance().bus().register(this)
 		MinecraftForge.EVENT_BUS.register(this)

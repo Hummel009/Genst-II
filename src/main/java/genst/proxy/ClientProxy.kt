@@ -1,9 +1,9 @@
 package genst.proxy
 
-import genst.update.TickHandlerClient
+import genst.update.ClientTickHandler
 
 open class ClientProxy : CommonProxy() {
 	override fun preInit() {
-		TickHandlerClient.preInit()
+		ClientTickHandler.preInit()
 	}
 }

@@ -13,11 +13,11 @@ import genst.world.GenstWaypoints
 @Mod(modid = "genst", dependencies = "required-after:lotr")
 class Genst {
 	companion object {
-		const val VERSION: String = "23.08.25"
-
 		@SidedProxy(clientSide = "genst.proxy.ClientProxy", serverSide = "genst.proxy.CommonProxy")
 		@JvmStatic
 		lateinit var proxy: CommonProxy
+
+		const val VERSION: String = "23.08.25"
 	}
 
 	@Mod.EventHandler
