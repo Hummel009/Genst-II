@@ -3,7 +3,9 @@ package genst.command
 import lotr.common.world.map.LOTRWaypoint
 import net.minecraft.command.CommandBase
 import net.minecraft.command.ICommandSender
+import net.minecraft.util.ChatComponentText
 import java.util.*
+
 
 object GenstLogger : CommandBase() {
 	val skip: MutableSet<LOTRWaypoint> = EnumSet.noneOf(LOTRWaypoint::class.java)
@@ -16,11 +18,17 @@ object GenstLogger : CommandBase() {
 
 	override fun processCommand(sender: ICommandSender, args: Array<String>) {
 		val world = sender.entityWorld
+		var count = 0
 		for (wp in LOTRWaypoint.values()) {
 			if (!skip.contains(wp)) {
 				val bm = world.getBiomeGenForCoords(wp.xCoord, wp.zCoord)
 				println(wp.codeName + " " + wp.displayName + " " + bm.biomeName)
+				count++
 			}
+		}
+		if (count != 0) {
+			val msg = ChatComponentText(("All needed waypoints contain genst."))
+			sender.addChatMessage(msg)
 		}
 	}
 

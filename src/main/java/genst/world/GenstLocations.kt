@@ -331,7 +331,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.OLD_RHOVANION, -1.0, 0.0, Dir.WEST)
 		affix(location, LOTRWaypoint.NORTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.SOUTH_UNDEEP, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.OLD_JUNGLE_RUIN, 0.0, 0.0, Dir.NORTH)
+		affix(location, LOTRWaypoint.OLD_JUNGLE_RUIN, 0.8, 0.0, Dir.EAST)
 		affix(location, LOTRWaypoint.ISLE_MIST, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.HARAD_HORN, 0.0, 0.0, Dir.NORTH)
 
@@ -744,7 +744,7 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.JUNGLE_CITY_CAVES, -0.9, -0.1, Dir.WEST)
 
 		affix(location, LOTRWaypoint.JUNGLE_CITY_CAPITAL, -0.5, -1.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.JUNGLE_CITY_EAST, 1.0, -0.5, Dir.EAST)
+		affix(location, LOTRWaypoint.JUNGLE_CITY_EAST, 1.0, -0.4, Dir.EAST)
 
 		location = object : GenstTaurethrim() {
 			override fun createVillageInstance(
