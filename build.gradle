@@ -46,9 +46,10 @@ jar {
 	manifest {
 		attributes 'Main-Class': 'genst.GenstPatchKt'
 	}
-	from(configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }) {
-		duplicatesStrategy 'exclude'
-	}
+	from(configurations.embed.collect { final File item ->
+		if (item.isDirectory()) item else zipTree(item)
+	})
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 compileKotlin {
