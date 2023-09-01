@@ -4,7 +4,6 @@ import lotr.common.LOTRMod
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.village.LOTRVillageGenUmbar
 import lotr.common.world.village.LocationInfo
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 

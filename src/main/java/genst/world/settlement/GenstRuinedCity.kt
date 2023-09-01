@@ -1,6 +1,5 @@
 package genst.world.settlement
 
-import genst.world.GenstRoads
 import genst.world.structure.StructureRuinedTower
 import lotr.common.world.biome.LOTRBiome
 import lotr.common.world.map.LOTRRoadType

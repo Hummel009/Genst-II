@@ -1,7 +1,6 @@
 package genst.world.settlement
 
 import genst.world.structure.StructureTowerAngmar
-import lotr.common.LOTRMod
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
 import lotr.common.entity.npc.LOTREntityAngmarOrcArcher

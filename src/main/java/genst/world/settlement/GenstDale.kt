@@ -11,7 +11,6 @@ import lotr.common.world.map.LOTRRoadType
 import lotr.common.world.structure2.*
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
-import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
