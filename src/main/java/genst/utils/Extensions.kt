@@ -1,7 +1,6 @@
 package genst.utils
 
 import genst.GenstConfig
-import genst.world.GenstLocations
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -57,9 +56,4 @@ fun Double.toHarnennor(): Double = toSettlement(63.0)
 
 fun Double.toGulf(): Double = toSettlement(98.0)
 
-fun Double.toHaradTownGate(dir: GenstLocations.Dir): Double {
-	return when (dir) {
-		GenstLocations.Dir.EAST, GenstLocations.Dir.NORTH -> this - 34.0 / 128.0
-		GenstLocations.Dir.SOUTH, GenstLocations.Dir.WEST -> this + 34.0 / 128.0
-	}
-}
+fun Double.toHaradTownGate(xAxis: Boolean): Double = this + 34.0 / 128.0 * if (xAxis) 1 else -1

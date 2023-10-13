@@ -20,26 +20,22 @@ fun affix(inst: LOTRVillageGen, wp: LOTRWaypoint, addX: Double, addY: Double, di
 	}
 }
 
-fun registerRoadI(data: Array<Any>, subtractX: Boolean) {
-	val wp = data[0] as LOTRWaypoint
-	val final = data[1] as DoubleArray
-	if (wp.isGenstEnabled()) {
-		val origX = wp.x
-		val origY = wp.y
-		val finalX = final[0]
-		val finalY = final[1]
-		if (subtractX) {
-			val wayXprev = abs((origX - finalX) / 2.0)
-			val wayX = if (wayXprev > 0.1) 0.1 else wayXprev
-			val shift = if (origX < finalX) -wayX else wayX
-			registerRoad(arrayOf(wp, doubleArrayOf(finalX + shift, finalY)))
-			registerRoad(arrayOf(doubleArrayOf(finalX + shift, finalY), doubleArrayOf(finalX, finalY)))
+fun registerRoadI(data: Array<Any>, xAxis: Boolean) {
+	val from = data[0] as LOTRWaypoint
+	val to = data[1] as DoubleArray
+	if (from.isGenstEnabled()) {
+		val fromX = from.x
+		val fromY = from.y
+		val toX = to[0]
+		val toY = to[1]
+		if (xAxis) {
+			val halfway = 0.1.coerceAtMost(abs((fromX - toX) / 2.0)) * if (fromX < toX) -1 else 1
+			registerRoad(arrayOf(from, doubleArrayOf(toX + halfway, toY)))
+			registerRoad(arrayOf(doubleArrayOf(toX + halfway, toY), doubleArrayOf(toX, toY)))
 		} else {
-			val wayYprev = abs((origY - finalY) / 2.0)
-			val wayY = if (wayYprev > 0.1) 0.1 else wayYprev
-			val shift = if (origY < finalY) -wayY else wayY
-			registerRoad(arrayOf(wp, doubleArrayOf(finalX, finalY + shift)))
-			registerRoad(arrayOf(doubleArrayOf(finalX, finalY + shift), doubleArrayOf(finalX, finalY)))
+			val halfway = 0.1.coerceAtMost(abs((fromY - toY) / 2.0)) * if (fromY < toY) -1 else 1
+			registerRoad(arrayOf(from, doubleArrayOf(toX, toY + halfway)))
+			registerRoad(arrayOf(doubleArrayOf(toX, toY + halfway), doubleArrayOf(toX, toY)))
 		}
 	}
 }

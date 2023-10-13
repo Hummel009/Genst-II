@@ -654,9 +654,9 @@ object GenstLocations {
 				}
 			}
 		}
-		affix(location, LOTRWaypoint.UMBAR_CITY, -0.6, (-0.2).toHaradTownGate(Dir.EAST), Dir.EAST)
-		affix(location, LOTRWaypoint.UMBAR_GATE, (-0.2).toHaradTownGate(Dir.NORTH), 0.6, Dir.NORTH)
-		affix(location, LOTRWaypoint.GATE_HERUMOR, -0.5, (0.0).toHaradTownGate(Dir.EAST), Dir.EAST)
+		affix(location, LOTRWaypoint.UMBAR_CITY, -0.6, (-0.2).toHaradTownGate(false), Dir.EAST)
+		affix(location, LOTRWaypoint.UMBAR_GATE, (-0.2).toHaradTownGate(true), 0.6, Dir.NORTH)
+		affix(location, LOTRWaypoint.GATE_HERUMOR, -0.5, (0.0).toHaradTownGate(false), Dir.EAST)
 
 		location = object : GenstSouthron() {
 			override fun createVillageInstance(
@@ -673,11 +673,11 @@ object GenstLocations {
 		affix(location, LOTRWaypoint.CEDAR_ROAD, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.COAST_RIVER_TOWN, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.COAST_CITY, 0.0, 0.0, Dir.NORTH)
-		affix(location, LOTRWaypoint.FERTILE_VALLEY, -0.6, (-0.1).toHaradTownGate(Dir.EAST), Dir.EAST)
-		affix(location, LOTRWaypoint.GARDENS_BERUTHIEL, -0.6, (-0.3).toHaradTownGate(Dir.EAST), Dir.EAST)
-		affix(location, LOTRWaypoint.COAST_FORTRESS, -0.6, (-0.3).toHaradTownGate(Dir.EAST), Dir.EAST)
-		affix(location, LOTRWaypoint.GATE_FUINUR, -0.6, (0.0).toHaradTownGate(Dir.EAST), Dir.EAST)
-		affix(location, LOTRWaypoint.AIN_AL_HARAD, -0.5, (0.0).toHaradTownGate(Dir.EAST), Dir.EAST)
+		affix(location, LOTRWaypoint.FERTILE_VALLEY, -0.6, (-0.1).toHaradTownGate(false), Dir.EAST)
+		affix(location, LOTRWaypoint.GARDENS_BERUTHIEL, -0.6, (-0.3).toHaradTownGate(false), Dir.EAST)
+		affix(location, LOTRWaypoint.COAST_FORTRESS, -0.6, (-0.3).toHaradTownGate(false), Dir.EAST)
+		affix(location, LOTRWaypoint.GATE_FUINUR, -0.6, (0.0).toHaradTownGate(false), Dir.EAST)
+		affix(location, LOTRWaypoint.AIN_AL_HARAD, -0.5, (0.0).toHaradTownGate(false), Dir.EAST)
 
 		location = object : GenstSouthron() {
 			override fun createVillageInstance(
