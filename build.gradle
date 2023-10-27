@@ -10,7 +10,7 @@ buildscript {
 		}
 	}
 	dependencies {
-		classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.22'
+		classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.10'
 		classpath('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
 			changing = true
 		}
@@ -45,7 +45,7 @@ configurations {
 }
 
 dependencies {
-	embed 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.22'
+	embed 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10'
 }
 
 jar {
