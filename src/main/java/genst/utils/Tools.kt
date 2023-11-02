@@ -91,7 +91,7 @@ fun editWaypoint(wp: LOTRWaypoint, shiftX: Double, shiftY: Double) {
 		zCoord.set(it, LOTRWaypoint.mapToWorldZ(y))
 
 		println("Modified $name: x=${it.x}, y=${it.y}")
-	} ?: {
+	} ?: run {
 		println("Waypoint $name not found.")
 	}
 }
