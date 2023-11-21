@@ -15,8 +15,8 @@ version = "v" + LocalDate.now().format(DateTimeFormatter.ofPattern("yy.MM.dd"))
 val embed: Configuration by configurations.creating
 
 dependencies {
-	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 	embed("org.jetbrains.kotlin:kotlin-stdlib:1.9.20")
+	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 }
 
 java {
