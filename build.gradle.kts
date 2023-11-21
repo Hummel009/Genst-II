@@ -1,72 +1,69 @@
-import net.minecraftforge.gradle.user.UserExtension
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.gradle.ext.Gradle
+import org.jetbrains.gradle.ext.RunConfigurationContainer
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-buildscript {
-	repositories {
-		mavenCentral()
-		maven {
-			name = "forge"
-			url = uri("https://maven.minecraftforge.net/")
-		}
-	}
-	dependencies {
-		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20")
-		classpath("com.anatawa12.forge:ForgeGradle:1.2-1.1.+") {
-			isChanging = true
-		}
-	}
-}
-
-apply(plugin = "forge")
-apply(plugin = "kotlin")
-
 plugins {
-	id("java")
+	id("org.jetbrains.kotlin.jvm") version "1.9.20"
+	id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
+	id("com.gtnewhorizons.retrofuturagradle") version "1.3.24"
 }
 
-java {
-	toolchain {
-		languageVersion = JavaLanguageVersion.of(8)
-	}
-	sourceCompatibility = JavaVersion.VERSION_1_8
-	targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-group = "org.example"
+group = "hummel"
 version = "v" + LocalDate.now().format(DateTimeFormatter.ofPattern("yy.MM.dd"))
-
-val Project.minecraft: UserExtension
-	get() = extensions.getByName<UserExtension>("minecraft")
-
-minecraft.version = "1.7.10-10.13.4.1614-1.7.10"
-
-configure<UserExtension> {
-	replacements["@version@"] = project.version
-	runDir = "run"
-}
 
 val embed: Configuration by configurations.creating
 
 dependencies {
-	embed("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20")
+	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+	embed("org.jetbrains.kotlin:kotlin-stdlib:1.9.20")
+}
+
+java {
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(8))
+	}
+}
+
+minecraft {
+	mcVersion.set("1.7.10")
+	username.set("Hummel009")
+}
+
+idea {
+	project {
+		this.withGroovyBuilder {
+			"settings" {
+				"runConfigurations" {
+					val self = this.delegate as RunConfigurationContainer
+					self.add(
+						Gradle("1. Run Client").apply {
+							setProperty("taskNames", listOf("runClient"))
+						},
+					)
+					self.add(
+						Gradle("2. Run Server").apply {
+							setProperty("taskNames", listOf("runServer"))
+						},
+					)
+				}
+			}
+		}
+	}
 }
 
 tasks {
 	jar {
 		manifest {
-			attributes(mapOf("Main-Class" to "genst.GenstPatchKt"))
+			attributes(
+				mapOf(
+					"Main-Class" to "genst.GenstPatchKt"
+				)
+			)
 		}
 		from(embed.map {
 			if (it.isDirectory) it else zipTree(it)
 		})
 		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-	}
-	withType<KotlinCompile> {
-		kotlinOptions {
-			jvmTarget = "1.8"
-			freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
-		}
 	}
 }
