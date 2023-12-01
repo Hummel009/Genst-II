@@ -28,7 +28,7 @@ fun jarContainsEntry(jarFile: File, entryPath: String): Boolean {
 		while (entries.hasMoreElements()) {
 			val entry = entries.nextElement()
 			if (entry.name == entryPath) {
-				return true
+				return@jarContainsEntry true
 			}
 		}
 	}

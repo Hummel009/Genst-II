@@ -13,6 +13,7 @@ import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
 
+@Suppress("unused")
 class SettlementNomad(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	init {
 		gridScale = 12
@@ -23,9 +24,7 @@ class SettlementNomad(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	enum class VillageType {
 		SMALL, BIG
@@ -41,17 +40,11 @@ class SettlementNomad(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 			setupVillage(random)
 		}
 
-		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			return null
-		}
+		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? = null
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		private fun setupVillage(random: Random) {
 			if (villageType == VillageType.SMALL) {

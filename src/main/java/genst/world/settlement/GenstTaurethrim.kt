@@ -25,9 +25,7 @@ open class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	open class Instance(village: GenstTaurethrim, world: World, i: Int, k: Int, random: Random, loc: LocationInfo) :
 		AbstractInstance<GenstTaurethrim>(village, world, i, k, random, loc) {
@@ -166,12 +164,12 @@ open class GenstTaurethrim : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.slabSingle8, 1),
-				Pair(LOTRMod.slabSingle8, 2),
-				Pair(LOTRMod.slabSingle8, 0),
-				Pair(LOTRMod.brick4, 1),
-				Pair(LOTRMod.brick4, 2),
-				Pair(LOTRMod.brick4, 0)
+				LOTRMod.slabSingle8 to 1,
+				LOTRMod.slabSingle8 to 2,
+				LOTRMod.slabSingle8 to 0,
+				LOTRMod.brick4 to 1,
+				LOTRMod.brick4 to 2,
+				LOTRMod.brick4 to 0
 			)
 			return path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta

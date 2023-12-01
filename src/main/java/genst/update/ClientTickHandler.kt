@@ -7,6 +7,7 @@ import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent
 import net.minecraft.client.Minecraft
 import net.minecraftforge.common.MinecraftForge
 
+@Suppress("unused")
 object ClientTickHandler {
 	fun preInit() {
 		FMLCommonHandler.instance().bus().register(this)

@@ -25,14 +25,14 @@ open class GenstRohan : LOTRVillageGenRohan(LOTRBiome.forodwaith, 0.0f) {
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.slabSingle, 6),
-				Pair(LOTRMod.brick, 4),
-				Pair(LOTRMod.slabSingleDirt, 0),
-				Pair(LOTRMod.slabSingleDirt, 1),
-				Pair(LOTRMod.slabSingle11, 4),
-				Pair(Blocks.dirt, 1),
-				Pair(LOTRMod.dirtPath, 0),
-				Pair(LOTRMod.rock, 2)
+				LOTRMod.slabSingle to 6,
+				LOTRMod.brick to 4,
+				LOTRMod.slabSingleDirt to 0,
+				LOTRMod.slabSingleDirt to 1,
+				LOTRMod.slabSingle11 to 4,
+				Blocks.dirt to 1,
+				LOTRMod.dirtPath to 0,
+				LOTRMod.rock to 2
 			)
 			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta

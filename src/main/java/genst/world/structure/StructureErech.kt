@@ -5,6 +5,7 @@ import net.minecraft.init.Blocks
 import net.minecraft.world.World
 import java.util.*
 
+@Suppress("LoopToCallChain")
 object StructureErech : LOTRWorldGenStructureBase2(true) {
 	override fun generateWithSetRotation(world: World, random: Random, x: Int, y: Int, z: Int, rot: Int): Boolean {
 		val radius = 8

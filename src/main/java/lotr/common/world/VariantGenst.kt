@@ -24,7 +24,7 @@ object VariantGenst : LOTRBiomeVariant(52, "steppe", VariantScale.LARGE) {
 		if (abs(i) > 32 && abs(k) > 32) {
 			val decorator = biome.decorator
 			val villagesField = LOTRBiomeDecorator::class.java.getDeclaredField("villages")
-			villagesField.setAccessible(true)
+			villagesField.isAccessible = true
 			val villagesValue = villagesField.get(decorator) as ArrayList<LOTRVillageGen>
 
 			for (village in villagesValue) {

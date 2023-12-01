@@ -24,9 +24,7 @@ open class GenstNomad : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	class Instance(
 		village: GenstNomad, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -35,16 +33,12 @@ open class GenstNomad : LOTRVillageGen(LOTRBiome.forodwaith) {
 			setupVillage(random)
 		}
 
-		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			return null
-		}
+		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? = null
 
 		override fun setupVillageProperties(rand: Random) {
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 

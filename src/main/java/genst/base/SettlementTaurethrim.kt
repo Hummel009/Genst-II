@@ -8,6 +8,7 @@ import lotr.common.world.village.LocationInfo
 import net.minecraft.world.World
 import java.util.*
 
+@Suppress("unused")
 class SettlementTaurethrim(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	init {
 		gridScale = 10
@@ -18,9 +19,7 @@ class SettlementTaurethrim(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) 
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	class Instance(
 		village: SettlementTaurethrim?, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?
@@ -72,17 +71,11 @@ class SettlementTaurethrim(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) 
 			addStructure(LOTRWorldGenTauredainWatchtower(false), 26, 37, 2)
 		}
 
-		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
-			return null
-		}
+		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? = null
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		override fun setupVillageProperties(random: Random) {}
 	}

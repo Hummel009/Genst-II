@@ -15,6 +15,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
+@Suppress("unused")
 class SettlementHarnennor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	private var isRuinedVillage = false
 
@@ -27,9 +28,7 @@ class SettlementHarnennor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	enum class VillageType {
 		VILLAGE, FORTRESS
@@ -87,13 +86,9 @@ class SettlementHarnennor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 			} else LOTRWorldGenHarnedorHouse(false)
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat(): Boolean = false
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		private fun setupFortress() {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {

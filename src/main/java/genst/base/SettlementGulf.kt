@@ -16,6 +16,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
+@Suppress("unused")
 class SettlementGulf(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	init {
 		gridScale = 14
@@ -26,9 +27,7 @@ class SettlementGulf(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	enum class VillageType {
 		VILLAGE, TOWN, FORT
@@ -87,9 +86,7 @@ class SettlementGulf(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 			} else LOTRWorldGenGulfHouse(false)
 		}
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			if (villageType == VillageType.TOWN) {

@@ -20,11 +20,10 @@ fun LOTRVillageGen.addFixedLocation(
 	return loc
 }
 
-fun LOTRWaypoint.linkTo(x: Double, y: Double): Array<Any> {
-	return if (this.isGenstEnabled()) arrayOf(this, shift(x, y)) else emptyArray<Any>()
-}
+fun LOTRWaypoint.linkTo(shiftX: Double, shiftY: Double): Array<Any> =
+	if (isGenstEnabled()) arrayOf(this, shift(shiftX, shiftY)) else arrayOf()
 
-fun LOTRWaypoint.shift(x: Double, y: Double): DoubleArray = doubleArrayOf(this.x + x, this.y + y)
+fun LOTRWaypoint.shift(shiftX: Double, shiftY: Double): DoubleArray = doubleArrayOf(x + shiftX, y + shiftY)
 
 fun LOTRWaypoint.isGenstEnabled(): Boolean = GenstConfig.on[this] ?: false
 

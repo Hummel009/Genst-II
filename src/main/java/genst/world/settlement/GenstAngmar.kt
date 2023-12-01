@@ -29,9 +29,7 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	class Instance(
 		village: GenstAngmar, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -107,7 +105,7 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(Blocks.snow, 0)
+				Blocks.snow to 0
 			)
 			return path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta

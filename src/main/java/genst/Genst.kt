@@ -11,6 +11,7 @@ import genst.world.GenstRoads
 import genst.world.GenstWaypoints
 
 @Mod(modid = "genst", dependencies = "required-after:lotr")
+@Suppress("unused", "UNUSED_PARAMETER")
 class Genst {
 	companion object {
 		@SidedProxy(clientSide = "genst.proxy.ClientProxy", serverSide = "genst.proxy.CommonProxy")

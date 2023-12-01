@@ -26,12 +26,12 @@ open class GenstRhudel(
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.slabSingle12, 1),
-				Pair(LOTRMod.slabSingle12, 2),
-				Pair(LOTRMod.slabSingle12, 0),
-				Pair(LOTRMod.brick5, 13),
-				Pair(LOTRMod.brick5, 14),
-				Pair(LOTRMod.brick5, 11)
+				LOTRMod.slabSingle12 to 1,
+				LOTRMod.slabSingle12 to 2,
+				LOTRMod.slabSingle12 to 0,
+				LOTRMod.brick5 to 13,
+				LOTRMod.brick5 to 14,
+				LOTRMod.brick5 to 11
 			)
 			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta

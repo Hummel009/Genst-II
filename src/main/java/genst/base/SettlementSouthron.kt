@@ -13,6 +13,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
+@Suppress("unused")
 class SettlementSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	init {
 		gridScale = 14
@@ -23,9 +24,7 @@ class SettlementSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	enum class VillageType {
 		VILLAGE, TOWN, FORT
@@ -46,45 +45,25 @@ class SettlementSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 			}
 		}
 
-		private fun getBarracks(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronBarracks(false)
-		}
+		private fun getBarracks(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronBarracks(false)
 
-		private fun getBazaar(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronBazaar(false)
-		}
+		private fun getBazaar(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronBazaar(false)
 
-		private fun getFlowers(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownFlowers(false)
-		}
+		private fun getFlowers(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownFlowers(false)
 
-		private fun getFortCorner(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronFortCorner(false)
-		}
+		private fun getFortCorner(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronFortCorner(false)
 
-		private fun getFortGate(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronFortGate(false)
-		}
+		private fun getFortGate(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronFortGate(false)
 
-		private fun getFortress(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronFortress(false)
-		}
+		private fun getFortress(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronFortress(false)
 
-		private fun getFortWallLong(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronFortWall.Long(false)
-		}
+		private fun getFortWallLong(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronFortWall.Long(false)
 
-		private fun getHouse(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronHouse(false)
-		}
+		private fun getHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronHouse(false)
 
-		private fun getLamp(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronLamp(false)
-		}
+		private fun getLamp(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronLamp(false)
 
-		private fun getMansion(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronMansion(false)
-		}
+		private fun getMansion(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronMansion(false)
 
 		override fun getPath(random: Random, i: Int, k: Int): LOTRRoadType? {
 			val i1 = abs(i.toDouble()).toInt()
@@ -159,69 +138,37 @@ class SettlementSouthron(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 			} else LOTRWorldGenSouthronHouse(false)
 		}
 
-		private fun getSignpost(): LOTRWorldGenSouthronVillageSign {
-			return LOTRWorldGenSouthronVillageSign(false)
-		}
+		private fun getSignpost(): LOTRWorldGenSouthronVillageSign = LOTRWorldGenSouthronVillageSign(false)
 
-		private fun getSmithy(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronSmithy(false)
-		}
+		private fun getSmithy(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronSmithy(false)
 
-		private fun getStables(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronStables(false)
-		}
+		private fun getStables(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronStables(false)
 
-		private fun getStatue(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronStatue(false)
-		}
+		private fun getStatue(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronStatue(false)
 
-		private fun getTavern(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTavern(false)
-		}
+		private fun getTavern(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTavern(false)
 
-		private fun getTower(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTower(false)
-		}
+		private fun getTower(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTower(false)
 
-		private fun getTownGate(): LOTRWorldGenSouthronTownGate {
-			return LOTRWorldGenSouthronTownGate(false)
-		}
+		private fun getTownGate(): LOTRWorldGenSouthronTownGate = LOTRWorldGenSouthronTownGate(false)
 
-		private fun getTownWallCorner(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownCorner(false)
-		}
+		private fun getTownWallCorner(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownCorner(false)
 
-		private fun getTownWallExtra(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownWall.Extra(false)
-		}
+		private fun getTownWallExtra(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownWall.Extra(false)
 
-		private fun getTownWallLong(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownWall.Long(false)
-		}
+		private fun getTownWallLong(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownWall.Long(false)
 
-		private fun getTownWallShort(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownWall.Short(false)
-		}
+		private fun getTownWallShort(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownWall.Short(false)
 
-		private fun getTownWallSideMid(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownWall.SideMid(false)
-		}
+		private fun getTownWallSideMid(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownWall.SideMid(false)
 
-		private fun getTraining(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTraining(false)
-		}
+		private fun getTraining(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTraining(false)
 
-		private fun getTree(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronTownTree(false)
-		}
+		private fun getTree(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronTownTree(false)
 
-		private fun getWell(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenSouthronWell(false)
-		}
+		private fun getWell(): LOTRWorldGenStructureBase2 = LOTRWorldGenSouthronWell(false)
 
-		override fun isFlat(): Boolean {
-			return false
-		}
+		override fun isFlat(): Boolean = false
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			if (villageType == VillageType.TOWN) {

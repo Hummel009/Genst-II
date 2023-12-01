@@ -24,8 +24,8 @@ open class GenstUmbar : LOTRVillageGenUmbar(LOTRBiome.forodwaith, 0.0f) {
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.slabSingle13, 2),
-				Pair(LOTRMod.brick6, 6)
+				LOTRMod.slabSingle13 to 2,
+				LOTRMod.brick6 to 6
 			)
 			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta

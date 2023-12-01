@@ -52,7 +52,7 @@ abstract class StructureTowerBase(
 		val wallMeta = wall.second
 		val stairsBlock = stairs
 		val secondaryBrick = brickDeco.first
-		val secondaryBrickMeta = this.brickDeco.second
+		val secondaryBrickMeta = brickDeco.second
 
 		if (restrictions) {
 			var minHeight = 0
@@ -448,9 +448,9 @@ abstract class StructureTowerBase(
 }
 
 class StructureTowerAngmar : StructureTowerBase(
-	Pair(LOTRMod.brick2, 0),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 0),
+	LOTRMod.brick2 to 0,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 0,
 	LOTRMod.stairsAngmarBrick,
 	LOTRMod.orcSteelBars,
 	LOTREntityAngmarOrcMercenaryCaptain::class.java,
@@ -459,9 +459,9 @@ class StructureTowerAngmar : StructureTowerBase(
 )
 
 class StructureTowerBlueDwarven : StructureTowerBase(
-	Pair(LOTRMod.brick, 14),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall, 14),
+	LOTRMod.brick to 14,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall to 14,
 	LOTRMod.stairsBlueRockBrick,
 	LOTRMod.blueDwarfBars,
 	LOTREntityBlueDwarfCommander::class.java,
@@ -470,9 +470,9 @@ class StructureTowerBlueDwarven : StructureTowerBase(
 )
 
 class StructureTowerDolGuldur : StructureTowerBase(
-	Pair(LOTRMod.brick2, 8),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 8),
+	LOTRMod.brick2 to 8,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 8,
 	LOTRMod.stairsDolGuldurBrick,
 	LOTRMod.orcSteelBars,
 	LOTREntityDolGuldurOrcChieftain::class.java,
@@ -481,9 +481,9 @@ class StructureTowerDolGuldur : StructureTowerBase(
 )
 
 class StructureTowerDwarven : StructureTowerBase(
-	Pair(LOTRMod.brick, 6),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall, 7),
+	LOTRMod.brick to 6,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall to 7,
 	LOTRMod.stairsDwarvenBrick,
 	LOTRMod.dwarfBars,
 	LOTREntityDwarfCommander::class.java,
@@ -492,9 +492,9 @@ class StructureTowerDwarven : StructureTowerBase(
 )
 
 class StructureTowerGondor : StructureTowerBase(
-	Pair(LOTRMod.brick, 1),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall, 3),
+	LOTRMod.brick to 1,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall to 3,
 	LOTRMod.stairsGondorBrick,
 	Blocks.iron_bars,
 	LOTREntityGondorianCaptain::class.java,
@@ -503,9 +503,9 @@ class StructureTowerGondor : StructureTowerBase(
 )
 
 class StructureTowerGundabad : StructureTowerBase(
-	Pair(LOTRMod.brick, 6),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall, 7),
+	LOTRMod.brick to 6,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall to 7,
 	LOTRMod.stairsDwarvenBrick,
 	LOTRMod.dwarfBars,
 	LOTREntityGundabadOrcMercenaryCaptain::class.java,
@@ -514,9 +514,9 @@ class StructureTowerGundabad : StructureTowerBase(
 )
 
 object StructureTowerIsengard : StructureTowerBase(
-	Pair(LOTRMod.brick2, 11),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 10),
+	LOTRMod.brick2 to 11,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 10,
 	LOTRMod.stairsBlackGondorBrick,
 	Blocks.iron_bars,
 	LOTREntityUrukHaiMercenaryCaptain::class.java,
@@ -525,9 +525,9 @@ object StructureTowerIsengard : StructureTowerBase(
 )
 
 object StructureTowerKhamul : StructureTowerBase(
-	Pair(LOTRMod.brick5, 11),
-	Pair(LOTRMod.brick6, 0),
-	Pair(LOTRMod.wall3, 15),
+	LOTRMod.brick5 to 11,
+	LOTRMod.brick6 to 0,
+	LOTRMod.wall3 to 15,
 	LOTRMod.stairsRhunBrick,
 	LOTRMod.goldBars,
 	LOTREntityEasterlingWarlord::class.java,
@@ -536,9 +536,9 @@ object StructureTowerKhamul : StructureTowerBase(
 )
 
 class StructureTowerLindon : StructureTowerBase(
-	Pair(LOTRMod.brick3, 2),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 11),
+	LOTRMod.brick3 to 2,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 11,
 	LOTRMod.stairsHighElvenBrick,
 	LOTRMod.highElfBars,
 	LOTREntityHighElfLord::class.java,
@@ -547,9 +547,9 @@ class StructureTowerLindon : StructureTowerBase(
 )
 
 class StructureTowerLothlorien : StructureTowerBase(
-	Pair(LOTRMod.brick, 11),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall, 10),
+	LOTRMod.brick to 11,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall to 10,
 	LOTRMod.stairsElvenBrick,
 	LOTRMod.galadhrimBars,
 	LOTREntityGaladhrimLord::class.java,
@@ -558,9 +558,9 @@ class StructureTowerLothlorien : StructureTowerBase(
 )
 
 class StructureTowerMordor : StructureTowerBase(
-	Pair(LOTRMod.brick, 0),
-	Pair(LOTRMod.guldurilBrick, 0),
-	Pair(LOTRMod.wall, 1),
+	LOTRMod.brick to 0,
+	LOTRMod.guldurilBrick to 0,
+	LOTRMod.wall to 1,
 	LOTRMod.stairsMordorBrick,
 	LOTRMod.orcSteelBars,
 	LOTREntityMordorOrcMercenaryCaptain::class.java,
@@ -569,9 +569,9 @@ class StructureTowerMordor : StructureTowerBase(
 )
 
 class StructureTowerRedDwarven : StructureTowerBase(
-	Pair(LOTRMod.brick2, 2),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 3),
+	LOTRMod.brick2 to 2,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 3,
 	LOTRMod.stairsRedRockBrick,
 	LOTRMod.bronzeBars,
 	null,
@@ -580,9 +580,9 @@ class StructureTowerRedDwarven : StructureTowerBase(
 )
 
 class StructureTowerRivendell : StructureTowerBase(
-	Pair(LOTRMod.brick3, 2),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 11),
+	LOTRMod.brick3 to 2,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 11,
 	LOTRMod.stairsHighElvenBrick,
 	LOTRMod.highElfBars,
 	LOTREntityRivendellLord::class.java,
@@ -591,9 +591,9 @@ class StructureTowerRivendell : StructureTowerBase(
 )
 
 class StructureTowerUruk : StructureTowerBase(
-	Pair(LOTRMod.brick2, 7),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall2, 7),
+	LOTRMod.brick2 to 7,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall2 to 7,
 	LOTRMod.stairsUrukBrick,
 	LOTRMod.urukBars,
 	LOTREntityUrukHaiMercenaryCaptain::class.java,
@@ -602,9 +602,9 @@ class StructureTowerUruk : StructureTowerBase(
 )
 
 class StructureTowerWoodElven : StructureTowerBase(
-	Pair(LOTRMod.brick3, 5),
-	Pair(LOTRMod.scorchedStone, 0),
-	Pair(LOTRMod.wall3, 0),
+	LOTRMod.brick3 to 5,
+	LOTRMod.scorchedStone to 0,
+	LOTRMod.wall3 to 0,
 	LOTRMod.stairsWoodElvenBrick,
 	LOTRMod.woodElfBars,
 	LOTREntityWoodElfCaptain::class.java,

@@ -26,9 +26,7 @@ open class GenstGulf : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	class Instance(
 		village: GenstGulf, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -148,9 +146,8 @@ open class GenstGulf : LOTRVillageGen(LOTRBiome.forodwaith) {
 			return null
 		}
 
-		private fun getRandomFarm(random: Random): LOTRWorldGenStructureBase2 {
-			return if (random.nextBoolean()) LOTRWorldGenGulfFarm(false) else LOTRWorldGenGulfPasture(false)
-		}
+		private fun getRandomFarm(random: Random): LOTRWorldGenStructureBase2 =
+			if (random.nextBoolean()) LOTRWorldGenGulfFarm(false) else LOTRWorldGenGulfPasture(false)
 
 		override fun isFlat(): Boolean = false
 

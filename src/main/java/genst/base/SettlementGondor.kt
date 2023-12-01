@@ -16,6 +16,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
+@Suppress("unused")
 class SettlementGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : LOTRVillageGen(biome) {
 	private val villageFief: GondorFiefdom
 
@@ -29,9 +30,7 @@ class SettlementGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : LOTRV
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	enum class VillageType {
 		VILLAGE, TOWN, FORT
@@ -147,9 +146,7 @@ class SettlementGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : LOTRV
 		private val villageWatchtower: LOTRWorldGenStructureBase2?
 			get() = villageWatchtowerMap[villageFief]
 
-		override fun isFlat(): Boolean {
-			return villageType == VillageType.TOWN
-		}
+		override fun isFlat(): Boolean = villageType == VillageType.TOWN
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
 			val block = world.getBlock(i, j, k)

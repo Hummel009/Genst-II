@@ -27,15 +27,15 @@ object VersionChecker {
 							updateVersion.append(line)
 						}
 						updateReader.close()
-						updateVersion = StringBuilder(updateVersion.toString().trim { it <= ' ' })
+						updateVersion = StringBuilder("$updateVersion".trim { it <= ' ' })
 						val currentVersion = Genst.VERSION
-						if (updateVersion.toString() != currentVersion) {
+						if ("$updateVersion" != currentVersion) {
 							val component = ChatComponentText("Genst II:")
 							component.getChatStyle().setColor(EnumChatFormatting.YELLOW)
 							val entityplayer = Minecraft.getMinecraft().thePlayer
 							entityplayer?.addChatMessage(
 								ChatComponentTranslation(
-									"genst.chat.update", component, updateVersion.toString()
+									"genst.chat.update", component, "$updateVersion"
 								)
 							)
 						}
@@ -45,7 +45,7 @@ object VersionChecker {
 				}
 			}
 			checkedUpdate = true
-			checkThread.setDaemon(true)
+			checkThread.isDaemon = true
 			checkThread.start()
 		}
 	}

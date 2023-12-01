@@ -25,9 +25,7 @@ open class GenstHalfTrolls : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	open class Instance(
 		village: GenstHalfTrolls, world: World, i: Int, k: Int, random: Random, loc: LocationInfo

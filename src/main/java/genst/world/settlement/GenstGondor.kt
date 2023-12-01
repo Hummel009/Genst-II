@@ -28,17 +28,17 @@ open class GenstGondor(
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.brick, 1),
-				Pair(LOTRMod.slabSingle, 2),
-				Pair(LOTRMod.slabSingle, 3),
-				Pair(LOTRMod.slabSingle, 4),
-				Pair(LOTRMod.slabSingle, 5),
-				Pair(LOTRMod.slabDouble, 2),
-				Pair(LOTRMod.brick, 2),
-				Pair(LOTRMod.brick, 3),
-				Pair(LOTRMod.slabSingle6, 7),
-				Pair(LOTRMod.brick3, 9),
-				Pair(Blocks.cobblestone, 0)
+				LOTRMod.brick to 1,
+				LOTRMod.slabSingle to 2,
+				LOTRMod.slabSingle to 3,
+				LOTRMod.slabSingle to 4,
+				LOTRMod.slabSingle to 5,
+				LOTRMod.slabDouble to 2,
+				LOTRMod.brick to 2,
+				LOTRMod.brick to 3,
+				LOTRMod.slabSingle6 to 7,
+				LOTRMod.brick3 to 9,
+				Blocks.cobblestone to 0
 			)
 			return super.isVillageSpecificSurface(world, i, j, k) || path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta

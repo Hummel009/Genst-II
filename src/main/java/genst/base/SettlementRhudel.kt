@@ -14,6 +14,7 @@ import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
 
+@Suppress("unused")
 class SettlementRhudel(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVillageGen(biome) {
 	private val enableTowns: Boolean
 
@@ -27,9 +28,7 @@ class SettlementRhudel(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVillage
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	enum class VillageType {
 		VILLAGE, TOWN, FORT
@@ -101,9 +100,7 @@ class SettlementRhudel(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVillage
 			return null
 		}
 
-		private fun getRandomHouse(): LOTRWorldGenStructureBase2 {
-			return LOTRWorldGenEasterlingHouse(false)
-		}
+		private fun getRandomHouse(): LOTRWorldGenStructureBase2 = LOTRWorldGenEasterlingHouse(false)
 
 		private fun getRandomVillageFarm(random: Random): LOTRWorldGenStructureBase2 {
 			return if (random.nextBoolean()) {
@@ -111,13 +108,9 @@ class SettlementRhudel(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVillage
 			} else LOTRWorldGenEasterlingVillageFarm.Crops(false)
 		}
 
-		override fun isFlat(): Boolean {
-			return villageType == VillageType.TOWN
-		}
+		override fun isFlat(): Boolean = villageType == VillageType.TOWN
 
-		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean {
-			return false
-		}
+		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
 		private fun setupFort(random: Random) {
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {

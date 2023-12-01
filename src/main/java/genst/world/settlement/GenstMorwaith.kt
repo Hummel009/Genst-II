@@ -25,9 +25,7 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> {
-		return Instance(this, world, i, k, random, loc)
-	}
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	open class Instance(
 		village: GenstMorwaith, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
@@ -93,8 +91,8 @@ open class GenstMorwaith : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val block = world.getBlock(i, j, k)
 			val meta = world.getBlockMetadata(i, j, k)
 			val path = arrayOf(
-				Pair(LOTRMod.redClay, 0),
-				Pair(Blocks.clay, 0)
+				LOTRMod.redClay to 0,
+				Blocks.clay to 0
 			)
 			return path.any { (pairBlock, pairMeta) ->
 				block == pairBlock && meta == pairMeta
