@@ -13,6 +13,7 @@ val embed: Configuration by configurations.creating
 
 dependencies {
 	embed("org.jetbrains.kotlin:kotlin-stdlib:1.9.21")
+	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 }
 
 java {
@@ -24,12 +25,6 @@ java {
 minecraft {
 	mcVersion = "1.7.10"
 	username = "Hummel009"
-}
-
-val unzipArchive: Copy by tasks.register<Copy>("unzipArchive") {
-	val destinationDir = file("build/rfg/minecraft-src")
-	from(zipTree("libs/lotr.zip"))
-	into(destinationDir)
 }
 
 tasks {
@@ -45,8 +40,5 @@ tasks {
 			if (it.isDirectory) it else zipTree(it)
 		})
 		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-	}
-	setupDecompWorkspace {
-		finalizedBy(unzipArchive)
 	}
 }
