@@ -11,13 +11,13 @@ fun main() {
 	val chunkManagerPath = "lotr/common/world/LOTRWorldChunkManager.class"
 
 	val jarFiles = searchPath.listFiles { file -> file.isFile && file.extension == "jar" }
-	for (jarFile in jarFiles ?: return) {
-		if (jarContainsEntry(jarFile, lotrClassPath)) {
+	jarFiles?.forEach {
+		if (jarContainsEntry(it, lotrClassPath)) {
 			val tempJarFile = File.createTempFile("temp_", ".jar")
-			editJarFile(jarFile, tempJarFile, chunkManagerPath)
-			jarFile.delete()
-			tempJarFile.renameTo(jarFile)
-			println("Файл $chunkManagerPath удален из JAR-файла: ${jarFile.name}")
+			editJarFile(it, tempJarFile, chunkManagerPath)
+			it.delete()
+			tempJarFile.renameTo(it)
+			println("Файл $chunkManagerPath удален из JAR-файла: ${it.name}")
 		}
 	}
 }
