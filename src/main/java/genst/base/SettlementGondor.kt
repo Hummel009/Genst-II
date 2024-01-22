@@ -39,12 +39,8 @@ class SettlementGondor(biome: LOTRBiome?, fief: GondorFiefdom, f: Float) : LOTRV
 	class Instance(village: SettlementGondor, world: World?, i: Int, k: Int, random: Random?, loc: LocationInfo?) :
 		AbstractInstance<SettlementGondor?>(village, world, i, k, random, loc) {
 		private var villageType: VillageType? = null
-		private val villageFief: GondorFiefdom
+		private val villageFief: GondorFiefdom = village.villageFief
 		private lateinit var villageName: Array<String>
-
-		init {
-			villageFief = village.villageFief
-		}
 
 		override fun addStructure(structure: LOTRWorldGenStructureBase2, x: Int, z: Int, r: Int, force: Boolean) {
 			super.addStructure(structure, x, z, r, force)

@@ -39,13 +39,9 @@ class SettlementHarnennor(biome: LOTRBiome?, f: Float) : LOTRVillageGen(biome) {
 	) : AbstractInstance<SettlementHarnennor?>(village, world, i, k, random, loc) {
 		private var villageType: VillageType? = null
 		private lateinit var villageName: Array<String>
-		private val isRuined: Boolean
+		private val isRuined: Boolean = village.isRuinedVillage
 		private var numOuterHouses = 0
 		private var palisade = false
-
-		init {
-			isRuined = village.isRuinedVillage
-		}
 
 		override fun addVillageStructures(random: Random) {
 			if (villageType == VillageType.VILLAGE) {

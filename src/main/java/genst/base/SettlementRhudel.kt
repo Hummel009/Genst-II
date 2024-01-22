@@ -38,11 +38,7 @@ class SettlementRhudel(biome: LOTRBiome?, f: Float, flag: Boolean) : LOTRVillage
 		AbstractInstance<SettlementRhudel?>(village, world, i, k, random, loc) {
 		private var villageType: VillageType? = null
 		private lateinit var villageName: Array<String>
-		private val enableTowns: Boolean
-
-		init {
-			enableTowns = village.enableTowns
-		}
+		private val enableTowns: Boolean = village.enableTowns
 
 		override fun addVillageStructures(random: Random) {
 			when (villageType) {
