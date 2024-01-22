@@ -97,11 +97,7 @@ abstract class StructureTowerBase(
 				}
 				j13 = 0
 				while ((j13 == 0 || !isOpaque(world, i13, j13, k13)) && getY(j13) >= 0) {
-					if (distSq >= wallThresholdMin) {
-						setBlockAndMetadata(world, i13, j13, k13, brickBlock, brickMeta)
-					} else {
-						setBlockAndMetadata(world, i13, j13, k13, brickBlock, brickMeta)
-					}
+					setBlockAndMetadata(world, i13, j13, k13, brickBlock, brickMeta)
 					setGrassToDirt(world, i13, j13 - 1, k13)
 					--j13
 				}

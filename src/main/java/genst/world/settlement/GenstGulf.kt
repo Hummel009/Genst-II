@@ -92,16 +92,13 @@ open class GenstGulf : LOTRVillageGen(LOTRBiome.forodwaith) {
 					val turnR = Math.toRadians((turnF * 360.0f).toDouble()).toFloat()
 					val sin = MathHelper.sin(turnR)
 					val cos = MathHelper.cos(turnR)
-					var r = 0
 					val turn8 = turnF * 8.0f
-					if (turn8 >= 1.0f && turn8 < 3.0f) {
-						r = 0
-					} else if (turn8 >= 3.0f && turn8 < 5.0f) {
-						r = 1
-					} else if (turn8 >= 5.0f && turn8 < 7.0f) {
-						r = 2
-					} else if (turn8 >= 7.0f || turn8 < 1.0f) {
-						r = 3
+					val r = when {
+						turn8 >= 1.0f && turn8 < 3.0f -> 0
+						turn8 >= 3.0f && turn8 < 5.0f -> 1
+						turn8 >= 5.0f && turn8 < 7.0f -> 2
+						turn8 >= 7.0f || turn8 < 1.0f -> 3
+						else -> 0
 					}
 					val l = 90 - 6
 					val i = Math.round(l * cos)

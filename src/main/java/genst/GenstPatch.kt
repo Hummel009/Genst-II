@@ -15,8 +15,12 @@ fun main() {
 		if (jarContainsEntry(it, lotrClassPath)) {
 			val tempJarFile = File.createTempFile("temp_", ".jar")
 			editJarFile(it, tempJarFile, chunkManagerPath)
-			it.delete()
-			tempJarFile.renameTo(it)
+			if (it.delete()) {
+				println("Файл ${it.name} удален.")
+			}
+			if (tempJarFile.renameTo(it)) {
+				println("Файл ${tempJarFile.name} переименован в ${it.name}.")
+			}
 			println("Файл $chunkManagerPath удален из JAR-файла: ${it.name}")
 		}
 	}
