@@ -9,7 +9,8 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Hummel009_Genst-II&metric=sqale_index)](https://sonarcloud.io/summary/overall?id=Hummel009_Genst-II)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=Hummel009_Genst-II&metric=ncloc)](https://sonarcloud.io/summary/overall?id=Hummel009_Genst-II)
 
-Genst II - аддон к моду "Властелин колец" для Minecraft. Его целью является закрепление городов, замков, деревень, башен и руин на путевых точках мода. По своей сути, это переосмысление и альтернатива проекта Genstructures Official.
+Genst II - аддон к моду "Властелин колец" для Minecraft. Его целью является закрепление городов, замков, деревень, башен
+и руин на путевых точках мода. По своей сути, это переосмысление и альтернатива проекта Genstructures Official.
 
 ## Общая информация
 
