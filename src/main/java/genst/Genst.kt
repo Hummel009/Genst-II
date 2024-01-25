@@ -18,7 +18,7 @@ class Genst {
 		@JvmStatic
 		lateinit var proxy: CommonProxy
 
-		const val VERSION: String = "23.08.24"
+		const val VERSION: String = "24.02.29"
 	}
 
 	@Mod.EventHandler
