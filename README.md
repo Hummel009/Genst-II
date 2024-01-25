@@ -16,8 +16,6 @@
 Genst II - аддон к моду "Властелин колец" для Minecraft. Его целью является закрепление городов, замков, деревень, башен
 и руин на путевых точках мода. По своей сути, это переосмысление и альтернатива проекта Genstructures Official.
 
-https://lotrminecraftmod.fandom.com/ru/wiki/Dwarven_Realm - статья, в которой подробно описан мод.
-
 <!----------------------------------------------------------------------------->
 
 [code_smells_badge]: https://sonarcloud.io/api/project_badges/measure?project=Hummel009_Genst-II&metric=code_smells
