@@ -10,7 +10,7 @@ import genst.world.GenstMountains
 import genst.world.GenstRoads
 import genst.world.GenstWaypoints
 
-@Mod(modid = "genst", dependencies = "required-after:lotr")
+@Mod(modid = "genst", dependencies = "required-after:lotr", useMetadata = true)
 @Suppress("unused", "UNUSED_PARAMETER")
 class Genst {
 	companion object {
