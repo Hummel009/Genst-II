@@ -1,5 +1,6 @@
 package com.github.hummel.genst.util
 
+import com.github.hummel.genst.Config
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
@@ -24,7 +25,7 @@ fun LOTRWaypoint.linkTo(shiftX: Double, shiftY: Double): Array<Any> =
 
 fun LOTRWaypoint.shift(shiftX: Double, shiftY: Double): DoubleArray = doubleArrayOf(x + shiftX, y + shiftY)
 
-fun LOTRWaypoint.isGenstEnabled(): Boolean = com.github.hummel.genst.Config.on[this] ?: false
+fun LOTRWaypoint.isGenstEnabled(): Boolean = Config.on[this] ?: false
 
 fun Double.toSettlement(radius: Double): Double {
 	return when {

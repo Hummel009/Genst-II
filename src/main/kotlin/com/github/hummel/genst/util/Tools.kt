@@ -1,7 +1,7 @@
 package com.github.hummel.genst.util
 
 import cpw.mods.fml.relauncher.ReflectionHelper
-import com.github.hummel.genst.world.Locations
+import com.github.hummel.genst.init.Locations
 import lotr.common.block.*
 import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRRoads

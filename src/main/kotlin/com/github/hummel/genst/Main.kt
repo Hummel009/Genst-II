@@ -1,9 +1,9 @@
 package com.github.hummel.genst
 
-import com.github.hummel.genst.world.Locations
-import com.github.hummel.genst.world.map.Mountains
-import com.github.hummel.genst.world.map.Roads
-import com.github.hummel.genst.world.map.Waypoints
+import com.github.hummel.genst.init.Locations
+import com.github.hummel.genst.init.Mountains
+import com.github.hummel.genst.init.Roads
+import com.github.hummel.genst.init.Waypoints
 import cpw.mods.fml.common.Mod
 import cpw.mods.fml.common.event.FMLPostInitializationEvent
 import cpw.mods.fml.common.event.FMLPreInitializationEvent
@@ -12,13 +12,14 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent
 @Suppress("unused", "UNUSED_PARAMETER")
 class Main {
 	@Mod.EventHandler
-	fun preInit(e: FMLPreInitializationEvent) {
+	fun preInit(event: FMLPreInitializationEvent) {
+		Config.preInit(event)
+
 		Waypoints.preInit()
 	}
 
 	@Mod.EventHandler
-	fun postInit(e: FMLPostInitializationEvent) {
-		Config.postInit()
+	fun postInit(event: FMLPostInitializationEvent) {
 		Mountains.postInit()
 		Roads.postInit()
 		Locations.postInit()
