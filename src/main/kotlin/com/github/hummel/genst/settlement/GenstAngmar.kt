@@ -28,11 +28,16 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 
 	override fun createVillageInstance(
 		world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	): AbstractInstance<*> = com.github.hummel.genst.settlement.GenstAngmar.Instance(this, world, i, k, random, loc)
+	): AbstractInstance<*> = Instance(this, world, i, k, random, loc)
 
 	class Instance(
-		village: com.github.hummel.genst.settlement.GenstAngmar, world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-	) : AbstractInstance<com.github.hummel.genst.settlement.GenstAngmar>(village, world, i, k, random, loc) {
+		village: GenstAngmar,
+		world: World,
+		i: Int,
+		k: Int,
+		random: Random,
+		loc: LocationInfo
+	) : AbstractInstance<GenstAngmar>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
 			addStructure(com.github.hummel.genst.structure.StructureAngmarTower(), 0, 6, 2, true)

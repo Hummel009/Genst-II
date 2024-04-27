@@ -20,16 +20,12 @@ object Locations {
 	var locations: MutableSet<LOTRVillageGen> = HashSet()
 
 	fun postInit() {
-		var location: LOTRVillageGen
-
-		location = object : GenstSingle() {
+		var location: LOTRVillageGen = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureErech, 0, 0, 0, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureErech, 0, 0, 0, true)
 				}
 			}
 		}
@@ -38,11 +34,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 1) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
 				}
 			}
 		}
@@ -53,11 +47,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 4) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.VILLAGE
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.VILLAGE
 				}
 			}
 		}
@@ -66,11 +58,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.GONDOR, 4) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
 				}
 			}
 		}
@@ -80,11 +70,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.PELARGIR, 4) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
 				}
 			}
 		}
@@ -93,11 +81,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.BLACKROOT_VALE, 1) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
 				}
 			}
 		}
@@ -106,11 +92,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LEBENNIN, 4) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
 				}
 			}
 		}
@@ -119,11 +103,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LAMEDON, 4) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
 				}
 			}
 		}
@@ -133,11 +115,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.DOL_AMROTH, 4) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
 				}
 			}
 		}
@@ -147,11 +127,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.LOSSARNACH, 1) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
 				}
 			}
 		}
@@ -160,11 +138,9 @@ object Locations {
 		location = object : GenstGondor(LOTRWorldGenGondorStructure.GondorFiefdom.PINNATH_GELIN, 1) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
 				}
 			}
 		}
@@ -173,11 +149,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureDwarvenTower(), 0, 6, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureDwarvenTower(), 0, 6, 2, true)
 				}
 			}
 		}
@@ -188,11 +162,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureBlueDwarvenTower(), 0, 6, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureBlueDwarvenTower(), 0, 6, 2, true)
 				}
 			}
 		}
@@ -204,11 +176,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureRedDwarvenTower(), 0, 6, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureRedDwarvenTower(), 0, 6, 2, true)
 				}
 			}
 		}
@@ -217,11 +187,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureWoodElvenTower(), 0, 6, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureWoodElvenTower(), 0, 6, 2, true)
 				}
 			}
 		}
@@ -230,11 +198,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureLothlorienTower(), 0, 6, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureLothlorienTower(), 0, 6, 2, true)
 				}
 			}
 		}
@@ -242,7 +208,7 @@ object Locations {
 		affix(location, LOTRWaypoint.CARAS_GALADHON, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.CERIN_AMROTH, 0.0, 0.0, Dir.NORTH)
 
-		location = com.github.hummel.genst.settlement.GenstAngmar()
+		location = GenstAngmar()
 		affix(location, LOTRWaypoint.CARN_DUM, 0.0, 0.0, Dir.NORTH)
 		affix(location, LOTRWaypoint.MOUNT_GRAM, 0.0, 0.0, Dir.NORTH)
 
@@ -301,11 +267,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(LOTRWorldGenBDBarrow(false), 0, 0, 0, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(LOTRWorldGenBDBarrow(false), 0, 0, 0, true)
 				}
 			}
 		}
@@ -338,10 +302,8 @@ object Locations {
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.ARNOR
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun getRoadType(): LOTRRoadType = LOTRRoadType.ARNOR
 			}
 		}
 
@@ -356,10 +318,8 @@ object Locations {
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.HIGH_ELVEN_RUINED
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun getRoadType(): LOTRRoadType = LOTRRoadType.HIGH_ELVEN_RUINED
 			}
 		}
 		affix(location, LOTRWaypoint.OST_IN_EDHIL, 0.0, -0.8, Dir.NORTH)
@@ -367,10 +327,8 @@ object Locations {
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.DOL_AMROTH
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun getRoadType(): LOTRRoadType = LOTRRoadType.DOL_AMROTH
 			}
 		}
 		affix(location, LOTRWaypoint.EDHELLOND, -0.2, -0.8, Dir.NORTH)
@@ -378,10 +336,8 @@ object Locations {
 		location = object : GenstRuinedCity() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.GONDOR
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun getRoadType(): LOTRRoadType = LOTRRoadType.GONDOR
 			}
 		}
 		affix(location, LOTRWaypoint.NORTH_ITHILIEN, 0.8, 0.0, Dir.EAST)
@@ -408,10 +364,8 @@ object Locations {
 		location = object : GenstDorwinion() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
 			}
 		}
 		affix(location, LOTRWaypoint.DORWINION_CROSSROADS, 0.5, -0.5, Dir.NORTH)
@@ -419,11 +373,9 @@ object Locations {
 		location = object : GenstRhudel(5) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
 				}
 			}
 		}
@@ -439,11 +391,9 @@ object Locations {
 		location = object : GenstRhudel(5) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.VILLAGE
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.VILLAGE
 				}
 			}
 		}
@@ -453,11 +403,9 @@ object Locations {
 		location = object : GenstRhudel(3) {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
 				}
 			}
 		}
@@ -470,11 +418,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureKhamulTower, 0, 0, 0, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureKhamulTower, 0, 0, 0, true)
 				}
 			}
 		}
@@ -483,11 +429,9 @@ object Locations {
 		location = object : GenstRohan() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
 				}
 			}
 		}
@@ -503,11 +447,9 @@ object Locations {
 		location = object : GenstRohan() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.VILLAGE
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.VILLAGE
 				}
 			}
 		}
@@ -517,11 +459,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureGondorTower(), 0, 6, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureGondorTower(), 0, 6, 2, true)
 				}
 			}
 		}
@@ -538,11 +478,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureRuinedTower(false), 0, 0, 0, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureRuinedTower(false), 0, 0, 0, true)
 				}
 			}
 		}
@@ -570,11 +508,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(LOTRWorldGenBreeInn(false), 0, 0, 0, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(LOTRWorldGenBreeInn(false), 0, 0, 0, true)
 				}
 			}
 		}
@@ -607,11 +543,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureWoodenHouse(false), 0, 0, 0, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureWoodenHouse(false), 0, 0, 0, true)
 				}
 			}
 		}
@@ -622,11 +556,9 @@ object Locations {
 		location = object : GenstSingle() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun addVillageStructures(random: Random) {
-						addStructure(StructureIsengardTower, 0, 0, 2, true)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun addVillageStructures(random: Random) {
+					addStructure(StructureIsengardTower, 0, 0, 2, true)
 				}
 			}
 		}
@@ -645,12 +577,10 @@ object Locations {
 		location = object : GenstUmbar() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-						villageName = LOTRNames.getHaradVillageName(random)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
+					villageName = LOTRNames.getHaradVillageName(random)
 				}
 			}
 		}
@@ -661,12 +591,10 @@ object Locations {
 		location = object : GenstSouthron() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.TOWN
-						villageName = LOTRNames.getHaradVillageName(random)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.TOWN
+					villageName = LOTRNames.getHaradVillageName(random)
 				}
 			}
 		}
@@ -682,12 +610,10 @@ object Locations {
 		location = object : GenstSouthron() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun setupVillageProperties(random: Random) {
-						villageType = VillageType.FORT
-						villageName = LOTRNames.getHaradVillageName(random)
-					}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun setupVillageProperties(random: Random) {
+					villageType = VillageType.FORT
+					villageName = LOTRNames.getHaradVillageName(random)
 				}
 			}
 		}
@@ -701,10 +627,8 @@ object Locations {
 		location = object : GenstMorwaith() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun hasSymmetry(): Boolean = false
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun hasSymmetry(): Boolean = false
 			}
 		}
 		affix(location, LOTRWaypoint.TOWN_BONES, 0.0, 0.2, Dir.SOUTH)
@@ -749,10 +673,8 @@ object Locations {
 		location = object : GenstTaurethrim() {
 			override fun createVillageInstance(
 				world: World, i: Int, k: Int, random: Random, loc: LocationInfo
-			): AbstractInstance<*> {
-				return object : Instance(this, world, i, k, random, loc) {
-					override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
-				}
+			): AbstractInstance<*> = object : Instance(this, world, i, k, random, loc) {
+				override fun getRoadType(): LOTRRoadType = LOTRRoadType.PATH
 			}
 		}
 		affix(location, LOTRWaypoint.JUNGLE_CITY_OLD, 0.0, -0.8, Dir.NORTH)

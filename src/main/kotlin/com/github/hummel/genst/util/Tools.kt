@@ -1,13 +1,11 @@
 package com.github.hummel.genst.util
 
-import cpw.mods.fml.relauncher.ReflectionHelper
 import com.github.hummel.genst.init.Locations
-import lotr.common.block.*
+import cpw.mods.fml.relauncher.ReflectionHelper
 import lotr.common.world.map.LOTRMountains
 import lotr.common.world.map.LOTRRoads
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
-import net.minecraft.block.*
 import net.minecraftforge.common.util.EnumHelper
 import kotlin.math.abs
 

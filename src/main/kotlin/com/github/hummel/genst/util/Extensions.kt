@@ -25,7 +25,7 @@ fun LOTRWaypoint.linkTo(shiftX: Double, shiftY: Double): Array<Any> =
 
 fun LOTRWaypoint.shift(shiftX: Double, shiftY: Double): DoubleArray = doubleArrayOf(x + shiftX, y + shiftY)
 
-fun LOTRWaypoint.isGenstEnabled(): Boolean = Config.on[this] ?: false
+fun LOTRWaypoint.isGenstEnabled(): Boolean = Config.on[this] == true
 
 fun Double.toSettlement(radius: Double): Double {
 	return when {

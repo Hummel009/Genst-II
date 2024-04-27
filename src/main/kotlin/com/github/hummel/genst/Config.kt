@@ -300,7 +300,7 @@ object Config {
 			on[LOTRWaypoint.WULFBURG] = cfg?.get(wp, "$e Wulfburg", true)?.boolean
 			on[LOTRWaypoint.JUNGLE_CITY_OLD] = cfg?.get(wp, "$e Ya'ash K\u00E2h", true)?.boolean
 			on[LOTRWaypoint.GULF_NORTH_TOWN] = cfg?.get(wp, "$e Yaphurushi", true)?.boolean
-		} catch (e: Exception) {
+		} catch (_: Exception) {
 			FMLLog.severe("Genst II has a problem loading it's configuration")
 		} finally {
 			cfg?.save()

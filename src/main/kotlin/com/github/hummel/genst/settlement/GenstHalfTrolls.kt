@@ -52,9 +52,7 @@ open class GenstHalfTrolls : LOTRVillageGen(LOTRBiome.forodwaith) {
 			val pathSide = 7
 			val centreSide = 19
 			addStructure(LOTRWorldGenHalfTrollWarlordHouse(false), 0, -centreSide, 2, true)
-			if (hasSymmetry()) {
-				addStructure(LOTRWorldGenHalfTrollHouse(false), 0, centreSide, 0, true)
-			}
+			addStructure(LOTRWorldGenHalfTrollHouse(false), 0, centreSide, 0, true)
 			addStructure(LOTRWorldGenHalfTrollHouse(false), -pathEnd, 0, 1, true)
 			addStructure(LOTRWorldGenHalfTrollHouse(false), pathEnd, 0, 3, true)
 			val rowHouses = 3
@@ -83,8 +81,6 @@ open class GenstHalfTrolls : LOTRVillageGen(LOTRBiome.forodwaith) {
 		}
 
 		override fun isFlat(): Boolean = false
-
-		open fun hasSymmetry(): Boolean = true
 
 		override fun isVillageSpecificSurface(world: World, i: Int, j: Int, k: Int): Boolean = false
 
