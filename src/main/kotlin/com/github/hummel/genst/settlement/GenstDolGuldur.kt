@@ -17,6 +17,7 @@ import lotr.common.world.village.LocationInfo
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
+import kotlin.math.roundToLong
 
 class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -79,8 +80,8 @@ class GenstDolGuldur : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 				if (random.nextBoolean()) {
 					l = 61
-					i = Math.round(l * cos)
-					k = Math.round(l * sin)
+					i = (l * cos).roundToLong()
+					k = (l * sin).roundToLong()
 					addStructure(LOTRWorldGenDolGuldurTent(false), i, k, r, true)
 					continue
 				}

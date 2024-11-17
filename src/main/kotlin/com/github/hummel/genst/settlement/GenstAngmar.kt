@@ -1,5 +1,6 @@
 package com.github.hummel.genst.settlement
 
+import com.github.hummel.genst.structure.StructureAngmarTower
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.LOTREntityAngmarOrc
 import lotr.common.entity.npc.LOTREntityAngmarOrcArcher
@@ -16,6 +17,7 @@ import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
+import kotlin.math.roundToInt
 
 class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -40,7 +42,7 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 	) : AbstractInstance<GenstAngmar>(village, world, i, k, random, loc) {
 
 		override fun addVillageStructures(random: Random) {
-			addStructure(com.github.hummel.genst.structure.StructureAngmarTower(), 0, 6, 2, true)
+			addStructure(StructureAngmarTower(), 0, 6, 2, true)
 			addStructure(object : LOTRWorldGenNPCRespawner(false) {
 				override fun setupRespawner(spawner: LOTREntityNPCRespawner) {
 					spawner.setSpawnClasses(LOTREntityAngmarOrc::class.java, LOTREntityAngmarOrcArcher::class.java)
@@ -81,8 +83,8 @@ class GenstAngmar : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 				if (random.nextBoolean()) {
 					l = 61
-					i = Math.round(l * cos)
-					k = Math.round(l * sin)
+					i = (l * cos).roundToInt()
+					k = (l * sin).roundToInt()
 					addStructure(LOTRWorldGenAngmarTent(false), i, k, r, true)
 					continue
 				}

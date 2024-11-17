@@ -4,6 +4,7 @@ import com.github.hummel.genst.Config
 import lotr.common.world.map.LOTRWaypoint
 import lotr.common.world.village.LOTRVillageGen
 import lotr.common.world.village.LocationInfo
+import kotlin.math.absoluteValue
 
 @Suppress("UNCHECKED_CAST")
 fun LOTRVillageGen.addFixedLocation(
@@ -29,8 +30,8 @@ fun LOTRWaypoint.isGenstEnabled(): Boolean = Config.on[this] == true
 
 fun Double.toSettlement(radius: Double): Double {
 	return when {
-		this > 0.0 -> this - radius / 128.0
-		this < 0.0 -> this + radius / 128.0
+		this.absoluteValue > 0.0 -> this - radius / 128.0
+		this.absoluteValue < 0.0 -> this + radius / 128.0
 		else -> this
 	}
 }

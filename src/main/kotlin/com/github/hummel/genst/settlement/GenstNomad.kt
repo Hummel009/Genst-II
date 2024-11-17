@@ -12,6 +12,7 @@ import lotr.common.world.village.LocationInfo
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
+import kotlin.math.roundToLong
 
 open class GenstNomad : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -80,8 +81,8 @@ open class GenstNomad : LOTRVillageGen(LOTRBiome.forodwaith) {
 					else -> 0
 				}
 				val l = minOuterSize + random.nextInt(5)
-				val i = Math.round(l * cos)
-				val k = Math.round(l * sin)
+				val i = (l * cos).roundToLong()
+				val k = (l * sin).roundToLong()
 				addStructure(LOTRWorldGenNomadTent(false), i, k, r)
 			}
 		}

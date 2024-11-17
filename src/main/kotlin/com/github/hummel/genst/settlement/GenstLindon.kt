@@ -16,6 +16,7 @@ import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
+import kotlin.math.roundToLong
 
 open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -76,8 +77,8 @@ open class GenstLindon : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 				if (random.nextBoolean()) {
 					l = 61
-					i = Math.round(l * cos)
-					k = Math.round(l * sin)
+					i = (l * cos).roundToLong()
+					k = (l * sin).roundToLong()
 					addStructure(getHouse(), i, k, r, true)
 					continue
 				}

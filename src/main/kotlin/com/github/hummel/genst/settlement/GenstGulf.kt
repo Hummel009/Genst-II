@@ -14,6 +14,7 @@ import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
+import kotlin.math.roundToLong
 
 open class GenstGulf : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -101,8 +102,8 @@ open class GenstGulf : LOTRVillageGen(LOTRBiome.forodwaith) {
 						else -> 0
 					}
 					val l = 90 - 6
-					val i = Math.round(l * cos)
-					val k = Math.round(l * sin)
+					val i = (l * cos).roundToLong()
+					val k = (l * sin).roundToLong()
 					if (random.nextInt(3) == 0) {
 						addStructure(LOTRWorldGenHayBales(false), i, k, r)
 					} else {
