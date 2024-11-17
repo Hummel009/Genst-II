@@ -13,7 +13,7 @@ import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
 import kotlin.math.abs
-import kotlin.math.roundToLong
+import kotlin.math.roundToInt
 
 class GenstHarnennor : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -72,8 +72,8 @@ class GenstHarnennor : LOTRVillageGen(LOTRBiome.forodwaith) {
 					else -> 0
 				}
 				val l = 25
-				val i = (l * cos).roundToLong()
-				val k = (l * sin).roundToLong()
+				val i = (l * cos).roundToInt()
+				val k = (l * sin).roundToInt()
 				if (!(palisade && k < 0 && abs(i) < 10)) {
 					addStructure(getRandomHouse(random), i, k, r)
 				}
@@ -94,8 +94,8 @@ class GenstHarnennor : LOTRVillageGen(LOTRBiome.forodwaith) {
 					else -> 0
 				}
 				val l = 45
-				val i = (l * cos).roundToLong()
-				val k = (l * sin).roundToLong()
+				val i = (l * cos).roundToInt()
+				val k = (l * sin).roundToInt()
 				if (!(palisade && k < 0 && abs(i) < 10)) {
 					if (random.nextInt(3) == 0) {
 						addStructure(LOTRWorldGenHayBales(false), i, k, r)

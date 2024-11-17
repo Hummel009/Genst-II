@@ -1,7 +1,7 @@
 package com.github.hummel.genst.settlement
 
-import com.github.hummel.genst.structure.StructureGundabadWargPit
 import com.github.hummel.genst.structure.StructureGundabadTower
+import com.github.hummel.genst.structure.StructureGundabadWargPit
 import lotr.common.entity.LOTREntityNPCRespawner
 import lotr.common.entity.npc.*
 import lotr.common.world.biome.LOTRBiome
@@ -15,7 +15,7 @@ import net.minecraft.init.Blocks
 import net.minecraft.util.MathHelper
 import net.minecraft.world.World
 import java.util.*
-import kotlin.math.roundToLong
+import kotlin.math.roundToInt
 
 class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 	init {
@@ -86,8 +86,8 @@ class GenstGundabad : LOTRVillageGen(LOTRBiome.forodwaith) {
 				}
 				if (random.nextBoolean()) {
 					l = 61
-					i = (l * cos).roundToLong()
-					k = (l * sin).roundToLong()
+					i = (l * cos).roundToInt()
+					k = (l * sin).roundToInt()
 					addStructure(LOTRWorldGenGundabadTent(false), i, k, r, true)
 					continue
 				}

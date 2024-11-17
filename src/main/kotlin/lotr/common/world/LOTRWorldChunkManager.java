@@ -30,16 +30,16 @@ import java.util.Random;
 
 @SuppressWarnings("all")
 public class LOTRWorldChunkManager extends WorldChunkManager {
-	private World worldObj;
-	private LOTRDimension lotrDimension;
-	private LOTRGenLayer[] chunkGenLayers;
-	private LOTRGenLayer[] worldLayers;
-	private BiomeCache biomeCache;
 	private static int LAYER_BIOME = 0;
 	private static int LAYER_VARIANTS_LARGE = 1;
 	private static int LAYER_VARIANTS_SMALL = 2;
 	private static int LAYER_VARIANTS_LAKES = 3;
 	private static int LAYER_VARIANTS_RIVERS = 4;
+	private World worldObj;
+	private LOTRDimension lotrDimension;
+	private LOTRGenLayer[] chunkGenLayers;
+	private LOTRGenLayer[] worldLayers;
+	private BiomeCache biomeCache;
 	private Map<LOTRVillageGen, LOTRVillagePositionCache> villageCacheMap = new HashMap();
 	private Map<MapGenStructure, LOTRVillagePositionCache> structureCacheMap = new HashMap();
 
