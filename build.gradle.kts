@@ -61,4 +61,7 @@ tasks {
 	runClient {
 		dependsOn("copyForgeUnpacked")
 	}
+	runServer {
+		dependsOn("copyForgeUnpacked")
+	}
 }
